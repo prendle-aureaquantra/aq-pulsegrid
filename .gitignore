@@ -42,3 +42,11 @@ Thumbs.db
 
 # Keep: generated_reports/chicago/ (sample PBIP + CSV)
 # Keep: docs/screenshots/
+
+# Lightsail deploy secrets
+deploy/lightsail/deploy.config.env
+deploy/lightsail/secrets/*
+!deploy/lightsail/secrets/.gitignore
+!deploy/lightsail/secrets/README.md
+!deploy/lightsail/secrets/pulsegrid.env.example
+publish/linux/

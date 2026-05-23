@@ -1,0 +1,19 @@
+[Unit]
+Description=AQ PulseGrid operational status app (FastAPI)
+After=network.target
+
+[Service]
+Type=simple
+User=bitnami
+WorkingDirectory=/var/aq-pulsegrid
+Environment=PULSEGRID_DATA_DIR=/var/aq-pulsegrid/data
+Environment=PULSEGRID_CITY=chicago
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/var/aq-pulsegrid/secrets/pulsegrid.env
+ExecStart=/var/aq-pulsegrid/start.sh
+Restart=always
+RestartSec=5
+SyslogIdentifier=aq-pulsegrid
+
+[Install]
+WantedBy=multi-user.target
