@@ -1,11 +1,8 @@
 # AQ PulseGrid
 
-Real-time Spark-powered urban intelligence platform combining streaming public datasets,
-machine learning, geospatial analytics, and automated Power BI PBIP generation.
+Real-time Spark-powered urban intelligence platform combining streaming public datasets, machine learning, geospatial analytics, and automated Power BI PBIP generation.
 
-AQ PulseGrid is a Spark-powered urban intelligence platform that combines streaming public
-datasets, machine learning, geospatial analytics, and automated Power BI PBIP generation
-into a modern AI-ready analytics system.
+AQ PulseGrid is a Spark-powered urban intelligence platform that combines streaming public datasets, machine learning, geospatial analytics, and automated Power BI PBIP generation into a modern AI-ready analytics system.
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
 [![Spark](https://img.shields.io/badge/Spark-3.5-orange)](https://spark.apache.org/)
@@ -16,7 +13,7 @@ into a modern AI-ready analytics system.
 
 **Repository:** [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
 
-> Public demo by [Aurea Quantra](https://aureaquantra.com). Chicago Phase 1 MVP.  
+> Public demo by [Aurea Quantra](https://aureaquantra.com). Chicago Phase 1 MVP.
 > **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com)
 
 ---
@@ -39,11 +36,9 @@ If you are reviewing this project quickly:
 
 AQ PulseGrid does not only create analytics outputs.
 
-It generates Power BI project artifacts from metadata, including semantic model structure,
-DAX measures, themed report pages, and generated PBIP report folders.
+It generates Power BI project artifacts from metadata, including semantic model structure, DAX measures, themed report pages, and generated PBIP report folders.
 
-This demonstrates a more advanced BI engineering pattern: **automated semantic BI generation**
-rather than manual dashboard construction.
+This demonstrates a more advanced BI engineering pattern: **automated semantic BI generation** rather than manual dashboard construction.
 
 ![PBIP generator output](docs/screenshots/pbip-generator.png)
 
@@ -74,6 +69,8 @@ rather than manual dashboard construction.
 - **Automated Power BI PBIP generation** (metadata-driven visuals + themes)
 - Real-time operational analytics from public APIs
 
+---
+
 ## Demo in 60 seconds
 
 ```bash
@@ -81,7 +78,7 @@ git clone https://github.com/prendle-aureaquantra/aq-pulsegrid.git
 cd aq-pulsegrid
 cp .env.example .env
 python -m venv .venv
-source .venv/bin/activate          # Linux / macOS
+source .venv/bin/activate
 pip install -e ".[dev]"
 python generate_city.py --city chicago --with-visuals
 ```
@@ -95,7 +92,7 @@ pip install -e ".[dev]"
 python generate_city.py --city chicago --with-visuals
 ```
 
-Open **`~/.local/aq-pulsegrid/reports/chicago/ChicagoPulse.pbip`** in Power BI Desktop → Load → Publish.
+Open **`~/.local/aq-pulsegrid/reports/chicago/ChicagoPulse.pbip`** in Power BI Desktop, then Load and Publish.
 
 Sample in repo: [`generated_reports/chicago/ChicagoPulse.pbip`](generated_reports/chicago/ChicagoPulse.pbip)
 
@@ -106,7 +103,7 @@ Sample in repo: [`generated_reports/chicago/ChicagoPulse.pbip`](generated_report
 | Screenshot | Description |
 |------------|-------------|
 | ![Live City Pulse](docs/screenshots/live-city-pulse.png) | Dark operations-center KPI view |
-| ![Spark pipeline](docs/screenshots/spark-pipeline.png) | Bronze → silver → gold → PBIP flow |
+| ![Spark pipeline](docs/screenshots/spark-pipeline.png) | Bronze to silver to gold to PBIP flow |
 | ![Lightsail status](docs/screenshots/lightsail-status.png) | Live ops console at pulse.aureaquantra.com |
 
 Regenerate PNGs:
@@ -164,7 +161,9 @@ See [`docs/OPERATIONAL_WEB_CONSOLE.md`](docs/OPERATIONAL_WEB_CONSOLE.md) and [`w
 
 ![Spark pipeline](docs/screenshots/spark-pipeline.png)
 
-Detailed diagram: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · Positioning: [docs/POSITIONING.md](docs/POSITIONING.md)
+Detailed diagram: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+
+Positioning: [docs/POSITIONING.md](docs/POSITIONING.md)
 
 ---
 
@@ -177,6 +176,8 @@ Detailed diagram: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · Positioning: [
 | ML | City Pulse Score, anomaly signals |
 | BI | **ChicagoPulse.pbip** — 9 pages, ~28 visuals, Aurea Quantra gold theme |
 
+---
+
 ## Commands
 
 ```bash
@@ -185,6 +186,8 @@ python replay_city.py --city chicago --date 2026-05-23
 python -m pulsegrid.copilot.insights chicago
 python tools/sync_pulsegrid_site_page.py --out docs/pulsegrid-page.html
 ```
+
+---
 
 ## Technical stack
 
@@ -196,13 +199,15 @@ python tools/sync_pulsegrid_site_page.py --out docs/pulsegrid-page.html
 | ML | pandas + custom scoring |
 | Geospatial | Hex grid (Sedona-ready) |
 | BI | Power BI PBIP |
-| Automation | Python metadata → TMDL + PBIR |
+| Automation | Python metadata to TMDL + PBIR |
 | Containers | Docker / Dev Containers |
 | CI/CD | GitHub Actions |
 
+---
+
 ## Configuration
 
-Copy [`.env.example`](.env.example) → `.env`. **Never commit `.env`.**
+Copy [`.env.example`](.env.example) to `.env`. **Never commit `.env`.**
 
 | Variable | Purpose |
 |----------|---------|
@@ -212,16 +217,21 @@ Copy [`.env.example`](.env.example) → `.env`. **Never commit `.env`.**
 | `DATABRICKS_HOST` / `DATABRICKS_TOKEN` | Optional Databricks job deploy |
 | `POWERBI_PULSEGRID_EMBED_URL` | Fabric embed for status page + WordPress |
 
+---
+
 ## Why this project exists
 
-Modern analytics systems increasingly require real-time signal fusion across operational,
-environmental, geospatial, and behavioral datasets. AQ PulseGrid demonstrates how Spark,
-machine learning, semantic BI modeling, and automated Power BI generation combine into a
-modern AI-ready analytics platform.
+Modern analytics systems increasingly require real-time signal fusion across operational, environmental, geospatial, and behavioral datasets.
+
+AQ PulseGrid demonstrates how Spark, machine learning, semantic BI modeling, and automated Power BI generation combine into a modern AI-ready analytics platform.
+
+---
 
 ## Roadmap
 
 [docs/ROADMAP.md](docs/ROADMAP.md) — Fabric embed, Sedona maps, multi-city, OpenSky aviation.
+
+---
 
 ## License
 
