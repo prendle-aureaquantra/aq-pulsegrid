@@ -11,7 +11,7 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 [![Delta Lake](https://img.shields.io/badge/Delta-Lake-00ADD8)](https://delta.io/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**Repository:** [github.com/prendleman/aq-pulsegrid](https://github.com/prendleman/aq-pulsegrid) · **Org:** [github.com/prendle-aureaquantra](https://github.com/prendle-aureaquantra)
+**Repository:** [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
 
 > Public demo by [Aurea Quantra](https://aureaquantra.com). Chicago Phase 1 MVP.
 
@@ -41,7 +41,7 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 ## Demo in 60 seconds
 
 ```bash
-git clone https://github.com/prendleman/aq-pulsegrid.git
+git clone https://github.com/prendle-aureaquantra/aq-pulsegrid.git
 cd aq-pulsegrid
 cp .env.example .env
 python -m venv .venv && .venv\Scripts\activate   # Windows

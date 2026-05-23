@@ -1,7 +1,6 @@
 # AQ PulseGrid — Product Direction + Architecture + GitHub Positioning
 
-Repository: [github.com/prendleman/aq-pulsegrid](https://github.com/prendleman/aq-pulsegrid)  
-Org account: [github.com/prendle-aureaquantra](https://github.com/prendle-aureaquantra)
+Repository: [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
 
 ## Core positioning
 
