@@ -1,0 +1,11 @@
+# Chicago baseline metrics for anomaly detection when history is sparse (Phase 1).
+# Values approximate typical weekday public-feed levels; updated as history grows.
+city: chicago
+metrics:
+  active_cta_alerts: 95
+  active_noaa_alerts: 1
+  avg_precip_pct: 12
+  reroute_share: 0.55
+  delay_share: 0.05
+thresholds:
+  z_score_alert: 2.0

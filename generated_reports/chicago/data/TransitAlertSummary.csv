@@ -1,0 +1,7 @@
+﻿city,alert_category,alert_count,snapshot_at
+chicago,accessibility,6,2026-05-23T15:44:31.196246+00:00
+chicago,delay,3,2026-05-23T15:44:31.196246+00:00
+chicago,other,6,2026-05-23T15:44:31.196246+00:00
+chicago,reroute,92,2026-05-23T15:44:31.196246+00:00
+chicago,station,4,2026-05-23T15:44:31.196246+00:00
+chicago,stop_change,11,2026-05-23T15:44:31.196246+00:00

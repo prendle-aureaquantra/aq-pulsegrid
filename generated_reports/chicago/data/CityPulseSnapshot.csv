@@ -1,0 +1,2 @@
+﻿city_stress_index,transit_load_score,weather_risk_score,precip_risk_score,disruption_ratio_score,active_cta_alerts,active_noaa_alerts,avg_precip_pct_next_periods,reroute_count,delay_count,city,snapshot_at,airport_flight_category,airport_visibility_sm,trend_avg_interest,fred_series_count
+76.64,34.16,24.0,3.48,15.0,122,2,15.8,92,3,chicago,2026-05-23T15:44:31.296221+00:00,,,,

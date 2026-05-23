@@ -1,0 +1,19 @@
+{
+  "name": "AQ PulseGrid",
+  "dockerComposeFile": "../docker/docker-compose.yml",
+  "service": "pulsegrid",
+  "workspaceFolder": "/workspace/aq-pulsegrid",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "databricks.databricks"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3"
+      }
+    }
+  },
+  "postCreateCommand": "pip install -e '.[dev]'",
+  "remoteUser": "root"
+}

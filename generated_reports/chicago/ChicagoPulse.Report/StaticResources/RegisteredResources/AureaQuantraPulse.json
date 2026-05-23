@@ -1,0 +1,127 @@
+{
+  "name": "Aurea Quantra Pulse",
+  "dataColors": [
+    "#D4AF37",
+    "#3D5A80",
+    "#5C7A6B",
+    "#C9A227",
+    "#8B7355",
+    "#4A6FA5",
+    "#A67C52",
+    "#E8DCC8"
+  ],
+  "background": "#1A1A1A",
+  "foreground": "#FFF8E7",
+  "foregroundNeutralSecondary": "#D9C89A",
+  "foregroundNeutralTertiary": "#9A8B6F",
+  "tableAccent": "#D4AF37",
+  "good": "#5C7A6B",
+  "neutral": "#8B7355",
+  "bad": "#A94442",
+  "maximum": "#D4AF37",
+  "center": "#3D5A80",
+  "minimum": "#2C2C2C",
+  "textClasses": {
+    "callout": {
+      "fontSize": 36,
+      "fontFace": "Segoe UI Light",
+      "color": "#D4AF37"
+    },
+    "title": {
+      "fontSize": 14,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#D4AF37"
+    },
+    "header": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#FFF8E7"
+    },
+    "label": {
+      "fontSize": 11,
+      "fontFace": "Segoe UI",
+      "color": "#FFF8E7"
+    }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#1A1A1A" } },
+            "transparency": 0
+          }
+        ],
+        "wallpaper": [{ "show": false }]
+      }
+    },
+    "*": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#2C2C2C" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#D4AF37" } },
+            "radius": 8,
+            "width": 1
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#D4AF37" } },
+            "fontSize": 12,
+            "bold": true
+          }
+        ],
+        "labels": [{ "color": { "solid": { "color": "#FFF8E7" } } }]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [{ "color": { "solid": { "color": "#D9C89A" } }, "fontSize": 11 }],
+        "categoryLabels": [{ "show": true, "color": { "solid": { "color": "#D4AF37" } } }]
+      }
+    },
+    "cardVisual": {
+      "*": {
+        "accentBar": [{ "show": true, "color": { "solid": { "color": "#D4AF37" } } }],
+        "value": [{ "fontSize": 28, "color": { "solid": { "color": "#FFF8E7" } } }],
+        "label": [{ "color": { "solid": { "color": "#D4AF37" } } }]
+      }
+    },
+    "clusteredBarChart": {
+      "*": {
+        "categoryAxis": [
+          {
+            "labelColor": { "solid": { "color": "#FFF8E7" } },
+            "titleColor": { "solid": { "color": "#D4AF37" } }
+          }
+        ],
+        "valueAxis": [
+          {
+            "labelColor": { "solid": { "color": "#FFF8E7" } },
+            "gridlineColor": { "solid": { "color": "#444444" } }
+          }
+        ],
+        "labels": [{ "color": { "solid": { "color": "#FFF8E7" } } }]
+      }
+    },
+    "multiRowCard": {
+      "*": {
+        "categoryLabels": [{ "color": { "solid": { "color": "#D4AF37" } } }],
+        "dataLabels": [{ "color": { "solid": { "color": "#FFF8E7" } } }]
+      }
+    },
+    "textbox": {
+      "*": {
+        "background": [{ "show": false }]
+      }
+    }
+  }
+}

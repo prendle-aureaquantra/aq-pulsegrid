@@ -1,0 +1,21 @@
+Fabric browser error 'Failed to load the report'? Follow this exactly:
+
+A) CLEAN UP FABRIC (one time if you already published a broken report)
+   1. app.powerbi.com -> your workspace
+   2. Delete the ChicagoPulse REPORT only (keep the semantic model/dataset)
+
+B) DESKTOP (required — .pbip never opens in the browser directly)
+   1. Open: C:\Users\prendleman\.local\aq-pulsegrid\reports\chicago\ChicagoPulse.pbip
+   2. Click Load on all tables when prompted
+   3. Confirm report pages render in Desktop
+   4. File -> Save
+   5. File -> Publish -> same workspace as step A
+
+C) BROWSER
+   Open the newly published report from the workspace list (not an old link).
+
+If browser still fails: File -> Save as -> ChicagoPulse.pbix, then
+upload the .pbix to the workspace (Upload -> Browse).
+
+Optional programmatic visuals (Desktop only):
+   python generate_city.py --city chicago --pbip-only --with-visuals

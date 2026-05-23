@@ -1,0 +1,16 @@
+﻿city,period_number,period_name,start_time,end_time,is_daytime,temperature_f,precip_pct,short_forecast,wind_speed,wind_direction,ingested_at,bronze_file
+chicago,1,Today,2026-05-23T10:00:00-05:00,2026-05-23T18:00:00-05:00,True,61,8,Areas Of Fog,10 mph,NNE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,2,Tonight,2026-05-23T18:00:00-05:00,2026-05-24T06:00:00-05:00,False,54,40,Mostly Cloudy then Chance Showers And Thunderstorms,5 to 10 mph,E,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,3,Sunday,2026-05-24T06:00:00-05:00,2026-05-24T18:00:00-05:00,True,65,39,Chance Showers And Thunderstorms then Partly Sunny,5 to 10 mph,ENE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,4,Sunday Night,2026-05-24T18:00:00-05:00,2026-05-25T06:00:00-05:00,False,58,3,Partly Cloudy,0 to 5 mph,SE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,5,Memorial Day,2026-05-25T06:00:00-05:00,2026-05-25T18:00:00-05:00,True,77,1,Sunny,5 to 10 mph,SSE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,6,Monday Night,2026-05-25T18:00:00-05:00,2026-05-26T06:00:00-05:00,False,62,2,Partly Cloudy,5 to 10 mph,S,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,7,Tuesday,2026-05-26T06:00:00-05:00,2026-05-26T18:00:00-05:00,True,76,5,Mostly Sunny,5 to 10 mph,SE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,8,Tuesday Night,2026-05-26T18:00:00-05:00,2026-05-27T06:00:00-05:00,False,66,22,Mostly Cloudy then Slight Chance Rain Showers,5 to 10 mph,E,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,9,Wednesday,2026-05-27T06:00:00-05:00,2026-05-27T18:00:00-05:00,True,70,31,Chance Rain Showers,5 to 10 mph,NE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,10,Wednesday Night,2026-05-27T18:00:00-05:00,2026-05-28T06:00:00-05:00,False,62,29,Chance Showers And Thunderstorms,5 to 10 mph,NNE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,11,Thursday,2026-05-28T06:00:00-05:00,2026-05-28T18:00:00-05:00,True,68,18,Slight Chance Rain Showers,10 to 15 mph,NNE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,12,Thursday Night,2026-05-28T18:00:00-05:00,2026-05-29T06:00:00-05:00,False,59,13,Partly Cloudy,10 to 15 mph,NE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,13,Friday,2026-05-29T06:00:00-05:00,2026-05-29T18:00:00-05:00,True,66,9,Mostly Sunny,10 to 20 mph,NNE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,14,Friday Night,2026-05-29T18:00:00-05:00,2026-05-30T06:00:00-05:00,False,58,9,Partly Cloudy,10 to 20 mph,NE,2026-05-23T15:44:30.168121+00:00,forecast_20260523T154429Z.json
+chicago,1,Today,2026-05-23T09:00:00-05:00,2026-05-23T18:00:00-05:00,True,61,8,Areas Of Fog,5 to 10 mph,NNE,2026-05-23T15:17:33.445080+00:00,forecast_20260523T151732Z.json

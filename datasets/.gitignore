@@ -1,0 +1,8 @@
+# Generated bronze/silver/gold and delta tables — not committed
+bronze/
+silver/
+gold/
+delta/
+generated_reports/
+*.parquet
+*.delta

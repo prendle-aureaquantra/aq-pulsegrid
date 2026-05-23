@@ -1,0 +1,126 @@
+table WeatherForecastPeriods
+	lineageTag: 693f6bae-4f68-5431-ac76-72299bd14106
+
+	column city
+		dataType: string
+		lineageTag: d91ed8d0-6a02-5384-b9d4-fe781c26a8ed
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column period_number
+		dataType: int64
+		lineageTag: 57f339bb-fa21-5a61-ab8c-7e4b3c6428c1
+		summarizeBy: sum
+		sourceColumn: period_number
+		annotation SummarizationSetBy = Automatic
+
+	column period_name
+		dataType: string
+		lineageTag: 68a4d342-5cbc-5c77-806b-817e28e89567
+		summarizeBy: none
+		sourceColumn: period_name
+		annotation SummarizationSetBy = Automatic
+
+	column start_time
+		dataType: string
+		lineageTag: b4591c35-d6b7-550d-86d8-6a5f9ddbb1c6
+		summarizeBy: none
+		sourceColumn: start_time
+		annotation SummarizationSetBy = Automatic
+
+	column end_time
+		dataType: string
+		lineageTag: 3419a41c-c0e2-52ac-a718-5098b3d48c71
+		summarizeBy: none
+		sourceColumn: end_time
+		annotation SummarizationSetBy = Automatic
+
+	column is_daytime
+		dataType: boolean
+		lineageTag: 499f9bf4-5d1f-5c88-901e-9787d5095424
+		summarizeBy: none
+		sourceColumn: is_daytime
+		annotation SummarizationSetBy = Automatic
+
+	column temperature_f
+		dataType: int64
+		lineageTag: 90e9c669-5405-526f-a3c6-ba73922f6af0
+		summarizeBy: sum
+		sourceColumn: temperature_f
+		annotation SummarizationSetBy = Automatic
+
+	column precip_pct
+		dataType: int64
+		lineageTag: 6d41bbe2-0578-50d0-b765-9a6bdd86db39
+		summarizeBy: sum
+		sourceColumn: precip_pct
+		annotation SummarizationSetBy = Automatic
+
+	column short_forecast
+		dataType: string
+		lineageTag: 305d7136-74b9-591a-95b9-dd8b1ac6f3bb
+		summarizeBy: none
+		sourceColumn: short_forecast
+		annotation SummarizationSetBy = Automatic
+
+	column wind_speed
+		dataType: string
+		lineageTag: f84686d7-ca1d-561b-86e4-37d6c46660e6
+		summarizeBy: none
+		sourceColumn: wind_speed
+		annotation SummarizationSetBy = Automatic
+
+	column wind_direction
+		dataType: string
+		lineageTag: 5ef1d659-ab1b-5b75-a4bb-b24062ed52c7
+		summarizeBy: none
+		sourceColumn: wind_direction
+		annotation SummarizationSetBy = Automatic
+
+	column ingested_at
+		dataType: string
+		lineageTag: 9711e8d3-8f0d-5103-9852-8e6a17bb0b14
+		summarizeBy: none
+		sourceColumn: ingested_at
+		annotation SummarizationSetBy = Automatic
+
+	column bronze_file
+		dataType: string
+		lineageTag: 875d239f-b9fe-59f8-8c3a-5cd392ae3095
+		summarizeBy: none
+		sourceColumn: bronze_file
+		annotation SummarizationSetBy = Automatic
+
+	partition WeatherForecastPeriods-de0f1aa5-9c96-58b0-be33-97012cf27a5f = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/WeatherForecastPeriods.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"period_number", Int64.Type},
+					{"period_name", type text},
+					{"start_time", type text},
+					{"end_time", type text},
+					{"is_daytime", type logical},
+					{"temperature_f", Int64.Type},
+					{"precip_pct", Int64.Type},
+					{"short_forecast", type text},
+					{"wind_speed", type text},
+					{"wind_direction", type text},
+					{"ingested_at", type text},
+					{"bronze_file", type text}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

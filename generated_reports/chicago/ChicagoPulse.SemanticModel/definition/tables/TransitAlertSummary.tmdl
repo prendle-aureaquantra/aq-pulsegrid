@@ -1,0 +1,54 @@
+table TransitAlertSummary
+	lineageTag: bc7bf0ce-7128-54bd-89b9-1fc09f6df873
+
+	column city
+		dataType: string
+		lineageTag: b4fb340e-6dfd-5402-96a4-40c8a56a435c
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_at
+		dataType: string
+		lineageTag: 2704f8a4-b7a6-580e-ba05-137d80b41c00
+		summarizeBy: none
+		sourceColumn: snapshot_at
+		annotation SummarizationSetBy = Automatic
+
+	column alert_category
+		dataType: string
+		lineageTag: d054fc03-facc-5255-8032-28ba008bd6e6
+		summarizeBy: none
+		sourceColumn: alert_category
+		annotation SummarizationSetBy = Automatic
+
+	column alert_count
+		dataType: int64
+		lineageTag: bb897f36-f863-59ef-855d-82d1cc6ebbbd
+		summarizeBy: sum
+		sourceColumn: alert_count
+		annotation SummarizationSetBy = Automatic
+
+	partition TransitAlertSummary-97346199-df62-52ae-8d08-411de26ea7d0 = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/TransitAlertSummary.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"snapshot_at", type text},
+					{"alert_category", type text},
+					{"alert_count", Int64.Type}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

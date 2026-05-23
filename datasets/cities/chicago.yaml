@@ -1,0 +1,14 @@
+slug: chicago
+name: Chicago
+state: IL
+modules:
+  - weather
+  - transit
+  - events
+  - airports
+pbip:
+  theme: dark
+  pages:
+    - Live City Pulse
+    - Transit & Mobility
+    - Weather Impact Analysis

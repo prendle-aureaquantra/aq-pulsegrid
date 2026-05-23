@@ -1,0 +1,31 @@
+{
+  "name": "PulseGrid Dark",
+  "dataColors": [
+    "#22D3EE",
+    "#38BDF8",
+    "#818CF8",
+    "#A78BFA",
+    "#34D399",
+    "#FBBF24",
+    "#FB7185",
+    "#94A3B8"
+  ],
+  "background": "#0F172A",
+  "foreground": "#E2E8F0",
+  "tableAccent": "#22D3EE",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#1E293B" } }, "transparency": 0 }],
+        "border": [{ "color": { "solid": { "color": "#334155" } }, "show": true, "radius": 6 }],
+        "title": [{ "fontColor": { "solid": { "color": "#22D3EE" } }, "fontSize": 11 }],
+        "labels": [{ "color": { "solid": { "color": "#CBD5E1" } } }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#0F172A" } }, "transparency": 0 }]
+      }
+    }
+  }
+}

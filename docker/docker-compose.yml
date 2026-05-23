@@ -1,0 +1,12 @@
+services:
+  pulsegrid:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ..:/workspace/aq-pulsegrid
+    working_dir: /workspace/aq-pulsegrid
+    environment:
+      SPARK_MASTER: local[*]
+      JAVA_HOME: /opt/java/openjdk
+    command: bash -c "python generate_city.py --city chicago --ingest-only && tail -f /dev/null"

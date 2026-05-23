@@ -1,0 +1,41 @@
+bundle:
+  name: aq-pulsegrid
+
+workspace:
+  host: ${var.databricks_host}
+
+variables:
+  databricks_host:
+    description: Databricks workspace URL (from DATABRICKS_HOST)
+    default: ""
+  repo_path:
+    description: Workspace Repos path after Git integration
+    default: /Repos/pulsegrid/aq-pulsegrid
+
+resources:
+  jobs:
+    chicago_daily:
+      name: aq-pulsegrid-chicago-daily
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: America/Chicago
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: pulsegrid_transform_ml
+          notebook_task:
+            notebook_path: ${var.repo_path}/databricks/chicago_daily
+            base_parameters:
+              city: chicago
+          job_cluster_key: pulsegrid_cluster
+      job_clusters:
+        - job_cluster_key: pulsegrid_cluster
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: i3.xlarge
+            num_workers: 0
+            spark_conf:
+              spark.master: local[*]
+              spark.databricks.cluster.profile: singleNode
+              spark.databricks.delta.preview.enabled: "true"
+            custom_tags:
+              ResourceClass: SingleNode
