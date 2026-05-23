@@ -41,6 +41,14 @@ CITIES: dict[str, CityConfig] = {
         lat=41.8781,
         lon=-87.6298,
     ),
+    "boston": CityConfig(
+        slug="boston",
+        name="Boston",
+        state="MA",
+        noaa_area="MA",
+        lat=42.3601,
+        lon=-71.0589,
+    ),
 }
 
 

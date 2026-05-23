@@ -4,40 +4,32 @@
 
 Expose AQ PulseGrid like the operational ASP demo at `/demo-dashboard/`.
 
-## Option A — Link to published Fabric report
+## Generate WordPress page HTML
 
-1. Publish `ChicagoPulse` from Power BI Desktop to a **public** or **org** workspace.
-2. Get embed URL or share link from Fabric.
-3. Add WordPress page `/pulsegrid/` with iframe or Power BI embed block (same pattern as demo dashboard).
-
-Example HTML block:
-
-```html
-<section class="aq-pulsegrid-hero">
-  <h1>Chicago Live City Pulse</h1>
-  <p>Streaming public data · ML stress index · automated PBIP</p>
-  <iframe title="Chicago Pulse" width="1140" height="541"
-    src="https://app.powerbi.com/view?r=YOUR_REPORT_ID"
-    frameborder="0" allowFullScreen="true"></iframe>
-</section>
+```powershell
+cd aq-pulsegrid
+python tools/sync_pulsegrid_site_page.py --out docs/pulsegrid-page.html
 ```
 
-## Option B — Static screenshots + CTA (fastest)
+Set in `.env`:
 
-Use committed PNGs from `docs/screenshots/` and link to GitHub repo + sample PBIP download.
+```text
+POWERBI_PULSEGRID_EMBED_URL=https://app.powerbi.com/view?r=YOUR_REPORT_TOKEN
+PULSEGRID_REPO=https://github.com/prendle-aureaquantra/aq-pulsegrid
+```
 
-## Option C — ASP.NET mini-site (like operational demo)
+Paste `docs/pulsegrid-page.html` into `config/site_spec.yaml` under slug `pulsegrid`, or deploy via your existing page sync tooling.
 
-Copy `asp-demo-dashboard` pattern:
+## Option A — Fabric embed (recommended)
 
-- New project `pulsegrid-demo/` with KPI cards fed from Delta/CSV API  
-- Deploy to Lightsail subdomain `pulse.aureaquantra.com`  
-- Link from main site nav
+1. Publish `ChicagoPulse` from Power BI Desktop to workspace.
+2. **Publish to web** or copy embed URL → `POWERBI_PULSEGRID_EMBED_URL`.
+3. Run `sync_pulsegrid_site_page.py` — iframe is injected automatically when URL is set.
 
-## Config hook (parent repo)
+## Option B — Static screenshots + GitHub CTA
 
-In `config/site_spec.yaml`, add a page slug `pulsegrid` mirroring `demo-dashboard` content pattern. Use `tools/update_site_spec_demo_urls.py` as a template for URL rewrites.
+Use `docs/screenshots/` PNGs and link to [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid).
 
 ## Branding
 
-Match Aurea Quantra palette: gold `#D4AF37`, charcoal `#2C2C2C`, cream `#FFF8E7` (same as chat widget + PBIP theme `AureaQuantraPulse.json`).
+Gold `#D4AF37`, charcoal `#2C2C2C`, cream `#FFF8E7` — matches `AureaQuantraPulse.json` PBIP theme.

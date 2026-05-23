@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
-  "name": "420f3c20a49357488f8b",
+  "name": "67a114d16b5e5036a2ca",
   "position": {
     "x": 800,
     "y": 16,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "ORD METAR \u00b7 FRED macro \u00b7 Google Trends interest",
+                    "value": "FRED macro \u00b7 Google Trends interest",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "11pt",

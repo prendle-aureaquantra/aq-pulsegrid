@@ -2,41 +2,56 @@
 
 Status key: **Done** · **Scaffold** · **Planned**
 
-## Public demo (stretch)
+## Manifest checklist
 
-| Item | Status | Notes |
-|------|--------|-------|
-| Standalone GitHub repo | **Scaffold** | [GITHUB_PUBLISH.md](GITHUB_PUBLISH.md) |
-| README + architecture diagram | **Done** | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| Sample `ChicagoPulse.pbip` in repo | **Done** | `generated_reports/chicago/` |
-| One-command demo | **Done** | `python generate_city.py --city chicago --with-visuals` |
-| Programmatic PBIP visuals | **Done** | `pbip_generator/visuals.py` + Aurea Quantra theme |
-| Publish to web embed | **Planned** | Publish `.pbix` from Desktop → Fabric embed on site |
+- [x] Spark streaming ingestion (`--stream`, `--stream-spark`)
+- [x] Delta Lake medallion architecture
+- [x] Geospatial hex grid + OpenStreetMap enrichment
+- [x] ML anomaly detection + City Pulse Score
+- [x] Automated PBIP semantic model + layout generation
+- [x] Docker + Dev Containers
+- [x] GitHub Actions CI/CD
+- [x] Multi-city scaffold (Chicago + Boston config)
+- [x] Historical replay engine (`replay_city.py`)
+- [x] AI copilot layer (`pulsegrid.copilot.insights`)
+- [x] Site embed tooling (`tools/sync_pulsegrid_site_page.py`)
+- [ ] Fabric live embed on aureaquantra.com (needs published `.pbix` + `POWERBI_PULSEGRID_EMBED_URL`)
+- [ ] Full Apache Sedona Spark UDFs (hex grid is Python/Sedona-ready today)
+- [ ] Spark MLlib production anomaly model (optional z-score path when `PULSEGRID_ENGINE=spark`)
+- [ ] OpenSky aviation delays feed
+- [ ] Boston ingest/transform pipeline
 
-## Phase 1 data gaps
+## Dashboard pages (PBIP)
 
-| Source | Status | Module |
-|--------|--------|--------|
-| NOAA + CTA | **Done** | `ingest/noaa.py`, `ingest/cta.py` |
-| Airport METAR (ORD) | **Done** | `ingest/airport.py` — `--extended-ingest` |
-| Google Trends | **Done** | `ingest/google_trends.py` — `pip install -e ".[trends]"` |
-| FRED macro series | **Done** | `ingest/fred.py` — needs `FRED_API_KEY` |
-| Silver/gold for new sources | **Done** | `silver_chicago.py`, `gold_chicago.py` |
-| Geospatial / Sedona hex maps | **Done** | `geo/hex_grid.py` + `reference/chicago_hex_grid.csv` |
+| Page | Status |
+|------|--------|
+| Live City Pulse | **Done** |
+| Transit & Mobility | **Done** |
+| Weather Impact Analysis | **Done** |
+| Airport Operations | **Done** |
+| Event Heatmaps | **Done** |
+| AI Signal Detection | **Done** |
+| Streaming Monitor | **Done** |
+| Macro & Trends | **Done** |
+| PBIP Generator Studio | **Done** |
 
-## Streaming & platform
+## Public demo
 
-| Item | Status | Notes |
-|------|--------|-------|
-| Micro-batch bronze log | **Done** | `jobs/streaming_microbatch.py` — `--stream` |
-| Spark Structured Streaming | **Done** | `jobs/streaming_spark.py` — `--stream-spark` |
-| Databricks daily job | **Done** | `databricks.yml` + `tools/deploy_databricks_job.py` |
-| High-severity alerting | **Scaffold** | `alerts/notify.py` — Slack webhook / email |
-| Site `/pulsegrid/` page | **Planned** | [SITE_INTEGRATION.md](SITE_INTEGRATION.md) |
+| Item | Status |
+|------|--------|
+| GitHub repo | **Done** — [prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid) |
+| README + positioning | **Done** — [POSITIONING.md](POSITIONING.md) |
+| Sample PBIP + visuals | **Done** |
+| One-command demo | **Done** — `python generate_city.py --city chicago --extended-ingest --with-visuals` |
 
-## Suggested order
+## Data sources
 
-1. Publish GitHub repo + link from aureaquantra.com  
-2. Extend PBIP export for new gold tables (airport, trends, hex)  
-3. Wire alerting into scheduled job  
-4. Fabric embed on marketing site  
+| Source | Status |
+|--------|--------|
+| NOAA + CTA | **Done** |
+| Airport METAR | **Done** |
+| FRED + Google Trends | **Done** |
+| Chicago events (open data) | **Done** |
+| OpenStreetMap Overpass POIs | **Done** |
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) · [SITE_INTEGRATION.md](SITE_INTEGRATION.md)

@@ -16,6 +16,8 @@ import sys
 from pulsegrid.config import ensure_dirs, get_city, load_dotenv
 from pulsegrid.ingest.airport import ingest_airport
 from pulsegrid.ingest.cta import ingest_cta
+from pulsegrid.ingest.events import ingest_events
+from pulsegrid.geo.osm_enrich import ingest_osm_pois
 from pulsegrid.ingest.fred import ingest_fred
 from pulsegrid.ingest.google_trends import ingest_google_trends
 from pulsegrid.ingest.noaa import ingest_noaa
@@ -40,9 +42,19 @@ def run_ingest(city_slug: str, *, extended: bool = False) -> None:
     if not extended:
         return
 
-    print("Extended ingest (airport, trends, FRED)...")
+    print("Extended ingest (airport, trends, FRED, events, OSM)...")
     for p in ingest_airport(city):
         print(f"  AIRP  -> {p}")
+    try:
+        for p in ingest_events(city):
+            print(f"  EVENT -> {p}")
+    except Exception as exc:
+        print(f"  EVENT -> skip ({exc})")
+    try:
+        for p in ingest_osm_pois(city):
+            print(f"  OSM   -> {p}")
+    except Exception as exc:
+        print(f"  OSM   -> skip ({exc})")
     try:
         for p in ingest_google_trends(city):
             print(f"  TREND -> {p}")

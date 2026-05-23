@@ -526,21 +526,18 @@ def visuals_for_page(
         )
         return items
 
-    if page_seed == "page.extended":
-        items = _page_header(
-            "Airport, Macro & Hex",
-            "ORD METAR · FRED macro · Google Trends interest",
-        )
+    if page_seed == "page.airport":
+        items = _page_header("Airport Operations", "O'Hare METAR · ops stress scoring")
         if _has("AirportOpsSnapshot"):
             items.append(
                 (
-                    _vid("ext.airport"),
+                    _vid("airport.hero"),
                     _container(
-                        _vid("ext.airport"),
+                        _vid("airport.hero"),
                         x=24,
                         y=76,
                         width=400,
-                        height=148,
+                        height=620,
                         z=2000,
                         tab_order=2000,
                         visual=_hero_card(
@@ -551,40 +548,132 @@ def visuals_for_page(
                     ),
                 )
             )
+            items.append(
+                (
+                    _vid("airport.kpi"),
+                    _container(
+                        _vid("airport.kpi"),
+                        x=440,
+                        y=76,
+                        width=816,
+                        height=148,
+                        z=2100,
+                        tab_order=2100,
+                        visual=_card_visual(
+                            [
+                                ("CityPulseSnapshot", "Airport Visibility (sm)"),
+                                ("CityPulseSnapshot", "Active NOAA Alerts"),
+                                ("CityPulseSnapshot", "City Stress Index"),
+                            ],
+                            columns=3,
+                        ),
+                    ),
+                )
+            )
+        return items
+
+    if page_seed == "page.events":
+        items = _page_header("Event Heatmaps", "Concerts · festivals · public events by neighborhood")
+        if _has("EventHeatmap"):
+            items.append(
+                (
+                    _vid("events.heat"),
+                    _container(
+                        _vid("events.heat"),
+                        x=24,
+                        y=76,
+                        width=1232,
+                        height=620,
+                        z=2000,
+                        tab_order=2000,
+                        visual=_clustered_bar(
+                            "EventHeatmap",
+                            "neighborhood",
+                            "event_count",
+                            title="Events by neighborhood / hex",
+                        ),
+                    ),
+                )
+            )
+        return items
+
+    if page_seed == "page.ai-signals":
+        items = _page_header("AI Signal Detection", "ML anomalies · z-scores · severity")
         items.append(
             (
-                _vid("ext.pulse-ext"),
+                _vid("ai.hero"),
                 _container(
-                    _vid("ext.pulse-ext"),
-                    x=440 if _has("AirportOpsSnapshot") else 24,
+                    _vid("ai.hero"),
+                    x=24,
                     y=76,
-                    width=816 if _has("AirportOpsSnapshot") else 1232,
+                    width=316,
                     height=148,
-                    z=2100,
-                    tab_order=2100,
-                    visual=_card_visual(
-                        [
-                            ("CityPulseSnapshot", "Trend Avg Interest"),
-                            ("CityPulseSnapshot", "Airport Visibility (sm)"),
-                            ("CityPulseSnapshot", "Active CTA Alerts"),
-                        ],
-                        columns=3,
+                    z=2000,
+                    tab_order=2000,
+                    visual=_hero_card("AnomalySignals", "Anomaly Count", title="Active anomalies"),
+                ),
+            )
+        )
+        items.append(
+            (
+                _vid("ai.table"),
+                _container(
+                    _vid("ai.table"),
+                    x=24,
+                    y=236,
+                    width=1232,
+                    height=460,
+                    z=3000,
+                    tab_order=3000,
+                    visual=_multi_row_card(
+                        "AnomalySignals",
+                        ["signal_type", "metric", "severity", "z_score", "message"],
+                        title="Anomaly signal feed",
                     ),
                 ),
             )
         )
+        return items
+
+    if page_seed == "page.streaming":
+        items = _page_header("Streaming Monitor", "Bronze ingest telemetry · batch counts by source")
+        if _has("StreamingTelemetry"):
+            items.append(
+                (
+                    _vid("stream.bars"),
+                    _container(
+                        _vid("stream.bars"),
+                        x=24,
+                        y=76,
+                        width=1232,
+                        height=620,
+                        z=2000,
+                        tab_order=2000,
+                        visual=_clustered_bar(
+                            "StreamingTelemetry",
+                            "source",
+                            "batch_count",
+                            title="Ingest batches by source",
+                        ),
+                    ),
+                )
+            )
+        return items
+
+    if page_seed == "page.macro":
+        items = _page_header("Macro & Trends", "FRED macro · Google Trends interest")
         if _has("FredMacroSnapshot"):
             items.append(
                 (
-                    _vid("ext.fred"),
+                    _vid("macro.fred"),
                     _container(
-                        _vid("ext.fred"),
+                        _vid("macro.fred"),
                         x=24,
-                        y=236,
+                        y=76,
                         width=600 if _has("TrendInterestSummary") else 1232,
-                        height=460,
-                        z=3000,
-                        tab_order=3000,
+                        height=620,
+                        z=2000,
+                        tab_order=2000,
                         visual=_clustered_bar(
                             "FredMacroSnapshot",
                             "series_label",
@@ -597,21 +686,45 @@ def visuals_for_page(
         if _has("TrendInterestSummary"):
             items.append(
                 (
-                    _vid("ext.trends"),
+                    _vid("macro.trends"),
                     _container(
-                        _vid("ext.trends"),
+                        _vid("macro.trends"),
                         x=656 if _has("FredMacroSnapshot") else 24,
-                        y=236,
+                        y=76,
                         width=600 if _has("FredMacroSnapshot") else 1232,
-                        height=460,
-                        z=3100,
-                        tab_order=3100,
+                        height=620,
+                        z=2100,
+                        tab_order=2100,
                         visual=_clustered_bar(
                             "TrendInterestSummary",
                             "keyword",
                             "avg_interest",
                             title="Google Trends avg interest",
                             avg=True,
+                        ),
+                    ),
+                )
+            )
+        return items
+
+    if page_seed == "page.studio":
+        items = _page_header("PBIP Generator Studio", "Semantic model catalog · metadata-driven automation")
+        if _has("PbipStudioCatalog"):
+            items.append(
+                (
+                    _vid("studio.catalog"),
+                    _container(
+                        _vid("studio.catalog"),
+                        x=24,
+                        y=76,
+                        width=1232,
+                        height=620,
+                        z=2000,
+                        tab_order=2000,
+                        visual=_multi_row_card(
+                            "PbipStudioCatalog",
+                            ["table_name", "source_path", "column_count", "columns_list"],
+                            title="Generated semantic model catalog",
                         ),
                     ),
                 )

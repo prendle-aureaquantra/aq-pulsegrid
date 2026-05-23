@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.4.0/schema.json",
+  "name": "2ade2bde9f105129a2b3",
+  "displayName": "AI Signal Detection",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

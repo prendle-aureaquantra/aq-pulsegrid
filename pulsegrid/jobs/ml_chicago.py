@@ -15,6 +15,7 @@ from pulsegrid.io.delta_writer import (
 )
 from pulsegrid.ml.anomaly import detect_anomalies, detect_neighborhood_spikes
 from pulsegrid.ml.city_stress import stress_from_frames
+from pulsegrid.ml.spark_mllib import enrich_metrics_with_mllib
 from pulsegrid.ml.semantic_metadata import write_semantic_metadata
 
 GOLD_ROOT = DELTA / "gold"
@@ -47,6 +48,7 @@ def run_ml(city_slug: str = "chicago") -> dict[str, Path]:
     history = _read_history()
 
     metrics = stress_from_frames(transit, weather, forecast, city.slug)
+    metrics = enrich_metrics_with_mllib(metrics)
     metrics["city"] = city.slug
     metrics["snapshot_at"] = snapshot_at
 

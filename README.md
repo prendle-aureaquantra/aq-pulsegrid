@@ -98,14 +98,10 @@ Detailed diagram: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · Positioning: [
 ## Commands
 
 ```bash
-python generate_city.py --city chicago --ingest-only
-python generate_city.py --city chicago --extended-ingest   # + airport, trends, FRED
-python generate_city.py --city chicago --stream            # micro-batch bronze log
-python generate_city.py --city chicago --stream-spark      # PySpark Structured Streaming
-python generate_city.py --city chicago --pbip-only --with-visuals
-python generate_city.py --city chicago --with-visuals      # full pipeline
-python tools/deploy_databricks_job.py
-python -m pulsegrid.alerts.notify chicago
+python generate_city.py --city chicago --extended-ingest --with-visuals
+python replay_city.py --city chicago --date 2026-05-23
+python -m pulsegrid.copilot.insights chicago
+python tools/sync_pulsegrid_site_page.py --out docs/pulsegrid-page.html
 ```
 
 ## Technical stack

@@ -109,6 +109,35 @@ TABLE_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("reroute_count", "Int64.Type"),
         ("delay_count", "Int64.Type"),
     ],
+    "EventHeatmap": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("hex_id", "type text"),
+        ("neighborhood", "type text"),
+        ("event_category", "type text"),
+        ("event_count", "Int64.Type"),
+    ],
+    "StreamingTelemetry": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("source", "type text"),
+        ("batch_count", "Int64.Type"),
+        ("last_ingested_at", "type text"),
+    ],
+    "OsmAmenitySummary": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("amenity", "type text"),
+        ("poi_count", "Int64.Type"),
+    ],
+    "PbipStudioCatalog": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("table_name", "type text"),
+        ("source_path", "type text"),
+        ("column_count", "Int64.Type"),
+        ("columns_list", "type text"),
+    ],
 }
 
 REQUIRED_TABLES = [
@@ -123,6 +152,10 @@ OPTIONAL_TABLES = [
     "FredMacroSnapshot",
     "TrendInterestSummary",
     "HexPulseGrid",
+    "EventHeatmap",
+    "StreamingTelemetry",
+    "OsmAmenitySummary",
+    "PbipStudioCatalog",
 ]
 
 TABLE_ORDER = REQUIRED_TABLES + OPTIONAL_TABLES
@@ -131,7 +164,12 @@ REPORT_PAGES: list[tuple[str, str]] = [
     ("page.live-pulse", "Live City Pulse"),
     ("page.transit", "Transit & Mobility"),
     ("page.weather", "Weather Impact Analysis"),
-    ("page.extended", "Airport, Macro & Hex"),
+    ("page.airport", "Airport Operations"),
+    ("page.events", "Event Heatmaps"),
+    ("page.ai-signals", "AI Signal Detection"),
+    ("page.streaming", "Streaming Monitor"),
+    ("page.macro", "Macro & Trends"),
+    ("page.studio", "PBIP Generator Studio"),
 ]
 
 
@@ -245,6 +283,16 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
         lines.append("\tmeasure 'Hex Alert Total' = SUM(HexPulseGrid[alert_count])")
         lines.append("\t\tformatString: #,0")
         lines.append(f"\t\tlineageTag: {_lid('measure.Hex Alert Total')}")
+        lines.append("")
+    if table == "StreamingTelemetry":
+        lines.append("\tmeasure 'Total Ingest Batches' = SUM(StreamingTelemetry[batch_count])")
+        lines.append("\t\tformatString: #,0")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Total Ingest Batches')}")
+        lines.append("")
+    if table == "PbipStudioCatalog":
+        lines.append("\tmeasure 'Catalog Rows' = COUNTROWS(PbipStudioCatalog)")
+        lines.append("\t\tformatString: #,0")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Catalog Rows')}")
         lines.append("")
     part_name = f"{table}-{_lid(f'partition.{table}')}"
     m_body = _partition_m(table, csv_path).rstrip("\n")

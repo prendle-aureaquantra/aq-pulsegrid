@@ -1,0 +1,12 @@
+slug: boston
+name: Boston
+state: MA
+modules:
+  - weather
+  - transit
+pbip:
+  theme: dark
+  pages:
+    - Live City Pulse
+    - Transit & Mobility
+    - Weather Impact Analysis

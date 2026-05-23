@@ -25,6 +25,9 @@ OPTIONAL_EXPORT_MAP = {
     "FredMacroSnapshot": GOLD / "fred_macro_snapshot",
     "TrendInterestSummary": GOLD / "trend_interest_summary",
     "HexPulseGrid": GOLD / "hex_pulse_grid",
+    "EventHeatmap": GOLD / "event_heatmap",
+    "StreamingTelemetry": GOLD / "streaming_telemetry",
+    "OsmAmenitySummary": GOLD / "osm_amenity_summary",
 }
 
 PULSE_EXTENDED_COLUMNS = (
@@ -70,4 +73,7 @@ def export_city_csv(city_slug: str) -> Path:
             df = _merge_pulse_extensions(df, city_slug)
         out = data_dir / f"{table}.csv"
         df.to_csv(out, index=False, encoding="utf-8-sig")
+    from pbip_generator.studio_catalog import write_studio_catalog_csv
+
+    write_studio_catalog_csv(city_slug)
     return data_dir

@@ -10,9 +10,11 @@ from pulsegrid.transforms.bronze_parsers import (
     bronze_glob,
     parse_airport_bronze,
     parse_cta_bronze,
+    parse_events_bronze,
     parse_fred_bronze,
     parse_noaa_alerts_bronze,
     parse_noaa_forecast_bronze,
+    parse_osm_bronze,
     parse_trends_bronze,
 )
 
@@ -117,6 +119,32 @@ def _spark_schemas():
                 StructField("bronze_file", StringType(), True),
             ]
         ),
+        "city_events": StructType(
+            [
+                StructField("city", StringType(), False),
+                StructField("event_id", StringType(), False),
+                StructField("event_name", StringType(), True),
+                StructField("event_category", StringType(), True),
+                StructField("neighborhood_hint", StringType(), True),
+                StructField("location", StringType(), True),
+                StructField("start_date", StringType(), True),
+                StructField("end_date", StringType(), True),
+                StructField("ingested_at", StringType(), True),
+                StructField("bronze_file", StringType(), True),
+            ]
+        ),
+        "osm_pois": StructType(
+            [
+                StructField("city", StringType(), False),
+                StructField("osm_id", StringType(), True),
+                StructField("amenity", StringType(), True),
+                StructField("name", StringType(), True),
+                StructField("lat", DoubleType(), True),
+                StructField("lon", DoubleType(), True),
+                StructField("ingested_at", StringType(), True),
+                StructField("bronze_file", StringType(), True),
+            ]
+        ),
     }
     return _SILVER_SCHEMAS
 
@@ -153,6 +181,8 @@ def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
     airport_paths = bronze_glob(city_slug, "airport", "metar_*.json")
     fred_paths = bronze_glob(city_slug, "fred", "*.json")
     trends_paths = bronze_glob(city_slug, "google_trends", "*.json")
+    events_paths = bronze_glob(city_slug, "events", "*.json")
+    osm_paths = bronze_glob(city_slug, "osm", "*.json")
 
     if not any(
         [
@@ -162,6 +192,8 @@ def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
             airport_paths,
             fred_paths,
             trends_paths,
+            events_paths,
+            osm_paths,
         ]
     ):
         raise FileNotFoundError(
@@ -210,6 +242,20 @@ def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
             ["city", "keyword", "observation_date"],
         )
         written["trend_interest"] = _write_silver(rows, "trend_interest")
+
+    if events_paths:
+        rows = _dedupe_rows(
+            parse_events_bronze(events_paths, city.slug),
+            ["city", "event_id"],
+        )
+        written["city_events"] = _write_silver(rows, "city_events")
+
+    if osm_paths:
+        rows = _dedupe_rows(
+            parse_osm_bronze(osm_paths, city.slug),
+            ["city", "osm_id"],
+        )
+        written["osm_pois"] = _write_silver(rows, "osm_pois")
 
     return written
 

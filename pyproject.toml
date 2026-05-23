@@ -31,6 +31,9 @@ databricks = [
 trends = [
     "pytrends>=4.9.0",
 ]
+copilot = [
+    "openai>=1.0.0",
+]
 
 [project.scripts]
 pulsegrid = "pulsegrid.cli:main"

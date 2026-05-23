@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
-  "name": "bc087d70516951ac8be3",
+  "name": "b62dd1c640765e8fb21b",
   "position": {
-    "x": 24,
-    "y": 12,
-    "z": 9000,
-    "height": 52,
-    "width": 760,
-    "tabOrder": 9000
+    "x": 800,
+    "y": 16,
+    "z": 9001,
+    "height": 44,
+    "width": 456,
+    "tabOrder": 9001
   },
   "visual": {
     "visualType": "textbox",
@@ -19,12 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Airport, Macro & Hex",
+                    "value": "ML anomalies \u00b7 z-scores \u00b7 severity",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "26pt",
-                      "color": "#D4AF37",
-                      "fontWeight": "bold"
+                      "fontSize": "11pt",
+                      "color": "#D9C89A"
                     }
                   }
                 ]

@@ -6,7 +6,7 @@ import json
 import re
 from pathlib import Path
 
-from pulsegrid.config import ROOT
+from pulsegrid.config import BRONZE, ROOT
 
 REF_DIR = ROOT / "datasets" / "reference"
 
@@ -133,10 +133,60 @@ def parse_noaa_forecast_bronze(paths: list[Path], city: str = "chicago") -> list
 
 
 def bronze_glob(city: str, source: str, pattern: str) -> list[Path]:
-    base = ROOT / "datasets" / "bronze" / city / source
+    base = BRONZE / city / source
     if not base.is_dir():
         return []
     return sorted(base.glob(pattern))
+
+
+def parse_events_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        ingested_at = doc.get("fetched_at", "")
+        for rec in doc.get("records") or []:
+            name = rec.get("event_name") or rec.get("application_name") or rec.get("name") or "Event"
+            start = rec.get("start_date") or rec.get("starttime") or ""
+            end = rec.get("end_date") or rec.get("endtime") or ""
+            loc = rec.get("street_address") or rec.get("location") or rec.get("address") or ""
+            category = rec.get("event_type") or rec.get("category") or "general"
+            neighborhood = rec.get("community_area") or rec.get("neighborhood") or ""
+            rows.append(
+                {
+                    "city": city,
+                    "event_id": str(rec.get("id") or rec.get("permit_") or f"{name}-{start}"),
+                    "event_name": str(name),
+                    "event_category": str(category),
+                    "neighborhood_hint": str(neighborhood),
+                    "location": str(loc),
+                    "start_date": str(start),
+                    "end_date": str(end),
+                    "ingested_at": ingested_at,
+                    "bronze_file": path.name,
+                }
+            )
+    return rows
+
+
+def parse_osm_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        ingested_at = doc.get("fetched_at", "")
+        for poi in doc.get("pois") or []:
+            rows.append(
+                {
+                    "city": city,
+                    "osm_id": str(poi.get("osm_id") or ""),
+                    "amenity": str(poi.get("amenity") or ""),
+                    "name": str(poi.get("name") or ""),
+                    "lat": poi.get("lat"),
+                    "lon": poi.get("lon"),
+                    "ingested_at": ingested_at,
+                    "bronze_file": path.name,
+                }
+            )
+    return rows
 
 
 def parse_airport_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
