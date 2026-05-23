@@ -40,7 +40,9 @@ It generates Power BI project artifacts from metadata, including semantic model 
 
 This demonstrates a more advanced BI engineering pattern: **automated semantic BI generation** rather than manual dashboard construction.
 
-![PBIP generator output](docs/screenshots/pbip-generator.png)
+![PBIP generator preview](docs/screenshots/pbip-generator-preview.png)
+
+Nine themed report pages (~28 visuals) are generated from semantic metadata — no manual Power BI layout work.
 
 ---
 
@@ -102,14 +104,19 @@ Sample in repo: [`generated_reports/chicago/ChicagoPulse.pbip`](generated_report
 
 | Screenshot | Description |
 |------------|-------------|
-| ![Live City Pulse](docs/screenshots/live-city-pulse.png) | Dark operations-center KPI view |
-| ![Spark pipeline](docs/screenshots/spark-pipeline.png) | Bronze to silver to gold to PBIP flow |
+| ![Live City Pulse](docs/screenshots/live-city-pulse.png) | Operations-center KPIs, stress gauge, anomaly table |
+| ![Dashboard gallery](docs/screenshots/dashboard-gallery.png) | All nine ChicagoPulse.pbip report pages |
+| ![PBIP generator preview](docs/screenshots/pbip-generator-preview.png) | Semantic model, output tree, and report canvas |
+| ![Transit & Mobility](docs/screenshots/transit-mobility.png) | CTA alert categories from gold layer |
+| ![Weather Impact](docs/screenshots/weather-impact.png) | NOAA precip and temperature forecast |
+| ![Spark pipeline](docs/screenshots/spark-pipeline.png) | Bronze → silver → gold → PBIP flow |
 | ![Lightsail status](docs/screenshots/lightsail-status.png) | Live ops console at pulse.aureaquantra.com |
 
 Regenerate PNGs:
 
 ```bash
 python tools/capture_readme_screenshots.py --city chicago --screenshots-only
+python tools/capture_readme_screenshots.py --city chicago --preview-only
 python tools/capture_readme_screenshots.py --city chicago --platform-only
 ```
 
