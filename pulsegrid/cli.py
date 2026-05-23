@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import sys
 
 from pulsegrid.config import ensure_dirs, get_city, load_dotenv
 from pulsegrid.ingest.cta import ingest_cta

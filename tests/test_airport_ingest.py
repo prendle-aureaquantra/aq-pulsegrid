@@ -13,7 +13,10 @@ def test_ingest_airport_writes_json(tmp_path, monkeypatch):
 
     monkeypatch.setattr(cfg, "BRONZE", tmp_path / "bronze")
     city = get_city("chicago")
-    sample = {"icaoId": "KORD", "rawOb": "METAR KORD 251100Z 00000KT 10SM CLR 05/M02 A3012"}
+    sample = {
+        "icaoId": "KORD",
+        "rawOb": "METAR KORD 251100Z 00000KT 10SM CLR 05/M02 A3012",
+    }
 
     with patch("pulsegrid.ingest.airport.fetch_metar", return_value=sample):
         paths = ingest_airport(city)

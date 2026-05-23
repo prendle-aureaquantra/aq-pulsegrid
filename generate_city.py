@@ -8,6 +8,7 @@ Examples:
   python generate_city.py --city chicago --stream
   python generate_city.py --city chicago --with-visuals
 """
+
 from __future__ import annotations
 
 import argparse
@@ -85,7 +86,9 @@ def run_ml(city_slug: str) -> None:
         print(f"  ml.{name} -> {path}")
 
 
-def run_full(city_slug: str, *, with_visuals: bool = False, extended: bool = False) -> None:
+def run_full(
+    city_slug: str, *, with_visuals: bool = False, extended: bool = False
+) -> None:
     run_ingest(city_slug, extended=extended)
     run_transform(city_slug)
     run_ml(city_slug)
@@ -99,7 +102,9 @@ def main() -> int:
     load_dotenv()
     ensure_dirs()
     parser = argparse.ArgumentParser(description="AQ PulseGrid city pipeline")
-    parser.add_argument("--city", default="chicago", help="City slug (default: chicago)")
+    parser.add_argument(
+        "--city", default="chicago", help="City slug (default: chicago)"
+    )
     parser.add_argument("--ingest-only", action="store_true", help="Bronze ingest only")
     parser.add_argument(
         "--extended-ingest",

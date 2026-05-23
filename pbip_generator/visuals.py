@@ -179,7 +179,9 @@ def _card_visual(measures: list[tuple[str, str]], *, columns: int) -> dict[str, 
         "query": {
             "queryState": {
                 "Data": {
-                    "projections": [_proj_measure(entity, measure) for entity, measure in measures],
+                    "projections": [
+                        _proj_measure(entity, measure) for entity, measure in measures
+                    ],
                 }
             }
         },
@@ -264,7 +266,9 @@ def _clustered_bar(
     title: str,
     avg: bool = False,
 ) -> dict[str, Any]:
-    y_proj = _proj_avg_col(entity, value_col) if avg else _proj_sum_col(entity, value_col)
+    y_proj = (
+        _proj_avg_col(entity, value_col) if avg else _proj_sum_col(entity, value_col)
+    )
     visual: dict[str, Any] = {
         "visualType": "clusteredBarChart",
         "query": {
@@ -573,7 +577,9 @@ def visuals_for_page(
         return items
 
     if page_seed == "page.events":
-        items = _page_header("Event Heatmaps", "Concerts · festivals · public events by neighborhood")
+        items = _page_header(
+            "Event Heatmaps", "Concerts · festivals · public events by neighborhood"
+        )
         if _has("EventHeatmap"):
             items.append(
                 (
@@ -598,7 +604,9 @@ def visuals_for_page(
         return items
 
     if page_seed == "page.ai-signals":
-        items = _page_header("AI Signal Detection", "ML anomalies · z-scores · severity")
+        items = _page_header(
+            "AI Signal Detection", "ML anomalies · z-scores · severity"
+        )
         items.append(
             (
                 _vid("ai.hero"),
@@ -610,7 +618,9 @@ def visuals_for_page(
                     height=148,
                     z=2000,
                     tab_order=2000,
-                    visual=_hero_card("AnomalySignals", "Anomaly Count", title="Active anomalies"),
+                    visual=_hero_card(
+                        "AnomalySignals", "Anomaly Count", title="Active anomalies"
+                    ),
                 ),
             )
         )
@@ -636,7 +646,9 @@ def visuals_for_page(
         return items
 
     if page_seed == "page.streaming":
-        items = _page_header("Streaming Monitor", "Bronze ingest telemetry · batch counts by source")
+        items = _page_header(
+            "Streaming Monitor", "Bronze ingest telemetry · batch counts by source"
+        )
         if _has("StreamingTelemetry"):
             items.append(
                 (
@@ -708,7 +720,10 @@ def visuals_for_page(
         return items
 
     if page_seed == "page.studio":
-        items = _page_header("PBIP Generator Studio", "Semantic model catalog · metadata-driven automation")
+        items = _page_header(
+            "PBIP Generator Studio",
+            "Semantic model catalog · metadata-driven automation",
+        )
         if _has("PbipStudioCatalog"):
             items.append(
                 (
@@ -723,7 +738,12 @@ def visuals_for_page(
                         tab_order=2000,
                         visual=_multi_row_card(
                             "PbipStudioCatalog",
-                            ["table_name", "source_path", "column_count", "columns_list"],
+                            [
+                                "table_name",
+                                "source_path",
+                                "column_count",
+                                "columns_list",
+                            ],
                             title="Generated semantic model catalog",
                         ),
                     ),

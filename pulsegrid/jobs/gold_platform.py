@@ -38,7 +38,9 @@ def streaming_telemetry_rows(city: str, snapshot_at: str) -> list[dict]:
     return rows
 
 
-def event_heatmap_rows(events: pd.DataFrame | None, city: str, snapshot_at: str) -> list[dict]:
+def event_heatmap_rows(
+    events: pd.DataFrame | None, city: str, snapshot_at: str
+) -> list[dict]:
     if events is None or events.empty:
         return []
     ec = events[events["city"] == city]
@@ -52,7 +54,11 @@ def event_heatmap_rows(events: pd.DataFrame | None, city: str, snapshot_at: str)
         hex_id = neighborhood_to_hex(hint) if hint else "citywide"
         key = (hex_id, hint or "Chicago", cat)
         buckets[key] += 1
-        meta[key] = {"hex_id": hex_id, "neighborhood": hint or "Chicago", "event_category": cat}
+        meta[key] = {
+            "hex_id": hex_id,
+            "neighborhood": hint or "Chicago",
+            "event_category": cat,
+        }
     return [
         {
             "city": city,
@@ -66,7 +72,9 @@ def event_heatmap_rows(events: pd.DataFrame | None, city: str, snapshot_at: str)
     ]
 
 
-def osm_amenity_summary_rows(osm: pd.DataFrame | None, city: str, snapshot_at: str) -> list[dict]:
+def osm_amenity_summary_rows(
+    osm: pd.DataFrame | None, city: str, snapshot_at: str
+) -> list[dict]:
     if osm is None or osm.empty:
         return []
     oc = osm[osm["city"] == city]

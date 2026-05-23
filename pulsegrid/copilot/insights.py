@@ -25,7 +25,11 @@ def _load_context(city_slug: str) -> dict:
             if not df.empty and "city" in df.columns:
                 df = df[df["city"] == city_slug]
             if not df.empty:
-                ctx[table] = df.sort_values("snapshot_at", ascending=False).head(5).to_dict("records")
+                ctx[table] = (
+                    df.sort_values("snapshot_at", ascending=False)
+                    .head(5)
+                    .to_dict("records")
+                )
     meta = GENERATED / city_slug / "semantic_model_metadata.json"
     if meta.is_file():
         ctx["semantic_model"] = json.loads(meta.read_text(encoding="utf-8"))
@@ -79,7 +83,9 @@ def main(argv: list[str] | None = None) -> int:
     print(text)
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
-        args.out.write_text(f"# AQ PulseGrid Copilot — {args.city}\n\n{text}\n", encoding="utf-8")
+        args.out.write_text(
+            f"# AQ PulseGrid Copilot — {args.city}\n\n{text}\n", encoding="utf-8"
+        )
     return 0
 
 

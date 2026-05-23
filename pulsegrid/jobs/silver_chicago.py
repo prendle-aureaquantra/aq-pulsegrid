@@ -5,7 +5,11 @@ from __future__ import annotations
 from pathlib import Path
 
 from pulsegrid.config import DELTA, get_city
-from pulsegrid.io.delta_writer import use_spark_engine, write_delta_dataframe, write_delta_table
+from pulsegrid.io.delta_writer import (
+    use_spark_engine,
+    write_delta_dataframe,
+    write_delta_table,
+)
 from pulsegrid.transforms.bronze_parsers import (
     bronze_glob,
     parse_airport_bronze,
@@ -205,7 +209,9 @@ def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
     print(f"  engine: {engine}")
 
     if cta_paths:
-        rows = _dedupe_rows(parse_cta_bronze(cta_paths, city.slug), ["city", "alert_id"])
+        rows = _dedupe_rows(
+            parse_cta_bronze(cta_paths, city.slug), ["city", "alert_id"]
+        )
         written["transit_alerts"] = _write_silver(rows, "transit_alerts")
 
     if noaa_alert_paths:
@@ -220,7 +226,9 @@ def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
             parse_noaa_forecast_bronze(noaa_forecast_paths, city.slug),
             ["city", "period_number", "start_time"],
         )
-        written["weather_forecast_periods"] = _write_silver(rows, "weather_forecast_periods")
+        written["weather_forecast_periods"] = _write_silver(
+            rows, "weather_forecast_periods"
+        )
 
     if airport_paths:
         rows = _dedupe_rows(

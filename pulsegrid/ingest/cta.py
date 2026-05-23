@@ -56,7 +56,7 @@ def fetch_cta_alerts() -> dict:
 def ingest_cta(city: CityConfig, out_dir: Path | None = None) -> list[Path]:
     if city.slug != "chicago":
         raise ValueError("CTA ingest is Chicago-only in Phase 1")
-    base = (out_dir or BRONZE / city.slug / "cta")
+    base = out_dir or BRONZE / city.slug / "cta"
     base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     payload = fetch_cta_alerts()

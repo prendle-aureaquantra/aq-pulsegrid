@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import csv
 import math
-from pathlib import Path
 
 from pulsegrid.config import ROOT
 

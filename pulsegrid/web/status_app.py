@@ -1,4 +1,5 @@
 """FastAPI status app for Lightsail — serves latest Chicago pulse CSV + health."""
+
 from __future__ import annotations
 
 import csv
@@ -13,7 +14,9 @@ app = FastAPI(title="AQ PulseGrid", version="0.1.0")
 
 DATA_DIR = Path(os.getenv("PULSEGRID_DATA_DIR", "data"))
 EMBED_URL = (os.getenv("POWERBI_PULSEGRID_EMBED_URL") or "").strip()
-PUBLIC_URL = (os.getenv("PULSEGRID_PUBLIC_URL") or "https://pulse.aureaquantra.com/").strip()
+PUBLIC_URL = (
+    os.getenv("PULSEGRID_PUBLIC_URL") or "https://pulse.aureaquantra.com/"
+).strip()
 REPO_URL = "https://github.com/prendle-aureaquantra/aq-pulsegrid"
 CITY = (os.getenv("PULSEGRID_CITY") or "chicago").strip()
 
@@ -107,7 +110,7 @@ def index() -> str:
         'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
         if EMBED_URL
         else (
-            "<p class=\"muted\">Fabric embed pending — publish Chicago Pulse to Power BI Service, "
+            '<p class="muted">Fabric embed pending — publish Chicago Pulse to Power BI Service, '
             "then set <code>POWERBI_PULSEGRID_EMBED_URL</code> in deploy secrets.</p>"
             f'<p><a href="{REPO_URL}">View repo &amp; sample PBIP</a></p>'
         )

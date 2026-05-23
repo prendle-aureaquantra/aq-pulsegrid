@@ -14,7 +14,7 @@ KORD = "KORD"
 
 
 def fetch_metar(station: str = KORD) -> dict:
-    url = f"https://aviationweather.gov/api/data/metar"
+    url = "https://aviationweather.gov/api/data/metar"
     resp = requests.get(
         url,
         params={"ids": station, "format": "json"},

@@ -15,7 +15,10 @@ class StressComponents:
     @property
     def total(self) -> float:
         return round(
-            self.transit_load + self.weather_risk + self.precip_risk + self.disruption_ratio,
+            self.transit_load
+            + self.weather_risk
+            + self.precip_risk
+            + self.disruption_ratio,
             2,
         )
 
@@ -56,16 +59,32 @@ def compute_stress_index(
 
 
 def stress_from_frames(transit_df, weather_df, forecast_df, city: str) -> dict:
-    tc = transit_df[transit_df["city"] == city] if transit_df is not None and not transit_df.empty else None
-    wc = weather_df[weather_df["city"] == city] if weather_df is not None and not weather_df.empty else None
-    fc = forecast_df[forecast_df["city"] == city] if forecast_df is not None and not forecast_df.empty else None
+    tc = (
+        transit_df[transit_df["city"] == city]
+        if transit_df is not None and not transit_df.empty
+        else None
+    )
+    wc = (
+        weather_df[weather_df["city"] == city]
+        if weather_df is not None and not weather_df.empty
+        else None
+    )
+    fc = (
+        forecast_df[forecast_df["city"] == city]
+        if forecast_df is not None and not forecast_df.empty
+        else None
+    )
 
     active_cta = len(tc) if tc is not None else 0
     active_noaa = len(wc) if wc is not None else 0
-    avg_precip = float(fc["precip_pct"].mean()) if fc is not None and not fc.empty else 0.0
+    avg_precip = (
+        float(fc["precip_pct"].mean()) if fc is not None and not fc.empty else 0.0
+    )
     severe = 0
     if wc is not None and not wc.empty and "severity" in wc.columns:
-        severe = int(wc["severity"].str.contains("Severe|Extreme", case=False, na=False).sum())
+        severe = int(
+            wc["severity"].str.contains("Severe|Extreme", case=False, na=False).sum()
+        )
 
     counts = _category_counts(tc)
     score, parts = compute_stress_index(

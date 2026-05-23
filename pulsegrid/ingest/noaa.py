@@ -52,7 +52,7 @@ def fetch_gridpoint_forecast(city: CityConfig) -> dict:
 
 def ingest_noaa(city: CityConfig, out_dir: Path | None = None) -> list[Path]:
     """Write NOAA bronze JSON files; return paths written."""
-    base = (out_dir or BRONZE / city.slug / "noaa")
+    base = out_dir or BRONZE / city.slug / "noaa"
     base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     written: list[Path] = []

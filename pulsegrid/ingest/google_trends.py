@@ -38,11 +38,17 @@ def ingest_google_trends(city: CityConfig, out_dir: Path | None = None) -> list[
         "city": city.slug,
         "keywords": DEFAULT_KEYWORDS,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
-        "interest_over_time": interest.reset_index().to_dict(orient="records")
-        if not interest.empty
-        else [],
+        "interest_over_time": (
+            interest.reset_index().to_dict(orient="records")
+            if not interest.empty
+            else []
+        ),
         "related_queries": {
-            kw: (v.get("top").to_dict(orient="records") if v.get("top") is not None else [])
+            kw: (
+                v.get("top").to_dict(orient="records")
+                if v.get("top") is not None
+                else []
+            )
             for kw, v in related.items()
             if v
         },

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
 
 from pulsegrid.config import BRONZE, ROOT
@@ -145,16 +144,28 @@ def parse_events_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
         doc = _load_json(path)
         ingested_at = doc.get("fetched_at", "")
         for rec in doc.get("records") or []:
-            name = rec.get("event_name") or rec.get("application_name") or rec.get("name") or "Event"
+            name = (
+                rec.get("event_name")
+                or rec.get("application_name")
+                or rec.get("name")
+                or "Event"
+            )
             start = rec.get("start_date") or rec.get("starttime") or ""
             end = rec.get("end_date") or rec.get("endtime") or ""
-            loc = rec.get("street_address") or rec.get("location") or rec.get("address") or ""
+            loc = (
+                rec.get("street_address")
+                or rec.get("location")
+                or rec.get("address")
+                or ""
+            )
             category = rec.get("event_type") or rec.get("category") or "general"
             neighborhood = rec.get("community_area") or rec.get("neighborhood") or ""
             rows.append(
                 {
                     "city": city,
-                    "event_id": str(rec.get("id") or rec.get("permit_") or f"{name}-{start}"),
+                    "event_id": str(
+                        rec.get("id") or rec.get("permit_") or f"{name}-{start}"
+                    ),
                     "event_name": str(name),
                     "event_category": str(category),
                     "neighborhood_hint": str(neighborhood),

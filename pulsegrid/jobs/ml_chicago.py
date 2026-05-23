@@ -115,7 +115,9 @@ def run_ml(city_slug: str = "chicago") -> dict[str, Path]:
 
     history_row = {k: metrics[k] for k in metrics if k not in ("city", "snapshot_at")}
     history_row.update({"city": city.slug, "snapshot_at": snapshot_at})
-    written["pulse_history"] = append_delta_table([history_row], ML_ROOT / "pulse_history")
+    written["pulse_history"] = append_delta_table(
+        [history_row], ML_ROOT / "pulse_history"
+    )
 
     written["semantic_model_metadata"] = write_semantic_metadata(city_slug)
     return written

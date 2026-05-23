@@ -77,7 +77,9 @@ def ensure_dirs() -> None:
 
 
 def http_user_agent() -> str:
-    return os.getenv("PULSEGRID_USER_AGENT", "AQ-PulseGrid/0.1 (aureaquantra.com; demo)")
+    return os.getenv(
+        "PULSEGRID_USER_AGENT", "AQ-PulseGrid/0.1 (aureaquantra.com; demo)"
+    )
 
 
 def load_city_yaml(slug: str) -> dict:

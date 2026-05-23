@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 
 from pbip_generator.build_pbip import build_pbip
 
@@ -87,11 +86,15 @@ def test_build_pbip_structure(tmp_path, monkeypatch):
 
     pbip = build_pbip(city, include_visuals=True)
     assert pbip.is_file()
-    assert (pbip.parent / "ChicagoPulse.SemanticModel" / "definition" / "model.tmdl").is_file()
+    assert (
+        pbip.parent / "ChicagoPulse.SemanticModel" / "definition" / "model.tmdl"
+    ).is_file()
     pages_root = pbip.parent / "ChicagoPulse.Report" / "definition" / "pages"
     assert (pages_root / "pages.json").is_file()
     visual_files = list(pages_root.glob("*/visuals/*/visual.json"))
-    assert len(visual_files) >= 13, f"expected at least 13 visuals, got {len(visual_files)}"
+    assert (
+        len(visual_files) >= 13
+    ), f"expected at least 13 visuals, got {len(visual_files)}"
 
 
 def test_build_pbip_blank_pages(tmp_path, monkeypatch):

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from pathlib import Path
 
 import pandas as pd
 import yaml
@@ -80,14 +79,26 @@ def detect_anomalies(
     checks = [
         ("transit_alert_spike", "active_cta_alerts", "CTA alert volume"),
         ("weather_alert_spike", "active_noaa_alerts", "NOAA alert volume"),
-        ("precip_forecast_spike", "avg_precip_pct_next_periods", "Forecast precipitation"),
+        (
+            "precip_forecast_spike",
+            "avg_precip_pct_next_periods",
+            "Forecast precipitation",
+        ),
     ]
 
     for signal_type, key, label in checks:
         observed = float(metrics.get(key, 0))
         hist_mean, hist_std = _history_stats(history, key)
-        baseline = hist_mean if history is not None and not history.empty else float(defaults.get(key, observed))
-        std = hist_std if history is not None and len(history) >= 2 else max(baseline * 0.15, 1.0)
+        baseline = (
+            hist_mean
+            if history is not None and not history.empty
+            else float(defaults.get(key, observed))
+        )
+        std = (
+            hist_std
+            if history is not None and len(history) >= 2
+            else max(baseline * 0.15, 1.0)
+        )
         z = _z(observed, baseline, std)
         if abs(z) >= threshold:
             direction = "above" if z > 0 else "below"
@@ -133,7 +144,9 @@ def detect_neighborhood_spikes(
 ) -> list[dict]:
     if transit_df is None or transit_df.empty:
         return []
-    tc = transit_df[(transit_df["city"] == city) & (transit_df["neighborhood_hint"] != "")]
+    tc = transit_df[
+        (transit_df["city"] == city) & (transit_df["neighborhood_hint"] != "")
+    ]
     if tc.empty:
         return []
     counts = tc.groupby("neighborhood_hint").size()

@@ -23,6 +23,8 @@ import sys
 
 repo = "/Workspace/Repos/pulsegrid/aq-pulsegrid"  # adjust after Git integration
 for step in ("--transform-only", "--ml-only"):
-    subprocess.check_call([sys.executable, f"{repo}/generate_city.py", "--city", city, step])
+    subprocess.check_call(
+        [sys.executable, f"{repo}/generate_city.py", "--city", city, step]
+    )
 
 print("Done. Refresh semantic model / PBIP separately or mount generated CSVs.")

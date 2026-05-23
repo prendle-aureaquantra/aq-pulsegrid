@@ -23,7 +23,9 @@ def _load_env() -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Deploy aq-pulsegrid Databricks bundle")
+    parser = argparse.ArgumentParser(
+        description="Deploy aq-pulsegrid Databricks bundle"
+    )
     parser.add_argument(
         "--validate-only",
         action="store_true",

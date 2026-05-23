@@ -9,7 +9,11 @@ import pandas as pd
 
 from pulsegrid.config import DELTA, get_city
 from pulsegrid.geo.hex_grid import aggregate_transit_by_hex
-from pulsegrid.io.delta_writer import read_delta_table, use_spark_engine, write_delta_table
+from pulsegrid.io.delta_writer import (
+    read_delta_table,
+    use_spark_engine,
+    write_delta_table,
+)
 from pulsegrid.jobs.gold_platform import (
     event_heatmap_rows,
     osm_amenity_summary_rows,
@@ -51,7 +55,9 @@ def _latest_airport_snapshot(airport: pd.DataFrame | None, city: str) -> dict:
     }
 
 
-def _fred_macro_rows(fred: pd.DataFrame | None, city: str, snapshot_at: str) -> list[dict]:
+def _fred_macro_rows(
+    fred: pd.DataFrame | None, city: str, snapshot_at: str
+) -> list[dict]:
     if fred is None or fred.empty:
         return []
     fc = fred[fred["city"] == city]
@@ -71,7 +77,9 @@ def _fred_macro_rows(fred: pd.DataFrame | None, city: str, snapshot_at: str) -> 
     return rows
 
 
-def _trend_summary_rows(trends: pd.DataFrame | None, city: str, snapshot_at: str) -> list[dict]:
+def _trend_summary_rows(
+    trends: pd.DataFrame | None, city: str, snapshot_at: str
+) -> list[dict]:
     if trends is None or trends.empty:
         return []
     tc = trends[trends["city"] == city]
@@ -162,7 +170,9 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
 
     event_rows = event_heatmap_rows(events, city.slug, snapshot_at)
     if event_rows:
-        written["event_heatmap"] = write_delta_table(event_rows, GOLD_ROOT / "event_heatmap")
+        written["event_heatmap"] = write_delta_table(
+            event_rows, GOLD_ROOT / "event_heatmap"
+        )
 
     osm_rows = osm_amenity_summary_rows(osm, city.slug, snapshot_at)
     if osm_rows:
@@ -176,7 +186,11 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
             stream_rows, GOLD_ROOT / "streaming_telemetry"
         )
 
-    event_count = len(events[events["city"] == city.slug]) if events is not None and not events.empty else 0
+    event_count = (
+        len(events[events["city"] == city.slug])
+        if events is not None and not events.empty
+        else 0
+    )
     trend_avg = (
         round(sum(r["avg_interest"] for r in trend_rows) / len(trend_rows), 2)
         if trend_rows
@@ -185,7 +199,11 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
     airport_stress = airport_snap.get("airport_ops_stress", 0.0)
     event_stress = min(10.0, event_count * 0.5)
     stress = round(
-        active_cta * 0.05 + active_noaa * 2.0 + avg_precip * 0.1 + airport_stress + event_stress,
+        active_cta * 0.05
+        + active_noaa * 2.0
+        + avg_precip * 0.1
+        + airport_stress
+        + event_stress,
         2,
     )
     pulse = [
@@ -203,7 +221,9 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
             "active_events": event_count,
         }
     ]
-    written["city_pulse_snapshot"] = write_delta_table(pulse, GOLD_ROOT / "city_pulse_snapshot")
+    written["city_pulse_snapshot"] = write_delta_table(
+        pulse, GOLD_ROOT / "city_pulse_snapshot"
+    )
     return written
 
 

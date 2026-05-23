@@ -36,7 +36,9 @@ def _collect_replay_files(city: str, date_str: str) -> dict[str, list[Path]]:
         base = BRONZE / city / source
         if not base.is_dir():
             continue
-        matches = [p for p in sorted(base.glob("*.json")) if _file_matches_date(p, date_str)]
+        matches = [
+            p for p in sorted(base.glob("*.json")) if _file_matches_date(p, date_str)
+        ]
         if matches:
             selected[source] = matches
     return selected
@@ -50,7 +52,9 @@ def run_replay(city_slug: str, date_str: str, *, dry_run: bool = False) -> None:
             f"No bronze files for {city_slug} matching date {date_str!r}. "
             f"Run ingest first or use YYYY-MM-DD from fetched_at."
         )
-    print(f"Replay {city_slug} @ {date_str}: {sum(len(v) for v in selected.values())} bronze files")
+    print(
+        f"Replay {city_slug} @ {date_str}: {sum(len(v) for v in selected.values())} bronze files"
+    )
     for source, paths in selected.items():
         for p in paths:
             print(f"  {source:14} -> {p.name}")
@@ -84,9 +88,13 @@ def run_replay(city_slug: str, date_str: str, *, dry_run: bool = False) -> None:
 def main() -> int:
     load_dotenv()
     ensure_dirs()
-    parser = argparse.ArgumentParser(description="Replay historical city bronze through Spark/ML pipeline")
+    parser = argparse.ArgumentParser(
+        description="Replay historical city bronze through Spark/ML pipeline"
+    )
     parser.add_argument("--city", default="chicago")
-    parser.add_argument("--date", required=True, help="YYYY-MM-DD (matches filename or fetched_at)")
+    parser.add_argument(
+        "--date", required=True, help="YYYY-MM-DD (matches filename or fetched_at)"
+    )
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     try:

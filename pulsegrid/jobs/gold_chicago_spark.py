@@ -114,12 +114,16 @@ def run_gold_spark(city_slug: str = "chicago") -> dict[str, Path]:
         trend_avg = 0.0
         fr_path = SILVER_ROOT / "fred_observations"
         if fr_path.exists():
-            fred = spark.read.format("delta").load(str(fr_path)).filter(
-                F.col("city") == city.slug
+            fred = (
+                spark.read.format("delta")
+                .load(str(fr_path))
+                .filter(F.col("city") == city.slug)
             )
             from pyspark.sql.window import Window
 
-            w = Window.partitionBy("series_id").orderBy(F.col("observation_date").desc())
+            w = Window.partitionBy("series_id").orderBy(
+                F.col("observation_date").desc()
+            )
             latest_fred = (
                 fred.withColumn("rn", F.row_number().over(w))
                 .filter(F.col("rn") == 1)
@@ -142,8 +146,10 @@ def run_gold_spark(city_slug: str = "chicago") -> dict[str, Path]:
 
         tr_path = SILVER_ROOT / "trend_interest"
         if tr_path.exists():
-            trends = spark.read.format("delta").load(str(tr_path)).filter(
-                F.col("city") == city.slug
+            trends = (
+                spark.read.format("delta")
+                .load(str(tr_path))
+                .filter(F.col("city") == city.slug)
             )
             trend_summary = (
                 trends.groupBy("city", "keyword")

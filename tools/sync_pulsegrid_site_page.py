@@ -5,7 +5,6 @@ from __future__ import annotations
 
 import argparse
 import os
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,7 +40,9 @@ def build_pulsegrid_page_html(*, embed_url: str = "", repo_url: str = "") -> str
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate WordPress /pulsegrid/ page HTML snippet")
+    parser = argparse.ArgumentParser(
+        description="Generate WordPress /pulsegrid/ page HTML snippet"
+    )
     parser.add_argument("--embed-url", default="")
     parser.add_argument("--repo-url", default="")
     parser.add_argument("--out", type=Path, help="Write HTML file")
@@ -53,7 +54,9 @@ def main() -> int:
         print(f"Wrote {args.out}")
     else:
         print(html)
-    print("\nAdd to config/site_spec.yaml slug: pulsegrid — see docs/SITE_INTEGRATION.md")
+    print(
+        "\nAdd to config/site_spec.yaml slug: pulsegrid — see docs/SITE_INTEGRATION.md"
+    )
     return 0
 
 

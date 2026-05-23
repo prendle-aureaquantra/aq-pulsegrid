@@ -383,7 +383,7 @@ def _download_base_theme(dest: Path) -> None:
 
 
 def build_pbip(city_slug: str, *, include_visuals: bool = False, use_custom_theme: bool = False) -> Path:
-    city = get_city(city_slug)
+    get_city(city_slug)  # validate city config
     meta = build_semantic_metadata(city_slug)
     project = meta["model_name"]
     write_semantic_metadata(city_slug)

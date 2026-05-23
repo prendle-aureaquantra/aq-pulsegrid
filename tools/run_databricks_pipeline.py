@@ -26,7 +26,10 @@ def run_local(city: str, *, with_visuals: bool) -> int:
     if with_visuals:
         # run steps then pbip with visuals
         for flag in ("--ingest-only", "--transform-only", "--ml-only"):
-            r = subprocess.run([sys.executable, str(ROOT / "generate_city.py"), "--city", city, flag], cwd=ROOT)
+            r = subprocess.run(
+                [sys.executable, str(ROOT / "generate_city.py"), "--city", city, flag],
+                cwd=ROOT,
+            )
             if r.returncode:
                 return r.returncode
         r = subprocess.run(cmd, cwd=ROOT)
@@ -48,7 +51,7 @@ def run_databricks_notebook(city: str) -> int:
         "workspace",
         "import",
         str(nb),
-        f"/Users/pulsegrid/chicago_daily",
+        "/Users/pulsegrid/chicago_daily",
         "--language",
         "PYTHON",
         "--format",
@@ -69,7 +72,9 @@ def run_databricks_notebook(city: str) -> int:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Run PulseGrid on Databricks or locally")
+    parser = argparse.ArgumentParser(
+        description="Run PulseGrid on Databricks or locally"
+    )
     parser.add_argument("--city", default="chicago")
     parser.add_argument("--with-visuals", action="store_true")
     parser.add_argument("--local-only", action="store_true")

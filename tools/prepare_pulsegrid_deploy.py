@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Write deploy/lightsail/deploy.config.env + SSH key from monorepo or local .env (SSH_*)."""
+
 from __future__ import annotations
 
 import argparse
@@ -26,7 +27,9 @@ def parse_dotenv(path: Path) -> dict[str, str]:
             continue
         k, _, v = s.partition("=")
         k, v = k.strip(), v.strip()
-        if (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")):
+        if (v.startswith('"') and v.endswith('"')) or (
+            v.startswith("'") and v.endswith("'")
+        ):
             v = v[1:-1]
         out[k] = v
     return out
@@ -80,7 +83,9 @@ def apply_from_dotenv(*, dry_run: bool) -> int:
         print("ERROR: Set SSH_HOST in repo .env", file=sys.stderr)
         return 1
     if not key_file and not key_content:
-        print("ERROR: Set SSH_KEY_FILE or SSH_KEY_CONTENT in repo .env", file=sys.stderr)
+        print(
+            "ERROR: Set SSH_KEY_FILE or SSH_KEY_CONTENT in repo .env", file=sys.stderr
+        )
         return 1
 
     if key_content:
@@ -88,7 +93,9 @@ def apply_from_dotenv(*, dry_run: bool) -> int:
     else:
         kp = Path(key_file)
         if not kp.is_absolute():
-            kp = (root.parent / key_file).resolve() if not kp.is_file() else kp.resolve()
+            kp = (
+                (root.parent / key_file).resolve() if not kp.is_file() else kp.resolve()
+            )
             if not kp.is_file():
                 kp = (root / key_file).resolve()
         if not kp.is_file():
@@ -113,7 +120,11 @@ def apply_from_dotenv(*, dry_run: bool) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--from-dotenv", action="store_true", help="Fill deploy.config.env from SSH_* in .env")
+    ap.add_argument(
+        "--from-dotenv",
+        action="store_true",
+        help="Fill deploy.config.env from SSH_* in .env",
+    )
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     if not args.from_dotenv:

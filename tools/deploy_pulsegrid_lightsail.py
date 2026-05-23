@@ -11,6 +11,7 @@ Examples:
   python tools/deploy_pulsegrid_lightsail.py --from-dotenv
   python tools/deploy_pulsegrid_lightsail.py --dry-run
 """
+
 from __future__ import annotations
 
 import argparse
@@ -42,7 +43,10 @@ def config_incomplete(deploy_dir: Path, parse_dotenv) -> bool:
     if not env_path.is_file() or not key_path.is_file():
         return True
     d = parse_dotenv(env_path)
-    return not (d.get("AQ_LIGHTSAIL_HOST") or "").strip() and not (d.get("AQ_LIGHTSAIL_INSTANCE_NAME") or "").strip()
+    return (
+        not (d.get("AQ_LIGHTSAIL_HOST") or "").strip()
+        and not (d.get("AQ_LIGHTSAIL_INSTANCE_NAME") or "").strip()
+    )
 
 
 def run_deploy(deploy_dir: Path, *, dry_run: bool, skip_publish: bool) -> int:
@@ -76,7 +80,9 @@ def run_deploy(deploy_dir: Path, *, dry_run: bool, skip_publish: bool) -> int:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     ap.add_argument("--from-dotenv", action="store_true")
     ap.add_argument("--no-auto-prepare", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
@@ -87,9 +93,14 @@ def main() -> int:
     prep.load_env_files(pulsegrid_root())
     deploy_dir = prep.deploy_dir()
 
-    want = args.from_dotenv or (not args.no_auto_prepare and config_incomplete(deploy_dir, prep.parse_dotenv))
+    want = args.from_dotenv or (
+        not args.no_auto_prepare and config_incomplete(deploy_dir, prep.parse_dotenv)
+    )
     if want and args.dry_run:
-        print("ERROR: run once without --dry-run to write deploy.config.env first.", file=sys.stderr)
+        print(
+            "ERROR: run once without --dry-run to write deploy.config.env first.",
+            file=sys.stderr,
+        )
         return 2
     if want:
         rc = prep.apply_from_dotenv(dry_run=False)

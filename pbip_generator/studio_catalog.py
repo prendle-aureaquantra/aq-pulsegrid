@@ -44,7 +44,11 @@ def build_studio_catalog(city_slug: str) -> list[dict]:
             "source_path": "datasets/cities",
             "column_count": 3,
             "columns_list": json.dumps(
-                {"city": city_slug, "theme": meta.get("theme"), "model": meta.get("model_name")}
+                {
+                    "city": city_slug,
+                    "theme": meta.get("theme"),
+                    "model": meta.get("model_name"),
+                }
             ),
         }
     )

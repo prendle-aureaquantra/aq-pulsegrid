@@ -9,7 +9,6 @@ from pulsegrid.transforms.bronze_parsers import (
     parse_airport_bronze,
     parse_cta_bronze,
     parse_fred_bronze,
-    parse_noaa_alerts_bronze,
     parse_noaa_forecast_bronze,
     parse_trends_bronze,
 )
@@ -109,7 +108,12 @@ def test_parse_trends_bronze(tmp_path: Path):
         "fetched_at": "2026-05-23T12:00:00+00:00",
         "keywords": ["Chicago transit", "CTA delay"],
         "interest_over_time": [
-            {"date": "2026-05-18", "Chicago transit": 42, "CTA delay": 18, "isPartial": False},
+            {
+                "date": "2026-05-18",
+                "Chicago transit": 42,
+                "CTA delay": 18,
+                "isPartial": False,
+            },
         ],
     }
     p = tmp_path / "trends_test.json"

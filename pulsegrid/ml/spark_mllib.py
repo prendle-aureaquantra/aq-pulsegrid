@@ -22,12 +22,17 @@ def mllib_anomaly_score(features: list[list[float]]) -> list[float]:
         df = spark.createDataFrame(rows)
         assembler = VectorAssembler(inputCols=cols, outputCol="features")
         assembled = assembler.transform(df)
-        summary = Summarizer.metrics("mean", "std").summary(assembled.select("features"))
+        summary = Summarizer.metrics("mean", "std").summary(
+            assembled.select("features")
+        )
         mean = summary.collect()[0]["features"][0]
         std = summary.collect()[0]["features"][1]
         scores: list[float] = []
         for vals in features:
-            z = sum(abs((v - m) / (s or 1.0)) for v, m, s in zip(vals, mean, std, strict=False))
+            z = sum(
+                abs((v - m) / (s or 1.0))
+                for v, m, s in zip(vals, mean, std, strict=False)
+            )
             scores.append(round(float(z), 3))
         return scores
     finally:

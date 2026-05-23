@@ -29,8 +29,16 @@ def test_anomaly_detects_transit_spike():
     }
     history = pd.DataFrame(
         [
-            {"active_cta_alerts": 90, "active_noaa_alerts": 1, "avg_precip_pct_next_periods": 10},
-            {"active_cta_alerts": 95, "active_noaa_alerts": 2, "avg_precip_pct_next_periods": 12},
+            {
+                "active_cta_alerts": 90,
+                "active_noaa_alerts": 1,
+                "avg_precip_pct_next_periods": 10,
+            },
+            {
+                "active_cta_alerts": 95,
+                "active_noaa_alerts": 2,
+                "avg_precip_pct_next_periods": 12,
+            },
         ]
     )
     signals = detect_anomalies(

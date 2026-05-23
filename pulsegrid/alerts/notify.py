@@ -24,9 +24,7 @@ def _load_anomalies(city: str) -> list[dict]:
     if "city" in df.columns:
         df = df[df["city"] == city]
     rows = df.to_dict(orient="records")
-    return [
-        r for r in rows if str(r.get("severity", "")).lower() in HIGH_SEVERITIES
-    ]
+    return [r for r in rows if str(r.get("severity", "")).lower() in HIGH_SEVERITIES]
 
 
 def _slack(webhook: str, text: str) -> None:
