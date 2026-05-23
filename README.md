@@ -1,8 +1,11 @@
 # AQ PulseGrid
 
-Real-time Spark-powered urban intelligence platform combining streaming public datasets, machine learning, geospatial analytics, and automated Power BI PBIP generation.
+Real-time Spark-powered urban intelligence platform combining streaming public datasets,
+machine learning, geospatial analytics, and automated Power BI PBIP generation.
 
-AQ PulseGrid is a Spark-powered urban intelligence platform that combines streaming public datasets, machine learning, geospatial analytics, and automated Power BI PBIP generation into a modern AI-ready analytics system.
+AQ PulseGrid is a Spark-powered urban intelligence platform that combines streaming public
+datasets, machine learning, geospatial analytics, and automated Power BI PBIP generation
+into a modern AI-ready analytics system.
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
 [![Spark](https://img.shields.io/badge/Spark-3.5-orange)](https://spark.apache.org/)
@@ -14,7 +17,52 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 **Repository:** [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
 
 > Public demo by [Aurea Quantra](https://aureaquantra.com). Chicago Phase 1 MVP.  
-> **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com) (Route 53 A record → Lightsail Apache → FastAPI)
+> **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com)
+
+---
+
+## Reviewer Quick Path
+
+If you are reviewing this project quickly:
+
+1. Start with `README.md`
+2. Review [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+3. Inspect [`generate_city.py`](generate_city.py)
+4. Open [`pbip_generator/`](pbip_generator/)
+5. Review [`generated_reports/chicago/`](generated_reports/chicago/)
+6. Check [`pulsegrid/web/status_app.py`](pulsegrid/web/status_app.py)
+7. Review [`deploy/lightsail/`](deploy/lightsail/)
+
+---
+
+## Why the PBIP Generator Matters
+
+AQ PulseGrid does not only create analytics outputs.
+
+It generates Power BI project artifacts from metadata, including semantic model structure,
+DAX measures, themed report pages, and generated PBIP report folders.
+
+This demonstrates a more advanced BI engineering pattern: **automated semantic BI generation**
+rather than manual dashboard construction.
+
+![PBIP generator output](docs/screenshots/pbip-generator.png)
+
+---
+
+## Project Health
+
+| Area | Status |
+|------|--------|
+| Spark pipeline scaffold | Active |
+| Public data ingestion | Active |
+| Chicago MVP | Active |
+| PBIP generation | Active |
+| ML scoring | Prototype |
+| Web status app | Prototype |
+| Databricks deployment | Planned |
+| Multi-city support | Planned |
+
+---
 
 ## Core features
 
@@ -26,26 +74,23 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 - **Automated Power BI PBIP generation** (metadata-driven visuals + themes)
 - Real-time operational analytics from public APIs
 
-## System capabilities
-
-- Real-time streaming ingestion
-- Spark medallion architecture
-- Delta Lake pipelines
-- Geospatial enrichment
-- ML anomaly detection
-- AI signal scoring
-- Metadata-driven semantic modeling
-- Automated Power BI PBIP generation
-- GitHub Actions CI/CD
-- Containerized local deployment
-
 ## Demo in 60 seconds
 
 ```bash
 git clone https://github.com/prendle-aureaquantra/aq-pulsegrid.git
 cd aq-pulsegrid
 cp .env.example .env
-python -m venv .venv && .venv\Scripts\activate   # Windows
+python -m venv .venv
+source .venv/bin/activate          # Linux / macOS
+pip install -e ".[dev]"
+python generate_city.py --city chicago --with-visuals
+```
+
+Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
 pip install -e ".[dev]"
 python generate_city.py --city chicago --with-visuals
 ```
@@ -54,7 +99,39 @@ Open **`~/.local/aq-pulsegrid/reports/chicago/ChicagoPulse.pbip`** in Power BI D
 
 Sample in repo: [`generated_reports/chicago/ChicagoPulse.pbip`](generated_reports/chicago/ChicagoPulse.pbip)
 
-![Live City Pulse](docs/screenshots/live-city-pulse.png)
+---
+
+## Screenshots
+
+| Screenshot | Description |
+|------------|-------------|
+| ![Live City Pulse](docs/screenshots/live-city-pulse.png) | Dark operations-center KPI view |
+| ![Spark pipeline](docs/screenshots/spark-pipeline.png) | Bronze → silver → gold → PBIP flow |
+| ![Lightsail status](docs/screenshots/lightsail-status.png) | Live ops console at pulse.aureaquantra.com |
+
+Regenerate PNGs:
+
+```bash
+python tools/capture_readme_screenshots.py --city chicago --screenshots-only
+python tools/capture_readme_screenshots.py --city chicago --platform-only
+```
+
+---
+
+## Operational Web Console
+
+AQ PulseGrid includes a lightweight operational web console for enterprise-style delivery surfaces.
+
+| Surface | Location |
+|---------|----------|
+| **FastAPI status app** | [`pulsegrid/web/status_app.py`](pulsegrid/web/status_app.py) |
+| **Lightsail deploy** | [`deploy/lightsail/`](deploy/lightsail/) |
+| **Live HTTPS endpoint** | [https://pulse.aureaquantra.com](https://pulse.aureaquantra.com) |
+| **ASP.NET sibling demo** | Aurea Quantra monorepo `asp-demo-dashboard` (separate operational BI demo) |
+
+See [`docs/OPERATIONAL_WEB_CONSOLE.md`](docs/OPERATIONAL_WEB_CONSOLE.md) and [`web/README.md`](web/README.md).
+
+---
 
 ## Architecture
 
@@ -85,7 +162,11 @@ Sample in repo: [`generated_reports/chicago/ChicagoPulse.pbip`](generated_report
 └──────────────────────────────┘
 ```
 
+![Spark pipeline](docs/screenshots/spark-pipeline.png)
+
 Detailed diagram: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · Positioning: [docs/POSITIONING.md](docs/POSITIONING.md)
+
+---
 
 ## What you get (Chicago MVP)
 
@@ -94,7 +175,7 @@ Detailed diagram: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) · Positioning: [
 | Bronze | NOAA, CTA, airport METAR, optional Trends/FRED JSON |
 | Silver / Gold | Delta tables under `~/.local/aq-pulsegrid/delta/` |
 | ML | City Pulse Score, anomaly signals |
-| BI | **ChicagoPulse.pbip** — 4 pages, Aurea Quantra gold theme |
+| BI | **ChicagoPulse.pbip** — 9 pages, ~28 visuals, Aurea Quantra gold theme |
 
 ## Commands
 
@@ -129,14 +210,18 @@ Copy [`.env.example`](.env.example) → `.env`. **Never commit `.env`.**
 | `FRED_API_KEY` | Optional FRED macro ingest |
 | `AUREAQUANTRA_GITHUB_TOKEN` | PAT for [prendle-aureaquantra](https://github.com/prendle-aureaquantra) org push/CI |
 | `DATABRICKS_HOST` / `DATABRICKS_TOKEN` | Optional Databricks job deploy |
+| `POWERBI_PULSEGRID_EMBED_URL` | Fabric embed for status page + WordPress |
 
 ## Why this project exists
 
-Modern analytics systems increasingly require real-time signal fusion across operational, environmental, geospatial, and behavioral datasets. AQ PulseGrid demonstrates how Spark, machine learning, semantic BI modeling, and automated Power BI generation combine into a modern AI-ready analytics platform.
+Modern analytics systems increasingly require real-time signal fusion across operational,
+environmental, geospatial, and behavioral datasets. AQ PulseGrid demonstrates how Spark,
+machine learning, semantic BI modeling, and automated Power BI generation combine into a
+modern AI-ready analytics platform.
 
 ## Roadmap
 
-[docs/ROADMAP.md](docs/ROADMAP.md) — Sedona maps, Fabric embed, multi-city, replay engine, AI copilot layer.
+[docs/ROADMAP.md](docs/ROADMAP.md) — Fabric embed, Sedona maps, multi-city, OpenSky aviation.
 
 ## License
 
