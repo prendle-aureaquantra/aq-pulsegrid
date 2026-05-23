@@ -14,7 +14,7 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 **Repository:** [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
 
 > Public demo by [Aurea Quantra](https://aureaquantra.com). Chicago Phase 1 MVP.  
-> **Live ops status:** [pulse.aureaquantra.com](http://pulse.aureaquantra.com) (Route 53 A record → Lightsail Apache → FastAPI)
+> **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com) (Route 53 A record → Lightsail Apache → FastAPI)
 
 ## Core features
 
