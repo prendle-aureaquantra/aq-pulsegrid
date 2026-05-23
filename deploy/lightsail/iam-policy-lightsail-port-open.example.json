@@ -1,0 +1,23 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "LightsailDescribeInstances",
+      "Effect": "Allow",
+      "Action": [
+        "lightsail:GetInstance",
+        "lightsail:GetInstances"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "LightsailOpenPulseGridPort",
+      "Effect": "Allow",
+      "Action": [
+        "lightsail:OpenInstancePublicPorts",
+        "lightsail:PutInstancePublicPorts"
+      ],
+      "Resource": "*"
+    }
+  ]
+}

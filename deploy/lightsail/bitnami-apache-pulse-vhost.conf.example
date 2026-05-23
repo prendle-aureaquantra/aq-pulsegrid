@@ -1,0 +1,22 @@
+# Bitnami Apache vhost for pulse.aureaquantra.com -> PulseGrid FastAPI (127.0.0.1:5190)
+# Installed automatically by enable_pulsegrid_public.py as aq-pulsegrid-vhost.conf
+# Manual: copy to /opt/bitnami/apache/conf/vhosts/ and restart apache.
+
+<VirtualHost *:80>
+    ServerName pulse.aureaquantra.com
+
+    DocumentRoot "/opt/bitnami/apache/htdocs"
+    <Directory "/opt/bitnami/apache/htdocs">
+        Require all granted
+    </Directory>
+    Alias /.well-known/acme-challenge "/opt/bitnami/apache/htdocs/.well-known/acme-challenge"
+    <Directory "/opt/bitnami/apache/htdocs/.well-known/acme-challenge">
+        Require all granted
+    </Directory>
+
+    ProxyPreserveHost On
+    RequestHeader set X-Forwarded-Proto "http"
+    ProxyPass /.well-known/acme-challenge !
+    ProxyPass / http://127.0.0.1:5190/
+    ProxyPassReverse / http://127.0.0.1:5190/
+</VirtualHost>

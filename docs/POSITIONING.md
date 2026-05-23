@@ -1,6 +1,21 @@
 # AQ PulseGrid — Product Direction + Architecture + GitHub Positioning
 
-Repository: [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
+**Organization:** [github.com/prendle-aureaquantra](https://github.com/prendle-aureaquantra)  
+**Repository:** [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
+
+**Recommended org description:**
+
+```text
+Modern AI-ready analytics platforms combining Spark, machine learning, semantic BI, geospatial intelligence, and automated Power BI generation.
+```
+
+**Recommended repo description:**
+
+```text
+Real-time Spark-powered urban intelligence platform combining streaming public datasets, machine learning, geospatial analytics, and automated Power BI PBIP generation.
+```
+
+**Operational demo (Lightsail):** `http://pulse.aureaquantra.com/` (Apache → FastAPI status app; Route 53 A record required)
 
 ## Core positioning
 
@@ -98,6 +113,18 @@ generated_reports/chicago/
 
 Composite operational score (0–100) from weather, transit, airport congestion, trend signals, and ML anomalies. Implemented as **City Stress Index** in `pulsegrid/ml/city_stress.py`.
 
+## Recommended repository ecosystem
+
+| Repo | Role |
+|------|------|
+| **aq-pulsegrid** | Urban intelligence platform (current) |
+| aq-pbip-generator | PBIP automation (future) |
+| aq-semantic-modeler | Semantic layer tooling (future) |
+| aq-spark-utils | Shared Spark utilities (future) |
+| aq-geospatial-engine | Sedona / hex / OSM (future) |
+| aq-signal-lab | ML signal scoring (future) |
+| aq-fabric-accelerator | Fabric deployment patterns (future) |
+
 ## Dashboard pages (target)
 
 | Page | Status |
@@ -105,11 +132,12 @@ Composite operational score (0–100) from weather, transit, airport congestion,
 | Live City Pulse | Done |
 | Transit & Mobility | Done |
 | Weather Impact Analysis | Done |
-| Airport, Macro & Hex | Done (Phase 1 extended) |
-| Event Heatmaps | Planned |
-| AI Signal Detection | Partial (anomaly table + visuals) |
-| Streaming Monitor | Scaffold |
-| PBIP Generator Studio | Planned |
+| Airport Operations | Done |
+| Event Heatmaps | Done |
+| AI Signal Detection | Done |
+| Streaming Monitor | Done |
+| Macro & Trends | Done |
+| PBIP Generator Studio | Done |
 
 ## Visual style
 
