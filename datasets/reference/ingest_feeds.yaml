@@ -51,4 +51,9 @@ weather_defaults:
   default: open_meteo
 
 # Optional per-metro enable/disable (omit = auto-resolve from registry + sidecars)
-metro_overrides: {}
+metro_overrides:
+  # Example: disable a flaky feed without code changes
+  # houston:
+  #   feeds:
+  #     civic311:
+  #       enabled: false

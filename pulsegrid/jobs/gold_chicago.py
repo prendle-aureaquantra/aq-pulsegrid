@@ -1,4 +1,4 @@
-"""Gold KPI tables from silver Delta."""
+"""Gold KPI tables from silver Delta (all metros — legacy module name)."""
 
 from __future__ import annotations
 
@@ -27,6 +27,7 @@ from pulsegrid.jobs.gold_platform import (
     streaming_telemetry_rows,
     transit_alert_detail_rows,
 )
+from pulsegrid.ingest.bronze_freshness import latest_bronze_times
 from pulsegrid.infrastructure_risk import (
     infrastructure_detail_rows,
     infrastructure_risk_rollup,
@@ -252,10 +253,16 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
         + event_stress,
         2,
     )
+    freshness = latest_bronze_times(city.slug)
     pulse = [
         {
             "city": city.slug,
             "snapshot_at": snapshot_at,
+            "data_refreshed_at": freshness.get("data_refreshed_at", snapshot_at),
+            "last_weather_ingest_at": freshness.get("weather", ""),
+            "last_transit_ingest_at": freshness.get("transit", ""),
+            "last_civic311_ingest_at": freshness.get("civic311", ""),
+            "last_airport_ingest_at": freshness.get("airport", ""),
             "active_transit_alerts": active_transit,
             "active_noaa_alerts": active_noaa,
             "avg_precip_pct_next_periods": avg_precip,

@@ -46,7 +46,7 @@ def test_lookup_mbta_from_cached_index(tmp_path, monkeypatch):
 
 
 def test_resolve_transit_metro_uses_catalog():
-    from pulsegrid.ingest.registry import _resolve_transit_metro
+    from pulsegrid.ingest.transit_resolve import resolve_transit_metro as _resolve_transit_metro
 
     berlin = load_metro("berlin")
     with patch(

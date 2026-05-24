@@ -173,6 +173,14 @@ def main() -> int:
     try:
         if args.platform_only:
             run_platform(with_visuals=args.with_visuals, tier=args.tier)
+            from pulsegrid.pipeline_status import write_pipeline_status
+
+            write_pipeline_status(
+                job="platform-only",
+                metros_ok=len(metro_slugs),
+                metros_failed=0,
+                detail=f"visuals={args.with_visuals}",
+            )
             return 0
 
         if args.stream_spark:
@@ -199,6 +207,15 @@ def main() -> int:
                     print(f"WARN: ingest failed for {slug}: {exc}", file=sys.stderr)
                 if i + 1 < len(metro_slugs) and args.ingest_delay > 0:
                     time.sleep(args.ingest_delay)
+            if len(metro_slugs) > 1:
+                from pulsegrid.pipeline_status import write_pipeline_status
+
+                write_pipeline_status(
+                    job="ingest-only",
+                    metros_ok=len(metro_slugs) - failed,
+                    metros_failed=failed,
+                    detail=f"tier={args.tier or 'all'} extended={args.extended_ingest}",
+                )
             if failed == len(metro_slugs):
                 return 1
         elif args.transform_only:

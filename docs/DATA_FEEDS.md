@@ -11,10 +11,13 @@ Four high-signal feeds are declared in [`datasets/reference/ingest_feeds.yaml`](
 | `opensky_aviation` | OpenSky ADS-B (`opensky.py`) | `airports` module or airport ICAO catalog |
 | `civic311` | Socrata 311 (`civic311.py`) | US metro with entry in `civic311.yaml` |
 
-`run_metro_ingest()` runs all enabled core feeds. OpenSky moved from extended-only to core when airports are configured. Coverage report:
+`run_metro_ingest()` runs all enabled core feeds. OpenSky moved from extended-only to core when airports are configured. Each feed uses **exponential backoff** (3 attempts) and writes bronze freshness markers.
+
+Coverage report (CI enforces minimum counts on `main`):
 
 ```bash
 python tools/ingest_feed_coverage.py
+python tools/ingest_feed_coverage.py --check-min
 ```
 
 | Feed | Module | Adapter key | Bronze path |

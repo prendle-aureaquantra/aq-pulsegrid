@@ -176,6 +176,41 @@ table CityPulseSnapshot
 		sourceColumn: infrastructure_summary
 		annotation SummarizationSetBy = Automatic
 
+	column data_refreshed_at
+		dataType: string
+		lineageTag: 90acab21-9fd9-5177-8823-5f42ed9b4bc3
+		summarizeBy: none
+		sourceColumn: data_refreshed_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_weather_ingest_at
+		dataType: string
+		lineageTag: 0ecc6975-8574-5336-b126-54eab6f161b9
+		summarizeBy: none
+		sourceColumn: last_weather_ingest_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_transit_ingest_at
+		dataType: string
+		lineageTag: 19cda07e-6bf3-5b44-bd25-53f2c4929e40
+		summarizeBy: none
+		sourceColumn: last_transit_ingest_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_civic311_ingest_at
+		dataType: string
+		lineageTag: 54908f52-7ef0-5fba-a823-886a889565ad
+		summarizeBy: none
+		sourceColumn: last_civic311_ingest_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_airport_ingest_at
+		dataType: string
+		lineageTag: ec380892-977f-57de-9679-da2959b135a4
+		summarizeBy: none
+		sourceColumn: last_airport_ingest_at
+		annotation SummarizationSetBy = Automatic
+
 	measure 'City Stress Index' = AVERAGE(CityPulseSnapshot[city_stress_index])
 		formatString: 0.0
 		lineageTag: 96c842f7-fcb6-5afa-aacf-657c1de8088b
@@ -253,7 +288,7 @@ table CityPulseSnapshot
 		source =
 			let
 				Source = Csv.Document(
-					File.Contents("C:/Users/prendleman/AppData/Local/Temp/pytest-of-prendleman/pytest-43/test_build_pbip_blank_pages0/generated/chicago/data/CityPulseSnapshot.csv"),
+					File.Contents("../../../data/CityPulseSnapshot.csv"),
 					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
 				),
 				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
@@ -284,7 +319,12 @@ table CityPulseSnapshot
 					{"bridge_risk_score", type number},
 					{"road_surface_risk_score", type number},
 					{"open_infrastructure_requests", Int64.Type},
-					{"infrastructure_summary", type text}
+					{"infrastructure_summary", type text},
+					{"data_refreshed_at", type text},
+					{"last_weather_ingest_at", type text},
+					{"last_transit_ingest_at", type text},
+					{"last_civic311_ingest_at", type text},
+					{"last_airport_ingest_at", type text}
 					}
 				)
 			in

@@ -21,3 +21,7 @@ Z-score vs rolling `ml/pulse_history` or `datasets/reference/chicago_baselines.y
 Signal types: `transit_alert_spike`, `weather_alert_spike`, `precip_forecast_spike`, `reroute_share_spike`, `neighborhood_activity_spike`.
 
 Output: `gold/anomaly_signals` Delta table.
+
+## Spark MLlib (optional)
+
+Set `PULSEGRID_ENGINE=spark` to run gold/ML via Spark (`pulsegrid/jobs/gold_chicago_spark.py`, `pulsegrid/ml/spark_mllib.py`). Default local path uses pandas + z-score anomaly detection — sufficient for demo and &lt;100 metros. Use Spark when bronze/silver volumes require cluster scale.

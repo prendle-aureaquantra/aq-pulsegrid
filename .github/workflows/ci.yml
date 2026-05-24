@@ -19,6 +19,7 @@ jobs:
       - run: pip install -e ".[dev]"
       - run: ruff check pulsegrid generate_city.py tests pbip_generator tools
       - run: pytest tests/ -q
+      - run: python tools/ingest_feed_coverage.py --check-min --min-transit 20 --min-nws 12 --min-civic311 10
 
   databricks-bundle-validate:
     runs-on: ubuntu-latest

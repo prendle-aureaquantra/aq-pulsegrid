@@ -51,6 +51,11 @@ TABLE_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("road_surface_risk_score", "type number"),
         ("open_infrastructure_requests", "Int64.Type"),
         ("infrastructure_summary", "type text"),
+        ("data_refreshed_at", "type text"),
+        ("last_weather_ingest_at", "type text"),
+        ("last_transit_ingest_at", "type text"),
+        ("last_civic311_ingest_at", "type text"),
+        ("last_airport_ingest_at", "type text"),
     ],
     "InfrastructureRiskSnapshot": [
         ("city", "type text"),
@@ -367,15 +372,19 @@ def _m_transform_pairs(cols: list[tuple[str, str]]) -> str:
     return ",\n\t\t".join(f'{{"{name}", {pq}}}' for name, pq in cols)
 
 
-def _csv_absolute(csv_path: Path) -> str:
-    """Power BI File.Contents requires an absolute path (forward slashes on Windows)."""
-    return csv_path.resolve().as_posix()
+def _csv_query_path(csv_path: Path, data_dir: Path) -> str:
+    """Prefer PBIP-relative data paths (portable); fall back to absolute."""
+    try:
+        rel = csv_path.resolve().relative_to(data_dir.resolve())
+        return f"../../../data/{rel.as_posix()}"
+    except ValueError:
+        return csv_path.resolve().as_posix()
 
 
-def _partition_m(table: str, csv_path: Path) -> str:
+def _partition_m(table: str, csv_path: Path, data_dir: Path) -> str:
     cols = TABLE_COLUMNS[table]
     pairs = _m_transform_pairs(cols)
-    csv_m = _csv_absolute(csv_path).replace('"', '""')
+    csv_m = _csv_query_path(csv_path, data_dir).replace('"', '""')
     return f"""let
 	Source = Csv.Document(
 		File.Contents("{csv_m}"),
@@ -393,7 +402,7 @@ in
 """
 
 
-def _table_tmdl(table: str, csv_path: Path) -> str:
+def _table_tmdl(table: str, csv_path: Path, data_dir: Path) -> str:
     cols = TABLE_COLUMNS[table]
     lines = [f"table {table}", f"\tlineageTag: {_lid(f'table.{table}')}", ""]
     for col_name, pq in cols:
@@ -556,7 +565,7 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
             lines.append("")
     # PbipStudioCatalog: no table-scoped COUNTROWS measure — causes cyclic ref on load in Desktop.
     part_name = f"{table}-{_lid(f'partition.{table}')}"
-    m_body = _partition_m(table, csv_path).rstrip("\n")
+    m_body = _partition_m(table, csv_path, data_dir).rstrip("\n")
     lines.append(f"\tpartition {part_name} = m")
     lines.append("\t\tmode: import")
     lines.append("\t\tsource =")
@@ -643,7 +652,7 @@ def _write_semantic_tables(
         csv = data_dir / f"{t}.csv"
         if csv.exists():
             (sm_def / "tables" / f"{t}.tmdl").write_text(
-                _table_tmdl(t, csv), encoding="utf-8"
+                _table_tmdl(t, csv, data_dir), encoding="utf-8"
             )
     _write_relationships(sm_def, data_dir)
     _validate_relationship_paths(sm_def)

@@ -108,6 +108,39 @@ def api_metros() -> JSONResponse:
     return JSONResponse({"metros": _read_csv("DimMetro.csv")})
 
 
+@app.get("/api/feed-coverage")
+def api_feed_coverage() -> JSONResponse:
+    try:
+        from pulsegrid.ingest.feed_framework import CORE_FEED_IDS, coverage_report
+        from pulsegrid.metros import list_metros
+
+        rows = coverage_report(list_metros())
+        counts = {
+            fid: sum(1 for r in rows if r.get(fid) == "yes") for fid in CORE_FEED_IDS
+        }
+        return JSONResponse({"totalMetros": len(rows), "enabled": counts, "rows": rows})
+    except Exception as exc:
+        return JSONResponse({"error": str(exc)}, status_code=500)
+
+
+@app.get("/api/example-prompts")
+def api_example_prompts(metro: str = Query(default="")) -> JSONResponse:
+    slug = (metro or DEFAULT_METRO).strip().lower()
+    try:
+        from pulsegrid.copilot.prompts import sample_questions
+
+        return JSONResponse({"metro": slug, "prompts": sample_questions(slug)})
+    except Exception as exc:
+        return JSONResponse({"error": str(exc)}, status_code=500)
+
+
+@app.get("/api/pipeline-status")
+def api_pipeline_status() -> JSONResponse:
+    from pulsegrid.pipeline_status import read_pipeline_status
+
+    return JSONResponse(read_pipeline_status() or {"status": "unknown"})
+
+
 @app.get("/api/pulse")
 def api_pulse(metro: str = Query(default="")) -> JSONResponse:
     slug = (metro or DEFAULT_METRO).strip().lower()
@@ -140,7 +173,28 @@ def index(metro: str = Query(default="")) -> str:
     stress = latest.get("city_stress_index", "—")
     transit = latest.get("transit_load_score", "—")
     weather = latest.get("weather_risk_score", "—")
+    infra_fail = latest.get("infrastructure_failure_risk", "—")
     snapshot_at = latest.get("snapshot_at", "—")
+    refreshed = latest.get("data_refreshed_at", "—")
+    try:
+        from pulsegrid.copilot.prompts import sample_questions
+
+        prompts = sample_questions(slug, limit=5)
+    except Exception:
+        prompts = []
+    prompt_items = "".join(f"<li>{html.escape(p)}</li>" for p in prompts) or (
+        "<li class='muted'>Run gold transform after civic311 ingest</li>"
+    )
+    from pulsegrid.pipeline_status import read_pipeline_status
+
+    pipe = read_pipeline_status() or {}
+    pipe_line = (
+        f"Last job: {html.escape(str(pipe.get('job', '—')))} · "
+        f"{html.escape(str(pipe.get('finished_at', '—')))} · "
+        f"ok={pipe.get('metros_ok', '—')} failed={pipe.get('metros_failed', '—')}"
+        if pipe
+        else "No pipeline status file — run multi-metro ingest or platform export."
+    )
     embed = (
         f'<iframe title="PulseGrid {html.escape(display)}" src="{html.escape(EMBED_URL)}" '
         'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
@@ -192,7 +246,8 @@ def index(metro: str = Query(default="")) -> str:
   <div class="wrap">
     <header>
       <h1>AQ PulseGrid — Worldwide Metros</h1>
-      <p>{html.escape(display)} · snapshot {html.escape(str(snapshot_at))}</p>
+      <p>{html.escape(display)} · snapshot {html.escape(str(snapshot_at))} · data refreshed {html.escape(str(refreshed))}</p>
+      <p class="muted">{pipe_line}</p>
       <p><a href="{REPO_URL}">github.com/prendle-aureaquantra/aq-pulsegrid</a></p>
     </header>
     <form class="slicer-bar" method="get" action="/">
@@ -206,6 +261,12 @@ def index(metro: str = Query(default="")) -> str:
       <div class="kpi"><span>City stress</span><strong>{html.escape(str(stress))}</strong></div>
       <div class="kpi"><span>Transit load</span><strong>{html.escape(str(transit))}</strong></div>
       <div class="kpi"><span>Weather risk</span><strong>{html.escape(str(weather))}</strong></div>
+      <div class="kpi"><span>Infra failure risk</span><strong>{html.escape(str(infra_fail))}</strong></div>
+    </section>
+    <section class="panel" style="margin-top:1.25rem">
+      <h2>Copilot demo prompts</h2>
+      <ul>{prompt_items}</ul>
+      <p class="muted">CLI: <code>python -m pulsegrid.copilot.insights {html.escape(slug)} --list-prompts</code></p>
     </section>
     <section class="grid2">
       <div class="panel">
@@ -221,6 +282,8 @@ def index(metro: str = Query(default="")) -> str:
     <p class="muted" style="margin-top:1.5rem">
       <a href="/api/pulse?metro={quote(slug)}">JSON API</a> ·
       <a href="/api/metros">metros</a> ·
+      <a href="/api/feed-coverage">feed coverage</a> ·
+      <a href="/api/pipeline-status">pipeline</a> ·
       <a href="/health">health</a>
     </p>
   </div>

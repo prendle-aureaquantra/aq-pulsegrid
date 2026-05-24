@@ -47,7 +47,16 @@ def optional_export_map() -> dict[str, Path]:
     }
 
 
+PULSE_FRESHNESS_COLUMNS = (
+    "data_refreshed_at",
+    "last_weather_ingest_at",
+    "last_transit_ingest_at",
+    "last_civic311_ingest_at",
+    "last_airport_ingest_at",
+)
+
 PULSE_EXTENDED_COLUMNS = (
+    *PULSE_FRESHNESS_COLUMNS,
     "airport_flight_category",
     "airport_visibility_sm",
     "airport_ops_stress",

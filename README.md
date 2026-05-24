@@ -16,6 +16,11 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 > Public demo by [Aurea Quantra](https://aureaquantra.com). **Phase 2:** worldwide metros + metro slicer.
 
 See [docs/PHASE2.md](docs/PHASE2.md) for multi-metro CLI, Databricks global job, and public feeds.
+
+**After git pull:** regenerate platform PBIP so CSV paths stay portable — `python generate_city.py --platform-only --with-visuals` ([docs/FABRIC_EMBED.md](docs/FABRIC_EMBED.md)).
+
+**Feed coverage:** `python tools/ingest_feed_coverage.py` · **Copilot prompts:** `python -m pulsegrid.copilot.insights chicago --list-prompts`
+
 > **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com)
 
 ---

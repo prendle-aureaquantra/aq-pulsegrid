@@ -18,7 +18,7 @@ Status key: **Done** · **Scaffold** · **Planned**
 - [x] **Phase 2:** Worldwide metro registry + metro slicer ([PHASE2.md](PHASE2.md))
 - [x] **Phase 2:** OpenSky, GTFS-RT, USGS, Open-Meteo, AQI feeds ([DATA_FEEDS.md](DATA_FEEDS.md))
 - [x] **Phase 2:** Databricks global job (`aq-pulsegrid-daily-global`)
-- [ ] Fabric live embed on aureaquantra.com (needs published `.pbix` + `POWERBI_PULSEGRID_EMBED_URL`)
+- [ ] Fabric live embed on aureaquantra.com (docs: [FABRIC_EMBED.md](FABRIC_EMBED.md); needs published `.pbix` + `POWERBI_PULSEGRID_EMBED_URL`)
 - [x] Lightsail ops app + **https://pulse.aureaquantra.com/** (Apache + Let's Encrypt)
 - [x] Apache Sedona Spark UDFs (`pulsegrid/geo/sedona_hex.py` — UDFs + Spark hex aggregation)
 - [ ] Spark MLlib production anomaly model (optional z-score path when `PULSEGRID_ENGINE=spark`)

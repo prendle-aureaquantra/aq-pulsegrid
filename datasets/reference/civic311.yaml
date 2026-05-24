@@ -99,3 +99,11 @@ metros:
     order: created_at DESC
     limit: 150
     recent_days: 14
+  austin:
+    url: https://data.austintexas.gov/resource/n5yd-9eck.json
+    date_field: created_date
+    type_field: type
+    status_field: status
+    order: created_date DESC
+    limit: 150
+    recent_days: 14

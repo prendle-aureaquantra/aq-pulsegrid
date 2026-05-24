@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import time
 from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
@@ -271,49 +272,81 @@ def enabled_feed_modules(metro: MetroConfig) -> tuple[str, ...]:
     return tuple(sorted(mods))
 
 
+def _feed_bronze_key(feed_id: str) -> str:
+    return {
+        "nws_weather": "weather",
+        "gtfs_rt": "transit",
+        "opensky_aviation": "opensky",
+        "civic311": "civic311",
+    }.get(feed_id, feed_id)
+
+
 def run_feed(
     metro: MetroConfig,
     feed_id: str,
     out_dir: Path | None = None,
+    *,
+    max_attempts: int = 3,
+    backoff_sec: float = 2.0,
 ) -> list[Path]:
-    """Execute a single feed by metadata id."""
+    """Execute a single feed by metadata id (with exponential backoff)."""
     resolved = resolve_feed(metro, feed_id)
     if not resolved.enabled:
         return []
     from pulsegrid.config import metro_to_city
 
     city = metro_to_city(metro)
-    adapter = resolved.adapter
+    last_exc: Exception | None = None
+    for attempt in range(max_attempts):
+        try:
+            if feed_id == "nws_weather":
+                from pulsegrid.ingest.noaa import ingest_noaa
 
-    if feed_id == "nws_weather":
-        from pulsegrid.ingest.noaa import ingest_noaa
+                paths = ingest_noaa(city, out_dir=out_dir)
+            elif feed_id == "gtfs_rt":
+                from pulsegrid.ingest.registry import ingest_transit
 
-        return ingest_noaa(city, out_dir=out_dir)
+                paths = ingest_transit(metro, out_dir=out_dir)
+            elif feed_id == "opensky_aviation":
+                from pulsegrid.ingest.opensky import ingest_opensky
 
-    if feed_id == "gtfs_rt":
-        from pulsegrid.ingest.registry import ingest_transit
+                paths = ingest_opensky(metro, out_dir=out_dir)
+            elif feed_id == "civic311":
+                from pulsegrid.ingest.civic311 import ingest_civic311
 
-        return ingest_transit(metro, out_dir=out_dir)
+                paths = ingest_civic311(city, out_dir=out_dir)
+            else:
+                raise ValueError(f"No runner for feed_id {feed_id!r}")
+            if paths:
+                from pulsegrid.ingest.bronze_freshness import write_freshness_marker
 
-    if feed_id == "opensky_aviation":
-        from pulsegrid.ingest.opensky import ingest_opensky
+                write_freshness_marker(metro.slug, _feed_bronze_key(feed_id))
+            return paths
+        except Exception as exc:
+            last_exc = exc
+            if attempt + 1 >= max_attempts:
+                break
+            delay = backoff_sec * (2**attempt)
+            print(f"  {feed_id} retry {attempt + 2}/{max_attempts} in {delay:.0f}s ({exc})")
+            time.sleep(delay)
+    if last_exc:
+        raise last_exc
+    return []
 
-        return ingest_opensky(metro, out_dir=out_dir)
 
-    if feed_id == "civic311":
-        from pulsegrid.ingest.civic311 import ingest_civic311
-
-        return ingest_civic311(city, out_dir=out_dir)
-
-    raise ValueError(f"No runner for feed_id {feed_id!r}")
-
-
-def run_core_feeds(metro: MetroConfig, out_dir: Path | None = None) -> list[Path]:
+def run_core_feeds(
+    metro: MetroConfig,
+    out_dir: Path | None = None,
+    *,
+    max_attempts: int = 3,
+) -> list[Path]:
     """Run NWS, transit, OpenSky, and 311 when enabled for this metro."""
     paths: list[Path] = []
     for feed_id in CORE_FEED_IDS:
         try:
-            written = run_feed(metro, feed_id, out_dir=out_dir)
+            written = run_feed(
+                metro, feed_id, out_dir=out_dir, max_attempts=max_attempts
+            )
             if written:
                 paths.extend(written)
         except Exception as exc:

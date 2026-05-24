@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 from pulsegrid.config import DELTA, GENERATED, get_city, load_dotenv
+from pulsegrid.copilot.prompts import sample_questions
 from pulsegrid.io.delta_writer import read_delta_table
 
 
@@ -18,6 +19,7 @@ def _load_context(city_slug: str) -> dict:
         ("gold", "city_stress_index"),
         ("gold", "anomaly_signals"),
         ("gold", "city_pulse_snapshot"),
+        ("gold", "infrastructure_risk_snapshot"),
     ):
         path = DELTA / layer / table
         if path.exists():
@@ -98,7 +100,16 @@ def main(argv: list[str] | None = None) -> int:
         help="Custom question (default: executive summary bullets)",
     )
     parser.add_argument("--out", type=Path, help="Write summary markdown file")
+    parser.add_argument(
+        "--list-prompts",
+        action="store_true",
+        help="Print sample training/demo prompts for this city",
+    )
     args = parser.parse_args(argv)
+    if args.list_prompts:
+        for line in sample_questions(args.city):
+            print(f"- {line}")
+        return 0
     try:
         if args.prompt:
             text = ask(args.city, args.prompt, model=args.model)
