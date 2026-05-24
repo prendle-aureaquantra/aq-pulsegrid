@@ -6,7 +6,7 @@ bundle:
 variables:
   repo_path:
     description: Workspace Repos path after Git integration
-    default: /Repos/pulsegrid/aq-pulsegrid
+    default: /Repos/prendleman@aureaquantra.com/aq-pulsegrid
   metro_tier:
     description: Metro tier filter for global job (full or weather_only)
     default: full
@@ -27,36 +27,40 @@ resources:
         - task_key: ingest_metros
           environment_key: Default
           notebook_task:
-            notebook_path: ${var.repo_path}/databricks/ingest_metros
+            notebook_path: ./databricks/ingest_metros
             base_parameters:
               tier: ${var.metro_tier}
+              repo_path: ${var.repo_path}
         - task_key: transform_metros
           environment_key: Default
           depends_on:
             - task_key: ingest_metros
           notebook_task:
-            notebook_path: ${var.repo_path}/databricks/daily_global
+            notebook_path: ./databricks/daily_global
             base_parameters:
               tier: ${var.metro_tier}
               step: transform
+              repo_path: ${var.repo_path}
         - task_key: ml_metros
           environment_key: Default
           depends_on:
             - task_key: transform_metros
           notebook_task:
-            notebook_path: ${var.repo_path}/databricks/daily_global
+            notebook_path: ./databricks/daily_global
             base_parameters:
               tier: ${var.metro_tier}
               step: ml
+              repo_path: ${var.repo_path}
         - task_key: export_platform
           environment_key: Default
           depends_on:
             - task_key: ml_metros
           notebook_task:
-            notebook_path: ${var.repo_path}/databricks/daily_global
+            notebook_path: ./databricks/daily_global
             base_parameters:
               tier: ${var.metro_tier}
               step: export
+              repo_path: ${var.repo_path}
 
     chicago_daily:
       name: aq-pulsegrid-chicago-daily
@@ -72,6 +76,7 @@ resources:
         - task_key: pulsegrid_transform_ml
           environment_key: Default
           notebook_task:
-            notebook_path: ${var.repo_path}/databricks/chicago_daily
+            notebook_path: ./databricks/chicago_daily
             base_parameters:
               city: chicago
+              repo_path: ${var.repo_path}

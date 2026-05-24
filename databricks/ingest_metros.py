@@ -5,6 +5,11 @@
 # COMMAND ----------
 
 dbutils.widgets.text("tier", "full")
+dbutils.widgets.text("repo_path", "/Repos/prendleman@aureaquantra.com/aq-pulsegrid")
+
+# COMMAND ----------
+
+# MAGIC %pip install deltalake pandas pyarrow requests pyyaml python-dotenv
 
 # COMMAND ----------
 
@@ -12,7 +17,10 @@ import subprocess
 import sys
 
 tier = dbutils.widgets.get("tier")
-repo = "/Workspace/Repos/pulsegrid/aq-pulsegrid"
+repo_path = dbutils.widgets.get("repo_path").strip()
+if not repo_path.startswith("/Workspace"):
+    repo_path = "/Workspace" + (repo_path if repo_path.startswith("/") else f"/{repo_path}")
+repo = repo_path.rstrip("/")
 
 subprocess.check_call(
     [

@@ -33,7 +33,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--repo-path",
-        default=os.getenv("DATABRICKS_REPO_PATH", "/Repos/pulsegrid/aq-pulsegrid"),
+        default=os.getenv("DATABRICKS_REPO_PATH", "/Repos/prendleman@aureaquantra.com/aq-pulsegrid"),
         help="Workspace Repos mount path",
     )
     parser.add_argument(
