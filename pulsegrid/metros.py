@@ -68,6 +68,17 @@ def _apply_transit_feed(metro: MetroConfig) -> MetroConfig:
     return metro
 
 
+def _apply_ingest_feed_modules(metro: MetroConfig) -> MetroConfig:
+    """Enable modules implied by ingest_feeds.yaml (e.g. civic311 when configured)."""
+    from pulsegrid.ingest.feed_framework import enabled_feed_modules
+
+    extra = enabled_feed_modules(metro)
+    if not extra:
+        return metro
+    modules = tuple(sorted({*metro.modules, *extra}))
+    return replace(metro, modules=modules)
+
+
 def _apply_airport_feed(metro: MetroConfig) -> MetroConfig:
     from pulsegrid.metro_feeds import airport_station_codes
 
@@ -83,27 +94,29 @@ def _apply_airport_feed(metro: MetroConfig) -> MetroConfig:
 
 
 def _parse_metro(raw: dict) -> MetroConfig:
-    return _apply_airport_feed(
-        _apply_transit_feed(
-        MetroConfig(
-        slug=str(raw["slug"]),
-        name=str(raw["name"]),
-        country=str(raw.get("country", "")),
-        lat=float(raw["lat"]),
-        lon=float(raw["lon"]),
-        timezone=str(raw.get("timezone", "UTC")),
-        tier=str(raw.get("tier", "weather_only")),  # type: ignore[arg-type]
-        noaa_area=str(raw.get("noaa_area", "")),
-        state=str(raw.get("state", "")),
-        modules=tuple(raw.get("modules") or ()),
-        transit_adapter=str(raw.get("transit_adapter", "none")),
-        events_adapter=str(raw.get("events_adapter", "none")),
-        weather_adapter=str(raw.get("weather_adapter", "noaa")),
-        airports=tuple(raw.get("airports") or ()),
-        events_url=str(raw.get("events_url", "")),
-        events_order=str(raw.get("events_order", "start_date DESC")),
-        gtfs_rt_url=str(raw.get("gtfs_rt_url", "")),
-        )
+    return _apply_ingest_feed_modules(
+        _apply_airport_feed(
+            _apply_transit_feed(
+                MetroConfig(
+                    slug=str(raw["slug"]),
+                    name=str(raw["name"]),
+                    country=str(raw.get("country", "")),
+                    lat=float(raw["lat"]),
+                    lon=float(raw["lon"]),
+                    timezone=str(raw.get("timezone", "UTC")),
+                    tier=str(raw.get("tier", "weather_only")),  # type: ignore[arg-type]
+                    noaa_area=str(raw.get("noaa_area", "")),
+                    state=str(raw.get("state", "")),
+                    modules=tuple(raw.get("modules") or ()),
+                    transit_adapter=str(raw.get("transit_adapter", "none")),
+                    events_adapter=str(raw.get("events_adapter", "none")),
+                    weather_adapter=str(raw.get("weather_adapter", "noaa")),
+                    airports=tuple(raw.get("airports") or ()),
+                    events_url=str(raw.get("events_url", "")),
+                    events_order=str(raw.get("events_order", "start_date DESC")),
+                    gtfs_rt_url=str(raw.get("gtfs_rt_url", "")),
+                )
+            )
         )
     )
 

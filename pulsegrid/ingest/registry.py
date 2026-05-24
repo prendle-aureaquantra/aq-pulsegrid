@@ -15,32 +15,10 @@ def _metro_city(metro: MetroConfig) -> CityConfig:
     return metro_to_city(metro)
 
 
-def _resolve_transit_metro(metro: MetroConfig) -> MetroConfig:
-    """Apply MobilityData catalog when registry has no explicit transit URL."""
-    from dataclasses import replace
-
-    if metro.transit_adapter in ("cta", "mbta", "transit_json"):
-        return metro
-    if metro.transit_adapter == "gtfs_rt" and metro.gtfs_rt_url.strip():
-        return metro
-    if "transit" not in metro.modules and metro.transit_adapter == "none":
-        pass
-    from pulsegrid.ingest.mobility_catalog import lookup_gtfs_rt_alerts_url
-
-    url = lookup_gtfs_rt_alerts_url(metro)
-    if not url:
-        return metro
-    modules = tuple(sorted({*metro.modules, "transit"}))
-    return replace(
-        metro,
-        modules=modules,
-        transit_adapter="gtfs_rt",
-        gtfs_rt_url=url,
-    )
-
-
 def ingest_transit(metro: MetroConfig, out_dir: Path | None = None) -> list[Path]:
-    metro = _resolve_transit_metro(metro)
+    from pulsegrid.ingest.transit_resolve import resolve_transit_metro
+
+    metro = resolve_transit_metro(metro)
     adapter = metro.transit_adapter
     if adapter == "none" or "transit" not in metro.modules:
         return []
@@ -103,15 +81,11 @@ def ingest_events_for_metro(metro: MetroConfig, out_dir: Path | None = None) -> 
 
 
 def ingest_civic311_for_metro(metro: MetroConfig, out_dir: Path | None = None) -> list[Path]:
-    if metro.country.upper() != "US":
-        return []
-    from pulsegrid.ingest.civic311 import ingest_civic311
-    from pulsegrid.metro_feeds import civic311_config
+    from pulsegrid.ingest.feed_framework import resolve_feed, run_feed
 
-    if not civic311_config(metro.slug):
+    if not resolve_feed(metro, "civic311").enabled:
         return []
-    city = _metro_city(metro)
-    return ingest_civic311(city, out_dir=out_dir)
+    return run_feed(metro, "civic311", out_dir=out_dir)
 
 
 def ingest_global_feeds(metro: MetroConfig, out_dir: Path | None = None) -> list[Path]:
@@ -193,26 +167,46 @@ def ingest_airports_for_metro(metro: MetroConfig, out_dir: Path | None = None) -
     return ingest_airport_for_metro(metro, out_dir=out_dir)
 
 
+def run_framework_feed(
+    metro: MetroConfig, feed_id: str, out_dir: Path | None = None
+) -> list[Path]:
+    from pulsegrid.ingest.feed_framework import resolve_feed, run_feed
+
+    if not resolve_feed(metro, feed_id).enabled:
+        return []
+    return run_feed(metro, feed_id, out_dir=out_dir)
+
+
 def run_metro_ingest(metro_slug: str, *, extended: bool = False) -> list[Path]:
     metro = get_metro(metro_slug)
     paths: list[Path] = []
-    try:
-        paths.extend(ingest_weather(metro))
-    except Exception as exc:
-        print(f"  WEATHER -> skip ({exc})")
-    try:
-        paths.extend(ingest_transit(metro))
-    except Exception as exc:
-        print(f"  TRANSIT -> skip ({exc})")
+    from pulsegrid.ingest.feed_framework import CORE_FEED_IDS, resolve_feed
+
+    for feed_id in CORE_FEED_IDS:
+        label = feed_id.upper().replace("_", " ")
+        if not resolve_feed(metro, feed_id).enabled:
+            continue
+        if feed_id == "nws_weather":
+            try:
+                paths.extend(ingest_weather(metro))
+            except Exception as exc:
+                print(f"  {label} -> skip ({exc})")
+            continue
+        if feed_id == "gtfs_rt":
+            try:
+                paths.extend(ingest_transit(metro))
+            except Exception as exc:
+                print(f"  {label} -> skip ({exc})")
+            continue
+        try:
+            paths.extend(run_framework_feed(metro, feed_id))
+        except Exception as exc:
+            print(f"  {label} -> skip ({exc})")
     try:
         paths.extend(ingest_airports_for_metro(metro))
     except Exception as exc:
         print(f"  AIRPORT -> skip ({exc})")
     paths.extend(ingest_global_feeds(metro))
-    try:
-        paths.extend(ingest_civic311_for_metro(metro))
-    except Exception as exc:
-        print(f"  CIVIC311 -> skip ({exc})")
     if extended:
         paths.extend(ingest_extended(metro))
     return paths

@@ -51,3 +51,51 @@ metros:
     order: servicedcdate DESC
     limit: 150
     recent_days: 14
+  atlanta:
+    url: https://data.atlantaga.gov/resource/ss9z-mqs4.json
+    date_field: date_request_submitted
+    type_field: request_type
+    status_field: status
+    order: date_request_submitted DESC
+    limit: 150
+    recent_days: 14
+  seattle:
+    url: https://data.seattle.gov/resource/2nsb-ixfe.json
+    date_field: createddate
+    type_field: type
+    status_field: status
+    order: createddate DESC
+    limit: 150
+    recent_days: 14
+  denver:
+    url: https://data.denvergov.org/resource/dqma-36ju.json
+    date_field: createddate
+    type_field: issue_type
+    status_field: status
+    order: createddate DESC
+    limit: 150
+    recent_days: 14
+  dallas:
+    url: https://www.dallasopendata.com/resource/xvpa-j9ty.json
+    date_field: created_date
+    type_field: service_request_type
+    status_field: status
+    order: created_date DESC
+    limit: 150
+    recent_days: 14
+  miami:
+    url: https://opendata.miamidade.gov/resource/6u3d-yqwa.json
+    date_field: date_created
+    type_field: issue_type
+    status_field: status
+    order: date_created DESC
+    limit: 150
+    recent_days: 14
+  phoenix:
+    url: https://phoenixopendata.com/resource/6saz-3ayi.json
+    date_field: created_at
+    type_field: problem_type
+    status_field: status
+    order: created_at DESC
+    limit: 150
+    recent_days: 14

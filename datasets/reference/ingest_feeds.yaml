@@ -1,0 +1,54 @@
+# Metadata-driven ingestion catalog for AQ PulseGrid.
+# Resolved per metro via pulsegrid.ingest.feed_framework (merges registry.yaml + transit_feeds + civic311).
+version: 1
+
+feed_types:
+  nws_weather:
+    label: NOAA NWS alerts & gridpoint forecast
+    module: weather
+    bronze_subdir: noaa
+    adapter: nws
+    description: api.weather.gov active alerts + forecast (US metros with noaa_area)
+    requires:
+      country: US
+      field: noaa_area
+    registry_field: weather_adapter
+    registry_value: noaa
+
+  gtfs_rt:
+    label: GTFS-Realtime / agency transit alerts
+    module: transit
+    bronze_subdir: transit
+    adapter: transit_dispatch
+    description: GTFS-RT protobuf, CTA XML, MBTA JSON, or agency JSON (transit_feeds.yaml + MobilityData catalog)
+    adapters:
+      - gtfs_rt
+      - cta
+      - mbta
+      - transit_json
+
+  opensky_aviation:
+    label: OpenSky ADS-B states near metro
+    module: airports
+    bronze_subdir: opensky
+    adapter: opensky
+    description: openskynetwork.org states/all bbox (no API key; rate limited)
+    requires_module: airports
+
+  civic311:
+    label: Civic 311 / service requests
+    module: civic311
+    bronze_subdir: civic311
+    adapter: civic311
+    description: Socrata open data 311 endpoints (US metros in civic311.yaml)
+    requires:
+      country: US
+    config_file: civic311.yaml
+
+# Default weather stack when registry does not override
+weather_defaults:
+  US: nws_weather
+  default: open_meteo
+
+# Optional per-metro enable/disable (omit = auto-resolve from registry + sidecars)
+metro_overrides: {}
