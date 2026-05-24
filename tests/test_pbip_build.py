@@ -3,7 +3,11 @@
 from __future__ import annotations
 
 
-from pbip_generator.build_pbip import build_pbip
+from pbip_generator.build_pbip import (
+    _validate_relationship_paths,
+    _write_relationships,
+    build_pbip,
+)
 
 
 def test_build_pbip_structure(tmp_path, monkeypatch):
@@ -216,3 +220,19 @@ def test_build_pbip_blank_pages(tmp_path, monkeypatch):
     pbip = build_pbip(city, include_visuals=False)
     pages_root = pbip.parent / "ChicagoPulse.Report" / "definition" / "pages"
     assert list(pages_root.glob("*/visuals/*/visual.json")) == []
+
+
+def test_airport_ops_uses_dim_airport_not_direct_dim_metro(tmp_path):
+    """Platform model: AirportOpsSnapshot -> DimAirport -> DimMetro only."""
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    for name in ("DimMetro", "DimAirport", "AirportOpsSnapshot"):
+        (data_dir / f"{name}.csv").write_text("city\nchicago\n", encoding="utf-8")
+    sm_def = tmp_path / "definition"
+    sm_def.mkdir()
+    _write_relationships(sm_def, data_dir)
+    rel = (sm_def / "relationships.tmdl").read_text(encoding="utf-8")
+    assert "fromColumn: AirportOpsSnapshot.station" in rel
+    assert "fromColumn: DimAirport.city" in rel
+    assert "fromColumn: AirportOpsSnapshot.city" not in rel
+    _validate_relationship_paths(sm_def)

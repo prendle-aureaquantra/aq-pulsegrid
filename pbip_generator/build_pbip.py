@@ -568,6 +568,13 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _skip_dim_metro_link(table: str, data_dir: Path) -> bool:
+    """Avoid ambiguous paths: AirportOpsSnapshot filters via DimAirport -> DimMetro."""
+    if table != "AirportOpsSnapshot":
+        return False
+    return (data_dir / "DimAirport.csv").is_file()
+
+
 def _write_relationships(sm_def: Path, data_dir: Path) -> None:
     """Star-schema links so DimMetro slicer filters all fact tables by city."""
     if not (data_dir / "DimMetro.csv").exists():
@@ -576,6 +583,8 @@ def _write_relationships(sm_def: Path, data_dir: Path) -> None:
     lines: list[str] = []
     for table in TABLE_ORDER:
         if table == "DimMetro":
+            continue
+        if _skip_dim_metro_link(table, data_dir):
             continue
         if not (data_dir / f"{table}.csv").exists():
             continue
@@ -637,6 +646,7 @@ def _write_semantic_tables(
                 _table_tmdl(t, csv), encoding="utf-8"
             )
     _write_relationships(sm_def, data_dir)
+    _validate_relationship_paths(sm_def)
     _validate_unique_measure_names(sm_def)
     (model_root / "definition.pbism").write_text(
         json.dumps({"version": "4.1", "settings": {"qnaEnabled": True}}, indent=2) + "\n",
@@ -651,6 +661,25 @@ def _write_semantic_tables(
 
 
 _MEASURE_NAME_RE = re.compile(r"\tmeasure '([^']+)'")
+
+
+def _validate_relationship_paths(sm_def: Path) -> None:
+    """Reject direct fact->DimMetro links when a bridge table path exists."""
+    rel_path = sm_def / "relationships.tmdl"
+    if not rel_path.is_file():
+        return
+    text = rel_path.read_text(encoding="utf-8")
+    has_airport_bridge = (
+        "fromColumn: AirportOpsSnapshot.station" in text
+        and "toColumn: DimAirport.icao" in text
+        and "fromColumn: DimAirport.city" in text
+        and "toColumn: DimMetro.city" in text
+    )
+    if has_airport_bridge and "fromColumn: AirportOpsSnapshot.city" in text:
+        raise RuntimeError(
+            "Ambiguous relationship path: remove AirportOpsSnapshot.city -> DimMetro.city "
+            "when AirportOpsSnapshot -> DimAirport -> DimMetro is defined."
+        )
 
 
 def _validate_unique_measure_names(sm_def: Path) -> None:
