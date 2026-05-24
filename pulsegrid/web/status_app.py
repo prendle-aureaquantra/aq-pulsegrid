@@ -1,4 +1,4 @@
-"""FastAPI status app for Lightsail — serves latest Chicago pulse CSV + health."""
+"""FastAPI status app — worldwide metro slicer + pulse KPIs."""
 
 from __future__ import annotations
 
@@ -6,11 +6,12 @@ import csv
 import html
 import os
 from pathlib import Path
+from urllib.parse import quote
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from fastapi.responses import HTMLResponse, JSONResponse
 
-app = FastAPI(title="AQ PulseGrid", version="0.1.0")
+app = FastAPI(title="AQ PulseGrid", version="0.2.0")
 
 DATA_DIR = Path(os.getenv("PULSEGRID_DATA_DIR", "data"))
 EMBED_URL = (os.getenv("POWERBI_PULSEGRID_EMBED_URL") or "").strip()
@@ -18,26 +19,25 @@ PUBLIC_URL = (
     os.getenv("PULSEGRID_PUBLIC_URL") or "https://pulse.aureaquantra.com/"
 ).strip()
 REPO_URL = "https://github.com/prendle-aureaquantra/aq-pulsegrid"
-CITY = (os.getenv("PULSEGRID_CITY") or "chicago").strip()
+DEFAULT_METRO = (os.getenv("PULSEGRID_CITY") or "chicago").strip().lower()
 
-MVP_STATUS: list[tuple[str, str]] = [
-    ("Chicago ingest + bronze/silver/gold", "Done"),
-    ("City Pulse Score (stress index 0–100)", "Done"),
-    ("Spark streaming + Delta medallion", "Done"),
-    ("9 PBIP pages · ~28 visuals", "Done"),
-    ("Metadata-driven PBIP generator", "Done"),
-    ("AI copilot + historical replay", "Done"),
-    ("Lightsail ops status app", "Done"),
+PHASE2_STATUS: list[tuple[str, str]] = [
+    ("Worldwide metro registry (71 metros)", "Done"),
+    ("Metro slicer — PBIP + ops console", "Done"),
+    ("Multi-metro ingest adapters", "Done"),
+    ("OpenSky + GTFS-RT + USGS + AQI feeds", "Done"),
+    ("Platform PulseGrid.pbip export", "Done"),
+    ("Databricks global daily job", "Done"),
     ("Fabric / Publish-to-web embed", "Next"),
 ]
 
 ROADMAP: list[tuple[str, str]] = [
     ("HTTPS pulse.aureaquantra.com", "Done"),
+    ("Phase 2 worldwide metro slicer", "Done"),
+    ("Full Databricks deployment", "Done"),
+    ("Expanded public data feeds", "Done"),
+    ("Apache Sedona Spark UDFs", "Done"),
     ("Fabric embed on status + WordPress", "Planned"),
-    ("Boston full pipeline", "Planned"),
-    ("Apache Sedona Spark UDFs", "Planned"),
-    ("OpenSky aviation feed", "Planned"),
-    ("Databricks production job", "Scaffold"),
 ]
 
 
@@ -45,8 +45,14 @@ def _read_csv(name: str) -> list[dict[str, str]]:
     path = DATA_DIR / name
     if not path.is_file():
         return []
-    with path.open(encoding="utf-8", newline="") as handle:
+    with path.open(encoding="utf-8-sig", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def _filter_city(rows: list[dict[str, str]], metro: str) -> list[dict[str, str]]:
+    if not rows or "city" not in rows[0]:
+        return rows
+    return [r for r in rows if r.get("city", "").lower() == metro.lower()]
 
 
 def _status_badge(label: str) -> str:
@@ -67,12 +73,29 @@ def _item_rows(items: list[tuple[str, str]]) -> str:
     return "\n".join(rows)
 
 
+def _metro_options(selected: str) -> str:
+    metros = _read_csv("DimMetro.csv")
+    if not metros:
+        return f'<option value="{html.escape(selected)}" selected>{html.escape(selected.title())}</option>'
+    opts = []
+    for row in metros:
+        slug = row.get("city", "")
+        label = row.get("display_name") or row.get("metro_name") or slug
+        sel = " selected" if slug.lower() == selected.lower() else ""
+        opts.append(
+            f'<option value="{html.escape(slug)}"{sel}>{html.escape(label)}</option>'
+        )
+    return "\n".join(opts)
+
+
 @app.get("/health")
 def health() -> dict[str, object]:
     snap = _read_csv("CityPulseSnapshot.csv")
+    metros = _read_csv("DimMetro.csv")
     return {
         "status": "ok",
-        "city": CITY,
+        "defaultMetro": DEFAULT_METRO,
+        "metroCount": len(metros),
         "dataDir": str(DATA_DIR),
         "snapshotRows": len(snap),
         "embedConfigured": bool(EMBED_URL),
@@ -80,53 +103,71 @@ def health() -> dict[str, object]:
     }
 
 
+@app.get("/api/metros")
+def api_metros() -> JSONResponse:
+    return JSONResponse({"metros": _read_csv("DimMetro.csv")})
+
+
 @app.get("/api/pulse")
-def api_pulse() -> JSONResponse:
-    snap = _read_csv("CityPulseSnapshot.csv")
-    anomalies = _read_csv("AnomalySignals.csv")
-    transit = _read_csv("TransitAlertSummary.csv")
+def api_pulse(metro: str = Query(default="")) -> JSONResponse:
+    slug = (metro or DEFAULT_METRO).strip().lower()
+    snap = _filter_city(_read_csv("CityPulseSnapshot.csv"), slug)
+    anomalies = _filter_city(_read_csv("AnomalySignals.csv"), slug)
+    transit = _filter_city(_read_csv("TransitAlertSummary.csv"), slug)
+    dim = _filter_city(_read_csv("DimMetro.csv"), slug)
     return JSONResponse(
         {
-            "city": CITY,
+            "metro": slug,
+            "metroInfo": dim[-1] if dim else None,
             "snapshot": snap[-1] if snap else None,
             "anomalies": anomalies[-10:],
             "transitAlerts": transit[:20],
-            "mvpStatus": [{"item": n, "status": s} for n, s in MVP_STATUS],
+            "phase2Status": [{"item": n, "status": s} for n, s in PHASE2_STATUS],
             "roadmap": [{"item": n, "status": s} for n, s in ROADMAP],
         }
     )
 
 
 @app.get("/", response_class=HTMLResponse)
-def index() -> str:
-    snap = _read_csv("CityPulseSnapshot.csv")
+def index(metro: str = Query(default="")) -> str:
+    slug = (metro or DEFAULT_METRO).strip().lower()
+    snap = _filter_city(_read_csv("CityPulseSnapshot.csv"), slug)
     latest = snap[-1] if snap else {}
+    dim_rows = _filter_city(_read_csv("DimMetro.csv"), slug)
+    display = (
+        dim_rows[-1].get("display_name", slug.title()) if dim_rows else slug.title()
+    )
     stress = latest.get("city_stress_index", "—")
     transit = latest.get("transit_load_score", "—")
     weather = latest.get("weather_risk_score", "—")
     snapshot_at = latest.get("snapshot_at", "—")
     embed = (
-        f'<iframe title="Chicago PulseGrid" src="{html.escape(EMBED_URL)}" '
+        f'<iframe title="PulseGrid {html.escape(display)}" src="{html.escape(EMBED_URL)}" '
         'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
         if EMBED_URL
         else (
-            '<p class="muted">Fabric embed pending — publish Chicago Pulse to Power BI Service, '
-            "then set <code>POWERBI_PULSEGRID_EMBED_URL</code> in deploy secrets.</p>"
-            f'<p><a href="{REPO_URL}">View repo &amp; sample PBIP</a></p>'
+            '<p class="muted">Fabric embed pending — publish PulseGrid.pbip to Power BI Service, '
+            "then set <code>POWERBI_PULSEGRID_EMBED_URL</code>.</p>"
+            f'<p><a href="{REPO_URL}">View repo &amp; platform PBIP</a></p>'
         )
     )
+    metro_opts = _metro_options(slug)
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>AQ PulseGrid — {CITY.title()}</title>
+  <title>AQ PulseGrid — {html.escape(display)}</title>
   <style>
-    :root {{ --bg:#0f1419; --panel:#1a2332; --text:#e7ecf1; --muted:#94a3b8; --accent:#7dd3fc; --done:#34d399; --prog:#fbbf24; }}
+    :root {{ --bg:#0f1419; --panel:#1a2332; --text:#e7ecf1; --muted:#94a3b8; --accent:#7dd3fc; --done:#34d399; --prog:#fbbf24; --gold:#D4AF37; }}
     body {{ font-family: system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; }}
     .wrap {{ max-width: 1100px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }}
-    header {{ margin-bottom: 1.5rem; }}
-  header p {{ color: var(--muted); margin: .35rem 0 0; }}
+    header {{ margin-bottom: 1rem; }}
+    header p {{ color: var(--muted); margin: .35rem 0 0; }}
+    .slicer-bar {{ background: var(--panel); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }}
+    .slicer-bar label {{ color: var(--muted); font-size: .85rem; }}
+    .slicer-bar select {{ background: #243044; color: var(--text); border: 1px solid #334155; border-radius: 6px; padding: .45rem .65rem; min-width: 220px; }}
+    .slicer-bar button {{ background: #243044; color: var(--accent); border: 1px solid #334155; border-radius: 6px; padding: .45rem .85rem; cursor: pointer; }}
     .kpis {{ display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 1rem; }}
     .kpi {{ background: var(--panel); padding: 1rem; border-radius: 8px; }}
     .kpi span {{ color: var(--muted); font-size: .85rem; }}
@@ -150,10 +191,17 @@ def index() -> str:
 <body>
   <div class="wrap">
     <header>
-      <h1>AQ PulseGrid — {CITY.title()}</h1>
-      <p>Spark-powered urban intelligence · snapshot {html.escape(str(snapshot_at))}</p>
+      <h1>AQ PulseGrid — Worldwide Metros</h1>
+      <p>{html.escape(display)} · snapshot {html.escape(str(snapshot_at))}</p>
       <p><a href="{REPO_URL}">github.com/prendle-aureaquantra/aq-pulsegrid</a></p>
     </header>
+    <form class="slicer-bar" method="get" action="/">
+      <label for="metro">Metro slicer</label>
+      <select id="metro" name="metro" aria-label="Select metro">{metro_opts}</select>
+      <button type="submit">Apply</button>
+      <button type="button" onclick="navigator.clipboard.writeText(location.origin+'/?metro='+document.getElementById('metro').value)">Copy link</button>
+      <a class="muted" href="/?metro=chicago">Reset</a>
+    </form>
     <section class="kpis">
       <div class="kpi"><span>City stress</span><strong>{html.escape(str(stress))}</strong></div>
       <div class="kpi"><span>Transit load</span><strong>{html.escape(str(transit))}</strong></div>
@@ -161,8 +209,8 @@ def index() -> str:
     </section>
     <section class="grid2">
       <div class="panel">
-        <h2>Phase 1 MVP status</h2>
-        <ul>{_item_rows(MVP_STATUS)}</ul>
+        <h2>Phase 2 status</h2>
+        <ul>{_item_rows(PHASE2_STATUS)}</ul>
       </div>
       <div class="panel">
         <h2>Roadmap</h2>
@@ -170,7 +218,16 @@ def index() -> str:
       </div>
     </section>
     <section class="embed panel">{embed}</section>
-    <p class="muted" style="margin-top:1.5rem"><a href="/api/pulse">JSON API</a> · <a href="/health">health</a></p>
+    <p class="muted" style="margin-top:1.5rem">
+      <a href="/api/pulse?metro={quote(slug)}">JSON API</a> ·
+      <a href="/api/metros">metros</a> ·
+      <a href="/health">health</a>
+    </p>
   </div>
+  <script>
+    document.getElementById('metro').addEventListener('change', function() {{
+      history.replaceState(null, '', '/?metro=' + encodeURIComponent(this.value));
+    }});
+  </script>
 </body>
 </html>"""

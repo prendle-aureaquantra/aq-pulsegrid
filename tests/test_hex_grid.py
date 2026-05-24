@@ -21,3 +21,12 @@ def test_aggregate_transit_by_hex():
     assert by_hex["hex_837_941"]["alert_count"] == 2
     assert by_hex["hex_837_941"]["reroute_count"] == 1
     assert by_hex["hex_833_938"]["alert_count"] == 1
+
+
+def test_aggregate_transit_citywide_bucket():
+    agg = aggregate_transit_by_hex(
+        [{"neighborhood_hint": "", "alert_category": "reroute"}]
+    )
+    assert len(agg) == 1
+    assert agg[0]["neighborhood"] == "citywide"
+    assert agg[0]["hex_id"] == "citywide"

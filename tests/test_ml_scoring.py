@@ -10,7 +10,7 @@ from pulsegrid.ml.city_stress import compute_stress_index
 
 def test_stress_index_bounded():
     score, parts = compute_stress_index(
-        active_cta=200,
+        active_transit=200,
         active_noaa=5,
         avg_precip=80,
         severe_weather_count=2,
@@ -22,7 +22,7 @@ def test_stress_index_bounded():
 
 def test_anomaly_detects_transit_spike():
     metrics = {
-        "active_cta_alerts": 200,
+        "active_transit_alerts": 200,
         "active_noaa_alerts": 1,
         "avg_precip_pct_next_periods": 10,
         "reroute_count": 110,
@@ -30,12 +30,12 @@ def test_anomaly_detects_transit_spike():
     history = pd.DataFrame(
         [
             {
-                "active_cta_alerts": 90,
+                "active_transit_alerts": 90,
                 "active_noaa_alerts": 1,
                 "avg_precip_pct_next_periods": 10,
             },
             {
-                "active_cta_alerts": 95,
+                "active_transit_alerts": 95,
                 "active_noaa_alerts": 2,
                 "avg_precip_pct_next_periods": 12,
             },

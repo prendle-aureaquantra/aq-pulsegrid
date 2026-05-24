@@ -12,14 +12,17 @@ def test_ingest_airport_writes_json(tmp_path, monkeypatch):
     import pulsegrid.config as cfg
 
     monkeypatch.setattr(cfg, "BRONZE", tmp_path / "bronze")
+    import pulsegrid.ingest.airport as airport_mod
+
+    monkeypatch.setattr(airport_mod, "BRONZE", tmp_path / "bronze")
     city = get_city("chicago")
     sample = {
         "icaoId": "KORD",
         "rawOb": "METAR KORD 251100Z 00000KT 10SM CLR 05/M02 A3012",
     }
 
-    with patch("pulsegrid.ingest.airport.fetch_metar", return_value=sample):
-        paths = ingest_airport(city)
+    with patch("pulsegrid.ingest.airport.fetch_metar_batch", return_value={"KORD": sample}):
+        paths = ingest_airport(city, stations=("KORD",))
 
     assert len(paths) == 1
     assert paths[0].is_file()

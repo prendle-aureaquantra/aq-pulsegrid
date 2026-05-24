@@ -13,7 +13,9 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 
 **Repository:** [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
 
-> Public demo by [Aurea Quantra](https://aureaquantra.com). Chicago Phase 1 MVP.
+> Public demo by [Aurea Quantra](https://aureaquantra.com). **Phase 2:** worldwide metros + metro slicer.
+
+See [docs/PHASE2.md](docs/PHASE2.md) for multi-metro CLI, Databricks global job, and public feeds.
 > **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com)
 
 ---
@@ -178,7 +180,7 @@ Positioning: [docs/POSITIONING.md](docs/POSITIONING.md)
 
 | Layer | Output |
 |-------|--------|
-| Bronze | NOAA, CTA, airport METAR, optional Trends/FRED JSON |
+| Bronze | NOAA, public transit alerts, airport METAR, optional Trends/FRED JSON |
 | Silver / Gold | Delta tables under `~/.local/aq-pulsegrid/delta/` |
 | ML | City Pulse Score, anomaly signals |
 | BI | **ChicagoPulse.pbip** — 9 pages, ~28 visuals, Aurea Quantra gold theme |
@@ -191,8 +193,12 @@ Positioning: [docs/POSITIONING.md](docs/POSITIONING.md)
 python generate_city.py --city chicago --extended-ingest --with-visuals
 python replay_city.py --city chicago --date 2026-05-23
 python -m pulsegrid.copilot.insights chicago
+python -m pulsegrid.copilot.insights chicago --prompt "Why is the City Stress Index elevated?"
+python tools/run_synthetic_eval.py --category executive --city chicago --limit 3
 python tools/sync_pulsegrid_site_page.py --out docs/pulsegrid-page.html
 ```
+
+See [docs/SYNTHETIC_QUESTIONS.md](docs/SYNTHETIC_QUESTIONS.md) for evaluation prompts, semantic mappings, and demo narratives.
 
 ---
 
@@ -236,7 +242,7 @@ AQ PulseGrid demonstrates how Spark, machine learning, semantic BI modeling, and
 
 ## Roadmap
 
-[docs/ROADMAP.md](docs/ROADMAP.md) — Fabric embed, Sedona maps, multi-city, OpenSky aviation.
+[docs/ROADMAP.md](docs/ROADMAP.md) · [docs/PHASE2.md](docs/PHASE2.md) — Fabric embed, Sedona, worldwide metros.
 
 ---
 

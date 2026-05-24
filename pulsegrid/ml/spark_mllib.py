@@ -46,7 +46,7 @@ def enrich_metrics_with_mllib(metrics: dict[str, Any]) -> dict[str, Any]:
     if not use_spark_engine():
         return metrics
     vec = [
-        float(metrics.get("active_cta_alerts") or 0),
+        float(metrics.get("active_transit_alerts") or 0),
         float(metrics.get("active_noaa_alerts") or 0),
         float(metrics.get("avg_precip_pct_next_periods") or 0),
         float(metrics.get("city_stress_index") or 0),

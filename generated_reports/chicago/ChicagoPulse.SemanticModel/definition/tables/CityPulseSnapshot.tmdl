@@ -220,9 +220,9 @@ table CityPulseSnapshot
 		formatString: 0.0
 		lineageTag: 918ab3a7-54af-5aad-9627-890d458fc1f2
 
-	measure 'Max Airport Ops Stress' = MAX(CityPulseSnapshot[airport_ops_stress])
+	measure 'Metro Airport Ops Stress' = MAX(CityPulseSnapshot[airport_ops_stress])
 		formatString: 0.0
-		lineageTag: 8515225b-262f-5bd4-9194-ece45e1322a7
+		lineageTag: 9593880d-197a-5245-80c1-6d6e431e9c27
 
 	measure 'Active Airport Stations' = MAX(CityPulseSnapshot[active_airport_stations])
 		formatString: #,0
@@ -253,7 +253,7 @@ table CityPulseSnapshot
 		source =
 			let
 				Source = Csv.Document(
-					File.Contents("C:/Users/prendleman/AppData/Local/Temp/pytest-of-prendleman/pytest-40/test_build_pbip_blank_pages0/generated/chicago/data/CityPulseSnapshot.csv"),
+					File.Contents("C:/Users/prendleman/AppData/Local/Temp/pytest-of-prendleman/pytest-43/test_build_pbip_blank_pages0/generated/chicago/data/CityPulseSnapshot.csv"),
 					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
 				),
 				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),

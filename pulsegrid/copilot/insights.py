@@ -36,7 +36,13 @@ def _load_context(city_slug: str) -> dict:
     return ctx
 
 
-def summarize(city_slug: str, *, model: str = "gpt-4o-mini") -> str:
+def ask(
+    city_slug: str,
+    prompt: str,
+    *,
+    model: str = "gpt-4o-mini",
+) -> str:
+    """Answer a natural-language question using latest gold metrics + semantic metadata."""
     api_key = os.getenv("OPENAI_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError("OPENAI_API_KEY not set in .env")
@@ -54,13 +60,19 @@ def summarize(city_slug: str, *, model: str = "gpt-4o-mini") -> str:
             {
                 "role": "system",
                 "content": (
-                    "You are AQ PulseGrid copilot — concise urban intelligence analyst. "
-                    "Summarize operational stress, anomalies, and recommended actions in 3-5 bullets."
+                    "You are AQ PulseGrid copilot — urban intelligence analyst grounded in "
+                    "City Stress Index (0-100), transit/weather/airport signals, and anomaly rows. "
+                    "Use only the provided metrics JSON; say when data is missing. "
+                    "Prefer plain language for executives; cite metric names when helpful."
                 ),
             },
             {
                 "role": "user",
-                "content": f"City: {city.name}\nMetrics JSON:\n{json.dumps(ctx, indent=2, default=str)}",
+                "content": (
+                    f"City: {city.name} ({city_slug})\n"
+                    f"Question: {prompt}\n\n"
+                    f"Metrics JSON:\n{json.dumps(ctx, indent=2, default=str)}"
+                ),
             },
         ],
         temperature=0.3,
@@ -68,15 +80,30 @@ def summarize(city_slug: str, *, model: str = "gpt-4o-mini") -> str:
     return (resp.choices[0].message.content or "").strip()
 
 
+def summarize(city_slug: str, *, model: str = "gpt-4o-mini") -> str:
+    return ask(
+        city_slug,
+        "Summarize operational stress, anomalies, and recommended actions in 3-5 bullets.",
+        model=model,
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     load_dotenv()
     parser = argparse.ArgumentParser(description="AQ PulseGrid AI copilot summary")
     parser.add_argument("city", nargs="?", default="chicago")
     parser.add_argument("--model", default="gpt-4o-mini")
+    parser.add_argument(
+        "--prompt",
+        help="Custom question (default: executive summary bullets)",
+    )
     parser.add_argument("--out", type=Path, help="Write summary markdown file")
     args = parser.parse_args(argv)
     try:
-        text = summarize(args.city, model=args.model)
+        if args.prompt:
+            text = ask(args.city, args.prompt, model=args.model)
+        else:
+            text = summarize(args.city, model=args.model)
     except Exception as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

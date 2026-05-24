@@ -1,4 +1,4 @@
-"""Chicago Transit Authority alerts API (XML)."""
+"""Chicago public transit alerts API (XML) — city-specific feed, generic bronze shape."""
 
 from __future__ import annotations
 
@@ -44,7 +44,8 @@ def fetch_cta_alerts() -> dict:
 
     alerts = [_parse_alert(a) for a in root.findall("Alert")]
     return {
-        "source": "cta_alerts",
+        "source": "transit_alerts",
+        "adapter": "cta",
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "timestamp": _xml_text(root.find("TimeStamp")),
         "alert_count": len(alerts),
@@ -54,9 +55,7 @@ def fetch_cta_alerts() -> dict:
 
 
 def ingest_cta(city: CityConfig, out_dir: Path | None = None) -> list[Path]:
-    if city.slug != "chicago":
-        raise ValueError("CTA ingest is Chicago-only in Phase 1")
-    base = out_dir or BRONZE / city.slug / "cta"
+    base = out_dir or BRONZE / city.slug / "transit"
     base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     payload = fetch_cta_alerts()

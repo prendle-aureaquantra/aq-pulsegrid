@@ -1,0 +1,44 @@
+# Google Trends geo + keywords per metro (optional pytrends extra).
+metros:
+  chicago:
+    geo: US-IL
+    keywords:
+      - Chicago traffic
+      - public transit delay
+      - Chicago weather
+      - O'Hare delays
+  boston:
+    geo: US-MA
+    keywords:
+      - Boston traffic
+      - MBTA delay
+      - Boston weather
+      - Logan airport delays
+  nyc:
+    geo: US-NY
+    keywords:
+      - NYC subway delay
+      - New York traffic
+      - NYC weather
+      - JFK delays
+  la:
+    geo: US-CA
+    keywords:
+      - Los Angeles traffic
+      - LA Metro delay
+      - Los Angeles weather
+      - LAX delays
+  london:
+    geo: GB-ENG
+    keywords:
+      - London traffic
+      - Tube delay
+      - London weather
+      - Heathrow delays
+  paris:
+    geo: FR-IDF
+    keywords:
+      - Paris traffic
+      - Paris metro
+      - Paris weather
+      - CDG delays

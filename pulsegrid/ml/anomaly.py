@@ -77,7 +77,7 @@ def detect_anomalies(
     signals: list[AnomalySignal] = []
 
     checks = [
-        ("transit_alert_spike", "active_cta_alerts", "CTA alert volume"),
+        ("transit_alert_spike", "active_transit_alerts", "Transit alert volume"),
         ("weather_alert_spike", "active_noaa_alerts", "NOAA alert volume"),
         (
             "precip_forecast_spike",
@@ -114,8 +114,11 @@ def detect_anomalies(
                 )
             )
 
-    active_cta = max(int(metrics.get("active_cta_alerts", 0)), 1)
-    reroute_share = float(metrics.get("reroute_count", 0)) / active_cta
+    active_transit = max(
+        int(metrics.get("active_transit_alerts", metrics.get("active_cta_alerts", 0))),
+        1,
+    )
+    reroute_share = float(metrics.get("reroute_count", 0)) / active_transit
     baseline_share = float(defaults.get("reroute_share", 0.5))
     z_reroute = _z(reroute_share, baseline_share, 0.08)
     if abs(z_reroute) >= threshold:

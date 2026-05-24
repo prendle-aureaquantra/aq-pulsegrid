@@ -15,12 +15,14 @@ Status key: **Done** · **Scaffold** · **Planned**
 - [x] Historical replay engine (`replay_city.py`)
 - [x] AI copilot layer (`pulsegrid.copilot.insights`)
 - [x] Site embed tooling (`tools/sync_pulsegrid_site_page.py`)
+- [x] **Phase 2:** Worldwide metro registry + metro slicer ([PHASE2.md](PHASE2.md))
+- [x] **Phase 2:** OpenSky, GTFS-RT, USGS, Open-Meteo, AQI feeds ([DATA_FEEDS.md](DATA_FEEDS.md))
+- [x] **Phase 2:** Databricks global job (`aq-pulsegrid-daily-global`)
 - [ ] Fabric live embed on aureaquantra.com (needs published `.pbix` + `POWERBI_PULSEGRID_EMBED_URL`)
 - [x] Lightsail ops app + **https://pulse.aureaquantra.com/** (Apache + Let's Encrypt)
-- [ ] Full Apache Sedona Spark UDFs (hex grid is Python/Sedona-ready today)
+- [x] Apache Sedona Spark UDFs (`pulsegrid/geo/sedona_hex.py` — UDFs + Spark hex aggregation)
 - [ ] Spark MLlib production anomaly model (optional z-score path when `PULSEGRID_ENGINE=spark`)
-- [ ] OpenSky aviation delays feed
-- [ ] Boston ingest/transform pipeline
+- [x] Boston full pipeline (MBTA adapter)
 
 ## Dashboard pages (PBIP)
 

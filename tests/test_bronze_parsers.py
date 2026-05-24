@@ -21,7 +21,7 @@ def test_parse_cta_bronze(tmp_path: Path):
             {
                 "alert_id": "1",
                 "headline": "Temporary Reroute",
-                "short_description": "NB #146 via Michigan and Loop",
+                "short_description": "SB #22 bus stop at Clark/Lake discontinued.",
                 "severity": "",
                 "service": "",
             }

@@ -154,7 +154,9 @@ def capture_screenshots(city: str) -> list[Path]:
     stress_val = float(stress["city_stress_index"].iloc[-1]) if not stress.empty else 72.0
     transit_val = float(stress["transit_load_score"].iloc[-1]) if not stress.empty else 34.0
     weather_val = float(stress["weather_risk_score"].iloc[-1]) if not stress.empty else 24.0
-    cta_alerts = int(stress["active_cta_alerts"].iloc[-1]) if not stress.empty else 0
+    transit_alerts = (
+        int(stress["active_transit_alerts"].iloc[-1]) if not stress.empty else 0
+    )
 
     # --- Live City Pulse (polished ops dashboard) ---
     fig = plt.figure(figsize=(13, 6.5), facecolor=BG)
@@ -165,7 +167,7 @@ def capture_screenshots(city: str) -> list[Path]:
         ("City Stress Index", f"{stress_val:.1f}", GOLD),
         ("Transit Load", f"{transit_val:.1f}", CYAN),
         ("Weather Risk", f"{weather_val:.1f}", ACCENT),
-        ("Active CTA Alerts", str(cta_alerts), CREAM),
+        ("Active Transit Alerts", str(transit_alerts), CREAM),
     ]
     for i, (label, val, color) in enumerate(kpis):
         x = 0.04 + i * 0.235
@@ -244,7 +246,7 @@ def capture_screenshots(city: str) -> list[Path]:
 
     # --- Transit & Mobility ---
     fig, ax = plt.subplots(figsize=(10, 5.2), facecolor=BG)
-    _draw_header(fig, "Transit & Mobility", "CTA alert categories")
+    _draw_header(fig, "Transit & Mobility", "Transit alert categories")
     ax = fig.add_axes([0.08, 0.12, 0.86, 0.72])
     if transit.empty:
         ax.text(0.5, 0.5, "No transit summary data", ha="center", va="center", color=CREAM)
@@ -387,7 +389,7 @@ def capture_platform_screenshots(city: str) -> list[Path]:
     ax.axis("off")
     ax.set_title("Spark Medallion Pipeline", color=GOLD, fontsize=16, fontweight="bold", pad=16)
     stages = [
-        ("Public APIs", "NOAA · CTA · METAR · FRED"),
+        ("Public APIs", "NOAA · Transit · METAR · FRED"),
         ("Bronze", "Raw JSON snapshots"),
         ("Silver", "Parsed Delta tables"),
         ("Gold", "City stress · anomalies"),

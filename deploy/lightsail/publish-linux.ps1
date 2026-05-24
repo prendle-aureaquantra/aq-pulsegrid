@@ -1,13 +1,14 @@
-# Bundle FastAPI status app + Chicago sample CSVs for Lightsail.
+# Bundle FastAPI status app + Chicago sample CSVs + platform DimMetro for Lightsail.
 $ErrorActionPreference = "Stop"
 $Root = Resolve-Path (Join-Path $PSScriptRoot "..\..")
 $Out = Join-Path $Root "publish\linux"
 $DataSrc = Join-Path $Root "generated_reports\chicago\data"
+$PlatformData = Join-Path $Root "generated_reports\platform\data"
 $AppSrc = Join-Path $Root "pulsegrid\web\status_app.py"
 
 if (-not (Test-Path $AppSrc)) { throw "Missing $AppSrc" }
-if (-not (Test-Path $DataSrc)) {
-  throw "Missing $DataSrc - run: python generate_city.py --city chicago --pbip-only"
+if (-not (Test-Path $PlatformData) -and -not (Test-Path $DataSrc)) {
+  throw "Missing platform/chicago data - run: python generate_city.py --platform-only --tier full"
 }
 
 Write-Host "Project root: $Root"
@@ -17,7 +18,13 @@ New-Item -ItemType Directory -Force -Path $Out, "$Out\data", "$Out\systemd" | Ou
 
 Copy-Item $AppSrc (Join-Path $Out "status_app.py")
 Copy-Item (Join-Path $PSScriptRoot "requirements-web.txt") (Join-Path $Out "requirements.txt")
-Copy-Item (Join-Path $DataSrc "*.csv") (Join-Path $Out "data")
+if (Test-Path $PlatformData) {
+  Copy-Item (Join-Path $PlatformData "*.csv") (Join-Path $Out "data")
+  Write-Host "Included platform CSVs ($((Get-ChildItem (Join-Path $PlatformData '*.csv')).Count) files, multi-metro ML)"
+} else {
+  Copy-Item (Join-Path $DataSrc "*.csv") (Join-Path $Out "data")
+  Write-Warning "Platform data missing; using Chicago sample CSVs only"
+}
 Copy-Item (Join-Path $PSScriptRoot "aq-pulsegrid.service") (Join-Path $Out "systemd")
 
 $startSh = @'

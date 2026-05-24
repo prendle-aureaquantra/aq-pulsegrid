@@ -7,13 +7,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from pulsegrid.config import BRONZE, CityConfig
+from pulsegrid.metro_feeds import trends_config
 
 DEFAULT_KEYWORDS = [
     "Chicago traffic",
-    "CTA delay",
+    "public transit delay",
     "Chicago weather",
     "O'Hare delays",
 ]
+DEFAULT_GEO = "US-IL"
 
 
 def ingest_google_trends(city: CityConfig, out_dir: Path | None = None) -> list[Path]:
@@ -24,19 +26,24 @@ def ingest_google_trends(city: CityConfig, out_dir: Path | None = None) -> list[
             "pytrends not installed. Run: pip install -e '.[trends]'"
         ) from exc
 
+    cfg = trends_config(city.slug) or {}
+    keywords = list(cfg.get("keywords") or DEFAULT_KEYWORDS)
+    geo = str(cfg.get("geo") or DEFAULT_GEO)
+
     base = out_dir or BRONZE / city.slug / "google_trends"
     base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
     pytrends = TrendReq(hl="en-US", tz=360)
-    pytrends.build_payload(DEFAULT_KEYWORDS, timeframe="now 7-d", geo="US-IL")
+    pytrends.build_payload(keywords, timeframe="now 7-d", geo=geo)
     interest = pytrends.interest_over_time()
     related = pytrends.related_queries()
 
     payload = {
         "source": "google_trends",
         "city": city.slug,
-        "keywords": DEFAULT_KEYWORDS,
+        "geo": geo,
+        "keywords": keywords,
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "interest_over_time": (
             interest.reset_index().to_dict(orient="records")

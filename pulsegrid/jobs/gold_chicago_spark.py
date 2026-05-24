@@ -7,8 +7,15 @@ from pathlib import Path
 
 from pyspark.sql import functions as F
 
+from pulsegrid.airport_ops import (
+    latest_airport_ops_rows,
+    rollup_airport_for_city_pulse,
+)
 from pulsegrid.config import DELTA, get_city
+from pulsegrid.io.delta_writer import read_delta_table
+from pulsegrid.metro_feeds import airport_station_labels
 from pulsegrid.geo.hex_grid import aggregate_transit_by_hex
+from pulsegrid.geo.sedona_hex import aggregate_transit_alerts_hex_spark
 from pulsegrid.io.delta_writer import write_delta_dataframe
 from pulsegrid.spark_session import build_spark
 
@@ -23,7 +30,7 @@ def run_gold_spark(city_slug: str = "chicago") -> dict[str, Path]:
     written: dict[str, Path] = {}
 
     try:
-        active_cta = 0
+        active_transit = 0
         transit_path = SILVER_ROOT / "transit_alerts"
         if transit_path.exists():
             transit = spark.read.format("delta").load(str(transit_path))
@@ -37,15 +44,20 @@ def run_gold_spark(city_slug: str = "chicago") -> dict[str, Path]:
             written["transit_alert_summary"] = write_delta_dataframe(
                 summary, GOLD_ROOT / "transit_alert_summary"
             )
-            active_cta = transit_city.count()
-            hex_rows = aggregate_transit_by_hex(
-                [r.asDict() for r in transit_city.collect()]
+            active_transit = transit_city.count()
+            hex_df = aggregate_transit_alerts_hex_spark(
+                spark, city.slug, snapshot_at
             )
-            if hex_rows:
-                for row in hex_rows:
-                    row["city"] = city.slug
-                    row["snapshot_at"] = snapshot_at
-                hex_df = spark.createDataFrame(hex_rows)
+            if hex_df is None:
+                hex_rows = aggregate_transit_by_hex(
+                    [r.asDict() for r in transit_city.collect()]
+                )
+                if hex_rows:
+                    for row in hex_rows:
+                        row["city"] = city.slug
+                        row["snapshot_at"] = snapshot_at
+                    hex_df = spark.createDataFrame(hex_rows)
+            if hex_df is not None and hex_df.head(1):
                 written["hex_pulse_grid"] = write_delta_dataframe(
                     hex_df, GOLD_ROOT / "hex_pulse_grid"
                 )
@@ -73,42 +85,25 @@ def run_gold_spark(city_slug: str = "chicago") -> dict[str, Path]:
             if row is not None:
                 avg_precip = float(row)
 
-        airport_stress = 0.0
-        airport_flt = ""
-        airport_vis = None
+        airport_rollup = rollup_airport_for_city_pulse([])
         ap_path = SILVER_ROOT / "airport_observations"
         if ap_path.exists():
-            ap = (
-                spark.read.format("delta")
-                .load(str(ap_path))
-                .filter(F.col("city") == city.slug)
-                .orderBy(F.col("ingested_at").desc())
+            ap_pd = read_delta_table(ap_path)
+            station_rows = latest_airport_ops_rows(
+                ap_pd,
+                city.slug,
+                snapshot_at,
+                station_names=airport_station_labels(city.slug),
             )
-            if ap.head(1):
-                latest = ap.first()
-                airport_flt = latest.flight_category or ""
-                airport_vis = latest.visibility_sm
-                if airport_vis is not None and float(airport_vis) < 3:
-                    airport_stress += 5.0
-                if airport_flt.upper() in ("IFR", "LIFR"):
-                    airport_stress += 8.0
-                snap_df = spark.createDataFrame(
-                    [
-                        {
-                            "city": city.slug,
-                            "snapshot_at": snapshot_at,
-                            "station": latest.station,
-                            "flight_category": airport_flt,
-                            "visibility_sm": airport_vis,
-                            "wind_speed_kt": latest.wind_speed_kt,
-                            "temperature_c": latest.temperature_c,
-                            "airport_ops_stress": round(airport_stress, 2),
-                        }
-                    ]
-                )
+            airport_rollup = rollup_airport_for_city_pulse(station_rows)
+            if station_rows:
+                snap_df = spark.createDataFrame(station_rows)
                 written["airport_ops_snapshot"] = write_delta_dataframe(
                     snap_df, GOLD_ROOT / "airport_ops_snapshot"
                 )
+        airport_stress = float(airport_rollup.get("airport_ops_stress") or 0.0)
+        airport_flt = str(airport_rollup.get("airport_flight_category") or "")
+        airport_vis = airport_rollup.get("airport_visibility_sm")
 
         fred_count = 0
         trend_avg = 0.0
@@ -169,19 +164,26 @@ def run_gold_spark(city_slug: str = "chicago") -> dict[str, Path]:
                     trend_avg = round(float(avg_row), 2)
 
         stress = round(
-            active_cta * 0.05 + active_noaa * 2.0 + avg_precip * 0.1 + airport_stress, 2
+            active_transit * 0.05 + active_noaa * 2.0 + avg_precip * 0.1 + airport_stress, 2
         )
         pulse_df = spark.createDataFrame(
             [
                 {
                     "city": city.slug,
                     "snapshot_at": snapshot_at,
-                    "active_cta_alerts": active_cta,
+                    "active_transit_alerts": active_transit,
                     "active_noaa_alerts": active_noaa,
                     "avg_precip_pct_next_periods": avg_precip,
                     "city_stress_score": stress,
                     "airport_flight_category": airport_flt,
                     "airport_visibility_sm": airport_vis,
+                    "airport_ops_stress": airport_stress,
+                    "active_airport_stations": airport_rollup.get(
+                        "active_airport_stations", 0
+                    ),
+                    "airport_stations_summary": airport_rollup.get(
+                        "airport_stations_summary", ""
+                    ),
                     "trend_avg_interest": trend_avg,
                     "fred_series_count": fred_count,
                 }

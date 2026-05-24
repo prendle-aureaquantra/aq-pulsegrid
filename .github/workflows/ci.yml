@@ -19,3 +19,14 @@ jobs:
       - run: pip install -e ".[dev]"
       - run: ruff check pulsegrid generate_city.py tests pbip_generator tools
       - run: pytest tests/ -q
+
+  databricks-bundle-validate:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install pyyaml
+      - run: python -c "import yaml; yaml.safe_load(open('databricks.yml'))"

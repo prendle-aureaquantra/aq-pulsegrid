@@ -1,41 +1,77 @@
 bundle:
   name: aq-pulsegrid
 
-workspace:
-  host: ${var.databricks_host}
+# Serverless-only workspace (no classic job clusters)
 
 variables:
-  databricks_host:
-    description: Databricks workspace URL (from DATABRICKS_HOST)
-    default: ""
   repo_path:
     description: Workspace Repos path after Git integration
     default: /Repos/pulsegrid/aq-pulsegrid
+  metro_tier:
+    description: Metro tier filter for global job (full or weather_only)
+    default: full
 
 resources:
   jobs:
+    pulsegrid_daily_global:
+      name: aq-pulsegrid-daily-global
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: UTC
+        pause_status: UNPAUSED
+      environments:
+        - environment_key: Default
+          spec:
+            client: "1"
+      tasks:
+        - task_key: ingest_metros
+          environment_key: Default
+          notebook_task:
+            notebook_path: ${var.repo_path}/databricks/ingest_metros
+            base_parameters:
+              tier: ${var.metro_tier}
+        - task_key: transform_metros
+          environment_key: Default
+          depends_on:
+            - task_key: ingest_metros
+          notebook_task:
+            notebook_path: ${var.repo_path}/databricks/daily_global
+            base_parameters:
+              tier: ${var.metro_tier}
+              step: transform
+        - task_key: ml_metros
+          environment_key: Default
+          depends_on:
+            - task_key: transform_metros
+          notebook_task:
+            notebook_path: ${var.repo_path}/databricks/daily_global
+            base_parameters:
+              tier: ${var.metro_tier}
+              step: ml
+        - task_key: export_platform
+          environment_key: Default
+          depends_on:
+            - task_key: ml_metros
+          notebook_task:
+            notebook_path: ${var.repo_path}/databricks/daily_global
+            base_parameters:
+              tier: ${var.metro_tier}
+              step: export
+
     chicago_daily:
       name: aq-pulsegrid-chicago-daily
       schedule:
         quartz_cron_expression: "0 0 6 * * ?"
         timezone_id: America/Chicago
-        pause_status: UNPAUSED
+        pause_status: PAUSED
+      environments:
+        - environment_key: Default
+          spec:
+            client: "1"
       tasks:
         - task_key: pulsegrid_transform_ml
+          environment_key: Default
           notebook_task:
             notebook_path: ${var.repo_path}/databricks/chicago_daily
             base_parameters:
               city: chicago
-          job_cluster_key: pulsegrid_cluster
-      job_clusters:
-        - job_cluster_key: pulsegrid_cluster
-          new_cluster:
-            spark_version: 15.4.x-scala2.12
-            node_type_id: i3.xlarge
-            num_workers: 0
-            spark_conf:
-              spark.master: local[*]
-              spark.databricks.cluster.profile: singleNode
-              spark.databricks.delta.preview.enabled: "true"
-            custom_tags:
-              ResourceClass: SingleNode

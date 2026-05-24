@@ -94,7 +94,7 @@ else {
       if ($LASTEXITCODE -ne 0) { throw "Local tar.gz failed" }
       & scp @scpBase $tmpTgz "${remoteUser}@${hostAddr}:$remoteTgz"
       if ($LASTEXITCODE -ne 0) { throw "scp upload failed" }
-      $extract = "sudo tar -xzf '$remoteTgz' -C '$remoteDir' && sudo rm -f '$remoteTgz' && sudo chown -R '$remoteUser':'$remoteUser' '$remoteDir'"
+      $extract = "sudo tar -xzf '$remoteTgz' -C '$remoteDir' && sudo rm -f '$remoteTgz' && sudo chown -R '$remoteUser':'$remoteUser' '$remoteDir' && chmod +x '$remoteDir/start.sh' '$remoteDir/install-remote.sh'"
       & ssh @sshBase $extract
       if ($LASTEXITCODE -ne 0) { throw "Remote extract failed" }
     }

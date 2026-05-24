@@ -4,7 +4,7 @@
 
 | Component | Weight cap | Signals |
 |-----------|------------|---------|
-| Transit load | 40 | Active CTA alerts |
+| Transit load | 40 | Active transit alerts |
 | Weather risk | 25 | NOAA alerts + severe events |
 | Precip risk | 20 | Forecast precipitation % |
 | Disruption ratio | 15 | Reroutes, delays, stop changes |

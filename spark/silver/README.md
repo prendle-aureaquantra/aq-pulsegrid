@@ -10,6 +10,6 @@ python -m pulsegrid.jobs.gold_chicago
 ```
 
 Tables:
-- `transit_alerts` — deduped CTA alerts + `alert_category` + `neighborhood_hint`
+- `transit_alerts` — deduped public transit alerts + `alert_category` + `neighborhood_hint`
 - `weather_alerts` — flattened NOAA NWS alerts
 - `weather_forecast_periods` — forecast periods with precip %

@@ -2,7 +2,7 @@
 # Values approximate typical weekday public-feed levels; updated as history grows.
 city: chicago
 metrics:
-  active_cta_alerts: 95
+  active_transit_alerts: 95
   active_noaa_alerts: 1
   avg_precip_pct: 12
   reroute_share: 0.55

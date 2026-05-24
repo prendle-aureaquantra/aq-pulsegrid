@@ -53,10 +53,7 @@ def main() -> int:
     env.setdefault("DATABRICKS_HOST", host)
     env.setdefault("DATABRICKS_TOKEN", token)
 
-    bundle_vars = [
-        f"--var=databricks_host={host}",
-        f"--var=repo_path={args.repo_path}",
-    ]
+    bundle_vars = [f"--var=repo_path={args.repo_path}"]
     cmd = ["databricks", "bundle", "validate", *bundle_vars, "--profile", profile]
     if not args.validate_only:
         cmd = ["databricks", "bundle", "deploy", *bundle_vars, "--profile", profile]
@@ -65,7 +62,8 @@ def main() -> int:
     r = subprocess.run(cmd, cwd=ROOT, env=env)
     if r.returncode == 0 and not args.validate_only:
         print(
-            "\nJob deployed. Open Databricks → Workflows → aq-pulsegrid-chicago-daily.\n"
+            "\nJob deployed. Open Databricks -> Workflows -> aq-pulsegrid-daily-global.\n"
+            "Legacy chicago-only job (paused): aq-pulsegrid-chicago-daily.\n"
             "Ensure Repos path matches --repo-path before first run."
         )
     return r.returncode
