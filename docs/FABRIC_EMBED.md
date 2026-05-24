@@ -2,11 +2,13 @@
 
 ## 1. Regenerate portable PBIP (after pull)
 
-CSV partitions use **relative** paths (`../../../data/*.csv`) so the project opens on any machine:
+CSV partitions use **absolute** paths (required by Power BI Desktop `File.Contents` on Windows). After cloning the repo on a new machine, regenerate or patch paths:
 
 ```powershell
 cd aq-pulsegrid
 python generate_city.py --platform-only --with-visuals
+# or fix existing PBIP without full rebuild:
+python tools/fix_pbip_csv_paths.py generated_reports/chicago generated_reports/platform
 ```
 
 Open: `generated_reports/platform/PulseGrid.pbip`

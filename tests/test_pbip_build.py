@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 
 from pbip_generator.build_pbip import (
     _csv_query_path,
@@ -223,14 +224,14 @@ def test_build_pbip_blank_pages(tmp_path, monkeypatch):
     assert list(pages_root.glob("*/visuals/*/visual.json")) == []
 
 
-def test_csv_query_path_relative_to_data_dir(tmp_path):
+def test_csv_query_path_is_absolute(tmp_path):
     data_dir = tmp_path / "data"
     data_dir.mkdir()
     csv = data_dir / "CityPulseSnapshot.csv"
     csv.write_text("city\nchicago\n", encoding="utf-8")
-    rel = _csv_query_path(csv, data_dir)
-    assert rel.startswith("../../../data/")
-    assert "CityPulseSnapshot.csv" in rel
+    path = _csv_query_path(csv, data_dir)
+    assert Path(path).is_absolute()
+    assert path.endswith("CityPulseSnapshot.csv")
 
 
 def test_airport_ops_uses_dim_airport_not_direct_dim_metro(tmp_path):

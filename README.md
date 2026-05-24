@@ -17,7 +17,7 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 
 See [docs/PHASE2.md](docs/PHASE2.md) for multi-metro CLI, Databricks global job, and public feeds.
 
-**After git pull:** regenerate platform PBIP so CSV paths stay portable — `python generate_city.py --platform-only --with-visuals` ([docs/FABRIC_EMBED.md](docs/FABRIC_EMBED.md)).
+**After git pull:** if Power BI shows *“file path must be a valid absolute path”*, run `python tools/fix_pbip_csv_paths.py generated_reports/chicago` or regenerate the PBIP ([docs/FABRIC_EMBED.md](docs/FABRIC_EMBED.md)).
 
 **Feed coverage:** `python tools/ingest_feed_coverage.py` · **Copilot prompts:** `python -m pulsegrid.copilot.insights chicago --list-prompts`
 

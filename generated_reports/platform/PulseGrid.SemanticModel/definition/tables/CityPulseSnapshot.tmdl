@@ -176,6 +176,41 @@ table CityPulseSnapshot
 		sourceColumn: infrastructure_summary
 		annotation SummarizationSetBy = Automatic
 
+	column data_refreshed_at
+		dataType: string
+		lineageTag: 90acab21-9fd9-5177-8823-5f42ed9b4bc3
+		summarizeBy: none
+		sourceColumn: data_refreshed_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_weather_ingest_at
+		dataType: string
+		lineageTag: 0ecc6975-8574-5336-b126-54eab6f161b9
+		summarizeBy: none
+		sourceColumn: last_weather_ingest_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_transit_ingest_at
+		dataType: string
+		lineageTag: 19cda07e-6bf3-5b44-bd25-53f2c4929e40
+		summarizeBy: none
+		sourceColumn: last_transit_ingest_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_civic311_ingest_at
+		dataType: string
+		lineageTag: 54908f52-7ef0-5fba-a823-886a889565ad
+		summarizeBy: none
+		sourceColumn: last_civic311_ingest_at
+		annotation SummarizationSetBy = Automatic
+
+	column last_airport_ingest_at
+		dataType: string
+		lineageTag: ec380892-977f-57de-9679-da2959b135a4
+		summarizeBy: none
+		sourceColumn: last_airport_ingest_at
+		annotation SummarizationSetBy = Automatic
+
 	measure 'City Stress Index' = AVERAGE(CityPulseSnapshot[city_stress_index])
 		formatString: 0.0
 		lineageTag: 96c842f7-fcb6-5afa-aacf-657c1de8088b
@@ -222,7 +257,7 @@ table CityPulseSnapshot
 
 	measure 'Metro Airport Ops Stress' = MAX(CityPulseSnapshot[airport_ops_stress])
 		formatString: 0.0
-		lineageTag: 8515225b-262f-5bd4-9194-ece45e1322a7
+		lineageTag: 9593880d-197a-5245-80c1-6d6e431e9c27
 
 	measure 'Active Airport Stations' = MAX(CityPulseSnapshot[active_airport_stations])
 		formatString: #,0
@@ -284,7 +319,12 @@ table CityPulseSnapshot
 					{"bridge_risk_score", type number},
 					{"road_surface_risk_score", type number},
 					{"open_infrastructure_requests", Int64.Type},
-					{"infrastructure_summary", type text}
+					{"infrastructure_summary", type text},
+					{"data_refreshed_at", type text},
+					{"last_weather_ingest_at", type text},
+					{"last_transit_ingest_at", type text},
+					{"last_civic311_ingest_at", type text},
+					{"last_airport_ingest_at", type text}
 					}
 				)
 			in

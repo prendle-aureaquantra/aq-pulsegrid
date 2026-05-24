@@ -373,12 +373,9 @@ def _m_transform_pairs(cols: list[tuple[str, str]]) -> str:
 
 
 def _csv_query_path(csv_path: Path, data_dir: Path) -> str:
-    """Prefer PBIP-relative data paths (portable); fall back to absolute."""
-    try:
-        rel = csv_path.resolve().relative_to(data_dir.resolve())
-        return f"../../../data/{rel.as_posix()}"
-    except ValueError:
-        return csv_path.resolve().as_posix()
+    """Power BI Desktop requires absolute paths for File.Contents on Windows."""
+    _ = data_dir  # same folder as partition CSV exports
+    return csv_path.resolve().as_posix()
 
 
 def _partition_m(table: str, csv_path: Path, data_dir: Path) -> str:
