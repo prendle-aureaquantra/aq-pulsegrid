@@ -25,6 +25,8 @@ if not repo_path.startswith("/Workspace"):
 repo = repo_path.rstrip("/")
 base = [sys.executable, f"{repo}/generate_city.py", "--all-metros", "--tier", tier]
 
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-e", repo, "-q"])
+
 if step == "transform":
     subprocess.check_call(base + ["--transform-only"])
 elif step == "ml":

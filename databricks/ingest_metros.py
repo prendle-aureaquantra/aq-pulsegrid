@@ -22,6 +22,7 @@ if not repo_path.startswith("/Workspace"):
     repo_path = "/Workspace" + (repo_path if repo_path.startswith("/") else f"/{repo_path}")
 repo = repo_path.rstrip("/")
 
+subprocess.check_call([sys.executable, "-m", "pip", "install", "-e", repo, "-q"])
 subprocess.check_call(
     [
         sys.executable,

@@ -27,7 +27,7 @@ resources:
         - task_key: ingest_metros
           environment_key: Default
           notebook_task:
-            notebook_path: ./databricks/ingest_metros
+            notebook_path: ./databricks/ingest_metros.py
             base_parameters:
               tier: ${var.metro_tier}
               repo_path: ${var.repo_path}
@@ -36,7 +36,7 @@ resources:
           depends_on:
             - task_key: ingest_metros
           notebook_task:
-            notebook_path: ./databricks/daily_global
+            notebook_path: ./databricks/daily_global.py
             base_parameters:
               tier: ${var.metro_tier}
               step: transform
@@ -46,7 +46,7 @@ resources:
           depends_on:
             - task_key: transform_metros
           notebook_task:
-            notebook_path: ./databricks/daily_global
+            notebook_path: ./databricks/daily_global.py
             base_parameters:
               tier: ${var.metro_tier}
               step: ml
@@ -56,7 +56,7 @@ resources:
           depends_on:
             - task_key: ml_metros
           notebook_task:
-            notebook_path: ./databricks/daily_global
+            notebook_path: ./databricks/daily_global.py
             base_parameters:
               tier: ${var.metro_tier}
               step: export
@@ -76,7 +76,7 @@ resources:
         - task_key: pulsegrid_transform_ml
           environment_key: Default
           notebook_task:
-            notebook_path: ./databricks/chicago_daily
+            notebook_path: ./databricks/chicago_daily.py
             base_parameters:
               city: chicago
               repo_path: ${var.repo_path}
