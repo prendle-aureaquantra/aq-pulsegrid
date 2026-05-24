@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 from pulsegrid.ingest.registry import ingest_transit, ingest_weather
 from pulsegrid.metros import load_metro
@@ -30,7 +30,6 @@ def test_weather_open_meteo_adapter(tmp_path, monkeypatch):
 
 def test_mbta_adapter_writes_bronze(tmp_path, monkeypatch):
     metro = load_metro("boston")
-    from pulsegrid.config import BRONZE
 
     monkeypatch.setattr("pulsegrid.config.BRONZE", tmp_path)
     fake = {"data": [{"id": "a1", "attributes": {"header": "Test", "description": "Delay", "severity": "minor"}}]}

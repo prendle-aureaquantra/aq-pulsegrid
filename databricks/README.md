@@ -14,9 +14,14 @@
 ```powershell
 cd aq-pulsegrid
 python tools/deploy_databricks_job.py --repo-path /Repos/YOUR_USER/aq-pulsegrid
+python tools/deploy_databricks_job.py --run-now   # optional: run once after deploy
 ```
 
-This creates **aq-pulsegrid-chicago-daily** (06:00 America/Chicago) running `databricks/chicago_daily.py`.
+This deploys **aq-pulsegrid-daily-global** (06:00 UTC, **unpaused**): ingest → transform → ML → platform export for all metros in tier `full`.
+
+Legacy **aq-pulsegrid-chicago-daily** remains in the bundle but is **paused**.
+
+See [docs/OPS_SCHEDULING.md](../docs/OPS_SCHEDULING.md) for GitHub Actions, Windows Task Scheduler, and systemd timers.
 
 Validate only:
 

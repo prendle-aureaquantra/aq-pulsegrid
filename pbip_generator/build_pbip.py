@@ -602,7 +602,7 @@ def _write_relationships(sm_def: Path, data_dir: Path) -> None:
             [
                 f"relationship {rid}",
                 f"\tfromColumn: {table}.city",
-                f"\ttoColumn: DimMetro.city",
+                "\ttoColumn: DimMetro.city",
                 "",
             ]
         )

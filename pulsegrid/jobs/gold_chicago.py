@@ -18,7 +18,6 @@ from pulsegrid.io.delta_writer import (
     merge_delta_table,
     read_delta_table,
     use_spark_engine,
-    write_delta_table,
 )
 from pulsegrid.jobs.gold_platform import (
     event_detail_rows,

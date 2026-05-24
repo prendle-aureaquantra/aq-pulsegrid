@@ -14,6 +14,18 @@ python generate_city.py --city chicago --ml-only
 python -m pulsegrid.jobs.ml_chicago
 ```
 
+## Automated scoring (Option A)
+
+ML runs on a schedule — no separate training job. History-based z-scores improve as `pulse_history` grows.
+
+| Method | Command / artifact |
+|--------|-------------------|
+| **Databricks** | `python tools/deploy_databricks_job.py` → job `aq-pulsegrid-daily-global` |
+| **GitHub Actions** | `.github/workflows/scheduled-pipeline.yml` (needs `DATABRICKS_*` secrets) |
+| **Local cron** | `python tools/run_scheduled_pipeline.py` or `tools/run_scheduled_pipeline.ps1` |
+
+Details: [docs/OPS_SCHEDULING.md](../docs/OPS_SCHEDULING.md).
+
 ## Anomaly detection
 
 Z-score vs rolling `ml/pulse_history` or `datasets/reference/chicago_baselines.yaml`.

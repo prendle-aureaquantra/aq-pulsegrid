@@ -12,7 +12,6 @@ from pulsegrid.io.delta_writer import (
     append_delta_table,
     merge_delta_table,
     read_delta_table,
-    write_delta_table,
 )
 from pulsegrid.ml.anomaly import detect_anomalies, detect_neighborhood_spikes
 from pulsegrid.ml.city_stress import stress_from_frames

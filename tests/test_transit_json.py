@@ -9,7 +9,6 @@ from pulsegrid.metros import load_metro
 
 
 def test_tfl_adapter_writes_bronze(tmp_path, monkeypatch):
-    from pulsegrid.config import BRONZE
 
     monkeypatch.setattr("pulsegrid.config.BRONZE", tmp_path)
     metro = load_metro("london")

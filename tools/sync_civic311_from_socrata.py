@@ -74,7 +74,7 @@ def main() -> int:
         print(f"  Discovering 311 for {metro.slug}…")
         cfg = discover_311_config(metro)
         if not cfg:
-            print(f"    — no Socrata 311 found")
+            print("    — no Socrata 311 found")
             continue
         cfg.pop("_discovery_score", None)
         if metro.slug in metros:

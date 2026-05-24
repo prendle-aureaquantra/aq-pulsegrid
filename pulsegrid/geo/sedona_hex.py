@@ -7,7 +7,6 @@ from functools import lru_cache
 from typing import Any
 
 from pulsegrid.geo.hex_grid import (
-    REF_HEX,
     _load_hex_centroids,
     CITYWIDE_HEX_ID,
     CITYWIDE_NEIGHBORHOOD,
@@ -107,7 +106,7 @@ def register_sedona_hex_udfs(spark) -> bool:
     """Register PulseGrid geo UDFs; enable Sedona when the jar is on the classpath."""
     from pyspark.sql.types import DoubleType, StringType
 
-    sedona_on = init_sedona(spark)
+    init_sedona(spark)
 
     spark.udf.register("pulsegrid_nearest_hex_id", udf_nearest_hex, StringType())
     spark.udf.register("pulsegrid_lat_lon_to_hex", udf_grid_hex, StringType())

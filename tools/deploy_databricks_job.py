@@ -36,6 +36,11 @@ def main() -> int:
         default=os.getenv("DATABRICKS_REPO_PATH", "/Repos/pulsegrid/aq-pulsegrid"),
         help="Workspace Repos mount path",
     )
+    parser.add_argument(
+        "--run-now",
+        action="store_true",
+        help="After deploy, trigger one run of pulsegrid_daily_global",
+    )
     args = parser.parse_args()
     _load_env()
 
@@ -60,13 +65,28 @@ def main() -> int:
 
     print("Running:", " ".join(cmd))
     r = subprocess.run(cmd, cwd=ROOT, env=env)
-    if r.returncode == 0 and not args.validate_only:
-        print(
-            "\nJob deployed. Open Databricks -> Workflows -> aq-pulsegrid-daily-global.\n"
-            "Legacy chicago-only job (paused): aq-pulsegrid-chicago-daily.\n"
-            "Ensure Repos path matches --repo-path before first run."
-        )
-    return r.returncode
+    if r.returncode != 0:
+        return r.returncode
+    if args.validate_only:
+        return 0
+    print(
+        "\nJob deployed. Open Databricks -> Workflows -> aq-pulsegrid-daily-global.\n"
+        "Schedule: daily 06:00 UTC (UNPAUSED). Legacy chicago job is PAUSED.\n"
+        "Ensure Repos path matches --repo-path before first run."
+    )
+    if not args.run_now:
+        return 0
+    run_cmd = [
+        "databricks",
+        "bundle",
+        "run",
+        "pulsegrid_daily_global",
+        *bundle_vars,
+        "--profile",
+        profile,
+    ]
+    print("Running:", " ".join(run_cmd))
+    return subprocess.run(run_cmd, cwd=ROOT, env=env).returncode
 
 
 if __name__ == "__main__":

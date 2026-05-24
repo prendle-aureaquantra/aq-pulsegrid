@@ -13,6 +13,7 @@ from __future__ import annotations
 import argparse
 import sys
 import time
+from pathlib import Path
 
 from pulsegrid.config import ensure_dirs, get_metro, list_metros, load_dotenv
 from pulsegrid.ingest.registry import run_metro_ingest
@@ -244,6 +245,15 @@ def main() -> int:
                 except Exception as exc:
                     failed += 1
                     print(f"WARN: transform failed for {slug}: {exc}", file=sys.stderr)
+            if len(metro_slugs) > 1:
+                from pulsegrid.pipeline_status import write_pipeline_status
+
+                write_pipeline_status(
+                    job="transform-only",
+                    metros_ok=len(metro_slugs) - failed,
+                    metros_failed=failed,
+                    detail=f"tier={args.tier or 'all'}",
+                )
             if failed == len(metro_slugs):
                 return 1
         elif args.ml_only:
@@ -254,6 +264,15 @@ def main() -> int:
                 except Exception as exc:
                     failed += 1
                     print(f"WARN: ML failed for {slug}: {exc}", file=sys.stderr)
+            if len(metro_slugs) > 1:
+                from pulsegrid.pipeline_status import write_pipeline_status
+
+                write_pipeline_status(
+                    job="ml-only",
+                    metros_ok=len(metro_slugs) - failed,
+                    metros_failed=failed,
+                    detail=f"tier={args.tier or 'all'}",
+                )
             if failed == len(metro_slugs):
                 return 1
         elif args.pbip_only or args.pbip_blank:

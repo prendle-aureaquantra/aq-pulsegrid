@@ -1,0 +1,40 @@
+# Option A — automated ML scoring ops via Databricks (no trained models).
+# Requires repo secrets: DATABRICKS_HOST, DATABRICKS_TOKEN
+# Optional variable: DATABRICKS_REPO_PATH (default /Repos/pulsegrid/aq-pulsegrid)
+
+name: Scheduled pipeline
+
+on:
+  schedule:
+    # 06:15 UTC — after bundle job cron (06:00 UTC) or as manual cloud trigger
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+    inputs:
+      run_deploy:
+        description: Run bundle deploy before job
+        type: boolean
+        default: false
+
+jobs:
+  databricks-daily:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: databricks/setup-cli@0
+
+      - name: Run aq-pulsegrid-daily-global
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+          DATABRICKS_REPO_PATH: ${{ vars.DATABRICKS_REPO_PATH }}
+        run: |
+          if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then
+            echo "Skipping: set DATABRICKS_HOST and DATABRICKS_TOKEN repo secrets to enable scheduled runs."
+            exit 0
+          fi
+          REPO_PATH="${DATABRICKS_REPO_PATH:-/Repos/pulsegrid/aq-pulsegrid}"
+          if [ "${{ github.event.inputs.run_deploy }}" = "true" ]; then
+            databricks bundle deploy --var="repo_path=${REPO_PATH}"
+          fi
+          databricks bundle run pulsegrid_daily_global --var="repo_path=${REPO_PATH}"
