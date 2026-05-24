@@ -1,0 +1,2 @@
+﻿city,snapshot_at,station,flight_category,visibility_sm,wind_speed_kt,temperature_c,airport_ops_stress
+chicago,2026-05-24T14:09:23.955323+00:00,KMDW,VFR,0.0,10.0,15.0,5.0

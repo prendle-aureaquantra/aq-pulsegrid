@@ -1,0 +1,104 @@
+routes:
+- patterns:
+  - '1'
+  - '1:'
+  neighborhood: Manhattan
+- patterns:
+  - '2'
+  - '2:'
+  neighborhood: Manhattan
+- patterns:
+  - '3'
+  - '3:'
+  neighborhood: Brooklyn
+- patterns:
+  - '4'
+  - '4:'
+  neighborhood: Bronx
+- patterns:
+  - '5'
+  - '5:'
+  neighborhood: Bronx
+- patterns:
+  - '6'
+  - '6:'
+  neighborhood: Manhattan
+- patterns:
+  - '7'
+  - '7:'
+  neighborhood: Queens
+- patterns:
+  - A
+  - 'A:'
+  - A Line
+  neighborhood: Manhattan
+- patterns:
+  - B
+  - 'B:'
+  - B Line
+  neighborhood: Brooklyn
+- patterns:
+  - C
+  - 'C:'
+  - C Line
+  neighborhood: Manhattan
+- patterns:
+  - D
+  - 'D:'
+  - D Line
+  neighborhood: Brooklyn
+- patterns:
+  - E
+  - 'E:'
+  - E Line
+  neighborhood: Queens
+- patterns:
+  - F
+  - 'F:'
+  - F Line
+  neighborhood: Queens
+- patterns:
+  - G
+  - 'G:'
+  - G Line
+  neighborhood: Brooklyn
+- patterns:
+  - L
+  - 'L:'
+  - L Line
+  neighborhood: Brooklyn
+- patterns:
+  - N
+  - 'N:'
+  - N Line
+  neighborhood: Manhattan
+- patterns:
+  - Q
+  - 'Q:'
+  - Q Line
+  neighborhood: Manhattan
+- patterns:
+  - R
+  - 'R:'
+  - R Line
+  neighborhood: Queens
+- patterns:
+  - W
+  - 'W:'
+  - W Line
+  neighborhood: Manhattan
+- patterns:
+  - S
+  - 'S:'
+  - S Line
+  neighborhood: Manhattan
+- patterns:
+  - Metro-North
+  - 'Metro-North:'
+  - Metro-North Line
+  neighborhood: Manhattan
+- patterns:
+  - LIRR
+  - 'LIRR:'
+  - LIRR Line
+  neighborhood: Queens

@@ -1,0 +1,233 @@
+﻿city,icao,station_label,sort_order
+amsterdam,EHAM,Amsterdam Schiphol,0
+amsterdam,EHRD,Rotterdam The Hague,1
+amsterdam,EHEH,Eindhoven,2
+athens,LGAV,Athens Eleftherios Venizelos,0
+athens,LGTS,Thessaloniki,1
+atlanta,KATL,Hartsfield-Jackson,0
+atlanta,KPDK,DeKalb-Peachtree,1
+atlanta,KFTY,Fulton County,2
+auckland,NZAA,Auckland,0
+auckland,NZWN,Wellington,1
+auckland,NZCH,Christchurch,2
+bangalore,VOBL,Kempegowda,0
+bangalore,VOCI,Cochin,1
+bangalore,VOCL,Calicut,2
+bangkok,VTBS,Suvarnabhumi,0
+bangkok,VTBD,Don Mueang,1
+bangkok,VTSP,Phuket,2
+barcelona,LEBL,Barcelona-El Prat,0
+barcelona,LEPA,Palma de Mallorca,1
+barcelona,LEGE,Girona-Costa Brava,2
+beijing,ZBAA,Beijing Capital,0
+beijing,ZBAD,Beijing Daxing,1
+beijing,ZBTJ,Tianjin,2
+berlin,EDDB,Berlin Brandenburg,0
+berlin,EDAY,Strausberg,1
+bogota,SKBO,El Dorado,0
+bogota,SKRG,Medellín,1
+boston,KBOS,Logan International,0
+boston,KPVD,T.F. Green,1
+boston,KMHT,Manchester-Boston Regional,2
+boston,KORH,Worcester Regional,3
+brussels,EBBR,Brussels,0
+brussels,EBLG,Liège,1
+brussels,EBCI,Brussels South Charleroi,2
+budapest,LHBP,Budapest,0
+budapest,LHDC,Debrecen,1
+buenos-aires,SAEZ,Ezeiza,0
+buenos-aires,SABE,Aeroparque,1
+buenos-aires,SADF,San Fernando,2
+cairo,HECA,Cairo International,0
+cairo,HEBA,Borg El Arab,1
+chicago,KORD,O'Hare International,0
+chicago,KMDW,Midway International,1
+chicago,KGYY,Gary/Chicago International,2
+chicago,KPWK,Chicago Executive,3
+chicago,KDPA,DuPage,4
+chicago,KUGN,Waukegan National,5
+chicago,KRFD,Chicago Rockford International,6
+copenhagen,EKCH,Copenhagen,0
+copenhagen,ESMH,Malmö,1
+copenhagen,EKYT,Aarhus,2
+dallas,KDFW,Dallas/Fort Worth,0
+dallas,KDAL,Dallas Love Field,1
+dallas,KAFW,Fort Worth Alliance,2
+dallas,KADS,Addison,3
+delhi,VIDP,Indira Gandhi,0
+delhi,VILK,Lucknow,1
+delhi,VIJP,Jaipur,2
+denver,KDEN,Denver International,0
+denver,KAPA,Centennial,1
+denver,KBJC,Rocky Mountain Metropolitan,2
+denver,KCOS,Colorado Springs,3
+doha,OTHH,Hamad International,0
+doha,OTBD,Doha International,1
+dubai,OMDB,Dubai International,0
+dubai,OMDW,Al Maktoum,1
+dubai,OMSJ,Sharjah,2
+dublin,EIDW,Dublin,0
+dublin,EICK,Cork,1
+dublin,EINN,Shannon,2
+helsinki,EFHK,Helsinki-Vantaa,0
+helsinki,EFTP,Tampere,1
+helsinki,EFTU,Turku,2
+hong-kong,VHHH,Hong Kong International,0
+hong-kong,VMMC,Macau,1
+hong-kong,VHSK,Hong Kong Shek Kong,2
+houston,KIAH,George Bush Intercontinental,0
+houston,KHOU,William P. Hobby,1
+houston,KSGR,Sugar Land Regional,2
+houston,KEFD,Ellington,3
+istanbul,LTFM,Istanbul Airport,0
+istanbul,LTFJ,Sabiha Gökçen,1
+istanbul,LTBA,Istanbul Atatürk,2
+jakarta,WIII,Soekarno-Hatta,0
+jakarta,WADD,Bali Ngurah Rai,1
+jakarta,WIIH,Halim Perdanakusuma,2
+johannesburg,FAOR,O.R. Tambo,0
+johannesburg,FALA,Lanseria,1
+johannesburg,FAGC,Grand Central,2
+kuala-lumpur,WMKK,Kuala Lumpur International,0
+kuala-lumpur,WMSA,Sultan Abdul Aziz Shah,1
+kuala-lumpur,WMKP,Penang,2
+lagos,DNMM,Murtala Muhammed,0
+lagos,DNAA,Abuja,1
+lima,SPJC,Jorge Chávez,0
+lima,SPZO,Cusco,1
+lisbon,LPPT,Lisbon,0
+lisbon,LPFR,Faro,1
+lisbon,LPPR,Porto,2
+london,EGLL,Heathrow,0
+london,EGKK,Gatwick,1
+london,EGSS,Stansted,2
+london,EGGW,Luton,3
+london,EGLC,London City,4
+london,EGMC,London Southend,5
+la,KLAX,Los Angeles International,0
+la,KBUR,Hollywood Burbank,1
+la,KONT,Ontario International,2
+la,KSNA,John Wayne-Orange County,3
+la,KLGB,Long Beach,4
+la,KVNY,Van Nuys,5
+la,KPSP,Palm Springs,6
+madrid,LEMD,Madrid-Barajas,0
+madrid,LEMG,Málaga-Costa del Sol,1
+madrid,LEAL,Alicante-Elche,2
+manila,RPLL,Ninoy Aquino,0
+manila,RPLC,Clark International,1
+manila,RPVM,Mactan-Cebu,2
+melbourne,YMML,Melbourne Tullamarine,0
+melbourne,YMEN,Essendon,1
+melbourne,YMAV,Avalon,2
+mexico-city,MMMX,Mexico City International,0
+mexico-city,MMSM,Toluca,1
+mexico-city,MMTO,Puebla,2
+miami,KMIA,Miami International,0
+miami,KFLL,Fort Lauderdale-Hollywood,1
+miami,KPBI,Palm Beach International,2
+miami,KOPF,Miami-Opa Locka Executive,3
+milan,LIMC,Milan Malpensa,0
+milan,LIML,Linate,1
+milan,LIME,Bergamo Orio al Serio,2
+montreal,CYUL,Montréal-Trudeau,0
+montreal,CYHU,Montréal Saint-Hubert,1
+montreal,CYMX,Montréal-Mirabel,2
+moscow,UUEE,Sheremetyevo,0
+moscow,UUDD,Domodedovo,1
+moscow,UUWW,Vnukovo,2
+moscow,UUMB,Moscow Zhukovsky,3
+mumbai,VABB,Mumbai,0
+mumbai,VAPO,Pune,1
+mumbai,VOGO,Goa,2
+munich,EDDM,Munich,0
+munich,EDMA,Augsburg,1
+munich,EDNL,Memmingen,2
+nairobi,HKJK,Jomo Kenyatta,0
+nairobi,HKMO,Mombasa,1
+nyc,KJFK,JFK,0
+nyc,KLGA,LaGuardia,1
+nyc,KEWR,Newark Liberty,2
+nyc,KTEB,Teterboro,3
+nyc,KHPN,Westchester County,4
+nyc,KISP,Long Island MacArthur,5
+nyc,KSWF,New York Stewart,6
+oslo,ENGM,Oslo Gardermoen,0
+oslo,ENTO,Sandefjord,1
+oslo,ENBR,Bergen,2
+paris,LFPG,Paris Charles de Gaulle,0
+paris,LFPO,Paris Orly,1
+paris,LFPB,Paris-Le Bourget,2
+paris,LFQQ,Lille (regional),3
+philadelphia,KPHL,Philadelphia International,0
+philadelphia,KTTN,Trenton Mercer,1
+philadelphia,KILG,Wilmington,2
+philadelphia,KABE,Lehigh Valley,3
+phoenix,KPHX,Phoenix Sky Harbor,0
+phoenix,KSDL,Scottsdale,1
+phoenix,KDVT,Phoenix Deer Valley,2
+phoenix,KIWA,Phoenix-Mesa Gateway,3
+prague,LKPR,Prague,0
+prague,LKTB,Brno,1
+riyadh,OERK,King Khalid,0
+riyadh,OEJN,Jeddah,1
+riyadh,OEDF,Dammam,2
+rome,LIRF,Rome Fiumicino,0
+rome,LIRA,Rome Ciampino,1
+san-francisco,KSFO,San Francisco International,0
+san-francisco,KOAK,Oakland International,1
+san-francisco,KSJC,San Jose International,2
+san-francisco,KSCK,Stockton Metropolitan,3
+seattle,KSEA,Seattle-Tacoma,0
+seattle,KBFI,Boeing Field,1
+seattle,KPAE,Paine Field,2
+seattle,KTIW,Tacoma Narrows,3
+seoul,RKSI,Incheon,0
+seoul,RKSS,Gimpo,1
+seoul,RKTN,Daegu,2
+shanghai,ZSPD,Shanghai Pudong,0
+shanghai,ZSSS,Shanghai Hongqiao,1
+shanghai,ZSHC,Hangzhou,2
+singapore,WSSS,Changi,0
+singapore,WSSL,Seletar,1
+stockholm,ESSA,Stockholm Arlanda,0
+stockholm,ESSB,Stockholm Bromma,1
+stockholm,ESGG,Gothenburg,2
+sydney,YSSY,Sydney Kingsford Smith,0
+sydney,YSBK,Bankstown,1
+sydney,YSCB,Canberra,2
+sao-paulo,SBGR,Guarulhos,0
+sao-paulo,SBSP,Congonhas,1
+sao-paulo,SBKP,Viracopos,2
+taipei,RCTP,Taiwan Taoyuan,0
+taipei,RCSS,Taipei Songshan,1
+taipei,RCBS,Hsinchu,2
+tel-aviv,LLBG,Ben Gurion,0
+tel-aviv,LLER,Ramon,1
+tel-aviv,LLOV,Ovda,2
+tokyo,RJTT,Haneda,0
+tokyo,RJAA,Narita,1
+tokyo,RJTF,Chofu,2
+tokyo,RJTH,Hachijojima,3
+toronto,CYYZ,Toronto Pearson,0
+toronto,CYTZ,Billy Bishop,1
+toronto,CYKZ,Toronto Buttonville,2
+toronto,CYHM,Hamilton,3
+vancouver,CYVR,Vancouver International,0
+vancouver,CYXX,Abbotsford,1
+vancouver,CYYJ,Victoria International,2
+vancouver,CYLW,Kelowna,3
+vienna,LOWW,Vienna,0
+vienna,LOWG,Graz,1
+vienna,LOWI,Innsbruck,2
+warsaw,EPWA,Warsaw Chopin,0
+warsaw,EPKK,Kraków,1
+warsaw,EPGD,Gdańsk,2
+washington-dc,KDCA,Reagan National,0
+washington-dc,KIAD,Washington Dulles,1
+washington-dc,KBWI,Baltimore/Washington,2
+washington-dc,KADW,Joint Base Andrews,3
+washington-dc,KHEF,Manassas Regional,4
+zurich,LSZH,Zurich,0
+zurich,LSGG,Geneva,1
+zurich,LSZB,Bern,2

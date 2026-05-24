@@ -1,0 +1,98 @@
+table AnomalySignals
+	lineageTag: 812348d4-fa79-583a-84ad-bfbf9b8a4a8c
+
+	column city
+		dataType: string
+		lineageTag: e51550a6-a1b4-5610-a3cf-6573d0b194a7
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_at
+		dataType: string
+		lineageTag: e86f7a1f-7e21-534b-9f0d-fe1ef87f1c44
+		summarizeBy: none
+		sourceColumn: snapshot_at
+		annotation SummarizationSetBy = Automatic
+
+	column signal_type
+		dataType: string
+		lineageTag: 3a00052b-ba1b-5264-9483-e5e3e231e2bf
+		summarizeBy: none
+		sourceColumn: signal_type
+		annotation SummarizationSetBy = Automatic
+
+	column metric
+		dataType: string
+		lineageTag: bdcc83da-021f-5565-86e1-5a7eb925fc7f
+		summarizeBy: none
+		sourceColumn: metric
+		annotation SummarizationSetBy = Automatic
+
+	column observed
+		dataType: decimal
+		lineageTag: 3109e038-d9ab-5bff-a116-6822392be99a
+		summarizeBy: none
+		sourceColumn: observed
+		annotation SummarizationSetBy = Automatic
+
+	column baseline
+		dataType: decimal
+		lineageTag: d4607468-dd8b-5d9e-b6fa-76ba4b5f66dc
+		summarizeBy: none
+		sourceColumn: baseline
+		annotation SummarizationSetBy = Automatic
+
+	column z_score
+		dataType: decimal
+		lineageTag: b757cf0e-be09-527b-87dc-f5d8eb07b1c8
+		summarizeBy: none
+		sourceColumn: z_score
+		annotation SummarizationSetBy = Automatic
+
+	column severity
+		dataType: string
+		lineageTag: 4e9239f4-d6af-5838-ba2d-5d96b018c96e
+		summarizeBy: none
+		sourceColumn: severity
+		annotation SummarizationSetBy = Automatic
+
+	column message
+		dataType: string
+		lineageTag: 6770c335-5269-5c4e-8277-90aecd388611
+		summarizeBy: none
+		sourceColumn: message
+		annotation SummarizationSetBy = Automatic
+
+	measure 'Anomaly Count' = COUNTROWS(AnomalySignals)
+		formatString: #,0
+		lineageTag: f002f221-ce29-50ad-91cc-d94d878e52b4
+
+	partition AnomalySignals-04d92f2a-6ac8-5d14-8789-06a0e1a8780b = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/platform/data/AnomalySignals.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"snapshot_at", type text},
+					{"signal_type", type text},
+					{"metric", type text},
+					{"observed", type number},
+					{"baseline", type number},
+					{"z_score", type number},
+					{"severity", type text},
+					{"message", type text}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

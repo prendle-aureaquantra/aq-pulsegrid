@@ -1,0 +1,62 @@
+# CTA routes / lines → primary neighborhood when no street/station match
+routes:
+  - patterns: ["Red Line", "red line"]
+    neighborhood: South Loop
+  - patterns: ["Blue Line", "blue line"]
+    neighborhood: West Loop
+  - patterns: ["Green Line", "green line"]
+    neighborhood: Garfield Park
+  - patterns: ["Brown Line", "brown line"]
+    neighborhood: Lincoln Park
+  - patterns: ["Orange Line", "orange line"]
+    neighborhood: South Loop
+  - patterns: ["Pink Line", "pink line"]
+    neighborhood: Pilsen
+  - patterns: ["Purple Line", "purple line"]
+    neighborhood: Evanston
+  - patterns: ["Yellow Line", "yellow line"]
+    neighborhood: Rogers Park
+  - patterns: ["#146", "#148"]
+    neighborhood: Lakeview
+  - patterns: ["#22"]
+    neighborhood: Lincoln Park
+  - patterns: ["#24"]
+    neighborhood: River North
+  - patterns: ["#36"]
+    neighborhood: Hyde Park
+  - patterns: ["#4"]
+    neighborhood: South Loop
+  - patterns: ["#6"]
+    neighborhood: Hyde Park
+  - patterns: ["#8"]
+    neighborhood: Wicker Park
+  - patterns: ["#9"]
+    neighborhood: North Side
+  - patterns: ["#11"]
+    neighborhood: Lincoln Park
+  - patterns: ["#37"]
+    neighborhood: Loop
+  - patterns: ["#60"]
+    neighborhood: West Loop
+  - patterns: ["#66"]
+    neighborhood: West Loop
+  - patterns: ["#67"]
+    neighborhood: South Side
+  - patterns: ["#73"]
+    neighborhood: Lincoln Park
+  - patterns: ["#77"]
+    neighborhood: Lakeview
+  - patterns: ["#79"]
+    neighborhood: South Shore
+  - patterns: ["#126"]
+    neighborhood: West Side
+  - patterns: ["#192"]
+    neighborhood: South Loop
+  - patterns: ["#N5"]
+    neighborhood: South Side
+  - patterns: ["#49"]
+    neighborhood: Bronzeville
+  - patterns: ["#J14"]
+    neighborhood: Loop
+  - patterns: ["#X49"]
+    neighborhood: South Loop

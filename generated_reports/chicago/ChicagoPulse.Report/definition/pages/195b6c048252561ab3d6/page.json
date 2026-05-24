@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.4.0/schema.json",
+  "name": "195b6c048252561ab3d6",
+  "displayName": "Geospatial Intelligence",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280
+}

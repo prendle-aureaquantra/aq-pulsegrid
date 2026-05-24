@@ -32,7 +32,7 @@ table PbipStudioCatalog
 	column column_count
 		dataType: int64
 		lineageTag: 107f48d3-26e9-5f50-8105-0e79a270bafa
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: column_count
 		annotation SummarizationSetBy = Automatic
 
@@ -43,16 +43,12 @@ table PbipStudioCatalog
 		sourceColumn: columns_list
 		annotation SummarizationSetBy = Automatic
 
-	measure 'Catalog Rows' = COUNTROWS(PbipStudioCatalog)
-		formatString: #,0
-		lineageTag: 108d6ac0-a3cc-5126-b638-cf7da8538a9b
-
 	partition PbipStudioCatalog-005b86c4-48e4-54fa-b280-b9e5abc836f7 = m
 		mode: import
 		source =
 			let
 				Source = Csv.Document(
-					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/PbipStudioCatalog.csv"),
+					File.Contents("C:/Users/prendleman/AppData/Local/Temp/pytest-of-prendleman/pytest-40/test_build_pbip_structure0/generated/chicago/data/PbipStudioCatalog.csv"),
 					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
 				),
 				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),

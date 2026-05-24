@@ -1,0 +1,36 @@
+routes:
+- patterns:
+  - Red Line
+  - 'Red Line:'
+  - Red Line Line
+  neighborhood: Downtown LA
+- patterns:
+  - Purple Line
+  - 'Purple Line:'
+  - Purple Line Line
+  neighborhood: Downtown LA
+- patterns:
+  - Blue Line
+  - 'Blue Line:'
+  - Blue Line Line
+  neighborhood: Long Beach
+- patterns:
+  - Green Line
+  - 'Green Line:'
+  - Green Line Line
+  neighborhood: South LA
+- patterns:
+  - Gold Line
+  - 'Gold Line:'
+  - Gold Line Line
+  neighborhood: Downtown LA
+- patterns:
+  - Expo Line
+  - 'Expo Line:'
+  - Expo Line Line
+  neighborhood: Santa Monica
+- patterns:
+  - B Line
+  - 'B Line:'
+  - B Line Line
+  neighborhood: Downtown LA

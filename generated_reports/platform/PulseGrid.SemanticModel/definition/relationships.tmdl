@@ -1,0 +1,59 @@
+relationship 91661813-a8a7-5610-a547-aa5a74c252a7
+	fromColumn: CityPulseSnapshot.city
+	toColumn: DimMetro.city
+
+relationship 21e9f7e4-973c-5d01-93b8-5451b67112ce
+	fromColumn: TransitAlertSummary.city
+	toColumn: DimMetro.city
+
+relationship cf1abf6e-19fe-593d-b4dc-9133212975e9
+	fromColumn: TransitAlertDetail.city
+	toColumn: DimMetro.city
+
+relationship 34d96952-5ca1-5588-ad81-dbc5eb1b4cc8
+	fromColumn: AnomalySignals.city
+	toColumn: DimMetro.city
+
+relationship f4f57b39-ebbc-5910-b990-5bdb0cbad4e1
+	fromColumn: WeatherForecastPeriods.city
+	toColumn: DimMetro.city
+
+relationship d35ea04a-9456-54f9-8a7b-200ad4827908
+	fromColumn: DimAirport.city
+	toColumn: DimMetro.city
+
+relationship b4875eca-06a0-5230-bf87-611583bc89f7
+	fromColumn: AirportOpsSnapshot.city
+	toColumn: DimMetro.city
+
+relationship 59f4ea5f-17d5-5696-8d3a-ee4f03cbedc1
+	fromColumn: HexPulseGrid.city
+	toColumn: DimMetro.city
+
+relationship 1a86a3be-8bd4-573a-b258-b2a9ce8e02ca
+	fromColumn: EventHeatmap.city
+	toColumn: DimMetro.city
+
+relationship 56b2e377-79e3-51c6-a162-89634fc18774
+	fromColumn: OsmAmenitySummary.city
+	toColumn: DimMetro.city
+
+relationship 88278c3c-a792-5dc4-a5c5-79031dedbe0d
+	fromColumn: InfrastructureRiskSnapshot.city
+	toColumn: DimMetro.city
+
+relationship ccd3f10f-fd36-522e-8ce5-a952367dc257
+	fromColumn: InfrastructureAssetSummary.city
+	toColumn: DimMetro.city
+
+relationship 0e10ae01-aa3c-513f-9b64-304a94cdb90a
+	fromColumn: InfrastructureRequestDetail.city
+	toColumn: DimMetro.city
+
+relationship 16b9d683-8c61-5233-a825-31a6df1042d1
+	fromColumn: PbipStudioCatalog.city
+	toColumn: DimMetro.city
+
+relationship 71679639-5411-5124-a00f-a6a61e2d5b94
+	fromColumn: AirportOpsSnapshot.station
+	toColumn: DimAirport.icao

@@ -1,0 +1,26 @@
+routes:
+- patterns:
+  - Red Line
+  - 'Red Line:'
+  - Red Line Line
+  neighborhood: Auckland — Central
+- patterns:
+  - Blue Line
+  - 'Blue Line:'
+  - Blue Line Line
+  neighborhood: Auckland — Central
+- patterns:
+  - Green Line
+  - 'Green Line:'
+  - Green Line Line
+  neighborhood: Auckland — North
+- patterns:
+  - Orange Line
+  - 'Orange Line:'
+  - Orange Line Line
+  neighborhood: Auckland — South
+- patterns:
+  - Yellow Line
+  - 'Yellow Line:'
+  - Yellow Line Line
+  neighborhood: Auckland — East

@@ -1,0 +1,78 @@
+table HexPulseGrid
+	lineageTag: 2d6d0182-fc0b-56aa-9ea4-7548d4fe0c37
+
+	column city
+		dataType: string
+		lineageTag: 9a575bdf-7db2-5cbe-99e9-e3f76ee0d474
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_at
+		dataType: string
+		lineageTag: 9aff055c-cfc1-5d60-b6cb-bad858d777ec
+		summarizeBy: none
+		sourceColumn: snapshot_at
+		annotation SummarizationSetBy = Automatic
+
+	column hex_id
+		dataType: string
+		lineageTag: 584b4cd4-a8c1-53f7-ba6a-5c63cf045850
+		summarizeBy: none
+		sourceColumn: hex_id
+		annotation SummarizationSetBy = Automatic
+
+	column neighborhood
+		dataType: string
+		lineageTag: 8e32e3e4-23a0-5302-a07a-21060a2d633d
+		summarizeBy: none
+		sourceColumn: neighborhood
+		annotation SummarizationSetBy = Automatic
+
+	column alert_count
+		dataType: int64
+		lineageTag: 775f93de-a1b3-5656-9ca5-f792b4e3a138
+		summarizeBy: none
+		sourceColumn: alert_count
+		annotation SummarizationSetBy = Automatic
+
+	column reroute_count
+		dataType: int64
+		lineageTag: 02b49463-aec8-581a-b30b-df285d932e2e
+		summarizeBy: none
+		sourceColumn: reroute_count
+		annotation SummarizationSetBy = Automatic
+
+	column delay_count
+		dataType: int64
+		lineageTag: 7170ff05-ab5b-51e1-8f16-1325697cce28
+		summarizeBy: none
+		sourceColumn: delay_count
+		annotation SummarizationSetBy = Automatic
+
+	partition HexPulseGrid-71e14b2a-3a22-59be-922c-af678be1378c = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/platform/data/HexPulseGrid.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"snapshot_at", type text},
+					{"hex_id", type text},
+					{"neighborhood", type text},
+					{"alert_count", Int64.Type},
+					{"reroute_count", Int64.Type},
+					{"delay_count", Int64.Type}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

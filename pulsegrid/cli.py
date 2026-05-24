@@ -7,9 +7,9 @@ import argparse
 from pulsegrid.config import ensure_dirs, get_city, load_dotenv
 from pulsegrid.ingest.cta import ingest_cta
 from pulsegrid.ingest.noaa import ingest_noaa
-from pulsegrid.jobs.gold_chicago import run_gold
-from pulsegrid.jobs.ml_chicago import run_ml
-from pulsegrid.jobs.silver_chicago import run_silver
+from pulsegrid.jobs.gold import run_gold
+from pulsegrid.jobs.ml import run_ml
+from pulsegrid.jobs.silver import run_silver
 
 
 def cmd_ingest(args: argparse.Namespace) -> int:

@@ -1,0 +1,193 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "b05d209bee6451c4bfc0",
+  "position": {
+    "x": 656,
+    "y": 292,
+    "z": 2060,
+    "height": 260,
+    "width": 608,
+    "tabOrder": 2060
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AirportOpsSnapshot"
+                    }
+                  },
+                  "Property": "station_label"
+                }
+              },
+              "queryRef": "AirportOpsSnapshot.station_label"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AirportOpsSnapshot"
+                    }
+                  },
+                  "Property": "flight_category"
+                }
+              },
+              "queryRef": "AirportOpsSnapshot.flight_category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AirportOpsSnapshot"
+                    }
+                  },
+                  "Property": "visibility_sm"
+                }
+              },
+              "queryRef": "AirportOpsSnapshot.visibility_sm"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AirportOpsSnapshot"
+                    }
+                  },
+                  "Property": "wind_speed_kt"
+                }
+              },
+              "queryRef": "AirportOpsSnapshot.wind_speed_kt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AirportOpsSnapshot"
+                    }
+                  },
+                  "Property": "temperature_c"
+                }
+              },
+              "queryRef": "AirportOpsSnapshot.temperature_c"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AirportOpsSnapshot"
+                    }
+                  },
+                  "Property": "airport_ops_stress"
+                }
+              },
+              "queryRef": "AirportOpsSnapshot.airport_ops_stress"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'METAR snapshot by station'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": "#D4AF37"
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": "#2C2C2C"
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": "#D4AF37"
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

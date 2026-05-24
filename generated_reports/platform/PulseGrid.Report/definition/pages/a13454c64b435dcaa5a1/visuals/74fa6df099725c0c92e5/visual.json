@@ -1,0 +1,206 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "74fa6df099725c0c92e5",
+  "position": {
+    "x": 24,
+    "y": 664,
+    "z": 4000,
+    "height": 56,
+    "width": 1232,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "signal_type"
+                }
+              },
+              "queryRef": "AnomalySignals.signal_type"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "metric"
+                }
+              },
+              "queryRef": "AnomalySignals.metric"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "severity"
+                }
+              },
+              "queryRef": "AnomalySignals.severity"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "z_score"
+                }
+              },
+              "queryRef": "AnomalySignals.z_score"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "observed"
+                }
+              },
+              "queryRef": "AnomalySignals.observed"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "baseline"
+                }
+              },
+              "queryRef": "AnomalySignals.baseline"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "AnomalySignals"
+                    }
+                  },
+                  "Property": "message"
+                }
+              },
+              "queryRef": "AnomalySignals.message"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Anomaly signal feed (z-score vs baseline)'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": "#D4AF37"
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": "#2C2C2C"
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": "#D4AF37"
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

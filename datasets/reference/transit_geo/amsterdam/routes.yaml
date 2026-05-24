@@ -1,0 +1,21 @@
+routes:
+- patterns:
+  - Metro 51
+  - 'Metro 51:'
+  - Metro 51 Line
+  neighborhood: Centrum
+- patterns:
+  - Metro 52
+  - 'Metro 52:'
+  - Metro 52 Line
+  neighborhood: Zuid
+- patterns:
+  - Metro 53
+  - 'Metro 53:'
+  - Metro 53 Line
+  neighborhood: Noord
+- patterns:
+  - Tram
+  - 'Tram:'
+  - Tram Line
+  neighborhood: Centrum

@@ -1,2 +1,3 @@
 ﻿city,snapshot_at,signal_type,metric,observed,baseline,z_score,severity,message
-chicago,2026-05-23T15:44:31.296221+00:00,reroute_share_spike,reroute_share,0.754,0.55,2.55,medium,Reroute share 75% vs baseline 55% (z=2.55)
+chicago,2026-05-24T14:10:06.156552+00:00,transit_alert_spike,active_transit_alerts,129.0,8.2,3.94,high,"Transit alert volume 129.0 is above baseline (8.2, z=3.94)"
+chicago,2026-05-24T14:10:06.156552+00:00,reroute_share_spike,reroute_share,0.744,0.55,2.43,medium,Reroute share 74% vs baseline 55% (z=2.43)

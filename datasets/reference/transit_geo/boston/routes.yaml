@@ -1,0 +1,31 @@
+routes:
+- patterns:
+  - Red Line
+  - 'Red Line:'
+  - Red Line Line
+  neighborhood: Cambridge
+- patterns:
+  - Orange Line
+  - 'Orange Line:'
+  - Orange Line Line
+  neighborhood: Downtown Boston
+- patterns:
+  - Blue Line
+  - 'Blue Line:'
+  - Blue Line Line
+  neighborhood: Downtown Boston
+- patterns:
+  - Green Line
+  - 'Green Line:'
+  - Green Line Line
+  neighborhood: Back Bay
+- patterns:
+  - Mattapan
+  - 'Mattapan:'
+  - Mattapan Line
+  neighborhood: South Boston
+- patterns:
+  - Silver Line
+  - 'Silver Line:'
+  - Silver Line Line
+  neighborhood: Downtown Boston

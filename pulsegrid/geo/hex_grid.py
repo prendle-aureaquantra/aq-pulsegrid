@@ -10,6 +10,11 @@ from pulsegrid.config import ROOT
 REF_HEX = ROOT / "datasets" / "reference" / "chicago_hex_grid.csv"
 
 
+def load_hex_centroids() -> list[dict]:
+    """Public accessor for reference hex rows."""
+    return _load_hex_centroids()
+
+
 def _load_hex_centroids() -> list[dict]:
     if not REF_HEX.is_file():
         return []
@@ -42,19 +47,32 @@ def chicago_default_hex() -> str:
     return rows[0]["hex_id"] if rows else "hex_837_941"
 
 
+CITYWIDE_HEX_ID = "citywide"
+CITYWIDE_NEIGHBORHOOD = "citywide"
+
+
+def resolve_transit_neighborhood(hint: str) -> tuple[str, str]:
+    """Return (hex_id, neighborhood label) for a transit alert neighborhood hint."""
+    cleaned = (hint or "").strip()
+    if not cleaned:
+        return CITYWIDE_HEX_ID, CITYWIDE_NEIGHBORHOOD
+    hex_id = neighborhood_to_hex(cleaned)
+    if hex_id:
+        return hex_id, cleaned
+    return f"unmapped_{cleaned.lower().replace(' ', '_')}", cleaned
+
+
 def aggregate_transit_by_hex(transit_rows: list[dict]) -> list[dict]:
     """Roll up transit alerts to hex cells via neighborhood_hint."""
     buckets: dict[str, dict] = {}
     for row in transit_rows:
         hint = (row.get("neighborhood_hint") or "").strip()
-        hex_id = neighborhood_to_hex(hint) if hint else chicago_default_hex()
-        if not hex_id:
-            hex_id = chicago_default_hex()
+        hex_id, neighborhood = resolve_transit_neighborhood(hint)
         b = buckets.setdefault(
             hex_id,
             {
                 "hex_id": hex_id,
-                "neighborhood": hint or "Chicago (citywide)",
+                "neighborhood": neighborhood,
                 "alert_count": 0,
                 "reroute_count": 0,
                 "delay_count": 0,

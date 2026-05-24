@@ -1,0 +1,54 @@
+table DimAirport
+	lineageTag: c704fe88-3e91-5bce-b639-878911e6f52b
+
+	column city
+		dataType: string
+		lineageTag: 0cecf4db-2cf3-5d48-9f99-571232a0afa0
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column icao
+		dataType: string
+		lineageTag: eb751c5d-b67b-5d30-ae2e-45ec62b6f0b1
+		summarizeBy: none
+		sourceColumn: icao
+		annotation SummarizationSetBy = Automatic
+
+	column station_label
+		dataType: string
+		lineageTag: e213a585-4abc-5c0e-8b33-e582caf37e1f
+		summarizeBy: none
+		sourceColumn: station_label
+		annotation SummarizationSetBy = Automatic
+
+	column sort_order
+		dataType: int64
+		lineageTag: dba24eff-ca10-5e0d-8997-9195bc8a0ddf
+		summarizeBy: sum
+		sourceColumn: sort_order
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAirport-a971db5d-9a97-5af3-8ef8-7bf49a54927f = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/platform/data/DimAirport.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"icao", type text},
+					{"station_label", type text},
+					{"sort_order", Int64.Type}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

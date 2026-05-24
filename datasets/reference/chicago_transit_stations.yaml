@@ -1,0 +1,58 @@
+# CTA station names (substring match, longest patterns listed first in code sort)
+stations:
+  - match: "Clark/Lake"
+    neighborhood: Loop
+  - match: "Lake (Red Line)"
+    neighborhood: Loop
+  - match: "Union Station"
+    neighborhood: West Loop
+  - match: "O'Hare"
+    neighborhood: O'Hare
+  - match: "Midway"
+    neighborhood: Midway
+  - match: "Cermak-Chinatown"
+    neighborhood: South Loop
+  - match: "Sox-35th"
+    neighborhood: South Loop
+  - match: "Western Brown Line"
+    neighborhood: Logan Square
+  - match: "Austin Green Line"
+    neighborhood: Austin
+  - match: "Conservatory ( Green Line)"
+    neighborhood: Garfield Park
+  - match: "Conservatory"
+    neighborhood: Garfield Park
+  - match: "Kimball-bound"
+    neighborhood: Albany Park
+  - match: "Kimball"
+    neighborhood: Albany Park
+  - match: "North/Clybourn"
+    neighborhood: Lincoln Park
+  - match: "Clark/Division"
+    neighborhood: Lincoln Park
+  - match: "Hyde Park"
+    neighborhood: Hyde Park
+  - match: "Jefferson Park"
+    neighborhood: Jefferson Park
+  - match: "Forest Park branch"
+    neighborhood: Oak Park
+  - match: "Forest Park"
+    neighborhood: Oak Park
+  - match: "Rosemont"
+    neighborhood: O'Hare
+  - match: "Fullerton"
+    neighborhood: Lakeview
+  - match: "Belmont"
+    neighborhood: Lakeview
+  - match: "Addison"
+    neighborhood: Lakeview
+  - match: "Wrigleyville"
+    neighborhood: Lakeview
+  - match: "Howard"
+    neighborhood: Rogers Park
+  - match: "Wilson"
+    neighborhood: Uptown
+  - match: "Lawrence"
+    neighborhood: Uptown
+  - match: "Argyle"
+    neighborhood: Uptown

@@ -1,0 +1,26 @@
+routes:
+- patterns:
+  - Red Line
+  - 'Red Line:'
+  - Red Line Line
+  neighborhood: Budapest — Central
+- patterns:
+  - Blue Line
+  - 'Blue Line:'
+  - Blue Line Line
+  neighborhood: Budapest — Central
+- patterns:
+  - Green Line
+  - 'Green Line:'
+  - Green Line Line
+  neighborhood: Budapest — North
+- patterns:
+  - Orange Line
+  - 'Orange Line:'
+  - Orange Line Line
+  neighborhood: Budapest — South
+- patterns:
+  - Yellow Line
+  - 'Yellow Line:'
+  - Yellow Line Line
+  neighborhood: Budapest — East

@@ -1,0 +1,357 @@
+# Regenerate: python tools/generate_metro_transit_geo.py
+metros:
+  amsterdam:
+    keywords: transit_geo/amsterdam/keywords.csv
+    routes: transit_geo/amsterdam/routes.yaml
+    stations: transit_geo/amsterdam/stations.yaml
+    streets: transit_geo/amsterdam/streets.csv
+  athens:
+    keywords: transit_geo/athens/keywords.csv
+    routes: transit_geo/athens/routes.yaml
+    stations: transit_geo/athens/stations.yaml
+    streets: transit_geo/athens/streets.csv
+  atlanta:
+    keywords: transit_geo/atlanta/keywords.csv
+    routes: transit_geo/atlanta/routes.yaml
+    stations: transit_geo/atlanta/stations.yaml
+    streets: transit_geo/atlanta/streets.csv
+  auckland:
+    keywords: transit_geo/auckland/keywords.csv
+    routes: transit_geo/auckland/routes.yaml
+    stations: transit_geo/auckland/stations.yaml
+    streets: transit_geo/auckland/streets.csv
+  bangalore:
+    keywords: transit_geo/bangalore/keywords.csv
+    routes: transit_geo/bangalore/routes.yaml
+    stations: transit_geo/bangalore/stations.yaml
+    streets: transit_geo/bangalore/streets.csv
+  bangkok:
+    keywords: transit_geo/bangkok/keywords.csv
+    routes: transit_geo/bangkok/routes.yaml
+    stations: transit_geo/bangkok/stations.yaml
+    streets: transit_geo/bangkok/streets.csv
+  barcelona:
+    keywords: transit_geo/barcelona/keywords.csv
+    routes: transit_geo/barcelona/routes.yaml
+    stations: transit_geo/barcelona/stations.yaml
+    streets: transit_geo/barcelona/streets.csv
+  beijing:
+    keywords: transit_geo/beijing/keywords.csv
+    routes: transit_geo/beijing/routes.yaml
+    stations: transit_geo/beijing/stations.yaml
+    streets: transit_geo/beijing/streets.csv
+  berlin:
+    keywords: transit_geo/berlin/keywords.csv
+    routes: transit_geo/berlin/routes.yaml
+    stations: transit_geo/berlin/stations.yaml
+    streets: transit_geo/berlin/streets.csv
+  bogota:
+    keywords: transit_geo/bogota/keywords.csv
+    routes: transit_geo/bogota/routes.yaml
+    stations: transit_geo/bogota/stations.yaml
+    streets: transit_geo/bogota/streets.csv
+  boston:
+    keywords: transit_geo/boston/keywords.csv
+    routes: transit_geo/boston/routes.yaml
+    stations: transit_geo/boston/stations.yaml
+    streets: transit_geo/boston/streets.csv
+  brussels:
+    keywords: transit_geo/brussels/keywords.csv
+    routes: transit_geo/brussels/routes.yaml
+    stations: transit_geo/brussels/stations.yaml
+    streets: transit_geo/brussels/streets.csv
+  budapest:
+    keywords: transit_geo/budapest/keywords.csv
+    routes: transit_geo/budapest/routes.yaml
+    stations: transit_geo/budapest/stations.yaml
+    streets: transit_geo/budapest/streets.csv
+  buenos-aires:
+    keywords: transit_geo/buenos-aires/keywords.csv
+    routes: transit_geo/buenos-aires/routes.yaml
+    stations: transit_geo/buenos-aires/stations.yaml
+    streets: transit_geo/buenos-aires/streets.csv
+  cairo:
+    keywords: transit_geo/cairo/keywords.csv
+    routes: transit_geo/cairo/routes.yaml
+    stations: transit_geo/cairo/stations.yaml
+    streets: transit_geo/cairo/streets.csv
+  chicago:
+    keywords: chicago_neighborhood_keywords.csv
+    streets: chicago_transit_streets.csv
+    stations: chicago_transit_stations.yaml
+    routes: chicago_transit_routes.yaml
+  copenhagen:
+    keywords: transit_geo/copenhagen/keywords.csv
+    routes: transit_geo/copenhagen/routes.yaml
+    stations: transit_geo/copenhagen/stations.yaml
+    streets: transit_geo/copenhagen/streets.csv
+  dallas:
+    keywords: transit_geo/dallas/keywords.csv
+    routes: transit_geo/dallas/routes.yaml
+    stations: transit_geo/dallas/stations.yaml
+    streets: transit_geo/dallas/streets.csv
+  delhi:
+    keywords: transit_geo/delhi/keywords.csv
+    routes: transit_geo/delhi/routes.yaml
+    stations: transit_geo/delhi/stations.yaml
+    streets: transit_geo/delhi/streets.csv
+  denver:
+    keywords: transit_geo/denver/keywords.csv
+    routes: transit_geo/denver/routes.yaml
+    stations: transit_geo/denver/stations.yaml
+    streets: transit_geo/denver/streets.csv
+  doha:
+    keywords: transit_geo/doha/keywords.csv
+    routes: transit_geo/doha/routes.yaml
+    stations: transit_geo/doha/stations.yaml
+    streets: transit_geo/doha/streets.csv
+  dubai:
+    keywords: transit_geo/dubai/keywords.csv
+    routes: transit_geo/dubai/routes.yaml
+    stations: transit_geo/dubai/stations.yaml
+    streets: transit_geo/dubai/streets.csv
+  dublin:
+    keywords: transit_geo/dublin/keywords.csv
+    routes: transit_geo/dublin/routes.yaml
+    stations: transit_geo/dublin/stations.yaml
+    streets: transit_geo/dublin/streets.csv
+  helsinki:
+    keywords: transit_geo/helsinki/keywords.csv
+    routes: transit_geo/helsinki/routes.yaml
+    stations: transit_geo/helsinki/stations.yaml
+    streets: transit_geo/helsinki/streets.csv
+  hong-kong:
+    keywords: transit_geo/hong-kong/keywords.csv
+    routes: transit_geo/hong-kong/routes.yaml
+    stations: transit_geo/hong-kong/stations.yaml
+    streets: transit_geo/hong-kong/streets.csv
+  houston:
+    keywords: transit_geo/houston/keywords.csv
+    routes: transit_geo/houston/routes.yaml
+    stations: transit_geo/houston/stations.yaml
+    streets: transit_geo/houston/streets.csv
+  istanbul:
+    keywords: transit_geo/istanbul/keywords.csv
+    routes: transit_geo/istanbul/routes.yaml
+    stations: transit_geo/istanbul/stations.yaml
+    streets: transit_geo/istanbul/streets.csv
+  jakarta:
+    keywords: transit_geo/jakarta/keywords.csv
+    routes: transit_geo/jakarta/routes.yaml
+    stations: transit_geo/jakarta/stations.yaml
+    streets: transit_geo/jakarta/streets.csv
+  johannesburg:
+    keywords: transit_geo/johannesburg/keywords.csv
+    routes: transit_geo/johannesburg/routes.yaml
+    stations: transit_geo/johannesburg/stations.yaml
+    streets: transit_geo/johannesburg/streets.csv
+  kuala-lumpur:
+    keywords: transit_geo/kuala-lumpur/keywords.csv
+    routes: transit_geo/kuala-lumpur/routes.yaml
+    stations: transit_geo/kuala-lumpur/stations.yaml
+    streets: transit_geo/kuala-lumpur/streets.csv
+  lagos:
+    keywords: transit_geo/lagos/keywords.csv
+    routes: transit_geo/lagos/routes.yaml
+    stations: transit_geo/lagos/stations.yaml
+    streets: transit_geo/lagos/streets.csv
+  lima:
+    keywords: transit_geo/lima/keywords.csv
+    routes: transit_geo/lima/routes.yaml
+    stations: transit_geo/lima/stations.yaml
+    streets: transit_geo/lima/streets.csv
+  lisbon:
+    keywords: transit_geo/lisbon/keywords.csv
+    routes: transit_geo/lisbon/routes.yaml
+    stations: transit_geo/lisbon/stations.yaml
+    streets: transit_geo/lisbon/streets.csv
+  london:
+    keywords: transit_geo/london/keywords.csv
+    routes: transit_geo/london/routes.yaml
+    stations: transit_geo/london/stations.yaml
+    streets: transit_geo/london/streets.csv
+  la:
+    keywords: transit_geo/la/keywords.csv
+    routes: transit_geo/la/routes.yaml
+    stations: transit_geo/la/stations.yaml
+    streets: transit_geo/la/streets.csv
+  madrid:
+    keywords: transit_geo/madrid/keywords.csv
+    routes: transit_geo/madrid/routes.yaml
+    stations: transit_geo/madrid/stations.yaml
+    streets: transit_geo/madrid/streets.csv
+  manila:
+    keywords: transit_geo/manila/keywords.csv
+    routes: transit_geo/manila/routes.yaml
+    stations: transit_geo/manila/stations.yaml
+    streets: transit_geo/manila/streets.csv
+  melbourne:
+    keywords: transit_geo/melbourne/keywords.csv
+    routes: transit_geo/melbourne/routes.yaml
+    stations: transit_geo/melbourne/stations.yaml
+    streets: transit_geo/melbourne/streets.csv
+  mexico-city:
+    keywords: transit_geo/mexico-city/keywords.csv
+    routes: transit_geo/mexico-city/routes.yaml
+    stations: transit_geo/mexico-city/stations.yaml
+    streets: transit_geo/mexico-city/streets.csv
+  miami:
+    keywords: transit_geo/miami/keywords.csv
+    routes: transit_geo/miami/routes.yaml
+    stations: transit_geo/miami/stations.yaml
+    streets: transit_geo/miami/streets.csv
+  milan:
+    keywords: transit_geo/milan/keywords.csv
+    routes: transit_geo/milan/routes.yaml
+    stations: transit_geo/milan/stations.yaml
+    streets: transit_geo/milan/streets.csv
+  montreal:
+    keywords: transit_geo/montreal/keywords.csv
+    routes: transit_geo/montreal/routes.yaml
+    stations: transit_geo/montreal/stations.yaml
+    streets: transit_geo/montreal/streets.csv
+  moscow:
+    keywords: transit_geo/moscow/keywords.csv
+    routes: transit_geo/moscow/routes.yaml
+    stations: transit_geo/moscow/stations.yaml
+    streets: transit_geo/moscow/streets.csv
+  mumbai:
+    keywords: transit_geo/mumbai/keywords.csv
+    routes: transit_geo/mumbai/routes.yaml
+    stations: transit_geo/mumbai/stations.yaml
+    streets: transit_geo/mumbai/streets.csv
+  munich:
+    keywords: transit_geo/munich/keywords.csv
+    routes: transit_geo/munich/routes.yaml
+    stations: transit_geo/munich/stations.yaml
+    streets: transit_geo/munich/streets.csv
+  nairobi:
+    keywords: transit_geo/nairobi/keywords.csv
+    routes: transit_geo/nairobi/routes.yaml
+    stations: transit_geo/nairobi/stations.yaml
+    streets: transit_geo/nairobi/streets.csv
+  nyc:
+    keywords: transit_geo/nyc/keywords.csv
+    routes: transit_geo/nyc/routes.yaml
+    stations: transit_geo/nyc/stations.yaml
+    streets: transit_geo/nyc/streets.csv
+  oslo:
+    keywords: transit_geo/oslo/keywords.csv
+    routes: transit_geo/oslo/routes.yaml
+    stations: transit_geo/oslo/stations.yaml
+    streets: transit_geo/oslo/streets.csv
+  paris:
+    keywords: transit_geo/paris/keywords.csv
+    routes: transit_geo/paris/routes.yaml
+    stations: transit_geo/paris/stations.yaml
+    streets: transit_geo/paris/streets.csv
+  philadelphia:
+    keywords: transit_geo/philadelphia/keywords.csv
+    routes: transit_geo/philadelphia/routes.yaml
+    stations: transit_geo/philadelphia/stations.yaml
+    streets: transit_geo/philadelphia/streets.csv
+  phoenix:
+    keywords: transit_geo/phoenix/keywords.csv
+    routes: transit_geo/phoenix/routes.yaml
+    stations: transit_geo/phoenix/stations.yaml
+    streets: transit_geo/phoenix/streets.csv
+  prague:
+    keywords: transit_geo/prague/keywords.csv
+    routes: transit_geo/prague/routes.yaml
+    stations: transit_geo/prague/stations.yaml
+    streets: transit_geo/prague/streets.csv
+  riyadh:
+    keywords: transit_geo/riyadh/keywords.csv
+    routes: transit_geo/riyadh/routes.yaml
+    stations: transit_geo/riyadh/stations.yaml
+    streets: transit_geo/riyadh/streets.csv
+  rome:
+    keywords: transit_geo/rome/keywords.csv
+    routes: transit_geo/rome/routes.yaml
+    stations: transit_geo/rome/stations.yaml
+    streets: transit_geo/rome/streets.csv
+  san-francisco:
+    keywords: transit_geo/san-francisco/keywords.csv
+    routes: transit_geo/san-francisco/routes.yaml
+    stations: transit_geo/san-francisco/stations.yaml
+    streets: transit_geo/san-francisco/streets.csv
+  seattle:
+    keywords: transit_geo/seattle/keywords.csv
+    routes: transit_geo/seattle/routes.yaml
+    stations: transit_geo/seattle/stations.yaml
+    streets: transit_geo/seattle/streets.csv
+  seoul:
+    keywords: transit_geo/seoul/keywords.csv
+    routes: transit_geo/seoul/routes.yaml
+    stations: transit_geo/seoul/stations.yaml
+    streets: transit_geo/seoul/streets.csv
+  shanghai:
+    keywords: transit_geo/shanghai/keywords.csv
+    routes: transit_geo/shanghai/routes.yaml
+    stations: transit_geo/shanghai/stations.yaml
+    streets: transit_geo/shanghai/streets.csv
+  singapore:
+    keywords: transit_geo/singapore/keywords.csv
+    routes: transit_geo/singapore/routes.yaml
+    stations: transit_geo/singapore/stations.yaml
+    streets: transit_geo/singapore/streets.csv
+  stockholm:
+    keywords: transit_geo/stockholm/keywords.csv
+    routes: transit_geo/stockholm/routes.yaml
+    stations: transit_geo/stockholm/stations.yaml
+    streets: transit_geo/stockholm/streets.csv
+  sydney:
+    keywords: transit_geo/sydney/keywords.csv
+    routes: transit_geo/sydney/routes.yaml
+    stations: transit_geo/sydney/stations.yaml
+    streets: transit_geo/sydney/streets.csv
+  sao-paulo:
+    keywords: transit_geo/sao-paulo/keywords.csv
+    routes: transit_geo/sao-paulo/routes.yaml
+    stations: transit_geo/sao-paulo/stations.yaml
+    streets: transit_geo/sao-paulo/streets.csv
+  taipei:
+    keywords: transit_geo/taipei/keywords.csv
+    routes: transit_geo/taipei/routes.yaml
+    stations: transit_geo/taipei/stations.yaml
+    streets: transit_geo/taipei/streets.csv
+  tel-aviv:
+    keywords: transit_geo/tel-aviv/keywords.csv
+    routes: transit_geo/tel-aviv/routes.yaml
+    stations: transit_geo/tel-aviv/stations.yaml
+    streets: transit_geo/tel-aviv/streets.csv
+  tokyo:
+    keywords: transit_geo/tokyo/keywords.csv
+    routes: transit_geo/tokyo/routes.yaml
+    stations: transit_geo/tokyo/stations.yaml
+    streets: transit_geo/tokyo/streets.csv
+  toronto:
+    keywords: transit_geo/toronto/keywords.csv
+    routes: transit_geo/toronto/routes.yaml
+    stations: transit_geo/toronto/stations.yaml
+    streets: transit_geo/toronto/streets.csv
+  vancouver:
+    keywords: transit_geo/vancouver/keywords.csv
+    routes: transit_geo/vancouver/routes.yaml
+    stations: transit_geo/vancouver/stations.yaml
+    streets: transit_geo/vancouver/streets.csv
+  vienna:
+    keywords: transit_geo/vienna/keywords.csv
+    routes: transit_geo/vienna/routes.yaml
+    stations: transit_geo/vienna/stations.yaml
+    streets: transit_geo/vienna/streets.csv
+  warsaw:
+    keywords: transit_geo/warsaw/keywords.csv
+    routes: transit_geo/warsaw/routes.yaml
+    stations: transit_geo/warsaw/stations.yaml
+    streets: transit_geo/warsaw/streets.csv
+  washington-dc:
+    keywords: transit_geo/washington-dc/keywords.csv
+    routes: transit_geo/washington-dc/routes.yaml
+    stations: transit_geo/washington-dc/stations.yaml
+    streets: transit_geo/washington-dc/streets.csv
+  zurich:
+    keywords: transit_geo/zurich/keywords.csv
+    routes: transit_geo/zurich/routes.yaml
+    stations: transit_geo/zurich/stations.yaml
+    streets: transit_geo/zurich/streets.csv

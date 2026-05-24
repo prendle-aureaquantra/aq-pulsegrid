@@ -50,11 +50,11 @@ table CityPulseSnapshot
 		sourceColumn: disruption_ratio_score
 		annotation SummarizationSetBy = Automatic
 
-	column active_cta_alerts
+	column active_transit_alerts
 		dataType: int64
-		lineageTag: d7d21e03-ae85-5922-93d2-bdfa123bb917
+		lineageTag: af7b0a0d-6d3d-5537-a496-94cd6de23123
 		summarizeBy: sum
-		sourceColumn: active_cta_alerts
+		sourceColumn: active_transit_alerts
 		annotation SummarizationSetBy = Automatic
 
 	column active_noaa_alerts
@@ -99,6 +99,27 @@ table CityPulseSnapshot
 		sourceColumn: airport_visibility_sm
 		annotation SummarizationSetBy = Automatic
 
+	column airport_ops_stress
+		dataType: decimal
+		lineageTag: df268ad8-bbf0-5b6c-b0ff-31f85d30ae06
+		summarizeBy: none
+		sourceColumn: airport_ops_stress
+		annotation SummarizationSetBy = Automatic
+
+	column active_airport_stations
+		dataType: int64
+		lineageTag: 412532ad-9241-5007-bbe8-e438565ce39f
+		summarizeBy: none
+		sourceColumn: active_airport_stations
+		annotation SummarizationSetBy = Automatic
+
+	column airport_stations_summary
+		dataType: string
+		lineageTag: 97ef433e-482a-5c15-ac61-e1725c531ead
+		summarizeBy: none
+		sourceColumn: airport_stations_summary
+		annotation SummarizationSetBy = Automatic
+
 	column trend_avg_interest
 		dataType: decimal
 		lineageTag: 452f32bd-ea6d-566a-b06a-28e2a5ac2fd2
@@ -113,13 +134,55 @@ table CityPulseSnapshot
 		sourceColumn: fred_series_count
 		annotation SummarizationSetBy = Automatic
 
+	column infrastructure_failure_risk
+		dataType: decimal
+		lineageTag: 733388b6-7ef9-55aa-8ab9-5148f80d9351
+		summarizeBy: sum
+		sourceColumn: infrastructure_failure_risk
+		annotation SummarizationSetBy = Automatic
+
+	column infrastructure_fatigue_risk
+		dataType: decimal
+		lineageTag: c1a93205-8a78-5c15-9024-e887e3a407d6
+		summarizeBy: sum
+		sourceColumn: infrastructure_fatigue_risk
+		annotation SummarizationSetBy = Automatic
+
+	column bridge_risk_score
+		dataType: decimal
+		lineageTag: f1da6e14-c3db-5f04-a837-88cea7e9c17f
+		summarizeBy: none
+		sourceColumn: bridge_risk_score
+		annotation SummarizationSetBy = Automatic
+
+	column road_surface_risk_score
+		dataType: decimal
+		lineageTag: d4f49568-108b-5f82-86a2-dd4872d48a77
+		summarizeBy: none
+		sourceColumn: road_surface_risk_score
+		annotation SummarizationSetBy = Automatic
+
+	column open_infrastructure_requests
+		dataType: int64
+		lineageTag: 95190a7c-be7f-5272-bcf2-b9c1c2e3cc2a
+		summarizeBy: sum
+		sourceColumn: open_infrastructure_requests
+		annotation SummarizationSetBy = Automatic
+
+	column infrastructure_summary
+		dataType: string
+		lineageTag: 4700dc58-0772-5635-b0e7-a39222a34c22
+		summarizeBy: none
+		sourceColumn: infrastructure_summary
+		annotation SummarizationSetBy = Automatic
+
 	measure 'City Stress Index' = AVERAGE(CityPulseSnapshot[city_stress_index])
 		formatString: 0.0
 		lineageTag: 96c842f7-fcb6-5afa-aacf-657c1de8088b
 
-	measure 'Active CTA Alerts' = SUM(CityPulseSnapshot[active_cta_alerts])
+	measure 'Active Transit Alerts' = SUM(CityPulseSnapshot[active_transit_alerts])
 		formatString: #,0
-		lineageTag: 6631694e-a8b6-5479-b523-d0f5d41b1883
+		lineageTag: c22d0b04-58c6-59a8-a7b8-ba48a04ce863
 
 	measure 'Active NOAA Alerts' = SUM(CityPulseSnapshot[active_noaa_alerts])
 		formatString: #,0
@@ -137,6 +200,18 @@ table CityPulseSnapshot
 		formatString: 0.0
 		lineageTag: cb452219-f0ed-5243-becd-4fb69654fd0a
 
+	measure 'Precip Risk Score' = AVERAGE(CityPulseSnapshot[precip_risk_score])
+		formatString: 0.0
+		lineageTag: acbe8805-5f10-5d31-a462-107f35927d5a
+
+	measure 'Disruption Ratio Score' = AVERAGE(CityPulseSnapshot[disruption_ratio_score])
+		formatString: 0.0
+		lineageTag: 072cdd25-b13a-50a9-a376-8f7c01446b4f
+
+	measure 'Reroute Count' = SUM(CityPulseSnapshot[reroute_count])
+		formatString: #,0
+		lineageTag: be74c5da-80cd-5e06-8bb4-f5b634d3ea50
+
 	measure 'Trend Avg Interest' = AVERAGE(CityPulseSnapshot[trend_avg_interest])
 		formatString: 0.0
 		lineageTag: 113123d7-469b-5c52-8be2-ffba6005e5a0
@@ -145,12 +220,40 @@ table CityPulseSnapshot
 		formatString: 0.0
 		lineageTag: 918ab3a7-54af-5aad-9627-890d458fc1f2
 
+	measure 'Max Airport Ops Stress' = MAX(CityPulseSnapshot[airport_ops_stress])
+		formatString: 0.0
+		lineageTag: 8515225b-262f-5bd4-9194-ece45e1322a7
+
+	measure 'Active Airport Stations' = MAX(CityPulseSnapshot[active_airport_stations])
+		formatString: #,0
+		lineageTag: 36fd994f-0ede-5fbc-9fb3-b7d41ea424b1
+
+	measure 'Infrastructure Failure Risk' = MAX(CityPulseSnapshot[infrastructure_failure_risk])
+		formatString: 0.0
+		lineageTag: 873a7a85-73d5-5241-a8b0-57a4076bb006
+
+	measure 'Infrastructure Fatigue Risk' = MAX(CityPulseSnapshot[infrastructure_fatigue_risk])
+		formatString: 0.0
+		lineageTag: ccdf1875-65d8-5cd7-bcf9-3c72f46ca508
+
+	measure 'Bridge Risk Score' = MAX(CityPulseSnapshot[bridge_risk_score])
+		formatString: 0.0
+		lineageTag: a9d76787-2eec-5fcf-8923-58e8d3474c52
+
+	measure 'Road Surface Risk Score' = MAX(CityPulseSnapshot[road_surface_risk_score])
+		formatString: 0.0
+		lineageTag: db9d2d06-3155-5461-9c97-6595ee9d1f4a
+
+	measure 'Open Infrastructure Requests' = MAX(CityPulseSnapshot[open_infrastructure_requests])
+		formatString: #,0
+		lineageTag: 2baf7e17-84f8-5a24-904c-6d4a992ad33a
+
 	partition CityPulseSnapshot-6a9ee8ad-712d-5e82-b3a9-ef8e00d8601d = m
 		mode: import
 		source =
 			let
 				Source = Csv.Document(
-					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/CityPulseSnapshot.csv"),
+					File.Contents("C:/Users/prendleman/AppData/Local/Temp/pytest-of-prendleman/pytest-40/test_build_pbip_blank_pages0/generated/chicago/data/CityPulseSnapshot.csv"),
 					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
 				),
 				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
@@ -164,15 +267,24 @@ table CityPulseSnapshot
 					{"weather_risk_score", type number},
 					{"precip_risk_score", type number},
 					{"disruption_ratio_score", type number},
-					{"active_cta_alerts", Int64.Type},
+					{"active_transit_alerts", Int64.Type},
 					{"active_noaa_alerts", Int64.Type},
 					{"avg_precip_pct_next_periods", type number},
 					{"reroute_count", Int64.Type},
 					{"delay_count", Int64.Type},
 					{"airport_flight_category", type text},
 					{"airport_visibility_sm", type number},
+					{"airport_ops_stress", type number},
+					{"active_airport_stations", Int64.Type},
+					{"airport_stations_summary", type text},
 					{"trend_avg_interest", type number},
-					{"fred_series_count", Int64.Type}
+					{"fred_series_count", Int64.Type},
+					{"infrastructure_failure_risk", type number},
+					{"infrastructure_fatigue_risk", type number},
+					{"bridge_risk_score", type number},
+					{"road_surface_risk_score", type number},
+					{"open_infrastructure_requests", Int64.Type},
+					{"infrastructure_summary", type text}
 					}
 				)
 			in

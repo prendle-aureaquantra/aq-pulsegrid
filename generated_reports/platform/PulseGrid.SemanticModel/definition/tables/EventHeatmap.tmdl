@@ -1,0 +1,70 @@
+table EventHeatmap
+	lineageTag: bc13320b-40fa-5a35-bd4a-3cb761d1a017
+
+	column city
+		dataType: string
+		lineageTag: e554fd04-fb82-55ca-9377-21706f7cd514
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_at
+		dataType: string
+		lineageTag: 88eb54db-2f30-572d-b345-582d1822b7d8
+		summarizeBy: none
+		sourceColumn: snapshot_at
+		annotation SummarizationSetBy = Automatic
+
+	column hex_id
+		dataType: string
+		lineageTag: ff58729d-d9aa-582d-948c-c0bb937a72a0
+		summarizeBy: none
+		sourceColumn: hex_id
+		annotation SummarizationSetBy = Automatic
+
+	column neighborhood
+		dataType: string
+		lineageTag: 1c154788-c040-5794-a8dc-30d935ea0e97
+		summarizeBy: none
+		sourceColumn: neighborhood
+		annotation SummarizationSetBy = Automatic
+
+	column event_category
+		dataType: string
+		lineageTag: 7574beb5-3a85-568b-aef6-bc9d7fdd2339
+		summarizeBy: none
+		sourceColumn: event_category
+		annotation SummarizationSetBy = Automatic
+
+	column event_count
+		dataType: int64
+		lineageTag: 0807f235-9258-5b43-bb2d-20e1260bfea2
+		summarizeBy: none
+		sourceColumn: event_count
+		annotation SummarizationSetBy = Automatic
+
+	partition EventHeatmap-b9777006-979c-5fec-86fa-a7c84f2ffb7b = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/platform/data/EventHeatmap.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"snapshot_at", type text},
+					{"hex_id", type text},
+					{"neighborhood", type text},
+					{"event_category", type text},
+					{"event_count", Int64.Type}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

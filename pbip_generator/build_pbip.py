@@ -32,21 +32,74 @@ TABLE_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("weather_risk_score", "type number"),
         ("precip_risk_score", "type number"),
         ("disruption_ratio_score", "type number"),
-        ("active_cta_alerts", "Int64.Type"),
+        ("active_transit_alerts", "Int64.Type"),
         ("active_noaa_alerts", "Int64.Type"),
         ("avg_precip_pct_next_periods", "type number"),
         ("reroute_count", "Int64.Type"),
         ("delay_count", "Int64.Type"),
         ("airport_flight_category", "type text"),
         ("airport_visibility_sm", "type number"),
+        ("airport_ops_stress", "type number"),
+        ("active_airport_stations", "Int64.Type"),
+        ("airport_stations_summary", "type text"),
         ("trend_avg_interest", "type number"),
         ("fred_series_count", "Int64.Type"),
+        ("infrastructure_failure_risk", "type number"),
+        ("infrastructure_fatigue_risk", "type number"),
+        ("bridge_risk_score", "type number"),
+        ("road_surface_risk_score", "type number"),
+        ("open_infrastructure_requests", "Int64.Type"),
+        ("infrastructure_summary", "type text"),
+    ],
+    "InfrastructureRiskSnapshot": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("infrastructure_failure_risk", "type number"),
+        ("infrastructure_fatigue_risk", "type number"),
+        ("bridge_risk_score", "type number"),
+        ("road_surface_risk_score", "type number"),
+        ("structural_risk_score", "type number"),
+        ("active_infrastructure_requests", "Int64.Type"),
+        ("open_infrastructure_requests", "Int64.Type"),
+        ("critical_open_requests", "Int64.Type"),
+        ("infrastructure_summary", "type text"),
+    ],
+    "InfrastructureAssetSummary": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("asset_class", "type text"),
+        ("risk_tier", "type text"),
+        ("request_type", "type text"),
+        ("request_count", "Int64.Type"),
+    ],
+    "InfrastructureRequestDetail": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("request_id", "type text"),
+        ("request_type", "type text"),
+        ("descriptor", "type text"),
+        ("status", "type text"),
+        ("asset_class", "type text"),
+        ("risk_tier", "type text"),
+        ("failure_risk_score", "type number"),
     ],
     "TransitAlertSummary": [
         ("city", "type text"),
         ("snapshot_at", "type text"),
         ("alert_category", "type text"),
         ("alert_count", "Int64.Type"),
+    ],
+    "TransitAlertDetail": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("hex_id", "type text"),
+        ("neighborhood", "type text"),
+        ("alert_id", "type text"),
+        ("headline", "type text"),
+        ("short_description", "type text"),
+        ("severity", "type text"),
+        ("service", "type text"),
+        ("alert_category", "type text"),
     ],
     "AnomalySignals": [
         ("city", "type text"),
@@ -78,6 +131,7 @@ TABLE_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("city", "type text"),
         ("snapshot_at", "type text"),
         ("station", "type text"),
+        ("station_label", "type text"),
         ("flight_category", "type text"),
         ("visibility_sm", "type number"),
         ("wind_speed_kt", "type number"),
@@ -117,6 +171,18 @@ TABLE_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("event_category", "type text"),
         ("event_count", "Int64.Type"),
     ],
+    "CityEventDetail": [
+        ("city", "type text"),
+        ("snapshot_at", "type text"),
+        ("hex_id", "type text"),
+        ("neighborhood", "type text"),
+        ("event_category", "type text"),
+        ("event_id", "type text"),
+        ("event_name", "type text"),
+        ("location", "type text"),
+        ("start_date", "type text"),
+        ("end_date", "type text"),
+    ],
     "StreamingTelemetry": [
         ("city", "type text"),
         ("snapshot_at", "type text"),
@@ -138,39 +204,149 @@ TABLE_COLUMNS: dict[str, list[tuple[str, str]]] = {
         ("column_count", "Int64.Type"),
         ("columns_list", "type text"),
     ],
+    "DimAirport": [
+        ("city", "type text"),
+        ("icao", "type text"),
+        ("station_label", "type text"),
+        ("sort_order", "Int64.Type"),
+    ],
+    "DimMetro": [
+        ("city", "type text"),
+        ("display_name", "type text"),
+        ("metro_label", "type text"),
+        ("metro_name", "type text"),
+        ("country", "type text"),
+        ("tier", "type text"),
+        ("lat", "type number"),
+        ("lon", "type number"),
+        ("timezone", "type text"),
+        ("modules", "type text"),
+        ("last_snapshot_at", "type text"),
+    ],
 }
 
 REQUIRED_TABLES = [
     "CityPulseSnapshot",
     "TransitAlertSummary",
+    "TransitAlertDetail",
     "AnomalySignals",
     "WeatherForecastPeriods",
 ]
 
 OPTIONAL_TABLES = [
+    "DimMetro",
+    "DimAirport",
     "AirportOpsSnapshot",
     "FredMacroSnapshot",
     "TrendInterestSummary",
     "HexPulseGrid",
     "EventHeatmap",
+    "CityEventDetail",
     "StreamingTelemetry",
     "OsmAmenitySummary",
+    "InfrastructureRiskSnapshot",
+    "InfrastructureAssetSummary",
+    "InfrastructureRequestDetail",
     "PbipStudioCatalog",
 ]
 
 TABLE_ORDER = REQUIRED_TABLES + OPTIONAL_TABLES
 
-REPORT_PAGES: list[tuple[str, str]] = [
-    ("page.live-pulse", "Live City Pulse"),
-    ("page.transit", "Transit & Mobility"),
-    ("page.weather", "Weather Impact Analysis"),
-    ("page.airport", "Airport Operations"),
-    ("page.events", "Event Heatmaps"),
-    ("page.ai-signals", "AI Signal Detection"),
-    ("page.streaming", "Streaming Monitor"),
-    ("page.macro", "Macro & Trends"),
-    ("page.studio", "PBIP Generator Studio"),
+DIM_METRO_HEADER_MEASURES: list[tuple[str, str]] = [
+    (
+        "Selected Metro Subtitle",
+        'VAR dn = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "All metros") '
+        'VAR tier = COALESCE(SELECTEDVALUE(DimMetro[tier]), "multi") '
+        'VAR tz = COALESCE(SELECTEDVALUE(DimMetro[timezone]), "") '
+        'RETURN IF(dn = "All metros", "AQ PulseGrid · select a metro to filter", '
+        'UPPER(tier) & " tier · " & tz)',
+    ),
+    (
+        "Header Live Pulse",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Operational Command Center"',
+    ),
+    (
+        "Header Metro Compare",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Metro Comparison"',
+    ),
+    (
+        "Header Geospatial",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Geospatial Intelligence"',
+    ),
+    (
+        "Header Transit",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Transit & Mobility"',
+    ),
+    (
+        "Header Weather",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Weather Impact"',
+    ),
+    (
+        "Header Airport",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Airport Operations"',
+    ),
+    (
+        "Header Events",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Event Heatmaps"',
+    ),
+    (
+        "Header AI Signals",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · AI Signal Detection"',
+    ),
+    (
+        "Header Streaming",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Streaming Monitor"',
+    ),
+    (
+        "Header Macro",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Macro & Trends"',
+    ),
+    (
+        "Header Studio",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · PBIP Generator Studio"',
+    ),
+    (
+        "Header Infrastructure",
+        'VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") '
+        'RETURN n & " · Infrastructure Risk"',
+    ),
 ]
+
+REPORT_PAGES_BASE: list[tuple[str, str]] = [
+    ("page.live-pulse", "Command Center"),
+    ("page.geospatial", "Geospatial Intelligence"),
+    ("page.transit", "Transit & Mobility"),
+    ("page.infrastructure", "Infrastructure Risk"),
+    ("page.airport", "Multi-Station Airports"),
+    ("page.weather", "Weather & Environment"),
+    ("page.events", "Events & Activity"),
+    ("page.ai-signals", "Anomaly Detection"),
+    ("page.macro", "Macro & Trends"),
+    ("page.streaming", "Data Pipeline"),
+    ("page.studio", "Semantic Studio"),
+]
+
+
+def report_pages(*, platform_mode: bool = False) -> list[tuple[str, str]]:
+    """Report page seeds and display names (platform adds worldwide comparison)."""
+    pages = list(REPORT_PAGES_BASE)
+    if platform_mode:
+        pages.insert(1, ("page.metro-compare", "Metro Comparison"))
+    return pages
+
+
+REPORT_PAGES = REPORT_PAGES_BASE
 
 
 def _lid(s: str) -> str:
@@ -234,6 +410,9 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
         if table == "CityPulseSnapshot" and col_name in (
             "airport_flight_category",
             "airport_visibility_sm",
+            "airport_ops_stress",
+            "active_airport_stations",
+            "airport_stations_summary",
             "trend_avg_interest",
             "fred_series_count",
             "city_stress_index",
@@ -241,6 +420,22 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
         ):
             summarize = "none"
         if col_name in ("city_stress_index", "z_score", "baseline", "observed"):
+            summarize = "none"
+        if table in (
+            "HexPulseGrid",
+            "EventHeatmap",
+            "CityEventDetail",
+            "TransitAlertDetail",
+            "TransitAlertSummary",
+            "OsmAmenitySummary",
+        ):
+            if col_name.endswith("_count") or col_name in (
+                "alert_count",
+                "event_count",
+                "poi_count",
+            ):
+                summarize = "none"
+        if table == "PbipStudioCatalog" and col_name == "column_count":
             summarize = "none"
         lines.extend(
             [
@@ -256,13 +451,43 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
     if table == "CityPulseSnapshot":
         measures = [
             ("City Stress Index", "AVERAGE(CityPulseSnapshot[city_stress_index])", "0.0"),
-            ("Active CTA Alerts", "SUM(CityPulseSnapshot[active_cta_alerts])", "#,0"),
+            ("Active Transit Alerts", "SUM(CityPulseSnapshot[active_transit_alerts])", "#,0"),
             ("Active NOAA Alerts", "SUM(CityPulseSnapshot[active_noaa_alerts])", "#,0"),
             ("Avg Precip %", "AVERAGE(CityPulseSnapshot[avg_precip_pct_next_periods])", "0.0"),
             ("Transit Load Score", "AVERAGE(CityPulseSnapshot[transit_load_score])", "0.0"),
             ("Weather Risk Score", "AVERAGE(CityPulseSnapshot[weather_risk_score])", "0.0"),
+            ("Precip Risk Score", "AVERAGE(CityPulseSnapshot[precip_risk_score])", "0.0"),
+            (
+                "Disruption Ratio Score",
+                "AVERAGE(CityPulseSnapshot[disruption_ratio_score])",
+                "0.0",
+            ),
+            ("Reroute Count", "SUM(CityPulseSnapshot[reroute_count])", "#,0"),
             ("Trend Avg Interest", "AVERAGE(CityPulseSnapshot[trend_avg_interest])", "0.0"),
             ("Airport Visibility (sm)", "AVERAGE(CityPulseSnapshot[airport_visibility_sm])", "0.0"),
+            ("Max Airport Ops Stress", "MAX(CityPulseSnapshot[airport_ops_stress])", "0.0"),
+            ("Active Airport Stations", "MAX(CityPulseSnapshot[active_airport_stations])", "#,0"),
+            (
+                "Infrastructure Failure Risk",
+                "MAX(CityPulseSnapshot[infrastructure_failure_risk])",
+                "0.0",
+            ),
+            (
+                "Infrastructure Fatigue Risk",
+                "MAX(CityPulseSnapshot[infrastructure_fatigue_risk])",
+                "0.0",
+            ),
+            ("Bridge Risk Score", "MAX(CityPulseSnapshot[bridge_risk_score])", "0.0"),
+            (
+                "Road Surface Risk Score",
+                "MAX(CityPulseSnapshot[road_surface_risk_score])",
+                "0.0",
+            ),
+            (
+                "Open Infrastructure Requests",
+                "MAX(CityPulseSnapshot[open_infrastructure_requests])",
+                "#,0",
+            ),
         ]
         for mname, expr, fmt in measures:
             lines.append(f"\tmeasure '{mname}' = {expr}")
@@ -274,26 +499,57 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
         lines.append("\t\tformatString: #,0")
         lines.append(f"\t\tlineageTag: {_lid('measure.Anomaly Count')}")
         lines.append("")
-    if table == "AirportOpsSnapshot":
-        lines.append("\tmeasure 'ORD Ops Stress' = AVERAGE(AirportOpsSnapshot[airport_ops_stress])")
-        lines.append("\t\tformatString: 0.0")
-        lines.append(f"\t\tlineageTag: {_lid('measure.ORD Ops Stress')}")
-        lines.append("")
-    if table == "HexPulseGrid":
-        lines.append("\tmeasure 'Hex Alert Total' = SUM(HexPulseGrid[alert_count])")
+    if table == "TransitAlertDetail":
+        lines.append("\tmeasure 'Transit Alert Count' = COUNTROWS(TransitAlertDetail)")
         lines.append("\t\tformatString: #,0")
-        lines.append(f"\t\tlineageTag: {_lid('measure.Hex Alert Total')}")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Transit Alert Count')}")
         lines.append("")
+    if table == "InfrastructureRiskSnapshot":
+        lines.append(
+            "\tmeasure 'Max Infrastructure Failure Risk' = MAX(InfrastructureRiskSnapshot[infrastructure_failure_risk])"
+        )
+        lines.append("\t\tformatString: 0.0")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Max Infrastructure Failure Risk')}")
+        lines.append("")
+        lines.append(
+            "\tmeasure 'Max Infrastructure Fatigue Risk' = MAX(InfrastructureRiskSnapshot[infrastructure_fatigue_risk])"
+        )
+        lines.append("\t\tformatString: 0.0")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Max Infrastructure Fatigue Risk')}")
+        lines.append("")
+    if table == "InfrastructureAssetSummary":
+        lines.append(
+            "\tmeasure 'Request Count' = SUM(InfrastructureAssetSummary[request_count])"
+        )
+        lines.append("\t\tformatString: #,0")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Infrastructure Request Count')}")
+        lines.append("")
+    if table == "CityEventDetail":
+        lines.append("\tmeasure 'Event Count' = COUNTROWS(CityEventDetail)")
+        lines.append("\t\tformatString: #,0")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Event Count')}")
+        lines.append("")
+    if table == "AirportOpsSnapshot":
+        lines.append(
+            "\tmeasure 'Max Airport Ops Stress' = MAX(AirportOpsSnapshot[airport_ops_stress])"
+        )
+        lines.append("\t\tformatString: 0.0")
+        lines.append(f"\t\tlineageTag: {_lid('measure.Max Airport Ops Stress')}")
+        lines.append("")
+    # HexPulseGrid: no table-scoped SUM measure — duplicates default column aggregation
+    # and triggers "cyclic reference" on load in Power BI Desktop.
     if table == "StreamingTelemetry":
         lines.append("\tmeasure 'Total Ingest Batches' = SUM(StreamingTelemetry[batch_count])")
         lines.append("\t\tformatString: #,0")
         lines.append(f"\t\tlineageTag: {_lid('measure.Total Ingest Batches')}")
         lines.append("")
-    if table == "PbipStudioCatalog":
-        lines.append("\tmeasure 'Catalog Rows' = COUNTROWS(PbipStudioCatalog)")
-        lines.append("\t\tformatString: #,0")
-        lines.append(f"\t\tlineageTag: {_lid('measure.Catalog Rows')}")
-        lines.append("")
+    if table == "DimMetro":
+        for mname, expr in DIM_METRO_HEADER_MEASURES:
+            lines.append(f"\tmeasure '{mname}' = {expr}")
+            lines.append(f"\t\tlineageTag: {_lid(f'measure.{mname}')}")
+            lines.append('\t\tannotation PBI_FormatHint = {"isText": true}')
+            lines.append("")
+    # PbipStudioCatalog: no table-scoped COUNTROWS measure — causes cyclic ref on load in Desktop.
     part_name = f"{table}-{_lid(f'partition.{table}')}"
     m_body = _partition_m(table, csv_path).rstrip("\n")
     lines.append(f"\tpartition {part_name} = m")
@@ -305,6 +561,44 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
     lines.append("\tannotation PBI_ResultType = Table")
     lines.append("")
     return "\n".join(lines) + "\n"
+
+
+def _write_relationships(sm_def: Path, data_dir: Path) -> None:
+    """Star-schema links so DimMetro slicer filters all fact tables by city."""
+    if not (data_dir / "DimMetro.csv").exists():
+        (sm_def / "relationships.tmdl").write_text("", encoding="utf-8")
+        return
+    lines: list[str] = []
+    for table in TABLE_ORDER:
+        if table == "DimMetro":
+            continue
+        if not (data_dir / f"{table}.csv").exists():
+            continue
+        schema = TABLE_COLUMNS.get(table)
+        if not schema or not any(col == "city" for col, _ in schema):
+            continue
+        rid = _lid(f"rel.{table}.DimMetro")
+        lines.extend(
+            [
+                f"relationship {rid}",
+                f"\tfromColumn: {table}.city",
+                f"\ttoColumn: DimMetro.city",
+                "",
+            ]
+        )
+    if (data_dir / "AirportOpsSnapshot.csv").exists() and (
+        data_dir / "DimAirport.csv"
+    ).exists():
+        rid = _lid("rel.AirportOpsSnapshot.DimAirport")
+        lines.extend(
+            [
+                f"relationship {rid}",
+                "\tfromColumn: AirportOpsSnapshot.station",
+                "\ttoColumn: DimAirport.icao",
+                "",
+            ]
+        )
+    (sm_def / "relationships.tmdl").write_text("\n".join(lines), encoding="utf-8")
 
 
 def _write_semantic_tables(
@@ -337,7 +631,7 @@ def _write_semantic_tables(
             (sm_def / "tables" / f"{t}.tmdl").write_text(
                 _table_tmdl(t, csv), encoding="utf-8"
             )
-    (sm_def / "relationships.tmdl").write_text("", encoding="utf-8")
+    _write_relationships(sm_def, data_dir)
     (model_root / "definition.pbism").write_text(
         json.dumps({"version": "4.1", "settings": {"qnaEnabled": True}}, indent=2) + "\n",
         encoding="utf-8",
@@ -382,23 +676,46 @@ def _download_base_theme(dest: Path) -> None:
         dest.write_bytes(r.read())
 
 
-def build_pbip(city_slug: str, *, include_visuals: bool = False, use_custom_theme: bool = False) -> Path:
-    get_city(city_slug)  # validate city config
-    meta = build_semantic_metadata(city_slug)
-    project = meta["model_name"]
-    write_semantic_metadata(city_slug)
+def build_pbip(
+    city_slug: str,
+    *,
+    include_visuals: bool = False,
+    use_custom_theme: bool = False,
+    platform_mode: bool = False,
+) -> Path:
+    if platform_mode:
+        from pulsegrid.config import get_metro
 
-    data_dir = export_city_csv(city_slug)
+        get_metro("chicago")
+        meta = build_semantic_metadata("chicago")
+        meta = {**meta, "model_name": "PulseGrid", "city": "platform"}
+        project = "PulseGrid"
+        data_dir = GENERATED / "platform" / "data"
+        out_root = GENERATED / "platform"
+        city_slug = "platform"
+    else:
+        get_city(city_slug)
+        meta = build_semantic_metadata(city_slug)
+        project = meta["model_name"]
+        data_dir = export_city_csv(city_slug)
+        out_root = GENERATED / city_slug
+
+    if not platform_mode:
+        write_semantic_metadata(city_slug)
+
     available_tables = {t for t in TABLE_ORDER if (data_dir / f"{t}.csv").exists()}
     missing = [t for t in REQUIRED_TABLES if t not in available_tables]
     if missing:
         raise FileNotFoundError(
-            f"Missing CSV exports for {missing}. Run ML/transform pipeline first: "
-            f"python generate_city.py --city {city_slug} --transform-only && "
-            f"python generate_city.py --city {city_slug} --ml-only"
+            f"Missing CSV exports for {missing}. Run platform export first: "
+            f"python generate_city.py --platform-only"
+            if platform_mode
+            else (
+                f"python generate_city.py --city {city_slug} --transform-only && "
+                f"python generate_city.py --city {city_slug} --ml-only"
+            )
         )
 
-    out_root = GENERATED / city_slug
     report_name = f"{project}.Report"
     model_name = f"{project}.SemanticModel"
     pbip_path = out_root / f"{project}.pbip"
@@ -507,7 +824,10 @@ def build_pbip(city_slug: str, *, include_visuals: bool = False, use_custom_them
     if pages_root.exists():
         shutil.rmtree(pages_root)
     pages_root.mkdir(parents=True)
-    page_entries = [(seed, _lid_short(seed, 20), title) for seed, title in REPORT_PAGES]
+    page_entries = [
+        (seed, _lid_short(seed, 20), title)
+        for seed, title in report_pages(platform_mode=platform_mode)
+    ]
     page_order = [pid for _, pid, _ in page_entries]
     for seed, pid, display_name in page_entries:
         pdir = pages_root / pid
@@ -524,7 +844,13 @@ def build_pbip(city_slug: str, *, include_visuals: bool = False, use_custom_them
             },
         )
         if include_visuals:
-            write_page_visuals(pdir, seed, available_tables=available_tables)
+            write_page_visuals(
+                pdir,
+                seed,
+                available_tables=available_tables,
+                include_metro_slicer=platform_mode and "DimMetro" in available_tables,
+                platform_mode=platform_mode,
+            )
     _write_json(
         pages_root / "pages.json",
         {
@@ -542,6 +868,10 @@ def build_pbip(city_slug: str, *, include_visuals: bool = False, use_custom_them
     )
 
     _validate_report(report_root, page_order, require_visuals=include_visuals)
+    if include_visuals and platform_mode and "DimMetro" in available_tables:
+        from pbip_generator.visuals import validate_metro_slicer_sync
+
+        validate_metro_slicer_sync(report_root)
     local_pbip = _mirror_pbip(out_root, city_slug, project)
     bundle_root = local_pbip.parent if local_pbip else out_root
     bundle_data = bundle_root / "data"

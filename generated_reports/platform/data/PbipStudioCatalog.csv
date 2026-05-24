@@ -1,0 +1,924 @@
+﻿city,snapshot_at,table_name,source_path,column_count,columns_list
+amsterdam,2026-05-24T17:14:21.583173+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+amsterdam,2026-05-24T17:14:21.583173+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+amsterdam,2026-05-24T17:14:21.583173+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+amsterdam,2026-05-24T17:14:21.583173+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+amsterdam,2026-05-24T17:14:21.583173+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+amsterdam,2026-05-24T17:14:21.583173+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+amsterdam,2026-05-24T17:14:21.583173+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+amsterdam,2026-05-24T17:14:21.583173+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+amsterdam,2026-05-24T17:14:21.583173+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+amsterdam,2026-05-24T17:14:21.583173+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+amsterdam,2026-05-24T17:14:21.583173+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+amsterdam,2026-05-24T17:14:21.583173+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+amsterdam,2026-05-24T17:14:21.583173+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""amsterdam"", ""theme"": ""dark"", ""model"": ""AmsterdamPulse""}"
+athens,2026-05-24T17:14:21.583357+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+athens,2026-05-24T17:14:21.583357+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+athens,2026-05-24T17:14:21.583357+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+athens,2026-05-24T17:14:21.583357+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+athens,2026-05-24T17:14:21.583357+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+athens,2026-05-24T17:14:21.583357+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+athens,2026-05-24T17:14:21.583357+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+athens,2026-05-24T17:14:21.583357+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+athens,2026-05-24T17:14:21.583357+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+athens,2026-05-24T17:14:21.583357+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+athens,2026-05-24T17:14:21.583357+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+athens,2026-05-24T17:14:21.583357+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+athens,2026-05-24T17:14:21.583357+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""athens"", ""theme"": ""dark"", ""model"": ""AthensPulse""}"
+atlanta,2026-05-24T17:14:21.583513+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+atlanta,2026-05-24T17:14:21.583513+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+atlanta,2026-05-24T17:14:21.583513+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+atlanta,2026-05-24T17:14:21.583513+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+atlanta,2026-05-24T17:14:21.583513+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+atlanta,2026-05-24T17:14:21.583513+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+atlanta,2026-05-24T17:14:21.583513+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+atlanta,2026-05-24T17:14:21.583513+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+atlanta,2026-05-24T17:14:21.583513+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+atlanta,2026-05-24T17:14:21.583513+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+atlanta,2026-05-24T17:14:21.583513+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+atlanta,2026-05-24T17:14:21.583513+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+atlanta,2026-05-24T17:14:21.583513+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""atlanta"", ""theme"": ""dark"", ""model"": ""AtlantaPulse""}"
+auckland,2026-05-24T17:14:21.583670+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+auckland,2026-05-24T17:14:21.583670+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+auckland,2026-05-24T17:14:21.583670+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+auckland,2026-05-24T17:14:21.583670+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+auckland,2026-05-24T17:14:21.583670+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+auckland,2026-05-24T17:14:21.583670+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+auckland,2026-05-24T17:14:21.583670+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+auckland,2026-05-24T17:14:21.583670+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+auckland,2026-05-24T17:14:21.583670+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+auckland,2026-05-24T17:14:21.583670+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+auckland,2026-05-24T17:14:21.583670+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+auckland,2026-05-24T17:14:21.583670+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+auckland,2026-05-24T17:14:21.583670+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""auckland"", ""theme"": ""dark"", ""model"": ""AucklandPulse""}"
+bangalore,2026-05-24T17:14:21.583869+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+bangalore,2026-05-24T17:14:21.583869+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+bangalore,2026-05-24T17:14:21.583869+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+bangalore,2026-05-24T17:14:21.583869+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+bangalore,2026-05-24T17:14:21.583869+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+bangalore,2026-05-24T17:14:21.583869+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+bangalore,2026-05-24T17:14:21.583869+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+bangalore,2026-05-24T17:14:21.583869+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+bangalore,2026-05-24T17:14:21.583869+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+bangalore,2026-05-24T17:14:21.583869+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+bangalore,2026-05-24T17:14:21.583869+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+bangalore,2026-05-24T17:14:21.583869+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+bangalore,2026-05-24T17:14:21.583869+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""bangalore"", ""theme"": ""dark"", ""model"": ""BangalorePulse""}"
+bangkok,2026-05-24T17:14:21.584036+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+bangkok,2026-05-24T17:14:21.584036+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+bangkok,2026-05-24T17:14:21.584036+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+bangkok,2026-05-24T17:14:21.584036+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+bangkok,2026-05-24T17:14:21.584036+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+bangkok,2026-05-24T17:14:21.584036+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+bangkok,2026-05-24T17:14:21.584036+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+bangkok,2026-05-24T17:14:21.584036+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+bangkok,2026-05-24T17:14:21.584036+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+bangkok,2026-05-24T17:14:21.584036+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+bangkok,2026-05-24T17:14:21.584036+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+bangkok,2026-05-24T17:14:21.584036+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+bangkok,2026-05-24T17:14:21.584036+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""bangkok"", ""theme"": ""dark"", ""model"": ""BangkokPulse""}"
+barcelona,2026-05-24T17:14:21.584195+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+barcelona,2026-05-24T17:14:21.584195+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+barcelona,2026-05-24T17:14:21.584195+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+barcelona,2026-05-24T17:14:21.584195+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+barcelona,2026-05-24T17:14:21.584195+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+barcelona,2026-05-24T17:14:21.584195+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+barcelona,2026-05-24T17:14:21.584195+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+barcelona,2026-05-24T17:14:21.584195+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+barcelona,2026-05-24T17:14:21.584195+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+barcelona,2026-05-24T17:14:21.584195+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+barcelona,2026-05-24T17:14:21.584195+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+barcelona,2026-05-24T17:14:21.584195+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+barcelona,2026-05-24T17:14:21.584195+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""barcelona"", ""theme"": ""dark"", ""model"": ""BarcelonaPulse""}"
+beijing,2026-05-24T17:14:21.584349+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+beijing,2026-05-24T17:14:21.584349+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+beijing,2026-05-24T17:14:21.584349+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+beijing,2026-05-24T17:14:21.584349+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+beijing,2026-05-24T17:14:21.584349+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+beijing,2026-05-24T17:14:21.584349+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+beijing,2026-05-24T17:14:21.584349+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+beijing,2026-05-24T17:14:21.584349+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+beijing,2026-05-24T17:14:21.584349+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+beijing,2026-05-24T17:14:21.584349+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+beijing,2026-05-24T17:14:21.584349+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+beijing,2026-05-24T17:14:21.584349+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+beijing,2026-05-24T17:14:21.584349+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""beijing"", ""theme"": ""dark"", ""model"": ""BeijingPulse""}"
+berlin,2026-05-24T17:14:21.584505+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+berlin,2026-05-24T17:14:21.584505+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+berlin,2026-05-24T17:14:21.584505+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+berlin,2026-05-24T17:14:21.584505+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+berlin,2026-05-24T17:14:21.584505+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+berlin,2026-05-24T17:14:21.584505+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+berlin,2026-05-24T17:14:21.584505+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+berlin,2026-05-24T17:14:21.584505+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+berlin,2026-05-24T17:14:21.584505+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+berlin,2026-05-24T17:14:21.584505+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+berlin,2026-05-24T17:14:21.584505+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+berlin,2026-05-24T17:14:21.584505+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+berlin,2026-05-24T17:14:21.584505+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""berlin"", ""theme"": ""dark"", ""model"": ""BerlinPulse""}"
+bogota,2026-05-24T17:14:21.584657+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+bogota,2026-05-24T17:14:21.584657+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+bogota,2026-05-24T17:14:21.584657+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+bogota,2026-05-24T17:14:21.584657+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+bogota,2026-05-24T17:14:21.584657+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+bogota,2026-05-24T17:14:21.584657+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+bogota,2026-05-24T17:14:21.584657+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+bogota,2026-05-24T17:14:21.584657+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+bogota,2026-05-24T17:14:21.584657+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+bogota,2026-05-24T17:14:21.584657+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+bogota,2026-05-24T17:14:21.584657+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+bogota,2026-05-24T17:14:21.584657+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+bogota,2026-05-24T17:14:21.584657+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""bogota"", ""theme"": ""dark"", ""model"": ""BogotaPulse""}"
+boston,2026-05-24T17:14:21.587506+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+boston,2026-05-24T17:14:21.587506+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+boston,2026-05-24T17:14:21.587506+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+boston,2026-05-24T17:14:21.587506+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+boston,2026-05-24T17:14:21.587506+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+boston,2026-05-24T17:14:21.587506+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+boston,2026-05-24T17:14:21.587506+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+boston,2026-05-24T17:14:21.587506+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+boston,2026-05-24T17:14:21.587506+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+boston,2026-05-24T17:14:21.587506+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+boston,2026-05-24T17:14:21.587506+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+boston,2026-05-24T17:14:21.587506+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+boston,2026-05-24T17:14:21.587506+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""boston"", ""theme"": ""dark"", ""model"": ""BostonPulse""}"
+brussels,2026-05-24T17:14:21.587789+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+brussels,2026-05-24T17:14:21.587789+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+brussels,2026-05-24T17:14:21.587789+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+brussels,2026-05-24T17:14:21.587789+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+brussels,2026-05-24T17:14:21.587789+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+brussels,2026-05-24T17:14:21.587789+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+brussels,2026-05-24T17:14:21.587789+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+brussels,2026-05-24T17:14:21.587789+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+brussels,2026-05-24T17:14:21.587789+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+brussels,2026-05-24T17:14:21.587789+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+brussels,2026-05-24T17:14:21.587789+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+brussels,2026-05-24T17:14:21.587789+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+brussels,2026-05-24T17:14:21.587789+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""brussels"", ""theme"": ""dark"", ""model"": ""BrusselsPulse""}"
+budapest,2026-05-24T17:14:21.587949+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+budapest,2026-05-24T17:14:21.587949+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+budapest,2026-05-24T17:14:21.587949+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+budapest,2026-05-24T17:14:21.587949+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+budapest,2026-05-24T17:14:21.587949+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+budapest,2026-05-24T17:14:21.587949+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+budapest,2026-05-24T17:14:21.587949+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+budapest,2026-05-24T17:14:21.587949+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+budapest,2026-05-24T17:14:21.587949+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+budapest,2026-05-24T17:14:21.587949+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+budapest,2026-05-24T17:14:21.587949+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+budapest,2026-05-24T17:14:21.587949+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+budapest,2026-05-24T17:14:21.587949+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""budapest"", ""theme"": ""dark"", ""model"": ""BudapestPulse""}"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+buenos-aires,2026-05-24T17:14:21.588104+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+buenos-aires,2026-05-24T17:14:21.588104+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+buenos-aires,2026-05-24T17:14:21.588104+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+buenos-aires,2026-05-24T17:14:21.588104+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""buenos-aires"", ""theme"": ""dark"", ""model"": ""Buenos-AiresPulse""}"
+cairo,2026-05-24T17:14:21.588231+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+cairo,2026-05-24T17:14:21.588231+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+cairo,2026-05-24T17:14:21.588231+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+cairo,2026-05-24T17:14:21.588231+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+cairo,2026-05-24T17:14:21.588231+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+cairo,2026-05-24T17:14:21.588231+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+cairo,2026-05-24T17:14:21.588231+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+cairo,2026-05-24T17:14:21.588231+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+cairo,2026-05-24T17:14:21.588231+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+cairo,2026-05-24T17:14:21.588231+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+cairo,2026-05-24T17:14:21.588231+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+cairo,2026-05-24T17:14:21.588231+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+cairo,2026-05-24T17:14:21.588231+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""cairo"", ""theme"": ""dark"", ""model"": ""CairoPulse""}"
+chicago,2026-05-24T17:14:21.592425+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+chicago,2026-05-24T17:14:21.592425+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+chicago,2026-05-24T17:14:21.592425+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+chicago,2026-05-24T17:14:21.592425+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+chicago,2026-05-24T17:14:21.592425+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+chicago,2026-05-24T17:14:21.592425+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+chicago,2026-05-24T17:14:21.592425+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+chicago,2026-05-24T17:14:21.592425+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+chicago,2026-05-24T17:14:21.592425+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+chicago,2026-05-24T17:14:21.592425+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+chicago,2026-05-24T17:14:21.592425+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+chicago,2026-05-24T17:14:21.592425+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+chicago,2026-05-24T17:14:21.592425+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""chicago"", ""theme"": ""dark"", ""model"": ""ChicagoPulse""}"
+copenhagen,2026-05-24T17:14:21.592820+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+copenhagen,2026-05-24T17:14:21.592820+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+copenhagen,2026-05-24T17:14:21.592820+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+copenhagen,2026-05-24T17:14:21.592820+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+copenhagen,2026-05-24T17:14:21.592820+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+copenhagen,2026-05-24T17:14:21.592820+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+copenhagen,2026-05-24T17:14:21.592820+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+copenhagen,2026-05-24T17:14:21.592820+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+copenhagen,2026-05-24T17:14:21.592820+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+copenhagen,2026-05-24T17:14:21.592820+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+copenhagen,2026-05-24T17:14:21.592820+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+copenhagen,2026-05-24T17:14:21.592820+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+copenhagen,2026-05-24T17:14:21.592820+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""copenhagen"", ""theme"": ""dark"", ""model"": ""CopenhagenPulse""}"
+dallas,2026-05-24T17:14:21.592999+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+dallas,2026-05-24T17:14:21.592999+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+dallas,2026-05-24T17:14:21.592999+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+dallas,2026-05-24T17:14:21.592999+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+dallas,2026-05-24T17:14:21.592999+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+dallas,2026-05-24T17:14:21.592999+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+dallas,2026-05-24T17:14:21.592999+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+dallas,2026-05-24T17:14:21.592999+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+dallas,2026-05-24T17:14:21.592999+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+dallas,2026-05-24T17:14:21.592999+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+dallas,2026-05-24T17:14:21.592999+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+dallas,2026-05-24T17:14:21.592999+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+dallas,2026-05-24T17:14:21.592999+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""dallas"", ""theme"": ""dark"", ""model"": ""DallasPulse""}"
+delhi,2026-05-24T17:14:21.593134+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+delhi,2026-05-24T17:14:21.593134+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+delhi,2026-05-24T17:14:21.593134+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+delhi,2026-05-24T17:14:21.593134+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+delhi,2026-05-24T17:14:21.593134+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+delhi,2026-05-24T17:14:21.593134+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+delhi,2026-05-24T17:14:21.593134+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+delhi,2026-05-24T17:14:21.593134+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+delhi,2026-05-24T17:14:21.593134+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+delhi,2026-05-24T17:14:21.593134+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+delhi,2026-05-24T17:14:21.593134+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+delhi,2026-05-24T17:14:21.593134+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+delhi,2026-05-24T17:14:21.593134+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""delhi"", ""theme"": ""dark"", ""model"": ""DelhiPulse""}"
+denver,2026-05-24T17:14:21.593259+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+denver,2026-05-24T17:14:21.593259+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+denver,2026-05-24T17:14:21.593259+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+denver,2026-05-24T17:14:21.593259+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+denver,2026-05-24T17:14:21.593259+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+denver,2026-05-24T17:14:21.593259+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+denver,2026-05-24T17:14:21.593259+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+denver,2026-05-24T17:14:21.593259+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+denver,2026-05-24T17:14:21.593259+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+denver,2026-05-24T17:14:21.593259+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+denver,2026-05-24T17:14:21.593259+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+denver,2026-05-24T17:14:21.593259+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+denver,2026-05-24T17:14:21.593259+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""denver"", ""theme"": ""dark"", ""model"": ""DenverPulse""}"
+doha,2026-05-24T17:14:21.593474+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+doha,2026-05-24T17:14:21.593474+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+doha,2026-05-24T17:14:21.593474+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+doha,2026-05-24T17:14:21.593474+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+doha,2026-05-24T17:14:21.593474+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+doha,2026-05-24T17:14:21.593474+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+doha,2026-05-24T17:14:21.593474+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+doha,2026-05-24T17:14:21.593474+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+doha,2026-05-24T17:14:21.593474+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+doha,2026-05-24T17:14:21.593474+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+doha,2026-05-24T17:14:21.593474+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+doha,2026-05-24T17:14:21.593474+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+doha,2026-05-24T17:14:21.593474+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""doha"", ""theme"": ""dark"", ""model"": ""DohaPulse""}"
+dubai,2026-05-24T17:14:21.593653+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+dubai,2026-05-24T17:14:21.593653+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+dubai,2026-05-24T17:14:21.593653+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+dubai,2026-05-24T17:14:21.593653+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+dubai,2026-05-24T17:14:21.593653+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+dubai,2026-05-24T17:14:21.593653+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+dubai,2026-05-24T17:14:21.593653+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+dubai,2026-05-24T17:14:21.593653+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+dubai,2026-05-24T17:14:21.593653+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+dubai,2026-05-24T17:14:21.593653+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+dubai,2026-05-24T17:14:21.593653+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+dubai,2026-05-24T17:14:21.593653+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+dubai,2026-05-24T17:14:21.593653+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""dubai"", ""theme"": ""dark"", ""model"": ""DubaiPulse""}"
+dublin,2026-05-24T17:14:21.593820+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+dublin,2026-05-24T17:14:21.593820+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+dublin,2026-05-24T17:14:21.593820+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+dublin,2026-05-24T17:14:21.593820+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+dublin,2026-05-24T17:14:21.593820+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+dublin,2026-05-24T17:14:21.593820+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+dublin,2026-05-24T17:14:21.593820+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+dublin,2026-05-24T17:14:21.593820+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+dublin,2026-05-24T17:14:21.593820+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+dublin,2026-05-24T17:14:21.593820+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+dublin,2026-05-24T17:14:21.593820+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+dublin,2026-05-24T17:14:21.593820+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+dublin,2026-05-24T17:14:21.593820+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""dublin"", ""theme"": ""dark"", ""model"": ""DublinPulse""}"
+helsinki,2026-05-24T17:14:21.593987+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+helsinki,2026-05-24T17:14:21.593987+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+helsinki,2026-05-24T17:14:21.593987+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+helsinki,2026-05-24T17:14:21.593987+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+helsinki,2026-05-24T17:14:21.593987+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+helsinki,2026-05-24T17:14:21.593987+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+helsinki,2026-05-24T17:14:21.593987+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+helsinki,2026-05-24T17:14:21.593987+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+helsinki,2026-05-24T17:14:21.593987+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+helsinki,2026-05-24T17:14:21.593987+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+helsinki,2026-05-24T17:14:21.593987+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+helsinki,2026-05-24T17:14:21.593987+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+helsinki,2026-05-24T17:14:21.593987+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""helsinki"", ""theme"": ""dark"", ""model"": ""HelsinkiPulse""}"
+hong-kong,2026-05-24T17:14:21.594156+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+hong-kong,2026-05-24T17:14:21.594156+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+hong-kong,2026-05-24T17:14:21.594156+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+hong-kong,2026-05-24T17:14:21.594156+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+hong-kong,2026-05-24T17:14:21.594156+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+hong-kong,2026-05-24T17:14:21.594156+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+hong-kong,2026-05-24T17:14:21.594156+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+hong-kong,2026-05-24T17:14:21.594156+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+hong-kong,2026-05-24T17:14:21.594156+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+hong-kong,2026-05-24T17:14:21.594156+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+hong-kong,2026-05-24T17:14:21.594156+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+hong-kong,2026-05-24T17:14:21.594156+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+hong-kong,2026-05-24T17:14:21.594156+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""hong-kong"", ""theme"": ""dark"", ""model"": ""Hong-KongPulse""}"
+houston,2026-05-24T17:14:21.594325+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+houston,2026-05-24T17:14:21.594325+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+houston,2026-05-24T17:14:21.594325+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+houston,2026-05-24T17:14:21.594325+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+houston,2026-05-24T17:14:21.594325+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+houston,2026-05-24T17:14:21.594325+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+houston,2026-05-24T17:14:21.594325+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+houston,2026-05-24T17:14:21.594325+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+houston,2026-05-24T17:14:21.594325+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+houston,2026-05-24T17:14:21.594325+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+houston,2026-05-24T17:14:21.594325+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+houston,2026-05-24T17:14:21.594325+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+houston,2026-05-24T17:14:21.594325+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""houston"", ""theme"": ""dark"", ""model"": ""HoustonPulse""}"
+istanbul,2026-05-24T17:14:21.594496+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+istanbul,2026-05-24T17:14:21.594496+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+istanbul,2026-05-24T17:14:21.594496+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+istanbul,2026-05-24T17:14:21.594496+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+istanbul,2026-05-24T17:14:21.594496+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+istanbul,2026-05-24T17:14:21.594496+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+istanbul,2026-05-24T17:14:21.594496+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+istanbul,2026-05-24T17:14:21.594496+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+istanbul,2026-05-24T17:14:21.594496+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+istanbul,2026-05-24T17:14:21.594496+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+istanbul,2026-05-24T17:14:21.594496+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+istanbul,2026-05-24T17:14:21.594496+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+istanbul,2026-05-24T17:14:21.594496+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""istanbul"", ""theme"": ""dark"", ""model"": ""IstanbulPulse""}"
+jakarta,2026-05-24T17:14:21.594690+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+jakarta,2026-05-24T17:14:21.594690+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+jakarta,2026-05-24T17:14:21.594690+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+jakarta,2026-05-24T17:14:21.594690+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+jakarta,2026-05-24T17:14:21.594690+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+jakarta,2026-05-24T17:14:21.594690+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+jakarta,2026-05-24T17:14:21.594690+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+jakarta,2026-05-24T17:14:21.594690+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+jakarta,2026-05-24T17:14:21.594690+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+jakarta,2026-05-24T17:14:21.594690+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+jakarta,2026-05-24T17:14:21.594690+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+jakarta,2026-05-24T17:14:21.594690+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+jakarta,2026-05-24T17:14:21.594690+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""jakarta"", ""theme"": ""dark"", ""model"": ""JakartaPulse""}"
+johannesburg,2026-05-24T17:14:21.594872+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+johannesburg,2026-05-24T17:14:21.594872+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+johannesburg,2026-05-24T17:14:21.594872+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+johannesburg,2026-05-24T17:14:21.594872+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+johannesburg,2026-05-24T17:14:21.594872+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+johannesburg,2026-05-24T17:14:21.594872+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+johannesburg,2026-05-24T17:14:21.594872+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+johannesburg,2026-05-24T17:14:21.594872+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+johannesburg,2026-05-24T17:14:21.594872+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+johannesburg,2026-05-24T17:14:21.594872+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+johannesburg,2026-05-24T17:14:21.594872+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+johannesburg,2026-05-24T17:14:21.594872+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+johannesburg,2026-05-24T17:14:21.594872+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""johannesburg"", ""theme"": ""dark"", ""model"": ""JohannesburgPulse""}"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+kuala-lumpur,2026-05-24T17:14:21.595037+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""kuala-lumpur"", ""theme"": ""dark"", ""model"": ""Kuala-LumpurPulse""}"
+lagos,2026-05-24T17:14:21.595198+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+lagos,2026-05-24T17:14:21.595198+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+lagos,2026-05-24T17:14:21.595198+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+lagos,2026-05-24T17:14:21.595198+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+lagos,2026-05-24T17:14:21.595198+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+lagos,2026-05-24T17:14:21.595198+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+lagos,2026-05-24T17:14:21.595198+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+lagos,2026-05-24T17:14:21.595198+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+lagos,2026-05-24T17:14:21.595198+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+lagos,2026-05-24T17:14:21.595198+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+lagos,2026-05-24T17:14:21.595198+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+lagos,2026-05-24T17:14:21.595198+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+lagos,2026-05-24T17:14:21.595198+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""lagos"", ""theme"": ""dark"", ""model"": ""LagosPulse""}"
+lima,2026-05-24T17:14:21.595364+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+lima,2026-05-24T17:14:21.595364+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+lima,2026-05-24T17:14:21.595364+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+lima,2026-05-24T17:14:21.595364+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+lima,2026-05-24T17:14:21.595364+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+lima,2026-05-24T17:14:21.595364+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+lima,2026-05-24T17:14:21.595364+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+lima,2026-05-24T17:14:21.595364+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+lima,2026-05-24T17:14:21.595364+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+lima,2026-05-24T17:14:21.595364+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+lima,2026-05-24T17:14:21.595364+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+lima,2026-05-24T17:14:21.595364+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+lima,2026-05-24T17:14:21.595364+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""lima"", ""theme"": ""dark"", ""model"": ""LimaPulse""}"
+lisbon,2026-05-24T17:14:21.595523+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+lisbon,2026-05-24T17:14:21.595523+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+lisbon,2026-05-24T17:14:21.595523+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+lisbon,2026-05-24T17:14:21.595523+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+lisbon,2026-05-24T17:14:21.595523+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+lisbon,2026-05-24T17:14:21.595523+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+lisbon,2026-05-24T17:14:21.595523+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+lisbon,2026-05-24T17:14:21.595523+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+lisbon,2026-05-24T17:14:21.595523+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+lisbon,2026-05-24T17:14:21.595523+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+lisbon,2026-05-24T17:14:21.595523+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+lisbon,2026-05-24T17:14:21.595523+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+lisbon,2026-05-24T17:14:21.595523+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""lisbon"", ""theme"": ""dark"", ""model"": ""LisbonPulse""}"
+london,2026-05-24T17:14:21.595678+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+london,2026-05-24T17:14:21.595678+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+london,2026-05-24T17:14:21.595678+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+london,2026-05-24T17:14:21.595678+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+london,2026-05-24T17:14:21.595678+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+london,2026-05-24T17:14:21.595678+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+london,2026-05-24T17:14:21.595678+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+london,2026-05-24T17:14:21.595678+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+london,2026-05-24T17:14:21.595678+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+london,2026-05-24T17:14:21.595678+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+london,2026-05-24T17:14:21.595678+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+london,2026-05-24T17:14:21.595678+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+london,2026-05-24T17:14:21.595678+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""london"", ""theme"": ""dark"", ""model"": ""LondonPulse""}"
+la,2026-05-24T17:14:21.595858+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+la,2026-05-24T17:14:21.595858+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+la,2026-05-24T17:14:21.595858+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+la,2026-05-24T17:14:21.595858+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+la,2026-05-24T17:14:21.595858+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+la,2026-05-24T17:14:21.595858+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+la,2026-05-24T17:14:21.595858+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+la,2026-05-24T17:14:21.595858+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+la,2026-05-24T17:14:21.595858+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+la,2026-05-24T17:14:21.595858+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+la,2026-05-24T17:14:21.595858+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+la,2026-05-24T17:14:21.595858+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+la,2026-05-24T17:14:21.595858+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""la"", ""theme"": ""dark"", ""model"": ""LaPulse""}"
+madrid,2026-05-24T17:14:21.596012+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+madrid,2026-05-24T17:14:21.596012+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+madrid,2026-05-24T17:14:21.596012+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+madrid,2026-05-24T17:14:21.596012+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+madrid,2026-05-24T17:14:21.596012+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+madrid,2026-05-24T17:14:21.596012+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+madrid,2026-05-24T17:14:21.596012+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+madrid,2026-05-24T17:14:21.596012+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+madrid,2026-05-24T17:14:21.596012+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+madrid,2026-05-24T17:14:21.596012+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+madrid,2026-05-24T17:14:21.596012+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+madrid,2026-05-24T17:14:21.596012+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+madrid,2026-05-24T17:14:21.596012+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""madrid"", ""theme"": ""dark"", ""model"": ""MadridPulse""}"
+manila,2026-05-24T17:14:21.596168+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+manila,2026-05-24T17:14:21.596168+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+manila,2026-05-24T17:14:21.596168+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+manila,2026-05-24T17:14:21.596168+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+manila,2026-05-24T17:14:21.596168+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+manila,2026-05-24T17:14:21.596168+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+manila,2026-05-24T17:14:21.596168+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+manila,2026-05-24T17:14:21.596168+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+manila,2026-05-24T17:14:21.596168+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+manila,2026-05-24T17:14:21.596168+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+manila,2026-05-24T17:14:21.596168+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+manila,2026-05-24T17:14:21.596168+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+manila,2026-05-24T17:14:21.596168+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""manila"", ""theme"": ""dark"", ""model"": ""ManilaPulse""}"
+melbourne,2026-05-24T17:14:21.596336+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+melbourne,2026-05-24T17:14:21.596336+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+melbourne,2026-05-24T17:14:21.596336+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+melbourne,2026-05-24T17:14:21.596336+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+melbourne,2026-05-24T17:14:21.596336+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+melbourne,2026-05-24T17:14:21.596336+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+melbourne,2026-05-24T17:14:21.596336+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+melbourne,2026-05-24T17:14:21.596336+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+melbourne,2026-05-24T17:14:21.596336+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+melbourne,2026-05-24T17:14:21.596336+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+melbourne,2026-05-24T17:14:21.596336+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+melbourne,2026-05-24T17:14:21.596336+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+melbourne,2026-05-24T17:14:21.596336+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""melbourne"", ""theme"": ""dark"", ""model"": ""MelbournePulse""}"
+mexico-city,2026-05-24T17:14:21.596494+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+mexico-city,2026-05-24T17:14:21.596494+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+mexico-city,2026-05-24T17:14:21.596494+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+mexico-city,2026-05-24T17:14:21.596494+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+mexico-city,2026-05-24T17:14:21.596494+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+mexico-city,2026-05-24T17:14:21.596494+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+mexico-city,2026-05-24T17:14:21.596494+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+mexico-city,2026-05-24T17:14:21.596494+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+mexico-city,2026-05-24T17:14:21.596494+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+mexico-city,2026-05-24T17:14:21.596494+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+mexico-city,2026-05-24T17:14:21.596494+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+mexico-city,2026-05-24T17:14:21.596494+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+mexico-city,2026-05-24T17:14:21.596494+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""mexico-city"", ""theme"": ""dark"", ""model"": ""Mexico-CityPulse""}"
+miami,2026-05-24T17:14:21.596646+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+miami,2026-05-24T17:14:21.596646+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+miami,2026-05-24T17:14:21.596646+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+miami,2026-05-24T17:14:21.596646+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+miami,2026-05-24T17:14:21.596646+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+miami,2026-05-24T17:14:21.596646+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+miami,2026-05-24T17:14:21.596646+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+miami,2026-05-24T17:14:21.596646+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+miami,2026-05-24T17:14:21.596646+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+miami,2026-05-24T17:14:21.596646+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+miami,2026-05-24T17:14:21.596646+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+miami,2026-05-24T17:14:21.596646+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+miami,2026-05-24T17:14:21.596646+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""miami"", ""theme"": ""dark"", ""model"": ""MiamiPulse""}"
+milan,2026-05-24T17:14:21.596799+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+milan,2026-05-24T17:14:21.596799+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+milan,2026-05-24T17:14:21.596799+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+milan,2026-05-24T17:14:21.596799+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+milan,2026-05-24T17:14:21.596799+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+milan,2026-05-24T17:14:21.596799+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+milan,2026-05-24T17:14:21.596799+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+milan,2026-05-24T17:14:21.596799+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+milan,2026-05-24T17:14:21.596799+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+milan,2026-05-24T17:14:21.596799+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+milan,2026-05-24T17:14:21.596799+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+milan,2026-05-24T17:14:21.596799+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+milan,2026-05-24T17:14:21.596799+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""milan"", ""theme"": ""dark"", ""model"": ""MilanPulse""}"
+montreal,2026-05-24T17:14:21.596953+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+montreal,2026-05-24T17:14:21.596953+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+montreal,2026-05-24T17:14:21.596953+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+montreal,2026-05-24T17:14:21.596953+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+montreal,2026-05-24T17:14:21.596953+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+montreal,2026-05-24T17:14:21.596953+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+montreal,2026-05-24T17:14:21.596953+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+montreal,2026-05-24T17:14:21.596953+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+montreal,2026-05-24T17:14:21.596953+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+montreal,2026-05-24T17:14:21.596953+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+montreal,2026-05-24T17:14:21.596953+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+montreal,2026-05-24T17:14:21.596953+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+montreal,2026-05-24T17:14:21.596953+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""montreal"", ""theme"": ""dark"", ""model"": ""MontrealPulse""}"
+moscow,2026-05-24T17:14:21.597106+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+moscow,2026-05-24T17:14:21.597106+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+moscow,2026-05-24T17:14:21.597106+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+moscow,2026-05-24T17:14:21.597106+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+moscow,2026-05-24T17:14:21.597106+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+moscow,2026-05-24T17:14:21.597106+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+moscow,2026-05-24T17:14:21.597106+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+moscow,2026-05-24T17:14:21.597106+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+moscow,2026-05-24T17:14:21.597106+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+moscow,2026-05-24T17:14:21.597106+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+moscow,2026-05-24T17:14:21.597106+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+moscow,2026-05-24T17:14:21.597106+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+moscow,2026-05-24T17:14:21.597106+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""moscow"", ""theme"": ""dark"", ""model"": ""MoscowPulse""}"
+mumbai,2026-05-24T17:14:21.597259+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+mumbai,2026-05-24T17:14:21.597259+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+mumbai,2026-05-24T17:14:21.597259+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+mumbai,2026-05-24T17:14:21.597259+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+mumbai,2026-05-24T17:14:21.597259+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+mumbai,2026-05-24T17:14:21.597259+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+mumbai,2026-05-24T17:14:21.597259+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+mumbai,2026-05-24T17:14:21.597259+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+mumbai,2026-05-24T17:14:21.597259+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+mumbai,2026-05-24T17:14:21.597259+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+mumbai,2026-05-24T17:14:21.597259+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+mumbai,2026-05-24T17:14:21.597259+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+mumbai,2026-05-24T17:14:21.597259+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""mumbai"", ""theme"": ""dark"", ""model"": ""MumbaiPulse""}"
+munich,2026-05-24T17:14:21.597447+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+munich,2026-05-24T17:14:21.597447+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+munich,2026-05-24T17:14:21.597447+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+munich,2026-05-24T17:14:21.597447+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+munich,2026-05-24T17:14:21.597447+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+munich,2026-05-24T17:14:21.597447+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+munich,2026-05-24T17:14:21.597447+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+munich,2026-05-24T17:14:21.597447+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+munich,2026-05-24T17:14:21.597447+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+munich,2026-05-24T17:14:21.597447+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+munich,2026-05-24T17:14:21.597447+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+munich,2026-05-24T17:14:21.597447+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+munich,2026-05-24T17:14:21.597447+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""munich"", ""theme"": ""dark"", ""model"": ""MunichPulse""}"
+nairobi,2026-05-24T17:14:21.597727+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+nairobi,2026-05-24T17:14:21.597727+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+nairobi,2026-05-24T17:14:21.597727+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+nairobi,2026-05-24T17:14:21.597727+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+nairobi,2026-05-24T17:14:21.597727+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+nairobi,2026-05-24T17:14:21.597727+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+nairobi,2026-05-24T17:14:21.597727+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+nairobi,2026-05-24T17:14:21.597727+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+nairobi,2026-05-24T17:14:21.597727+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+nairobi,2026-05-24T17:14:21.597727+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+nairobi,2026-05-24T17:14:21.597727+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+nairobi,2026-05-24T17:14:21.597727+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+nairobi,2026-05-24T17:14:21.597727+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""nairobi"", ""theme"": ""dark"", ""model"": ""NairobiPulse""}"
+nyc,2026-05-24T17:14:21.597938+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+nyc,2026-05-24T17:14:21.597938+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+nyc,2026-05-24T17:14:21.597938+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+nyc,2026-05-24T17:14:21.597938+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+nyc,2026-05-24T17:14:21.597938+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+nyc,2026-05-24T17:14:21.597938+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+nyc,2026-05-24T17:14:21.597938+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+nyc,2026-05-24T17:14:21.597938+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+nyc,2026-05-24T17:14:21.597938+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+nyc,2026-05-24T17:14:21.597938+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+nyc,2026-05-24T17:14:21.597938+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+nyc,2026-05-24T17:14:21.597938+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+nyc,2026-05-24T17:14:21.597938+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""nyc"", ""theme"": ""dark"", ""model"": ""NycPulse""}"
+oslo,2026-05-24T17:14:21.598108+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+oslo,2026-05-24T17:14:21.598108+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+oslo,2026-05-24T17:14:21.598108+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+oslo,2026-05-24T17:14:21.598108+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+oslo,2026-05-24T17:14:21.598108+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+oslo,2026-05-24T17:14:21.598108+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+oslo,2026-05-24T17:14:21.598108+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+oslo,2026-05-24T17:14:21.598108+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+oslo,2026-05-24T17:14:21.598108+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+oslo,2026-05-24T17:14:21.598108+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+oslo,2026-05-24T17:14:21.598108+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+oslo,2026-05-24T17:14:21.598108+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+oslo,2026-05-24T17:14:21.598108+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""oslo"", ""theme"": ""dark"", ""model"": ""OsloPulse""}"
+paris,2026-05-24T17:14:21.598263+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+paris,2026-05-24T17:14:21.598263+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+paris,2026-05-24T17:14:21.598263+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+paris,2026-05-24T17:14:21.598263+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+paris,2026-05-24T17:14:21.598263+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+paris,2026-05-24T17:14:21.598263+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+paris,2026-05-24T17:14:21.598263+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+paris,2026-05-24T17:14:21.598263+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+paris,2026-05-24T17:14:21.598263+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+paris,2026-05-24T17:14:21.598263+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+paris,2026-05-24T17:14:21.598263+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+paris,2026-05-24T17:14:21.598263+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+paris,2026-05-24T17:14:21.598263+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""paris"", ""theme"": ""dark"", ""model"": ""ParisPulse""}"
+philadelphia,2026-05-24T17:14:21.598433+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+philadelphia,2026-05-24T17:14:21.598433+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+philadelphia,2026-05-24T17:14:21.598433+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+philadelphia,2026-05-24T17:14:21.598433+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+philadelphia,2026-05-24T17:14:21.598433+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+philadelphia,2026-05-24T17:14:21.598433+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+philadelphia,2026-05-24T17:14:21.598433+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+philadelphia,2026-05-24T17:14:21.598433+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+philadelphia,2026-05-24T17:14:21.598433+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+philadelphia,2026-05-24T17:14:21.598433+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+philadelphia,2026-05-24T17:14:21.598433+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+philadelphia,2026-05-24T17:14:21.598433+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+philadelphia,2026-05-24T17:14:21.598433+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""philadelphia"", ""theme"": ""dark"", ""model"": ""PhiladelphiaPulse""}"
+phoenix,2026-05-24T17:14:21.598606+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+phoenix,2026-05-24T17:14:21.598606+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+phoenix,2026-05-24T17:14:21.598606+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+phoenix,2026-05-24T17:14:21.598606+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+phoenix,2026-05-24T17:14:21.598606+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+phoenix,2026-05-24T17:14:21.598606+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+phoenix,2026-05-24T17:14:21.598606+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+phoenix,2026-05-24T17:14:21.598606+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+phoenix,2026-05-24T17:14:21.598606+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+phoenix,2026-05-24T17:14:21.598606+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+phoenix,2026-05-24T17:14:21.598606+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+phoenix,2026-05-24T17:14:21.598606+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+phoenix,2026-05-24T17:14:21.598606+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""phoenix"", ""theme"": ""dark"", ""model"": ""PhoenixPulse""}"
+prague,2026-05-24T17:14:21.598767+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+prague,2026-05-24T17:14:21.598767+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+prague,2026-05-24T17:14:21.598767+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+prague,2026-05-24T17:14:21.598767+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+prague,2026-05-24T17:14:21.598767+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+prague,2026-05-24T17:14:21.598767+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+prague,2026-05-24T17:14:21.598767+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+prague,2026-05-24T17:14:21.598767+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+prague,2026-05-24T17:14:21.598767+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+prague,2026-05-24T17:14:21.598767+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+prague,2026-05-24T17:14:21.598767+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+prague,2026-05-24T17:14:21.598767+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+prague,2026-05-24T17:14:21.598767+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""prague"", ""theme"": ""dark"", ""model"": ""PraguePulse""}"
+riyadh,2026-05-24T17:14:21.598921+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+riyadh,2026-05-24T17:14:21.598921+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+riyadh,2026-05-24T17:14:21.598921+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+riyadh,2026-05-24T17:14:21.598921+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+riyadh,2026-05-24T17:14:21.598921+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+riyadh,2026-05-24T17:14:21.598921+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+riyadh,2026-05-24T17:14:21.598921+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+riyadh,2026-05-24T17:14:21.598921+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+riyadh,2026-05-24T17:14:21.598921+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+riyadh,2026-05-24T17:14:21.598921+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+riyadh,2026-05-24T17:14:21.598921+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+riyadh,2026-05-24T17:14:21.598921+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+riyadh,2026-05-24T17:14:21.598921+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""riyadh"", ""theme"": ""dark"", ""model"": ""RiyadhPulse""}"
+rome,2026-05-24T17:14:21.599087+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+rome,2026-05-24T17:14:21.599087+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+rome,2026-05-24T17:14:21.599087+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+rome,2026-05-24T17:14:21.599087+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+rome,2026-05-24T17:14:21.599087+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+rome,2026-05-24T17:14:21.599087+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+rome,2026-05-24T17:14:21.599087+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+rome,2026-05-24T17:14:21.599087+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+rome,2026-05-24T17:14:21.599087+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+rome,2026-05-24T17:14:21.599087+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+rome,2026-05-24T17:14:21.599087+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+rome,2026-05-24T17:14:21.599087+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+rome,2026-05-24T17:14:21.599087+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""rome"", ""theme"": ""dark"", ""model"": ""RomePulse""}"
+san-francisco,2026-05-24T17:14:21.599244+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+san-francisco,2026-05-24T17:14:21.599244+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+san-francisco,2026-05-24T17:14:21.599244+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+san-francisco,2026-05-24T17:14:21.599244+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+san-francisco,2026-05-24T17:14:21.599244+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+san-francisco,2026-05-24T17:14:21.599244+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+san-francisco,2026-05-24T17:14:21.599244+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+san-francisco,2026-05-24T17:14:21.599244+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+san-francisco,2026-05-24T17:14:21.599244+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+san-francisco,2026-05-24T17:14:21.599244+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+san-francisco,2026-05-24T17:14:21.599244+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+san-francisco,2026-05-24T17:14:21.599244+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+san-francisco,2026-05-24T17:14:21.599244+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""san-francisco"", ""theme"": ""dark"", ""model"": ""San-FranciscoPulse""}"
+seattle,2026-05-24T17:14:21.599396+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+seattle,2026-05-24T17:14:21.599396+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+seattle,2026-05-24T17:14:21.599396+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+seattle,2026-05-24T17:14:21.599396+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+seattle,2026-05-24T17:14:21.599396+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+seattle,2026-05-24T17:14:21.599396+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+seattle,2026-05-24T17:14:21.599396+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+seattle,2026-05-24T17:14:21.599396+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+seattle,2026-05-24T17:14:21.599396+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+seattle,2026-05-24T17:14:21.599396+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+seattle,2026-05-24T17:14:21.599396+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+seattle,2026-05-24T17:14:21.599396+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+seattle,2026-05-24T17:14:21.599396+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""seattle"", ""theme"": ""dark"", ""model"": ""SeattlePulse""}"
+seoul,2026-05-24T17:14:21.599546+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+seoul,2026-05-24T17:14:21.599546+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+seoul,2026-05-24T17:14:21.599546+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+seoul,2026-05-24T17:14:21.599546+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+seoul,2026-05-24T17:14:21.599546+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+seoul,2026-05-24T17:14:21.599546+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+seoul,2026-05-24T17:14:21.599546+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+seoul,2026-05-24T17:14:21.599546+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+seoul,2026-05-24T17:14:21.599546+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+seoul,2026-05-24T17:14:21.599546+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+seoul,2026-05-24T17:14:21.599546+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+seoul,2026-05-24T17:14:21.599546+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+seoul,2026-05-24T17:14:21.599546+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""seoul"", ""theme"": ""dark"", ""model"": ""SeoulPulse""}"
+shanghai,2026-05-24T17:14:21.599707+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+shanghai,2026-05-24T17:14:21.599707+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+shanghai,2026-05-24T17:14:21.599707+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+shanghai,2026-05-24T17:14:21.599707+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+shanghai,2026-05-24T17:14:21.599707+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+shanghai,2026-05-24T17:14:21.599707+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+shanghai,2026-05-24T17:14:21.599707+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+shanghai,2026-05-24T17:14:21.599707+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+shanghai,2026-05-24T17:14:21.599707+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+shanghai,2026-05-24T17:14:21.599707+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+shanghai,2026-05-24T17:14:21.599707+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+shanghai,2026-05-24T17:14:21.599707+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+shanghai,2026-05-24T17:14:21.599707+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""shanghai"", ""theme"": ""dark"", ""model"": ""ShanghaiPulse""}"
+singapore,2026-05-24T17:14:21.599872+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+singapore,2026-05-24T17:14:21.599872+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+singapore,2026-05-24T17:14:21.599872+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+singapore,2026-05-24T17:14:21.599872+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+singapore,2026-05-24T17:14:21.599872+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+singapore,2026-05-24T17:14:21.599872+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+singapore,2026-05-24T17:14:21.599872+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+singapore,2026-05-24T17:14:21.599872+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+singapore,2026-05-24T17:14:21.599872+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+singapore,2026-05-24T17:14:21.599872+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+singapore,2026-05-24T17:14:21.599872+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+singapore,2026-05-24T17:14:21.599872+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+singapore,2026-05-24T17:14:21.599872+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""singapore"", ""theme"": ""dark"", ""model"": ""SingaporePulse""}"
+stockholm,2026-05-24T17:14:21.600023+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+stockholm,2026-05-24T17:14:21.600023+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+stockholm,2026-05-24T17:14:21.600023+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+stockholm,2026-05-24T17:14:21.600023+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+stockholm,2026-05-24T17:14:21.600023+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+stockholm,2026-05-24T17:14:21.600023+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+stockholm,2026-05-24T17:14:21.600023+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+stockholm,2026-05-24T17:14:21.600023+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+stockholm,2026-05-24T17:14:21.600023+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+stockholm,2026-05-24T17:14:21.600023+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+stockholm,2026-05-24T17:14:21.600023+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+stockholm,2026-05-24T17:14:21.600023+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+stockholm,2026-05-24T17:14:21.600023+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""stockholm"", ""theme"": ""dark"", ""model"": ""StockholmPulse""}"
+sydney,2026-05-24T17:14:21.600182+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+sydney,2026-05-24T17:14:21.600182+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+sydney,2026-05-24T17:14:21.600182+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+sydney,2026-05-24T17:14:21.600182+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+sydney,2026-05-24T17:14:21.600182+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+sydney,2026-05-24T17:14:21.600182+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+sydney,2026-05-24T17:14:21.600182+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+sydney,2026-05-24T17:14:21.600182+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+sydney,2026-05-24T17:14:21.600182+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+sydney,2026-05-24T17:14:21.600182+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+sydney,2026-05-24T17:14:21.600182+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+sydney,2026-05-24T17:14:21.600182+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+sydney,2026-05-24T17:14:21.600182+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""sydney"", ""theme"": ""dark"", ""model"": ""SydneyPulse""}"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+sao-paulo,2026-05-24T17:14:21.600340+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+sao-paulo,2026-05-24T17:14:21.600340+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+sao-paulo,2026-05-24T17:14:21.600340+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+sao-paulo,2026-05-24T17:14:21.600340+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""sao-paulo"", ""theme"": ""dark"", ""model"": ""Sao-PauloPulse""}"
+taipei,2026-05-24T17:14:21.600498+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+taipei,2026-05-24T17:14:21.600498+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+taipei,2026-05-24T17:14:21.600498+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+taipei,2026-05-24T17:14:21.600498+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+taipei,2026-05-24T17:14:21.600498+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+taipei,2026-05-24T17:14:21.600498+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+taipei,2026-05-24T17:14:21.600498+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+taipei,2026-05-24T17:14:21.600498+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+taipei,2026-05-24T17:14:21.600498+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+taipei,2026-05-24T17:14:21.600498+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+taipei,2026-05-24T17:14:21.600498+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+taipei,2026-05-24T17:14:21.600498+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+taipei,2026-05-24T17:14:21.600498+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""taipei"", ""theme"": ""dark"", ""model"": ""TaipeiPulse""}"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+tel-aviv,2026-05-24T17:14:21.600651+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+tel-aviv,2026-05-24T17:14:21.600651+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+tel-aviv,2026-05-24T17:14:21.600651+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+tel-aviv,2026-05-24T17:14:21.600651+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""tel-aviv"", ""theme"": ""dark"", ""model"": ""Tel-AvivPulse""}"
+tokyo,2026-05-24T17:14:21.600809+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+tokyo,2026-05-24T17:14:21.600809+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+tokyo,2026-05-24T17:14:21.600809+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+tokyo,2026-05-24T17:14:21.600809+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+tokyo,2026-05-24T17:14:21.600809+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+tokyo,2026-05-24T17:14:21.600809+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+tokyo,2026-05-24T17:14:21.600809+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+tokyo,2026-05-24T17:14:21.600809+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+tokyo,2026-05-24T17:14:21.600809+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+tokyo,2026-05-24T17:14:21.600809+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+tokyo,2026-05-24T17:14:21.600809+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+tokyo,2026-05-24T17:14:21.600809+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+tokyo,2026-05-24T17:14:21.600809+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""tokyo"", ""theme"": ""dark"", ""model"": ""TokyoPulse""}"
+toronto,2026-05-24T17:14:21.600963+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+toronto,2026-05-24T17:14:21.600963+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+toronto,2026-05-24T17:14:21.600963+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+toronto,2026-05-24T17:14:21.600963+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+toronto,2026-05-24T17:14:21.600963+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+toronto,2026-05-24T17:14:21.600963+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+toronto,2026-05-24T17:14:21.600963+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+toronto,2026-05-24T17:14:21.600963+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+toronto,2026-05-24T17:14:21.600963+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+toronto,2026-05-24T17:14:21.600963+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+toronto,2026-05-24T17:14:21.600963+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+toronto,2026-05-24T17:14:21.600963+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+toronto,2026-05-24T17:14:21.600963+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""toronto"", ""theme"": ""dark"", ""model"": ""TorontoPulse""}"
+vancouver,2026-05-24T17:14:21.601114+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+vancouver,2026-05-24T17:14:21.601114+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+vancouver,2026-05-24T17:14:21.601114+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+vancouver,2026-05-24T17:14:21.601114+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+vancouver,2026-05-24T17:14:21.601114+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+vancouver,2026-05-24T17:14:21.601114+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+vancouver,2026-05-24T17:14:21.601114+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+vancouver,2026-05-24T17:14:21.601114+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+vancouver,2026-05-24T17:14:21.601114+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+vancouver,2026-05-24T17:14:21.601114+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+vancouver,2026-05-24T17:14:21.601114+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+vancouver,2026-05-24T17:14:21.601114+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+vancouver,2026-05-24T17:14:21.601114+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""vancouver"", ""theme"": ""dark"", ""model"": ""VancouverPulse""}"
+vienna,2026-05-24T17:14:21.601267+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+vienna,2026-05-24T17:14:21.601267+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+vienna,2026-05-24T17:14:21.601267+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+vienna,2026-05-24T17:14:21.601267+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+vienna,2026-05-24T17:14:21.601267+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+vienna,2026-05-24T17:14:21.601267+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+vienna,2026-05-24T17:14:21.601267+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+vienna,2026-05-24T17:14:21.601267+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+vienna,2026-05-24T17:14:21.601267+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+vienna,2026-05-24T17:14:21.601267+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+vienna,2026-05-24T17:14:21.601267+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+vienna,2026-05-24T17:14:21.601267+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+vienna,2026-05-24T17:14:21.601267+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""vienna"", ""theme"": ""dark"", ""model"": ""ViennaPulse""}"
+warsaw,2026-05-24T17:14:21.601476+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+warsaw,2026-05-24T17:14:21.601476+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+warsaw,2026-05-24T17:14:21.601476+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+warsaw,2026-05-24T17:14:21.601476+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+warsaw,2026-05-24T17:14:21.601476+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+warsaw,2026-05-24T17:14:21.601476+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+warsaw,2026-05-24T17:14:21.601476+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+warsaw,2026-05-24T17:14:21.601476+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+warsaw,2026-05-24T17:14:21.601476+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+warsaw,2026-05-24T17:14:21.601476+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+warsaw,2026-05-24T17:14:21.601476+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+warsaw,2026-05-24T17:14:21.601476+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+warsaw,2026-05-24T17:14:21.601476+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""warsaw"", ""theme"": ""dark"", ""model"": ""WarsawPulse""}"
+washington-dc,2026-05-24T17:14:21.601649+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+washington-dc,2026-05-24T17:14:21.601649+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+washington-dc,2026-05-24T17:14:21.601649+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+washington-dc,2026-05-24T17:14:21.601649+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+washington-dc,2026-05-24T17:14:21.601649+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+washington-dc,2026-05-24T17:14:21.601649+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+washington-dc,2026-05-24T17:14:21.601649+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+washington-dc,2026-05-24T17:14:21.601649+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+washington-dc,2026-05-24T17:14:21.601649+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+washington-dc,2026-05-24T17:14:21.601649+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+washington-dc,2026-05-24T17:14:21.601649+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+washington-dc,2026-05-24T17:14:21.601649+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+washington-dc,2026-05-24T17:14:21.601649+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""washington-dc"", ""theme"": ""dark"", ""model"": ""Washington-DcPulse""}"
+zurich,2026-05-24T17:14:21.601826+00:00,CityPulseSnapshot,gold/city_stress_index,7,"city_stress_index, transit_load_score, weather_risk_score, precip_risk_score, disruption_ratio_score, active_transit_alerts, active_noaa_alerts"
+zurich,2026-05-24T17:14:21.601826+00:00,TransitAlertSummary,gold/transit_alert_summary,2,"alert_category, alert_count"
+zurich,2026-05-24T17:14:21.601826+00:00,TransitAlertDetail,gold/transit_alert_detail,5,"neighborhood, alert_category, headline, service, severity"
+zurich,2026-05-24T17:14:21.601826+00:00,AnomalySignals,gold/anomaly_signals,4,"signal_type, severity, message, z_score"
+zurich,2026-05-24T17:14:21.601826+00:00,CityEventDetail,gold/event_detail,5,"neighborhood, event_category, event_name, location, start_date"
+zurich,2026-05-24T17:14:21.601826+00:00,AirportOpsSnapshot,gold/airport_ops_snapshot,5,"station, station_label, flight_category, visibility_sm, airport_ops_stress"
+zurich,2026-05-24T17:14:21.601826+00:00,FredMacroSnapshot,gold/fred_macro_snapshot,2,"series_label, latest_value"
+zurich,2026-05-24T17:14:21.601826+00:00,TrendInterestSummary,gold/trend_interest_summary,2,"keyword, avg_interest"
+zurich,2026-05-24T17:14:21.601826+00:00,HexPulseGrid,gold/hex_pulse_grid,2,"neighborhood, alert_count"
+zurich,2026-05-24T17:14:21.601826+00:00,DAX,semantic_model,1,City Stress Index = AVERAGE(CityPulseSnapshot[city_stress_index])
+zurich,2026-05-24T17:14:21.601826+00:00,DAX,semantic_model,1,Active Transit Alerts = SUM(CityPulseSnapshot[active_transit_alerts])
+zurich,2026-05-24T17:14:21.601826+00:00,DAX,semantic_model,1,Anomaly Count = COUNTROWS(AnomalySignals)
+zurich,2026-05-24T17:14:21.601826+00:00,GeneratorConfig,datasets/cities,3,"{""city"": ""zurich"", ""theme"": ""dark"", ""model"": ""ZurichPulse""}"

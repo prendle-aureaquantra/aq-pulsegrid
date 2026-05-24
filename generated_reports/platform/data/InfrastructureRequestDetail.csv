@@ -1,0 +1,301 @@
+﻿city,snapshot_at,request_id,request_type,descriptor,status,asset_class,risk_tier,failure_risk_score
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Report an Injured Animal,Report an Injured Animal,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Cab Feedback,Cab Feedback,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sewer Cave-In Inspection Request,Sewer Cave-In Inspection Request,Open,structural,failure,20.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Clean Vacant Lot Request,Clean Vacant Lot Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Fly Dumping Complaint,Fly Dumping Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sign Repair Request - All Other Signs,Sign Repair Request - All Other Signs,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Weed Removal Request,Weed Removal Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sign Repair Request - All Other Signs,Sign Repair Request - All Other Signs,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Blue Recycling Cart,Blue Recycling Cart,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Graffiti Removal Request,Graffiti Removal Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Report an Injured Animal,Report an Injured Animal,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Finance Parking Code Enforcement Review,Finance Parking Code Enforcement Review,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Inspect Public Way Request,Inspect Public Way Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Building Violation,Building Violation,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Weed Removal Request,Weed Removal Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sewer Cleaning Inspection Request,Sewer Cleaning Inspection Request,Open,utility,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Missed Garbage Pick-Up Complaint,Missed Garbage Pick-Up Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Buildings - Plumbing Violation,Buildings - Plumbing Violation,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Buildings - Plumbing Violation,Buildings - Plumbing Violation,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sewer Cleaning Inspection Request,Sewer Cleaning Inspection Request,Open,utility,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Nuisance Animal Complaint,Nuisance Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Alley Pothole Complaint,Alley Pothole Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Dead Animal Pick-Up Request,Dead Animal Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Street Light Pole Damage Complaint,Street Light Pole Damage Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-24T17:14:13.363903+00:00,0.0,Sewer Cave-In Inspection Request,Sewer Cave-In Inspection Request,Open,structural,failure,20.0

@@ -1,0 +1,53 @@
+# Socrata 311 service request endpoints for US metros (live open data).
+# Add slugs as cities publish stable SODA resource URLs.
+metros:
+  chicago:
+    url: https://data.cityofchicago.org/resource/v6vf-nfxy.json
+    date_field: created_date
+    type_field: sr_type
+    status_field: status
+    order: created_date DESC
+    limit: 150
+    recent_days: 7
+  nyc:
+    url: https://data.cityofnewyork.us/resource/erm2-nwe9.json
+    date_field: created_date
+    type_field: complaint_type
+    status_field: status
+    select: unique_key,complaint_type,descriptor,created_date,status,borough
+    order: created_date DESC
+    limit: 100
+    recent_days: 7
+  la:
+    url: https://data.lacity.org/resource/h73f-gn57.json
+    date_field: createddate
+    type_field: requesttype
+    status_field: status
+    order: createddate DESC
+    limit: 150
+    recent_days: 7
+  san-francisco:
+    url: https://data.sfgov.org/resource/wr8u-xric.json
+    date_field: incident_date
+    type_field: incident_category
+    status_field: status
+    order: incident_date DESC
+    limit: 100
+    recent_days: 30
+  boston:
+    url: https://data.boston.gov/resource/6ddrd-nqep.json
+    date_field: open_dt
+    type_field: type
+    status_field: status
+    select: case_enquiry_id,type,subject,status,open_dt
+    order: open_dt DESC
+    limit: 150
+    recent_days: 14
+  washington-dc:
+    url: https://data.dc.gov/resource/wwq9-hg39.json
+    date_field: servicedcdate
+    type_field: servicetype
+    status_field: status
+    order: servicedcdate DESC
+    limit: 150
+    recent_days: 14

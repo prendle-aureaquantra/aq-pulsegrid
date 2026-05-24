@@ -12,7 +12,7 @@
         "weather_risk_score",
         "precip_risk_score",
         "disruption_ratio_score",
-        "active_cta_alerts",
+        "active_transit_alerts",
         "active_noaa_alerts"
       ]
     },
@@ -22,6 +22,17 @@
       "columns": [
         "alert_category",
         "alert_count"
+      ]
+    },
+    {
+      "name": "TransitAlertDetail",
+      "source": "gold/transit_alert_detail",
+      "columns": [
+        "neighborhood",
+        "alert_category",
+        "headline",
+        "service",
+        "severity"
       ]
     },
     {
@@ -35,9 +46,22 @@
       ]
     },
     {
+      "name": "CityEventDetail",
+      "source": "gold/event_detail",
+      "columns": [
+        "neighborhood",
+        "event_category",
+        "event_name",
+        "location",
+        "start_date"
+      ]
+    },
+    {
       "name": "AirportOpsSnapshot",
       "source": "gold/airport_ops_snapshot",
       "columns": [
+        "station",
+        "station_label",
         "flight_category",
         "visibility_sm",
         "airport_ops_stress"
@@ -75,8 +99,8 @@
       "format": "0.0"
     },
     {
-      "name": "Active CTA Alerts",
-      "expression": "SUM(CityPulseSnapshot[active_cta_alerts])",
+      "name": "Active Transit Alerts",
+      "expression": "SUM(CityPulseSnapshot[active_transit_alerts])",
       "format": "#,0"
     },
     {

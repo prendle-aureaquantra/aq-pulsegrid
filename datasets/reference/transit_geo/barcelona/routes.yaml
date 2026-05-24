@@ -1,0 +1,26 @@
+routes:
+- patterns:
+  - Red Line
+  - 'Red Line:'
+  - Red Line Line
+  neighborhood: Barcelona — Central
+- patterns:
+  - Blue Line
+  - 'Blue Line:'
+  - Blue Line Line
+  neighborhood: Barcelona — Central
+- patterns:
+  - Green Line
+  - 'Green Line:'
+  - Green Line Line
+  neighborhood: Barcelona — North
+- patterns:
+  - Orange Line
+  - 'Orange Line:'
+  - Orange Line Line
+  neighborhood: Barcelona — South
+- patterns:
+  - Yellow Line
+  - 'Yellow Line:'
+  - Yellow Line Line
+  neighborhood: Barcelona — East

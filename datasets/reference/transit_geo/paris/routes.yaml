@@ -1,0 +1,26 @@
+routes:
+- patterns:
+  - Line 1
+  - 'Line 1:'
+  - Line 1 Line
+  neighborhood: Paris Centre
+- patterns:
+  - Ligne 1
+  - 'Ligne 1:'
+  - Ligne 1 Line
+  neighborhood: Paris Centre
+- patterns:
+  - RER A
+  - 'RER A:'
+  - RER A Line
+  neighborhood: La Défense
+- patterns:
+  - RER B
+  - 'RER B:'
+  - RER B Line
+  neighborhood: Paris Centre
+- patterns:
+  - Metro
+  - 'Metro:'
+  - Metro Line
+  neighborhood: Paris Centre

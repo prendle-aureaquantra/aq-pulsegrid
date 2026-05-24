@@ -1,0 +1,26 @@
+routes:
+- patterns:
+  - Yamanote
+  - 'Yamanote:'
+  - Yamanote Line
+  neighborhood: Central Tokyo
+- patterns:
+  - Chuo
+  - 'Chuo:'
+  - Chuo Line
+  neighborhood: Central Tokyo
+- patterns:
+  - Marunouchi
+  - 'Marunouchi:'
+  - Marunouchi Line
+  neighborhood: Central Tokyo
+- patterns:
+  - Hibiya
+  - 'Hibiya:'
+  - Hibiya Line
+  neighborhood: Central Tokyo
+- patterns:
+  - Ginza
+  - 'Ginza:'
+  - Ginza Line
+  neighborhood: Central Tokyo

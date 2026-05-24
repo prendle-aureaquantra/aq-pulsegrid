@@ -1,0 +1,21 @@
+routes:
+- patterns:
+  - Line 1
+  - 'Line 1:'
+  - Line 1 Line
+  neighborhood: Downtown Toronto
+- patterns:
+  - Line 2
+  - 'Line 2:'
+  - Line 2 Line
+  neighborhood: Downtown Toronto
+- patterns:
+  - Yonge
+  - 'Yonge:'
+  - Yonge Line
+  neighborhood: Downtown Toronto
+- patterns:
+  - Bloor
+  - 'Bloor:'
+  - Bloor Line
+  neighborhood: Downtown Toronto

@@ -1,0 +1,8 @@
+﻿city,snapshot_at,asset_class,risk_tier,request_type,request_count
+chicago,2026-05-24T17:14:13.363903+00:00,road_surface,fatigue,Alley Pothole Complaint,1
+chicago,2026-05-24T17:14:13.363903+00:00,road_surface,fatigue,Pothole in Street Complaint,4
+chicago,2026-05-24T17:14:13.363903+00:00,road_surface,fatigue,Street Light Pole Damage Complaint,1
+chicago,2026-05-24T17:14:13.363903+00:00,road_surface,fatigue,Water On Street Complaint,7
+chicago,2026-05-24T17:14:13.363903+00:00,structural,failure,Sewer Cave-In Inspection Request,2
+chicago,2026-05-24T17:14:13.363903+00:00,structural,failure,Tree Emergency,3
+chicago,2026-05-24T17:14:13.363903+00:00,utility,routine,Sewer Cleaning Inspection Request,2

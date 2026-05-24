@@ -1,0 +1,21 @@
+routes:
+- patterns:
+  - BART
+  - 'BART:'
+  - BART Line
+  neighborhood: Downtown SF
+- patterns:
+  - Richmond
+  - 'Richmond:'
+  - Richmond Line
+  neighborhood: Oakland
+- patterns:
+  - Warm Springs
+  - 'Warm Springs:'
+  - Warm Springs Line
+  neighborhood: Oakland
+- patterns:
+  - Millbrae
+  - 'Millbrae:'
+  - Millbrae Line
+  neighborhood: Downtown SF

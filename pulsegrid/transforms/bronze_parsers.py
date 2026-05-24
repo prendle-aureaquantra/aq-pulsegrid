@@ -29,29 +29,20 @@ def _headline_category(headline: str) -> str:
     return "other"
 
 
-def _neighborhood_hint(text: str, keywords: list[tuple[str, str]]) -> str | None:
-    lower = text.lower()
-    for neighborhood, keyword in keywords:
-        if keyword.lower() in lower:
-            return neighborhood
-    return None
-
-
 def load_neighborhood_keywords() -> list[tuple[str, str]]:
+    from pulsegrid.geo.transit_neighborhood import _read_keywords_csv
+
     path = REF_DIR / "chicago_neighborhood_keywords.csv"
-    if not path.is_file():
-        return []
-    lines = path.read_text(encoding="utf-8").strip().splitlines()
-    out: list[tuple[str, str]] = []
-    for line in lines[1:]:
-        if "," in line:
-            n, k = line.split(",", 1)
-            out.append((n.strip(), k.strip()))
-    return out
+    return list(_read_keywords_csv(path))
 
 
 def parse_cta_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
-    keywords = load_neighborhood_keywords()
+    return parse_transit_bronze(paths, city)
+
+
+def parse_transit_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    from pulsegrid.geo.transit_neighborhood import resolve_transit_alert_neighborhood
+
     rows: list[dict] = []
     for path in paths:
         doc = _load_json(path)
@@ -59,7 +50,7 @@ def parse_cta_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
         for alert in doc.get("alerts", []):
             headline = alert.get("headline") or ""
             desc = alert.get("short_description") or ""
-            combined = f"{headline} {desc}"
+            service = alert.get("service") or ""
             rows.append(
                 {
                     "city": city,
@@ -67,9 +58,14 @@ def parse_cta_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
                     "headline": headline,
                     "short_description": desc,
                     "severity": alert.get("severity") or "",
-                    "service": alert.get("service") or "",
+                    "service": service,
                     "alert_category": _headline_category(headline),
-                    "neighborhood_hint": _neighborhood_hint(combined, keywords) or "",
+                    "neighborhood_hint": resolve_transit_alert_neighborhood(
+                        city=city,
+                        headline=headline,
+                        short_description=desc,
+                        service=service,
+                    ),
                     "ingested_at": ingested_at,
                     "bronze_file": path.name,
                 }
@@ -81,6 +77,8 @@ def parse_noaa_alerts_bronze(paths: list[Path], city: str = "chicago") -> list[d
     rows: list[dict] = []
     for path in paths:
         doc = _load_json(path)
+        if doc.get("source") == "meteoalarm_cap":
+            continue
         ingested_at = doc.get("fetched_at", "")
         for feature in doc.get("raw", {}).get("features", []):
             props = feature.get("properties") or {}
@@ -95,6 +93,32 @@ def parse_noaa_alerts_bronze(paths: list[Path], city: str = "chicago") -> list[d
                     "area_desc": props.get("areaDesc") or "",
                     "effective": props.get("effective") or "",
                     "expires": props.get("expires") or "",
+                    "ingested_at": ingested_at,
+                    "bronze_file": path.name,
+                }
+            )
+    return rows
+
+
+def parse_meteoalarm_alerts_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        if doc.get("source") != "meteoalarm_cap":
+            continue
+        ingested_at = doc.get("fetched_at", "")
+        for warn in doc.get("warnings") or []:
+            rows.append(
+                {
+                    "city": city,
+                    "alert_id": str(warn.get("alert_id") or ""),
+                    "event": warn.get("event") or "",
+                    "severity": warn.get("severity") or "",
+                    "urgency": warn.get("urgency") or "",
+                    "headline": warn.get("headline") or "",
+                    "area_desc": warn.get("area_desc") or "",
+                    "effective": warn.get("effective") or "",
+                    "expires": warn.get("expires") or "",
                     "ingested_at": ingested_at,
                     "bronze_file": path.name,
                 }
@@ -148,23 +172,47 @@ def parse_events_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
                 rec.get("event_name")
                 or rec.get("application_name")
                 or rec.get("name")
+                or rec.get("eventtype")
                 or "Event"
             )
-            start = rec.get("start_date") or rec.get("starttime") or ""
-            end = rec.get("end_date") or rec.get("endtime") or ""
+            start = (
+                rec.get("start_date")
+                or rec.get("starttime")
+                or rec.get("startdatetime")
+                or ""
+            )
+            end = (
+                rec.get("end_date")
+                or rec.get("endtime")
+                or rec.get("enddatetime")
+                or ""
+            )
             loc = (
                 rec.get("street_address")
                 or rec.get("location")
                 or rec.get("address")
                 or ""
             )
-            category = rec.get("event_type") or rec.get("category") or "general"
-            neighborhood = rec.get("community_area") or rec.get("neighborhood") or ""
+            category = (
+                rec.get("event_type")
+                or rec.get("eventtype")
+                or rec.get("category")
+                or "general"
+            )
+            neighborhood = (
+                rec.get("community_area")
+                or rec.get("neighborhood")
+                or rec.get("borough")
+                or ""
+            )
             rows.append(
                 {
                     "city": city,
                     "event_id": str(
-                        rec.get("id") or rec.get("permit_") or f"{name}-{start}"
+                        rec.get("id")
+                        or rec.get("eventid")
+                        or rec.get("permit_")
+                        or f"{name}-{start}"
                     ),
                     "event_name": str(name),
                     "event_category": str(category),
@@ -177,6 +225,56 @@ def parse_events_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
                 }
             )
     return rows
+
+
+def parse_civic311_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        if doc.get("source") != "socrata_311":
+            continue
+        ingested_at = doc.get("fetched_at", "")
+        field_map = doc.get("field_map") or {}
+        type_field = field_map.get("type_field") or "sr_type"
+        status_field = field_map.get("status_field") or "status"
+        date_field = field_map.get("date_field") or "created_date"
+        for rec in doc.get("records") or []:
+            req_type = (
+                rec.get(type_field)
+                or rec.get("complaint_type")
+                or rec.get("requesttype")
+                or rec.get("sr_type")
+                or "other"
+            )
+            descriptor = str(
+                rec.get("descriptor")
+                or rec.get("description")
+                or rec.get("short_description")
+                or rec.get("subject")
+                or ""
+            )
+            rows.append(
+                {
+                    "city": city,
+                    "request_id": str(
+                        rec.get("sr_number")
+                        or rec.get("unique_key")
+                        or rec.get("case_enquiry_id")
+                        or rec.get("srnumber")
+                        or rec.get("id")
+                        or f"{req_type}-{rec.get(date_field, '')}"
+                    ),
+                    "request_type": str(req_type),
+                    "descriptor": descriptor,
+                    "status": str(rec.get(status_field) or rec.get("status") or ""),
+                    "created_date": str(rec.get(date_field) or ""),
+                    "ingested_at": ingested_at,
+                    "bronze_file": path.name,
+                }
+            )
+    from pulsegrid.infrastructure_risk import enrich_civic311_rows
+
+    return enrich_civic311_rows(rows)
 
 
 def parse_osm_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
@@ -212,7 +310,7 @@ def parse_airport_bronze(paths: list[Path], city: str = "chicago") -> list[dict]
         rows.append(
             {
                 "city": city,
-                "station": doc.get("station") or raw.get("icaoId") or "KORD",
+                "station": doc.get("station") or raw.get("icaoId") or "",
                 "observation_time": raw.get("obsTime") or raw.get("reportTime") or "",
                 "flight_category": raw.get("fltCat") or raw.get("flightCategory") or "",
                 "visibility_sm": _safe_float(raw.get("visib") or raw.get("visibility")),
@@ -283,3 +381,90 @@ def _safe_float(val) -> float | None:
         return float(val)
     except (TypeError, ValueError):
         return None
+
+
+def parse_open_meteo_forecast_bronze(
+    paths: list[Path], city: str = "chicago"
+) -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        ingested_at = doc.get("fetched_at", "")
+        hourly = doc.get("forecast", {}).get("hourly") or {}
+        times = hourly.get("time") or []
+        temps = hourly.get("temperature_2m") or []
+        precips = hourly.get("precipitation_probability") or []
+        for i, start in enumerate(times[:24]):
+            rows.append(
+                {
+                    "city": city,
+                    "period_number": i + 1,
+                    "period_name": f"H+{i + 1}",
+                    "start_time": start,
+                    "end_time": start,
+                    "is_daytime": True,
+                    "temperature_f": int((temps[i] if i < len(temps) else 0) * 9 / 5 + 32),
+                    "precip_pct": int(precips[i] if i < len(precips) else 0),
+                    "short_forecast": "Open-Meteo hourly",
+                    "wind_speed": "",
+                    "wind_direction": "",
+                    "ingested_at": ingested_at,
+                    "bronze_file": path.name,
+                }
+            )
+    return rows
+
+
+def parse_opensky_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        rows.append(
+            {
+                "city": city,
+                "snapshot_at": doc.get("fetched_at", ""),
+                "aircraft_count": int(doc.get("aircraft_count") or 0),
+                "ingested_at": doc.get("fetched_at", ""),
+                "bronze_file": path.name,
+            }
+        )
+    return rows
+
+
+def parse_usgs_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        ingested_at = doc.get("fetched_at", "")
+        for feature in doc.get("raw", {}).get("features", []):
+            props = feature.get("properties") or {}
+            rows.append(
+                {
+                    "city": city,
+                    "event_id": feature.get("id", ""),
+                    "magnitude": _safe_float(props.get("mag")),
+                    "place": props.get("place") or "",
+                    "event_time": props.get("time"),
+                    "ingested_at": ingested_at,
+                    "bronze_file": path.name,
+                }
+            )
+    return rows
+
+
+def parse_air_quality_bronze(paths: list[Path], city: str = "chicago") -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        doc = _load_json(path)
+        rows.append(
+            {
+                "city": city,
+                "snapshot_at": doc.get("fetched_at", ""),
+                "us_aqi": _safe_float(doc.get("latest_us_aqi")),
+                "pm25": _safe_float(doc.get("latest_pm25")),
+                "ingested_at": doc.get("fetched_at", ""),
+                "bronze_file": path.name,
+            }
+        )
+    return rows
+

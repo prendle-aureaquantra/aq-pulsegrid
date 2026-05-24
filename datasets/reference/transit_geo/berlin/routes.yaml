@@ -1,0 +1,21 @@
+routes:
+- patterns:
+  - U1
+  - 'U1:'
+  - U1 Line
+  neighborhood: Kreuzberg
+- patterns:
+  - U2
+  - 'U2:'
+  - U2 Line
+  neighborhood: Mitte
+- patterns:
+  - U5
+  - 'U5:'
+  - U5 Line
+  neighborhood: Mitte
+- patterns:
+  - S-Bahn
+  - 'S-Bahn:'
+  - S-Bahn Line
+  neighborhood: Mitte

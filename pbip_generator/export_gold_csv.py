@@ -9,38 +9,64 @@ import pandas as pd
 from pulsegrid.config import DELTA, GENERATED
 from pulsegrid.io.delta_writer import read_delta_table
 
-SILVER = DELTA / "silver"
-GOLD = DELTA / "gold"
 
-# PBIP table name -> delta path relative to DELTA
-CORE_EXPORT_MAP = {
-    "CityPulseSnapshot": GOLD / "city_stress_index",
-    "TransitAlertSummary": GOLD / "transit_alert_summary",
-    "AnomalySignals": GOLD / "anomaly_signals",
-    "WeatherForecastPeriods": SILVER / "weather_forecast_periods",
-}
+def _gold_root() -> Path:
+    return DELTA / "gold"
 
-OPTIONAL_EXPORT_MAP = {
-    "AirportOpsSnapshot": GOLD / "airport_ops_snapshot",
-    "FredMacroSnapshot": GOLD / "fred_macro_snapshot",
-    "TrendInterestSummary": GOLD / "trend_interest_summary",
-    "HexPulseGrid": GOLD / "hex_pulse_grid",
-    "EventHeatmap": GOLD / "event_heatmap",
-    "StreamingTelemetry": GOLD / "streaming_telemetry",
-    "OsmAmenitySummary": GOLD / "osm_amenity_summary",
-}
+
+def _silver_root() -> Path:
+    return DELTA / "silver"
+
+
+def core_export_map() -> dict[str, Path]:
+    gold = _gold_root()
+    silver = _silver_root()
+    return {
+        "CityPulseSnapshot": gold / "city_stress_index",
+        "TransitAlertSummary": gold / "transit_alert_summary",
+        "TransitAlertDetail": gold / "transit_alert_detail",
+        "AnomalySignals": gold / "anomaly_signals",
+        "WeatherForecastPeriods": silver / "weather_forecast_periods",
+    }
+
+
+def optional_export_map() -> dict[str, Path]:
+    gold = _gold_root()
+    return {
+        "AirportOpsSnapshot": gold / "airport_ops_snapshot",
+        "FredMacroSnapshot": gold / "fred_macro_snapshot",
+        "TrendInterestSummary": gold / "trend_interest_summary",
+        "HexPulseGrid": gold / "hex_pulse_grid",
+        "EventHeatmap": gold / "event_heatmap",
+        "CityEventDetail": gold / "event_detail",
+        "StreamingTelemetry": gold / "streaming_telemetry",
+        "OsmAmenitySummary": gold / "osm_amenity_summary",
+        "InfrastructureRiskSnapshot": gold / "infrastructure_risk_snapshot",
+        "InfrastructureAssetSummary": gold / "infrastructure_asset_summary",
+        "InfrastructureRequestDetail": gold / "infrastructure_request_detail",
+    }
+
 
 PULSE_EXTENDED_COLUMNS = (
     "airport_flight_category",
     "airport_visibility_sm",
+    "airport_ops_stress",
+    "active_airport_stations",
+    "airport_stations_summary",
     "trend_avg_interest",
     "fred_series_count",
+    "infrastructure_failure_risk",
+    "infrastructure_fatigue_risk",
+    "bridge_risk_score",
+    "road_surface_risk_score",
+    "open_infrastructure_requests",
+    "infrastructure_summary",
 )
 
 
 def _merge_pulse_extensions(df: pd.DataFrame, city_slug: str) -> pd.DataFrame:
     """Join ML stress index with extended gold fields from city_pulse_snapshot."""
-    pulse_path = GOLD / "city_pulse_snapshot"
+    pulse_path = _gold_root() / "city_pulse_snapshot"
     if not pulse_path.exists():
         for col in PULSE_EXTENDED_COLUMNS:
             if col not in df.columns:
@@ -61,7 +87,7 @@ def _merge_pulse_extensions(df: pd.DataFrame, city_slug: str) -> pd.DataFrame:
 def export_city_csv(city_slug: str) -> Path:
     data_dir = GENERATED / city_slug / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
-    for table, delta_path in {**CORE_EXPORT_MAP, **OPTIONAL_EXPORT_MAP}.items():
+    for table, delta_path in {**core_export_map(), **optional_export_map()}.items():
         if not delta_path.exists():
             continue
         df = read_delta_table(delta_path)

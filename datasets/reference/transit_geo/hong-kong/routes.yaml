@@ -1,0 +1,21 @@
+routes:
+- patterns:
+  - Island Line
+  - 'Island Line:'
+  - Island Line Line
+  neighborhood: Hong Kong Island
+- patterns:
+  - Tsuen Wan
+  - 'Tsuen Wan:'
+  - Tsuen Wan Line
+  neighborhood: Kowloon
+- patterns:
+  - Kwun Tong
+  - 'Kwun Tong:'
+  - Kwun Tong Line
+  neighborhood: Kowloon
+- patterns:
+  - East Rail
+  - 'East Rail:'
+  - East Rail Line
+  neighborhood: New Territories

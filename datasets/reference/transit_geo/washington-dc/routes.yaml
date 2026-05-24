@@ -1,0 +1,31 @@
+routes:
+- patterns:
+  - Red Line
+  - 'Red Line:'
+  - Red Line Line
+  neighborhood: Downtown DC
+- patterns:
+  - Blue Line
+  - 'Blue Line:'
+  - Blue Line Line
+  neighborhood: Arlington
+- patterns:
+  - Orange Line
+  - 'Orange Line:'
+  - Orange Line Line
+  neighborhood: Arlington
+- patterns:
+  - Silver Line
+  - 'Silver Line:'
+  - Silver Line Line
+  neighborhood: Arlington
+- patterns:
+  - Green Line
+  - 'Green Line:'
+  - Green Line Line
+  neighborhood: Downtown DC
+- patterns:
+  - Yellow Line
+  - 'Yellow Line:'
+  - Yellow Line Line
+  neighborhood: Alexandria

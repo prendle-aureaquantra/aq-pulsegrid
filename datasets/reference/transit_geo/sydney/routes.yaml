@@ -1,0 +1,26 @@
+routes:
+- patterns:
+  - T1
+  - 'T1:'
+  - T1 Line
+  neighborhood: Sydney CBD
+- patterns:
+  - T2
+  - 'T2:'
+  - T2 Line
+  neighborhood: Sydney CBD
+- patterns:
+  - T3
+  - 'T3:'
+  - T3 Line
+  neighborhood: Sydney CBD
+- patterns:
+  - T4
+  - 'T4:'
+  - T4 Line
+  neighborhood: North Sydney
+- patterns:
+  - Metro
+  - 'Metro:'
+  - Metro Line
+  neighborhood: Sydney CBD

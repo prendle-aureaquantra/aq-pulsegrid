@@ -6,11 +6,6 @@
       "name": "CY24SU10",
       "reportVersionAtImport": "5.61",
       "type": "SharedResources"
-    },
-    "customTheme": {
-      "name": "AureaQuantraPulse.json",
-      "reportVersionAtImport": "5.61",
-      "type": "RegisteredResources"
     }
   },
   "resourcePackages": [
@@ -22,17 +17,6 @@
           "name": "CY24SU10",
           "path": "BaseThemes/CY24SU10.json",
           "type": "BaseTheme"
-        }
-      ]
-    },
-    {
-      "name": "RegisteredResources",
-      "type": "RegisteredResources",
-      "items": [
-        {
-          "name": "AureaQuantraPulse.json",
-          "path": "AureaQuantraPulse.json",
-          "type": "CustomTheme"
         }
       ]
     }

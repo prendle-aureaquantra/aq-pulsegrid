@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "PulseGrid"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "16187a47-8aa7-5996-b1d2-ba3ee59695e4"
+  }
+}

@@ -1,0 +1,65 @@
+metros:
+  chicago:
+    adapter: cta
+  boston:
+    adapter: mbta
+  nyc:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/cams%2Fgtfs-sa
+  la:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://api.metro.net/ServiceAlerts/ServiceAlerts.pb
+  san-francisco:
+    adapter: gtfs_rt
+    gtfs_rt_url: http://api.bart.gov/gtfsrt/alerts.aspx
+  seattle:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://s3.amazonaws.com/kcm-alerts-prod/Alerts.pb
+  philadelphia:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://www3.septa.org/gtfs/alerts/
+  atlanta:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://itsmarta.com/api/gtfsrealtime/alerts
+  denver:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://www.rtd-denver.com/files/gtfs-rt/Alerts.pb
+  minneapolis:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://svc.metrotransit.org/mtgtfs/alerts.pb
+  portland:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://trimet.org/gtfs/alerts.pb
+  san-diego:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://realtime.sdmts.com/gtfs-realtime/alerts.pb
+  london:
+    adapter: transit_json
+    json_adapter: tfl
+  amsterdam:
+    adapter: transit_json
+    json_adapter: ovapi
+  auckland:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://api.at.govt.nz/realtime/legacy/servicealerts
+  barcelona:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://www.ambmobilitat.cat/transit/alerts/alerts.bin
+  budapest:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://go.bkk.hu/api/query/v1/ws/gtfs-rt/full/Alerts.pb
+  madrid:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://openapi.emtmadrid.es/v1/bus/servicealerts/proto
+  miami:
+    adapter: gtfs_rt
+    gtfs_rt_url: http://gtfsrt.golynx.com/gtfsrt/GTFS_ServiceAlerts.pb
+  toronto:
+    adapter: gtfs_rt
+    gtfs_rt_url: http://transitdata.calgary.ca/ctransit/alerts.pb
+  vancouver:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://bct.tmix.se/gtfs-realtime/alerts.pb?operatorIds=34
+  washington-dc:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://api.goswift.ly/real-time/dc-streetcar/gtfs-rt-alerts/

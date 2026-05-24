@@ -1,0 +1,162 @@
+table DimMetro
+	lineageTag: bd86a240-61de-5aa7-80c2-b3f1346b9b98
+
+	column city
+		dataType: string
+		lineageTag: 2811492e-b3d7-55fb-aa86-10a67760074f
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column display_name
+		dataType: string
+		lineageTag: f401c6b8-deb4-50fd-b0a1-2ace96c16a35
+		summarizeBy: none
+		sourceColumn: display_name
+		annotation SummarizationSetBy = Automatic
+
+	column metro_label
+		dataType: string
+		lineageTag: 8446e12a-e8a7-54ab-96d1-3100953d997a
+		summarizeBy: none
+		sourceColumn: metro_label
+		annotation SummarizationSetBy = Automatic
+
+	column metro_name
+		dataType: string
+		lineageTag: f8f35193-2c00-518f-a401-545b91c25386
+		summarizeBy: none
+		sourceColumn: metro_name
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 479044e5-9923-5285-9cf5-b5f0fa975eb2
+		summarizeBy: none
+		sourceColumn: country
+		annotation SummarizationSetBy = Automatic
+
+	column tier
+		dataType: string
+		lineageTag: df18d9f9-1c5a-50f5-b59c-c228143e3778
+		summarizeBy: none
+		sourceColumn: tier
+		annotation SummarizationSetBy = Automatic
+
+	column lat
+		dataType: decimal
+		lineageTag: b5b33de5-00dc-5e34-b687-69569a0a0c2f
+		summarizeBy: sum
+		sourceColumn: lat
+		annotation SummarizationSetBy = Automatic
+
+	column lon
+		dataType: decimal
+		lineageTag: a67f39f0-0d16-54bd-8c8c-710ee8a02680
+		summarizeBy: sum
+		sourceColumn: lon
+		annotation SummarizationSetBy = Automatic
+
+	column timezone
+		dataType: string
+		lineageTag: 56025ffe-8e88-565a-8dd5-5f5d13f817b0
+		summarizeBy: none
+		sourceColumn: timezone
+		annotation SummarizationSetBy = Automatic
+
+	column modules
+		dataType: string
+		lineageTag: 56939e3b-94e1-514f-b2e7-8a6193be9e01
+		summarizeBy: none
+		sourceColumn: modules
+		annotation SummarizationSetBy = Automatic
+
+	column last_snapshot_at
+		dataType: string
+		lineageTag: c718f72e-d611-5fac-976f-8a17255e4e97
+		summarizeBy: none
+		sourceColumn: last_snapshot_at
+		annotation SummarizationSetBy = Automatic
+
+	measure 'Selected Metro Subtitle' = VAR dn = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "All metros") VAR tier = COALESCE(SELECTEDVALUE(DimMetro[tier]), "multi") VAR tz = COALESCE(SELECTEDVALUE(DimMetro[timezone]), "") RETURN IF(dn = "All metros", "AQ PulseGrid · select a metro to filter", UPPER(tier) & " tier · " & tz)
+		lineageTag: 78081858-e5aa-5e6a-a949-0d40edec36cd
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Live Pulse' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Operational Command Center"
+		lineageTag: bcfc6825-6a91-50c8-8553-9f270c859a7e
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Metro Compare' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Metro Comparison"
+		lineageTag: bfc762c8-9711-506c-b0e6-49f664be4629
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Geospatial' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Geospatial Intelligence"
+		lineageTag: 375e1290-b1e4-5e3e-b0d0-9f1e5e901c8f
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Transit' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Transit & Mobility"
+		lineageTag: 53d4217b-2a18-5f07-b2b7-ca9d69d8be64
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Weather' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Weather Impact"
+		lineageTag: cf135761-7a80-5f2c-8abf-087774cc3715
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Airport' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Airport Operations"
+		lineageTag: 30135ddf-80e0-5bdb-a873-d4ae738a2d59
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Events' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Event Heatmaps"
+		lineageTag: d8042324-ca3f-5f3d-8119-40d51c5d0e61
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header AI Signals' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · AI Signal Detection"
+		lineageTag: 361cc01c-3d4d-55bb-9d96-f8a7d6c9452e
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Streaming' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Streaming Monitor"
+		lineageTag: 285e4d19-07b5-506c-b872-f72e033f85ea
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Macro' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Macro & Trends"
+		lineageTag: f18adf0d-03c0-5327-8fdd-4fc1f87ccdab
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Studio' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · PBIP Generator Studio"
+		lineageTag: 0f8bea05-7ed5-57dc-8c7d-1ca83332700e
+		annotation PBI_FormatHint = {"isText": true}
+
+	measure 'Header Infrastructure' = VAR n = COALESCE(SELECTEDVALUE(DimMetro[display_name]), "Worldwide") RETURN n & " · Infrastructure Risk"
+		lineageTag: 04216e5f-69a7-5f0f-aa4f-0abe216c4c8b
+		annotation PBI_FormatHint = {"isText": true}
+
+	partition DimMetro-105ab743-9172-5498-aa7c-7a2dff437a23 = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/platform/data/DimMetro.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"display_name", type text},
+					{"metro_label", type text},
+					{"metro_name", type text},
+					{"country", type text},
+					{"tier", type text},
+					{"lat", type number},
+					{"lon", type number},
+					{"timezone", type text},
+					{"modules", type text},
+					{"last_snapshot_at", type text}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

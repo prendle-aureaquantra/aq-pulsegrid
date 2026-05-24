@@ -5,9 +5,9 @@ model ChicagoPulse
 
 ref table CityPulseSnapshot
 ref table TransitAlertSummary
+ref table TransitAlertDetail
 ref table AnomalySignals
 ref table WeatherForecastPeriods
-ref table PbipStudioCatalog
 
 ref cultureInfo en-US
 

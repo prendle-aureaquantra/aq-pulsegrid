@@ -7,17 +7,30 @@ from pathlib import Path
 
 import pandas as pd
 
+from pulsegrid.airport_ops import (
+    latest_airport_ops_rows,
+    rollup_airport_for_city_pulse,
+)
 from pulsegrid.config import DELTA, get_city
 from pulsegrid.geo.hex_grid import aggregate_transit_by_hex
+from pulsegrid.metro_feeds import airport_station_labels
 from pulsegrid.io.delta_writer import (
+    merge_delta_table,
     read_delta_table,
     use_spark_engine,
     write_delta_table,
 )
 from pulsegrid.jobs.gold_platform import (
+    event_detail_rows,
     event_heatmap_rows,
     osm_amenity_summary_rows,
     streaming_telemetry_rows,
+    transit_alert_detail_rows,
+)
+from pulsegrid.infrastructure_risk import (
+    infrastructure_detail_rows,
+    infrastructure_risk_rollup,
+    infrastructure_summary_by_asset,
 )
 
 GOLD_ROOT = DELTA / "gold"
@@ -29,30 +42,6 @@ def _read_silver_pandas(table: str) -> pd.DataFrame | None:
     if not path.exists():
         return None
     return read_delta_table(path)
-
-
-def _latest_airport_snapshot(airport: pd.DataFrame | None, city: str) -> dict:
-    if airport is None or airport.empty:
-        return {}
-    ac = airport[airport["city"] == city].sort_values("ingested_at", ascending=False)
-    if ac.empty:
-        return {}
-    row = ac.iloc[0]
-    vis = row.get("visibility_sm")
-    flt = str(row.get("flight_category") or "")
-    airport_stress = 0.0
-    if vis is not None and float(vis) < 3:
-        airport_stress += 5.0
-    if flt.upper() in ("IFR", "LIFR"):
-        airport_stress += 8.0
-    return {
-        "station": row.get("station"),
-        "flight_category": flt,
-        "visibility_sm": vis,
-        "wind_speed_kt": row.get("wind_speed_kt"),
-        "temperature_c": row.get("temperature_c"),
-        "airport_ops_stress": round(airport_stress, 2),
-    }
 
 
 def _fred_macro_rows(
@@ -116,18 +105,19 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
     trends = _read_silver_pandas("trend_interest")
     events = _read_silver_pandas("city_events")
     osm = _read_silver_pandas("osm_pois")
+    civic311 = _read_silver_pandas("civic311_requests")
 
-    active_cta = 0
+    active_transit = 0
     if transit is not None and not transit.empty:
         tc = transit[transit["city"] == city.slug]
-        active_cta = len(tc)
+        active_transit = len(tc)
         summary = (
             tc.groupby(["city", "alert_category"], as_index=False)
             .size()
             .rename(columns={"size": "alert_count"})
         )
         summary["snapshot_at"] = snapshot_at
-        written["transit_alert_summary"] = write_delta_table(
+        written["transit_alert_summary"] = merge_delta_table(
             summary.to_dict("records"), GOLD_ROOT / "transit_alert_summary"
         )
         hex_rows = aggregate_transit_by_hex(tc.to_dict("records"))
@@ -135,8 +125,13 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
             row["city"] = city.slug
             row["snapshot_at"] = snapshot_at
         if hex_rows:
-            written["hex_pulse_grid"] = write_delta_table(
+            written["hex_pulse_grid"] = merge_delta_table(
                 hex_rows, GOLD_ROOT / "hex_pulse_grid"
+            )
+        detail_rows = transit_alert_detail_rows(transit, city.slug, snapshot_at)
+        if detail_rows:
+            written["transit_alert_detail"] = merge_delta_table(
+                detail_rows, GOLD_ROOT / "transit_alert_detail"
             )
 
     active_noaa = 0
@@ -147,42 +142,89 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
     if forecast is not None and not forecast.empty:
         fc = forecast[forecast["city"] == city.slug]
         if not fc.empty:
-            avg_precip = float(fc["precip_pct"].mean())
+            avg_precip = float(
+                pd.to_numeric(fc["precip_pct"], errors="coerce").mean() or 0.0
+            )
 
-    airport_snap = _latest_airport_snapshot(airport, city.slug)
-    if airport_snap:
-        written["airport_ops_snapshot"] = write_delta_table(
-            [{"city": city.slug, "snapshot_at": snapshot_at, **airport_snap}],
+    airport_station_rows = latest_airport_ops_rows(
+        airport,
+        city.slug,
+        snapshot_at,
+        station_names=airport_station_labels(city.slug),
+    )
+    airport_rollup = rollup_airport_for_city_pulse(airport_station_rows)
+    if airport_station_rows:
+        written["airport_ops_snapshot"] = merge_delta_table(
+            airport_station_rows,
             GOLD_ROOT / "airport_ops_snapshot",
         )
 
     fred_rows = _fred_macro_rows(fred, city.slug, snapshot_at)
     if fred_rows:
-        written["fred_macro_snapshot"] = write_delta_table(
+        written["fred_macro_snapshot"] = merge_delta_table(
             fred_rows, GOLD_ROOT / "fred_macro_snapshot"
         )
 
     trend_rows = _trend_summary_rows(trends, city.slug, snapshot_at)
     if trend_rows:
-        written["trend_interest_summary"] = write_delta_table(
+        written["trend_interest_summary"] = merge_delta_table(
             trend_rows, GOLD_ROOT / "trend_interest_summary"
         )
 
     event_rows = event_heatmap_rows(events, city.slug, snapshot_at)
     if event_rows:
-        written["event_heatmap"] = write_delta_table(
+        written["event_heatmap"] = merge_delta_table(
             event_rows, GOLD_ROOT / "event_heatmap"
+        )
+    detail_rows = event_detail_rows(events, city.slug, snapshot_at)
+    if detail_rows:
+        written["event_detail"] = merge_delta_table(
+            detail_rows, GOLD_ROOT / "event_detail"
         )
 
     osm_rows = osm_amenity_summary_rows(osm, city.slug, snapshot_at)
     if osm_rows:
-        written["osm_amenity_summary"] = write_delta_table(
+        written["osm_amenity_summary"] = merge_delta_table(
             osm_rows, GOLD_ROOT / "osm_amenity_summary"
         )
 
+    civic311_count = 0
+    infra_rollup: dict = {}
+    if civic311 is not None and not civic311.empty:
+        cc = civic311[civic311["city"] == city.slug]
+        civic311_count = len(cc)
+        if not cc.empty:
+            summary = (
+                cc.groupby(["city", "request_type"], as_index=False)
+                .size()
+                .rename(columns={"size": "request_count"})
+            )
+            summary["snapshot_at"] = snapshot_at
+            written["civic311_summary"] = merge_delta_table(
+                summary.to_dict("records"), GOLD_ROOT / "civic311_summary"
+            )
+        infra_rollup = infrastructure_risk_rollup(
+            civic311, city.slug, snapshot_at, avg_precip_pct=avg_precip
+        )
+        written["infrastructure_risk_snapshot"] = merge_delta_table(
+            [infra_rollup], GOLD_ROOT / "infrastructure_risk_snapshot"
+        )
+        asset_rows = infrastructure_summary_by_asset(
+            civic311, city.slug, snapshot_at
+        )
+        if asset_rows:
+            written["infrastructure_asset_summary"] = merge_delta_table(
+                asset_rows, GOLD_ROOT / "infrastructure_asset_summary"
+            )
+        detail = infrastructure_detail_rows(civic311, city.slug, snapshot_at)
+        if detail:
+            written["infrastructure_request_detail"] = merge_delta_table(
+                detail, GOLD_ROOT / "infrastructure_request_detail"
+            )
+
     stream_rows = streaming_telemetry_rows(city.slug, snapshot_at)
     if stream_rows:
-        written["streaming_telemetry"] = write_delta_table(
+        written["streaming_telemetry"] = merge_delta_table(
             stream_rows, GOLD_ROOT / "streaming_telemetry"
         )
 
@@ -196,13 +238,17 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
         if trend_rows
         else 0.0
     )
-    airport_stress = airport_snap.get("airport_ops_stress", 0.0)
+    airport_stress = float(airport_rollup.get("airport_ops_stress") or 0.0)
+    infra_failure = float(infra_rollup.get("infrastructure_failure_risk") or 0.0)
+    infra_fatigue = float(infra_rollup.get("infrastructure_fatigue_risk") or 0.0)
+    infra_stress = round(min(20.0, infra_failure * 0.12 + infra_fatigue * 0.06), 2)
     event_stress = min(10.0, event_count * 0.5)
     stress = round(
-        active_cta * 0.05
+        active_transit * 0.05
         + active_noaa * 2.0
         + avg_precip * 0.1
         + airport_stress
+        + infra_stress
         + event_stress,
         2,
     )
@@ -210,18 +256,32 @@ def run_gold(city_slug: str = "chicago") -> dict[str, Path]:
         {
             "city": city.slug,
             "snapshot_at": snapshot_at,
-            "active_cta_alerts": active_cta,
+            "active_transit_alerts": active_transit,
             "active_noaa_alerts": active_noaa,
             "avg_precip_pct_next_periods": avg_precip,
             "city_stress_score": stress,
-            "airport_flight_category": airport_snap.get("flight_category", ""),
-            "airport_visibility_sm": airport_snap.get("visibility_sm"),
+            "airport_flight_category": airport_rollup.get("airport_flight_category", ""),
+            "airport_visibility_sm": airport_rollup.get("airport_visibility_sm"),
+            "airport_ops_stress": airport_stress,
+            "active_airport_stations": airport_rollup.get("active_airport_stations", 0),
+            "airport_stations_summary": airport_rollup.get("airport_stations_summary", ""),
             "trend_avg_interest": trend_avg,
             "fred_series_count": len(fred_rows),
             "active_events": event_count,
+            "active_civic311_requests": civic311_count,
+            "infrastructure_failure_risk": infra_failure,
+            "infrastructure_fatigue_risk": infra_fatigue,
+            "bridge_risk_score": float(infra_rollup.get("bridge_risk_score") or 0),
+            "road_surface_risk_score": float(
+                infra_rollup.get("road_surface_risk_score") or 0
+            ),
+            "open_infrastructure_requests": int(
+                infra_rollup.get("open_infrastructure_requests") or 0
+            ),
+            "infrastructure_summary": infra_rollup.get("infrastructure_summary", ""),
         }
     ]
-    written["city_pulse_snapshot"] = write_delta_table(
+    written["city_pulse_snapshot"] = merge_delta_table(
         pulse, GOLD_ROOT / "city_pulse_snapshot"
     )
     return written

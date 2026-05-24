@@ -21,7 +21,7 @@ Open `ChicagoPulse.pbip` in **Power BI Desktop** — three pages ship with progr
 
 | Page | Visuals |
 |------|---------|
-| Live City Pulse | KPI card row (stress, CTA alerts, anomaly count) + anomaly table |
+| Live City Pulse | KPI card row (stress, transit alerts, anomaly count) + anomaly table |
 | Transit & Mobility | Clustered bar — alert category vs count |
 | Weather Impact | Precip bar chart + temperature line chart |
 

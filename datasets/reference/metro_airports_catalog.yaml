@@ -1,0 +1,306 @@
+# Canonical multi-airport lists per metro (primary + secondary + regional relievers).
+# Regenerate metro_airports.yaml: python tools/generate_metro_airports.py
+metros:
+  chicago:
+    - {icao: KORD, name: O'Hare International}
+    - {icao: KMDW, name: Midway International}
+    - {icao: KGYY, name: Gary/Chicago International}
+    - {icao: KPWK, name: Chicago Executive}
+    - {icao: KDPA, name: DuPage}
+    - {icao: KUGN, name: Waukegan National}
+    - {icao: KRFD, name: Chicago Rockford International}
+  nyc:
+    - {icao: KJFK, name: JFK}
+    - {icao: KLGA, name: LaGuardia}
+    - {icao: KEWR, name: Newark Liberty}
+    - {icao: KTEB, name: Teterboro}
+    - {icao: KHPN, name: Westchester County}
+    - {icao: KISP, name: Long Island MacArthur}
+    - {icao: KSWF, name: New York Stewart}
+  la:
+    - {icao: KLAX, name: Los Angeles International}
+    - {icao: KBUR, name: Hollywood Burbank}
+    - {icao: KONT, name: Ontario International}
+    - {icao: KSNA, name: John Wayne-Orange County}
+    - {icao: KLGB, name: Long Beach}
+    - {icao: KVNY, name: Van Nuys}
+    - {icao: KPSP, name: Palm Springs}
+  san-francisco:
+    - {icao: KSFO, name: San Francisco International}
+    - {icao: KOAK, name: Oakland International}
+    - {icao: KSJC, name: San Jose International}
+    - {icao: KSCK, name: Stockton Metropolitan}
+  boston:
+    - {icao: KBOS, name: Logan International}
+    - {icao: KPVD, name: T.F. Green}
+    - {icao: KMHT, name: Manchester-Boston Regional}
+    - {icao: KORH, name: Worcester Regional}
+  washington-dc:
+    - {icao: KDCA, name: Reagan National}
+    - {icao: KIAD, name: Washington Dulles}
+    - {icao: KBWI, name: Baltimore/Washington}
+    - {icao: KADW, name: Joint Base Andrews}
+    - {icao: KHEF, name: Manassas Regional}
+  atlanta:
+    - {icao: KATL, name: Hartsfield-Jackson}
+    - {icao: KPDK, name: DeKalb-Peachtree}
+    - {icao: KFTY, name: Fulton County}
+  dallas:
+    - {icao: KDFW, name: Dallas/Fort Worth}
+    - {icao: KDAL, name: Dallas Love Field}
+    - {icao: KAFW, name: Fort Worth Alliance}
+    - {icao: KADS, name: Addison}
+  houston:
+    - {icao: KIAH, name: George Bush Intercontinental}
+    - {icao: KHOU, name: William P. Hobby}
+    - {icao: KSGR, name: Sugar Land Regional}
+    - {icao: KEFD, name: Ellington}
+  denver:
+    - {icao: KDEN, name: Denver International}
+    - {icao: KAPA, name: Centennial}
+    - {icao: KBJC, name: Rocky Mountain Metropolitan}
+    - {icao: KCOS, name: Colorado Springs}
+  miami:
+    - {icao: KMIA, name: Miami International}
+    - {icao: KFLL, name: Fort Lauderdale-Hollywood}
+    - {icao: KPBI, name: Palm Beach International}
+    - {icao: KOPF, name: Miami-Opa Locka Executive}
+  phoenix:
+    - {icao: KPHX, name: Phoenix Sky Harbor}
+    - {icao: KSDL, name: Scottsdale}
+    - {icao: KDVT, name: Phoenix Deer Valley}
+    - {icao: KIWA, name: Phoenix-Mesa Gateway}
+  philadelphia:
+    - {icao: KPHL, name: Philadelphia International}
+    - {icao: KTTN, name: Trenton Mercer}
+    - {icao: KILG, name: Wilmington}
+    - {icao: KABE, name: Lehigh Valley}
+  seattle:
+    - {icao: KSEA, name: Seattle-Tacoma}
+    - {icao: KBFI, name: Boeing Field}
+    - {icao: KPAE, name: Paine Field}
+    - {icao: KTIW, name: Tacoma Narrows}
+  london:
+    - {icao: EGLL, name: Heathrow}
+    - {icao: EGKK, name: Gatwick}
+    - {icao: EGSS, name: Stansted}
+    - {icao: EGGW, name: Luton}
+    - {icao: EGLC, name: London City}
+    - {icao: EGMC, name: London Southend}
+  paris:
+    - {icao: LFPG, name: Paris Charles de Gaulle}
+    - {icao: LFPO, name: Paris Orly}
+    - {icao: LFPB, name: Paris-Le Bourget}
+    - {icao: LFQQ, name: Lille (regional)}
+  tokyo:
+    - {icao: RJTT, name: Haneda}
+    - {icao: RJAA, name: Narita}
+    - {icao: RJTF, name: Chofu}
+    - {icao: RJTH, name: Hachijojima}
+  singapore:
+    - {icao: WSSS, name: Changi}
+    - {icao: WSSL, name: Seletar}
+  dubai:
+    - {icao: OMDB, name: Dubai International}
+    - {icao: OMDW, name: Al Maktoum}
+    - {icao: OMSJ, name: Sharjah}
+  sydney:
+    - {icao: YSSY, name: Sydney Kingsford Smith}
+    - {icao: YSBK, name: Bankstown}
+    - {icao: YSCB, name: Canberra}
+  melbourne:
+    - {icao: YMML, name: Melbourne Tullamarine}
+    - {icao: YMEN, name: Essendon}
+    - {icao: YMAV, name: Avalon}
+  toronto:
+    - {icao: CYYZ, name: Toronto Pearson}
+    - {icao: CYTZ, name: Billy Bishop}
+    - {icao: CYKZ, name: Toronto Buttonville}
+    - {icao: CYHM, name: Hamilton}
+  vancouver:
+    - {icao: CYVR, name: Vancouver International}
+    - {icao: CYXX, name: Abbotsford}
+    - {icao: CYYJ, name: Victoria International}
+    - {icao: CYLW, name: Kelowna}
+  montreal:
+    - {icao: CYUL, name: Montréal-Trudeau}
+    - {icao: CYHU, name: Montréal Saint-Hubert}
+    - {icao: CYMX, name: Montréal-Mirabel}
+  amsterdam:
+    - {icao: EHAM, name: Amsterdam Schiphol}
+    - {icao: EHRD, name: Rotterdam The Hague}
+    - {icao: EHEH, name: Eindhoven}
+  berlin:
+    - {icao: EDDB, name: Berlin Brandenburg}
+    - {icao: EDAY, name: Strausberg}
+  munich:
+    - {icao: EDDM, name: Munich}
+    - {icao: EDMA, name: Augsburg}
+    - {icao: EDNL, name: Memmingen}
+  rome:
+    - {icao: LIRF, name: Rome Fiumicino}
+    - {icao: LIRA, name: Rome Ciampino}
+  milan:
+    - {icao: LIMC, name: Milan Malpensa}
+    - {icao: LIML, name: Linate}
+    - {icao: LIME, name: Bergamo Orio al Serio}
+  madrid:
+    - {icao: LEMD, name: Madrid-Barajas}
+    - {icao: LEMG, name: Málaga-Costa del Sol}
+    - {icao: LEAL, name: Alicante-Elche}
+  barcelona:
+    - {icao: LEBL, name: Barcelona-El Prat}
+    - {icao: LEPA, name: Palma de Mallorca}
+    - {icao: LEGE, name: Girona-Costa Brava}
+  istanbul:
+    - {icao: LTFM, name: Istanbul Airport}
+    - {icao: LTFJ, name: Sabiha Gökçen}
+    - {icao: LTBA, name: Istanbul Atatürk}
+  moscow:
+    - {icao: UUEE, name: Sheremetyevo}
+    - {icao: UUDD, name: Domodedovo}
+    - {icao: UUWW, name: Vnukovo}
+    - {icao: UUMB, name: Moscow Zhukovsky}
+  beijing:
+    - {icao: ZBAA, name: Beijing Capital}
+    - {icao: ZBAD, name: Beijing Daxing}
+    - {icao: ZBTJ, name: Tianjin}
+  shanghai:
+    - {icao: ZSPD, name: Shanghai Pudong}
+    - {icao: ZSSS, name: Shanghai Hongqiao}
+    - {icao: ZSHC, name: Hangzhou}
+  hong-kong:
+    - {icao: VHHH, name: Hong Kong International}
+    - {icao: VMMC, name: Macau}
+    - {icao: VHSK, name: Hong Kong Shek Kong}
+  seoul:
+    - {icao: RKSI, name: Incheon}
+    - {icao: RKSS, name: Gimpo}
+    - {icao: RKTN, name: Daegu}
+  bangkok:
+    - {icao: VTBS, name: Suvarnabhumi}
+    - {icao: VTBD, name: Don Mueang}
+    - {icao: VTSP, name: Phuket}
+  jakarta:
+    - {icao: WIII, name: Soekarno-Hatta}
+    - {icao: WADD, name: Bali Ngurah Rai}
+    - {icao: WIIH, name: Halim Perdanakusuma}
+  manila:
+    - {icao: RPLL, name: Ninoy Aquino}
+    - {icao: RPLC, name: Clark International}
+    - {icao: RPVM, name: Mactan-Cebu}
+  kuala-lumpur:
+    - {icao: WMKK, name: Kuala Lumpur International}
+    - {icao: WMSA, name: Sultan Abdul Aziz Shah}
+    - {icao: WMKP, name: Penang}
+  taipei:
+    - {icao: RCTP, name: Taiwan Taoyuan}
+    - {icao: RCSS, name: Taipei Songshan}
+    - {icao: RCBS, name: Hsinchu}
+  delhi:
+    - {icao: VIDP, name: Indira Gandhi}
+    - {icao: VILK, name: Lucknow}
+    - {icao: VIJP, name: Jaipur}
+  mumbai:
+    - {icao: VABB, name: Mumbai}
+    - {icao: VAPO, name: Pune}
+    - {icao: VOGO, name: Goa}
+  bangalore:
+    - {icao: VOBL, name: Kempegowda}
+    - {icao: VOCI, name: Cochin}
+    - {icao: VOCL, name: Calicut}
+  sao-paulo:
+    - {icao: SBGR, name: Guarulhos}
+    - {icao: SBSP, name: Congonhas}
+    - {icao: SBKP, name: Viracopos}
+  buenos-aires:
+    - {icao: SAEZ, name: Ezeiza}
+    - {icao: SABE, name: Aeroparque}
+    - {icao: SADF, name: San Fernando}
+  bogota:
+    - {icao: SKBO, name: El Dorado}
+    - {icao: SKRG, name: Medellín}
+  lima:
+    - {icao: SPJC, name: Jorge Chávez}
+    - {icao: SPZO, name: Cusco}
+  mexico-city:
+    - {icao: MMMX, name: Mexico City International}
+    - {icao: MMSM, name: Toluca}
+    - {icao: MMTO, name: Puebla}
+  cairo:
+    - {icao: HECA, name: Cairo International}
+    - {icao: HEBA, name: Borg El Arab}
+  johannesburg:
+    - {icao: FAOR, name: O.R. Tambo}
+    - {icao: FALA, name: Lanseria}
+    - {icao: FAGC, name: Grand Central}
+  nairobi:
+    - {icao: HKJK, name: Jomo Kenyatta}
+    - {icao: HKMO, name: Mombasa}
+  lagos:
+    - {icao: DNMM, name: Murtala Muhammed}
+    - {icao: DNAA, name: Abuja}
+  tel-aviv:
+    - {icao: LLBG, name: Ben Gurion}
+    - {icao: LLER, name: Ramon}
+    - {icao: LLOV, name: Ovda}
+  riyadh:
+    - {icao: OERK, name: King Khalid}
+    - {icao: OEJN, name: Jeddah}
+    - {icao: OEDF, name: Dammam}
+  doha:
+    - {icao: OTHH, name: Hamad International}
+    - {icao: OTBD, name: Doha International}
+  athens:
+    - {icao: LGAV, name: Athens Eleftherios Venizelos}
+    - {icao: LGTS, name: Thessaloniki}
+  brussels:
+    - {icao: EBBR, name: Brussels}
+    - {icao: EBLG, name: Liège}
+    - {icao: EBCI, name: Brussels South Charleroi}
+  zurich:
+    - {icao: LSZH, name: Zurich}
+    - {icao: LSGG, name: Geneva}
+    - {icao: LSZB, name: Bern}
+  vienna:
+    - {icao: LOWW, name: Vienna}
+    - {icao: LOWG, name: Graz}
+    - {icao: LOWI, name: Innsbruck}
+  warsaw:
+    - {icao: EPWA, name: Warsaw Chopin}
+    - {icao: EPKK, name: Kraków}
+    - {icao: EPGD, name: Gdańsk}
+  prague:
+    - {icao: LKPR, name: Prague}
+    - {icao: LKTB, name: Brno}
+  budapest:
+    - {icao: LHBP, name: Budapest}
+    - {icao: LHDC, name: Debrecen}
+  stockholm:
+    - {icao: ESSA, name: Stockholm Arlanda}
+    - {icao: ESSB, name: Stockholm Bromma}
+    - {icao: ESGG, name: Gothenburg}
+  oslo:
+    - {icao: ENGM, name: Oslo Gardermoen}
+    - {icao: ENTO, name: Sandefjord}
+    - {icao: ENBR, name: Bergen}
+  copenhagen:
+    - {icao: EKCH, name: Copenhagen}
+    - {icao: ESMH, name: Malmö}
+    - {icao: EKYT, name: Aarhus}
+  helsinki:
+    - {icao: EFHK, name: Helsinki-Vantaa}
+    - {icao: EFTP, name: Tampere}
+    - {icao: EFTU, name: Turku}
+  dublin:
+    - {icao: EIDW, name: Dublin}
+    - {icao: EICK, name: Cork}
+    - {icao: EINN, name: Shannon}
+  lisbon:
+    - {icao: LPPT, name: Lisbon}
+    - {icao: LPFR, name: Faro}
+    - {icao: LPPR, name: Porto}
+  auckland:
+    - {icao: NZAA, name: Auckland}
+    - {icao: NZWN, name: Wellington}
+    - {icao: NZCH, name: Christchurch}

@@ -1,0 +1,76 @@
+routes:
+- patterns:
+  - Bakerloo
+  - 'Bakerloo:'
+  - Bakerloo Line
+  neighborhood: Westminster
+- patterns:
+  - Central
+  - 'Central:'
+  - Central Line
+  neighborhood: City of London
+- patterns:
+  - Circle
+  - 'Circle:'
+  - Circle Line
+  neighborhood: City of London
+- patterns:
+  - District
+  - 'District:'
+  - District Line
+  neighborhood: Westminster
+- patterns:
+  - DLR
+  - 'DLR:'
+  - DLR Line
+  neighborhood: Canary Wharf
+- patterns:
+  - Elizabeth
+  - 'Elizabeth:'
+  - Elizabeth Line
+  neighborhood: City of London
+- patterns:
+  - Hammersmith & City
+  - 'Hammersmith & City:'
+  - Hammersmith & City Line
+  neighborhood: West End
+- patterns:
+  - Jubilee
+  - 'Jubilee:'
+  - Jubilee Line
+  neighborhood: Canary Wharf
+- patterns:
+  - Metropolitan
+  - 'Metropolitan:'
+  - Metropolitan Line
+  neighborhood: North London
+- patterns:
+  - Northern
+  - 'Northern:'
+  - Northern Line
+  neighborhood: West End
+- patterns:
+  - Overground
+  - 'Overground:'
+  - Overground Line
+  neighborhood: North London
+- patterns:
+  - Piccadilly
+  - 'Piccadilly:'
+  - Piccadilly Line
+  neighborhood: West End
+- patterns:
+  - Victoria
+  - 'Victoria:'
+  - Victoria Line
+  neighborhood: Westminster
+- patterns:
+  - Waterloo & City
+  - 'Waterloo & City:'
+  - Waterloo & City Line
+  neighborhood: City of London
+- patterns:
+  - Tram
+  - 'Tram:'
+  - Tram Line
+  neighborhood: South London

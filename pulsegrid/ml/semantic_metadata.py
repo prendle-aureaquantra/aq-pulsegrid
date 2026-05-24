@@ -24,7 +24,7 @@ def build_semantic_metadata(city_slug: str) -> dict:
                     "weather_risk_score",
                     "precip_risk_score",
                     "disruption_ratio_score",
-                    "active_cta_alerts",
+                    "active_transit_alerts",
                     "active_noaa_alerts",
                 ],
             },
@@ -34,14 +34,42 @@ def build_semantic_metadata(city_slug: str) -> dict:
                 "columns": ["alert_category", "alert_count"],
             },
             {
+                "name": "TransitAlertDetail",
+                "source": "gold/transit_alert_detail",
+                "columns": [
+                    "neighborhood",
+                    "alert_category",
+                    "headline",
+                    "service",
+                    "severity",
+                ],
+            },
+            {
                 "name": "AnomalySignals",
                 "source": "gold/anomaly_signals",
                 "columns": ["signal_type", "severity", "message", "z_score"],
             },
             {
+                "name": "CityEventDetail",
+                "source": "gold/event_detail",
+                "columns": [
+                    "neighborhood",
+                    "event_category",
+                    "event_name",
+                    "location",
+                    "start_date",
+                ],
+            },
+            {
                 "name": "AirportOpsSnapshot",
                 "source": "gold/airport_ops_snapshot",
-                "columns": ["flight_category", "visibility_sm", "airport_ops_stress"],
+                "columns": [
+                    "station",
+                    "station_label",
+                    "flight_category",
+                    "visibility_sm",
+                    "airport_ops_stress",
+                ],
             },
             {
                 "name": "FredMacroSnapshot",
@@ -66,8 +94,8 @@ def build_semantic_metadata(city_slug: str) -> dict:
                 "format": "0.0",
             },
             {
-                "name": "Active CTA Alerts",
-                "expression": "SUM(CityPulseSnapshot[active_cta_alerts])",
+                "name": "Active Transit Alerts",
+                "expression": "SUM(CityPulseSnapshot[active_transit_alerts])",
                 "format": "#,0",
             },
             {

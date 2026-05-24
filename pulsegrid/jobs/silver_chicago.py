@@ -7,6 +7,7 @@ from pathlib import Path
 from pulsegrid.config import DELTA, get_city
 from pulsegrid.io.delta_writer import (
     use_spark_engine,
+    merge_delta_table,
     write_delta_dataframe,
     write_delta_table,
 )
@@ -14,10 +15,18 @@ from pulsegrid.transforms.bronze_parsers import (
     bronze_glob,
     parse_airport_bronze,
     parse_cta_bronze,
+    parse_transit_bronze,
     parse_events_bronze,
     parse_fred_bronze,
     parse_noaa_alerts_bronze,
     parse_noaa_forecast_bronze,
+    parse_open_meteo_forecast_bronze,
+    parse_opensky_bronze,
+    parse_transit_bronze,
+    parse_usgs_bronze,
+    parse_air_quality_bronze,
+    parse_civic311_bronze,
+    parse_meteoalarm_alerts_bronze,
     parse_osm_bronze,
     parse_trends_bronze,
 )
@@ -174,30 +183,44 @@ def _write_silver(rows: list[dict], table: str):
             return write_delta_dataframe(df, path)
         finally:
             spark.stop()
-    return write_delta_table(rows, path)
+    return merge_delta_table(rows, path)
 
 
 def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
     city = get_city(city_slug)
     cta_paths = bronze_glob(city_slug, "cta", "alerts_*.json")
+    transit_paths = bronze_glob(city_slug, "transit", "alerts_*.json")
     noaa_alert_paths = bronze_glob(city_slug, "noaa", "alerts_*.json")
+    weather_alert_paths = bronze_glob(city_slug, "weather", "alerts_*.json")
     noaa_forecast_paths = bronze_glob(city_slug, "noaa", "forecast_*.json")
+    open_meteo_paths = bronze_glob(city_slug, "weather", "forecast_*.json")
     airport_paths = bronze_glob(city_slug, "airport", "metar_*.json")
     fred_paths = bronze_glob(city_slug, "fred", "*.json")
     trends_paths = bronze_glob(city_slug, "google_trends", "*.json")
     events_paths = bronze_glob(city_slug, "events", "*.json")
+    civic311_paths = bronze_glob(city_slug, "civic311", "requests_*.json")
     osm_paths = bronze_glob(city_slug, "osm", "*.json")
+    opensky_paths = bronze_glob(city_slug, "opensky", "states_*.json")
+    usgs_paths = bronze_glob(city_slug, "usgs", "quakes_*.json")
+    aqi_paths = bronze_glob(city_slug, "air_quality", "aqi_*.json")
 
     if not any(
         [
             cta_paths,
+            transit_paths,
             noaa_alert_paths,
+            weather_alert_paths,
             noaa_forecast_paths,
+            open_meteo_paths,
             airport_paths,
             fred_paths,
             trends_paths,
             events_paths,
+            civic311_paths,
             osm_paths,
+            opensky_paths,
+            usgs_paths,
+            aqi_paths,
         ]
     ):
         raise FileNotFoundError(
@@ -208,22 +231,27 @@ def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
     engine = "spark" if use_spark_engine() else "delta-rs"
     print(f"  engine: {engine}")
 
-    if cta_paths:
+    if cta_paths or transit_paths:
         rows = _dedupe_rows(
-            parse_cta_bronze(cta_paths, city.slug), ["city", "alert_id"]
+            parse_transit_bronze(cta_paths + transit_paths, city.slug),
+            ["city", "alert_id"],
         )
         written["transit_alerts"] = _write_silver(rows, "transit_alerts")
 
-    if noaa_alert_paths:
+    alert_paths = noaa_alert_paths + weather_alert_paths
+    if alert_paths:
         rows = _dedupe_rows(
-            parse_noaa_alerts_bronze(noaa_alert_paths, city.slug),
+            parse_noaa_alerts_bronze(noaa_alert_paths, city.slug)
+            + parse_meteoalarm_alerts_bronze(weather_alert_paths, city.slug),
             ["city", "alert_id"],
         )
         written["weather_alerts"] = _write_silver(rows, "weather_alerts")
 
-    if noaa_forecast_paths:
+    forecast_paths = noaa_forecast_paths + open_meteo_paths
+    if forecast_paths:
         rows = _dedupe_rows(
-            parse_noaa_forecast_bronze(noaa_forecast_paths, city.slug),
+            parse_noaa_forecast_bronze(noaa_forecast_paths, city.slug)
+            + parse_open_meteo_forecast_bronze(open_meteo_paths, city.slug),
             ["city", "period_number", "start_time"],
         )
         written["weather_forecast_periods"] = _write_silver(
@@ -258,12 +286,40 @@ def run_silver(city_slug: str = "chicago") -> dict[str, Path]:
         )
         written["city_events"] = _write_silver(rows, "city_events")
 
+    if civic311_paths:
+        rows = _dedupe_rows(
+            parse_civic311_bronze(civic311_paths, city.slug),
+            ["city", "request_id"],
+        )
+        written["civic311_requests"] = _write_silver(rows, "civic311_requests")
+
     if osm_paths:
         rows = _dedupe_rows(
             parse_osm_bronze(osm_paths, city.slug),
             ["city", "osm_id"],
         )
         written["osm_pois"] = _write_silver(rows, "osm_pois")
+
+    if opensky_paths:
+        rows = _dedupe_rows(
+            parse_opensky_bronze(opensky_paths, city.slug),
+            ["city", "ingested_at"],
+        )
+        written["opensky_states"] = _write_silver(rows, "opensky_states")
+
+    if usgs_paths:
+        rows = _dedupe_rows(
+            parse_usgs_bronze(usgs_paths, city.slug),
+            ["city", "event_id"],
+        )
+        written["usgs_earthquakes"] = _write_silver(rows, "usgs_earthquakes")
+
+    if aqi_paths:
+        rows = _dedupe_rows(
+            parse_air_quality_bronze(aqi_paths, city.slug),
+            ["city", "ingested_at"],
+        )
+        written["air_quality"] = _write_silver(rows, "air_quality")
 
     return written
 

@@ -1,0 +1,21 @@
+routes:
+- patterns:
+  - North-South
+  - 'North-South:'
+  - North-South Line
+  neighborhood: Central Singapore
+- patterns:
+  - East-West
+  - 'East-West:'
+  - East-West Line
+  neighborhood: Central Singapore
+- patterns:
+  - Circle
+  - 'Circle:'
+  - Circle Line
+  neighborhood: Central Singapore
+- patterns:
+  - Downtown
+  - 'Downtown:'
+  - Downtown Line
+  neighborhood: Central Singapore

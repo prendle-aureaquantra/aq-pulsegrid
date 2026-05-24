@@ -1,0 +1,90 @@
+table AirportOpsSnapshot
+	lineageTag: 9c4d5391-f3eb-52f7-bb31-fb4c66df83da
+
+	column city
+		dataType: string
+		lineageTag: 7befb83c-85ef-54b6-bce6-fd90e6183ca9
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_at
+		dataType: string
+		lineageTag: ac76d82e-45ce-5616-a246-e1a26c3edf41
+		summarizeBy: none
+		sourceColumn: snapshot_at
+		annotation SummarizationSetBy = Automatic
+
+	column station
+		dataType: string
+		lineageTag: f7138fe5-9b47-547c-a4a7-9bbe25d17fec
+		summarizeBy: none
+		sourceColumn: station
+		annotation SummarizationSetBy = Automatic
+
+	column flight_category
+		dataType: string
+		lineageTag: 50ca8fa2-b500-573e-b8f7-f0cb390a352d
+		summarizeBy: none
+		sourceColumn: flight_category
+		annotation SummarizationSetBy = Automatic
+
+	column visibility_sm
+		dataType: decimal
+		lineageTag: a040fcef-50c8-5f7e-9cba-b44b51e3dc22
+		summarizeBy: sum
+		sourceColumn: visibility_sm
+		annotation SummarizationSetBy = Automatic
+
+	column wind_speed_kt
+		dataType: decimal
+		lineageTag: 13fcab59-49d3-59c3-a8e8-6b65196c4cba
+		summarizeBy: sum
+		sourceColumn: wind_speed_kt
+		annotation SummarizationSetBy = Automatic
+
+	column temperature_c
+		dataType: decimal
+		lineageTag: e896d859-0e20-50de-9ec8-f5340e53a248
+		summarizeBy: sum
+		sourceColumn: temperature_c
+		annotation SummarizationSetBy = Automatic
+
+	column airport_ops_stress
+		dataType: decimal
+		lineageTag: 7efc0096-17af-5fe0-b7b3-c78af2a2ff1f
+		summarizeBy: sum
+		sourceColumn: airport_ops_stress
+		annotation SummarizationSetBy = Automatic
+
+	measure 'ORD Ops Stress' = AVERAGE(AirportOpsSnapshot[airport_ops_stress])
+		formatString: 0.0
+		lineageTag: faf4b44e-e5ae-5a9c-b1cb-8403b402ae0f
+
+	partition AirportOpsSnapshot-9aef3ae0-d85f-5e56-bdbe-c8e8437eddc5 = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/AirportOpsSnapshot.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"snapshot_at", type text},
+					{"station", type text},
+					{"flight_category", type text},
+					{"visibility_sm", type number},
+					{"wind_speed_kt", type number},
+					{"temperature_c", type number},
+					{"airport_ops_stress", type number}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+
