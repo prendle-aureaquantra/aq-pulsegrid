@@ -1,5 +1,3 @@
-# Socrata 311 service request endpoints for US metros (live open data).
-# Add slugs as cities publish stable SODA resource URLs.
 metros:
   chicago:
     url: https://data.cityofchicago.org/resource/v6vf-nfxy.json
@@ -106,4 +104,23 @@ metros:
     status_field: status
     order: created_date DESC
     limit: 150
+    recent_days: 14
+  houston:
+    adapter: arcgis
+    url: https://mycity2.houstontx.gov/pubgis01/rest/services/311/D365_SR311_PROD/MapServer/1/query
+    date_field: CreatedDate
+    type_field: CaseType
+    status_field: Status
+    order_by: CreatedDate DESC
+    where: "1=1"
+    limit: 150
+    recent_days: 0
+  philadelphia:
+    adapter: carto
+    url: https://phl.carto.com/api/v2/sql
+    table: public_cases_fc
+    date_field: requested_datetime
+    type_field: service_request_type
+    status_field: status
+    limit: 100
     recent_days: 14

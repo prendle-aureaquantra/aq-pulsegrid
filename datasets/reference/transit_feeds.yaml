@@ -5,25 +5,25 @@ metros:
     adapter: mbta
   nyc:
     adapter: gtfs_rt
-    gtfs_rt_url: https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/cams%2Fgtfs-sa
+    gtfs_rt_url: http://nycferry.connexionz.net/rtt/public/utility/gtfsrealtime.aspx/alert
   la:
     adapter: gtfs_rt
-    gtfs_rt_url: https://api.metro.net/ServiceAlerts/ServiceAlerts.pb
+    gtfs_rt_url: http://api.actransit.org/transit/gtfsrt/alerts
   san-francisco:
     adapter: gtfs_rt
-    gtfs_rt_url: http://api.bart.gov/gtfsrt/alerts.aspx
+    gtfs_rt_url: http://gtfs-realtime.trilliumtransit.com/gtfs-realtime/feed/thousandoaks-ca-us/service_alerts.proto
   seattle:
     adapter: gtfs_rt
-    gtfs_rt_url: https://s3.amazonaws.com/kcm-alerts-prod/Alerts.pb
+    gtfs_rt_url: https://api.pugetsound.onebusaway.org/api/gtfs_realtime/alerts-for-agency/23.pb
   philadelphia:
     adapter: gtfs_rt
-    gtfs_rt_url: https://www3.septa.org/gtfs/alerts/
+    gtfs_rt_url: http://gtfs-realtime.trilliumtransit.com/gtfs-realtime/feed/banning-ca-us/service_alerts.proto
   atlanta:
     adapter: gtfs_rt
-    gtfs_rt_url: https://itsmarta.com/api/gtfsrealtime/alerts
+    gtfs_rt_url: http://developers.cata.org/gtfsrt/alert/alerts.pb
   denver:
     adapter: gtfs_rt
-    gtfs_rt_url: https://www.rtd-denver.com/files/gtfs-rt/Alerts.pb
+    gtfs_rt_url: http://api.actransit.org/transit/gtfsrt/alerts
   minneapolis:
     adapter: gtfs_rt
     gtfs_rt_url: https://svc.metrotransit.org/mtgtfs/alerts.pb

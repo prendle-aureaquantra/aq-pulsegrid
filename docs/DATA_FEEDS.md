@@ -41,7 +41,8 @@ python tools/ingest_feed_coverage.py --check-min
 ## Config files
 
 - **Ingest catalog:** [`datasets/reference/ingest_feeds.yaml`](../datasets/reference/ingest_feeds.yaml) — feed types, overrides, dispatch metadata
-- **311 endpoints:** [`datasets/reference/civic311.yaml`](../datasets/reference/civic311.yaml) — US metros with Socrata 311 URLs
+- **311 endpoints:** [`datasets/reference/civic311.yaml`](../datasets/reference/civic311.yaml) — Socrata, ArcGIS, and CARTO adapters
+- **Boost coverage (programmatic):** `python generate_city.py --boost-feeds` or `python tools/boost_feed_coverage.py`
 - **Transit alert feeds:** [`datasets/reference/transit_feeds.yaml`](../datasets/reference/transit_feeds.yaml) — per-metro `cta` / `mbta` / `gtfs_rt` / `transit_json` URLs
 - **MobilityData catalog:** [`pulsegrid/ingest/mobility_catalog.py`](../pulsegrid/ingest/mobility_catalog.py) — auto-resolves GTFS-RT service-alert URLs at ingest (cache + `python tools/sync_transit_from_mobility.py`)
 - **Agency JSON:** [`pulsegrid/ingest/transit_json.py`](../pulsegrid/ingest/transit_json.py) — TfL, OVapi, etc.

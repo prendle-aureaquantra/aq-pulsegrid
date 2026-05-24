@@ -231,7 +231,7 @@ def parse_civic311_bronze(paths: list[Path], city: str = "chicago") -> list[dict
     rows: list[dict] = []
     for path in paths:
         doc = _load_json(path)
-        if doc.get("source") != "socrata_311":
+        if doc.get("source") not in ("socrata_311", "arcgis_311", "carto_311"):
             continue
         ingested_at = doc.get("fetched_at", "")
         field_map = doc.get("field_map") or {}
@@ -261,6 +261,9 @@ def parse_civic311_bronze(paths: list[Path], city: str = "chicago") -> list[dict
                         or rec.get("unique_key")
                         or rec.get("case_enquiry_id")
                         or rec.get("srnumber")
+                        or rec.get("CaseNumber")
+                        or rec.get("CaseNumber365")
+                        or rec.get("service_request_id")
                         or rec.get("id")
                         or f"{req_type}-{rec.get(date_field, '')}"
                     ),

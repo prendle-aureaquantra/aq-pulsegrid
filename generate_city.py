@@ -114,6 +114,11 @@ def main() -> int:
         help="Also ingest airport, OpenSky, USGS, AQI, trends, FRED, events, OSM",
     )
     parser.add_argument(
+        "--boost-feeds",
+        action="store_true",
+        help="Run MobilityData + Socrata discovery to expand transit_feeds.yaml and civic311.yaml",
+    )
+    parser.add_argument(
         "--stream",
         action="store_true",
         help="Micro-batch poll NOAA+transit into bronze ingest_events Delta log",
@@ -171,6 +176,19 @@ def main() -> int:
     )
 
     try:
+        if args.boost_feeds:
+            import subprocess
+
+            cmd = [
+                sys.executable,
+                str(Path(__file__).resolve().parent / "tools" / "boost_feed_coverage.py"),
+                "--force-mobility",
+                "--fill-empty-urls",
+            ]
+            print("Boosting feed coverage (transit + 311 catalogs)…")
+            subprocess.check_call(cmd)
+            return 0
+
         if args.platform_only:
             run_platform(with_visuals=args.with_visuals, tier=args.tier)
             from pulsegrid.pipeline_status import write_pipeline_status

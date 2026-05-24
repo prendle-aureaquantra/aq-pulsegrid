@@ -39,6 +39,13 @@ def _read_history() -> pd.DataFrame | None:
 
 
 def run_ml(city_slug: str = "chicago") -> dict[str, Path]:
+    from pulsegrid.io.delta_writer import use_spark_engine
+
+    if use_spark_engine():
+        from pulsegrid.jobs.ml_spark import run_ml_spark
+
+        return run_ml_spark(city_slug)
+
     city = get_city(city_slug)
     snapshot_at = datetime.now(timezone.utc).isoformat()
     written: dict[str, Path] = {}

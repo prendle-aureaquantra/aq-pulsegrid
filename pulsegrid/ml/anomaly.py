@@ -76,6 +76,20 @@ def detect_anomalies(
     threshold = float((cfg.get("thresholds") or {}).get("z_score_alert", 2.0))
     signals: list[AnomalySignal] = []
 
+    mllib_z = metrics.get("mllib_z_score")
+    if mllib_z is not None and float(mllib_z) >= threshold * 1.25:
+        signals.append(
+            AnomalySignal(
+                signal_type="mllib_multivariate_spike",
+                metric="mllib_z_score",
+                observed=float(mllib_z),
+                baseline=0.0,
+                z_score=float(mllib_z),
+                severity=_severity(float(mllib_z), threshold),
+                message="Spark MLlib multivariate stress score elevated",
+            )
+        )
+
     checks = [
         ("transit_alert_spike", "active_transit_alerts", "Transit alert volume"),
         ("weather_alert_spike", "active_noaa_alerts", "NOAA alert volume"),

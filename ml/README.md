@@ -24,4 +24,12 @@ Output: `gold/anomaly_signals` Delta table.
 
 ## Spark MLlib (optional)
 
-Set `PULSEGRID_ENGINE=spark` to run gold/ML via Spark (`pulsegrid/jobs/gold_chicago_spark.py`, `pulsegrid/ml/spark_mllib.py`). Default local path uses pandas + z-score anomaly detection — sufficient for demo and &lt;100 metros. Use Spark when bronze/silver volumes require cluster scale.
+Set `PULSEGRID_ENGINE=spark` to run gold/ML via Spark (`pulsegrid/jobs/gold_chicago_spark.py`, `pulsegrid/jobs/ml_spark.py`). `run_ml()` auto-selects the Spark path when the engine is set; metrics get an optional `mllib_z_score` and `mllib_multivariate_spike` anomaly signal.
+
+Default local path uses pandas + z-score anomaly detection — sufficient for demo and &lt;100 metros. Use Spark when bronze/silver volumes require cluster scale.
+
+```bash
+# Optional Spark ML path (Docker / Python 3.11 recommended)
+$env:PULSEGRID_ENGINE = "spark"
+python generate_city.py --city chicago --ml-only
+```
