@@ -63,7 +63,7 @@ def _run_step(
         "ingest": "--ingest-only",
         "transform": "--transform-only",
         "ml": "--ml-only",
-        "export": "--platform-only",
+        "export": "--platform-csv-only",
     }
     cmd = base + [flag_map[step]]
     if step == "ingest" and extended_ingest:
@@ -71,6 +71,7 @@ def _run_step(
     if step == "ingest" and ingest_delay > 0:
         cmd.extend(["--ingest-delay", str(ingest_delay)])
     if step == "export" and with_visuals:
+        cmd[-1] = "--platform-only"
         cmd.append("--with-visuals")
     print("Running:", " ".join(cmd), flush=True)
     return subprocess.call(cmd, cwd=ROOT)

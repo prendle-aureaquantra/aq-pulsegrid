@@ -1,2 +1,11 @@
 ﻿city,snapshot_at,infrastructure_failure_risk,infrastructure_fatigue_risk,bridge_risk_score,road_surface_risk_score,structural_risk_score,active_infrastructure_requests,open_infrastructure_requests,critical_open_requests,infrastructure_summary
-chicago,2026-05-24T17:39:59.806938+00:00,100.0,67.94,0.0,9.0,20.0,20,20,5,road 9; structural 20; 5 critical open
+boston,2026-05-24T18:30:53.078843+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,
+chicago,2026-05-24T18:30:54.685448+00:00,100.0,67.94,0.0,9.0,20.0,20,20,5,road 9; structural 20; 5 critical open
+dubai,2026-05-24T18:30:57.339894+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,
+london,2026-05-24T18:30:58.417531+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,
+la,2026-05-24T18:31:00.149753+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,
+nyc,2026-05-24T18:31:01.218006+00:00,100.0,100.0,0.0,9.0,20.0,61,55,1,road 9; structural 20; 1 critical open
+paris,2026-05-24T18:31:03.631159+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,
+singapore,2026-05-24T18:31:04.952464+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,
+sydney,2026-05-24T18:31:05.722246+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,
+tokyo,2026-05-24T18:31:06.746247+00:00,0.0,0.0,0.0,0.0,0.0,0,0,0,

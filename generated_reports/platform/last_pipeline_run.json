@@ -1,7 +1,7 @@
 {
-  "job": "platform-only",
-  "finished_at": "2026-05-24T17:40:12.204630+00:00",
-  "metros_ok": 1,
+  "job": "platform-csv-only",
+  "finished_at": "2026-05-24T18:32:56.089529+00:00",
+  "metros_ok": 10,
   "metros_failed": 0,
-  "detail": "visuals=True"
+  "detail": "visuals=False"
 }

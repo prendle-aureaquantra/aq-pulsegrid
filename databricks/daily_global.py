@@ -23,7 +23,14 @@ elif step == "ml":
     subprocess.check_call(base + ["--ml-only"])
 elif step == "export":
     subprocess.check_call(
-        [sys.executable, f"{repo}/generate_city.py", "--platform-only", "--tier", tier]
+        [
+            sys.executable,
+            f"{repo}/generate_city.py",
+            "--platform-csv-only",
+            "--all-metros",
+            "--tier",
+            tier,
+        ]
     )
 else:
     raise ValueError(f"Unknown step: {step}")

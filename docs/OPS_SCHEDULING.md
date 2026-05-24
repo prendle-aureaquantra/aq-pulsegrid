@@ -47,7 +47,13 @@ python tools/run_scheduled_pipeline.py
 python tools/run_scheduled_pipeline.py --step transform,ml
 ```
 
-**Windows Task Scheduler:** run `tools\run_scheduled_pipeline.ps1` daily (e.g. 06:00).
+**Windows Task Scheduler:** run `tools\run_scheduled_pipeline.ps1` daily (e.g. 06:00), or register once:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\register_scheduled_task.ps1
+```
+
+Task name: **AQ-PulseGrid-Daily-Pipeline** (06:00 local, full ingest → transform → ML → export).
 
 **Linux systemd** (clone repo to `/var/aq-pulsegrid/repo`, venv, then):
 

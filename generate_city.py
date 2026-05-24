@@ -78,13 +78,20 @@ def run_full(
     print(f"  PBIP ({mode}) -> {pbip}")
 
 
-def run_platform(*, with_visuals: bool = False, tier: str | None = "full") -> None:
+def run_platform(
+    *,
+    with_visuals: bool = False,
+    tier: str | None = "full",
+    csv_only: bool = False,
+) -> None:
     slugs = [m.slug for m in list_metros(tier=tier or None)]  # type: ignore[arg-type]
     if tier is None:
         slugs = [m.slug for m in list_metros()]
     print(f"Platform export for {len(slugs)} metros (tier={tier or 'all'})...")
     data_dir = export_platform_csv(None if tier is None else slugs)
     print(f"  platform CSV -> {data_dir}")
+    if csv_only:
+        return
     pbip = generate_platform_pbip(include_visuals=with_visuals)
     print(f"  platform PBIP -> {pbip}")
 
@@ -150,6 +157,11 @@ def main() -> int:
         help="Union multi-metro CSVs + build platform PulseGrid.pbip",
     )
     parser.add_argument(
+        "--platform-csv-only",
+        action="store_true",
+        help="Refresh platform CSVs only (preserve committed PBIP report)",
+    )
+    parser.add_argument(
         "--pbip-blank",
         action="store_true",
         help="Build PBIP with blank pages only",
@@ -184,18 +196,22 @@ def main() -> int:
                 sys.executable,
                 str(Path(__file__).resolve().parent / "tools" / "boost_feed_coverage.py"),
                 "--force-mobility",
-                "--fill-empty-urls",
+                "--fill-empty-transit-urls",
             ]
             print("Boosting feed coverage (transit + 311 catalogs)…")
             subprocess.check_call(cmd)
             return 0
 
-        if args.platform_only:
-            run_platform(with_visuals=args.with_visuals, tier=args.tier)
+        if args.platform_only or args.platform_csv_only:
+            run_platform(
+                with_visuals=args.with_visuals,
+                tier=args.tier,
+                csv_only=args.platform_csv_only,
+            )
             from pulsegrid.pipeline_status import write_pipeline_status
 
             write_pipeline_status(
-                job="platform-only",
+                job="platform-csv-only" if args.platform_csv_only else "platform-only",
                 metros_ok=len(metro_slugs),
                 metros_failed=0,
                 detail=f"visuals={args.with_visuals}",

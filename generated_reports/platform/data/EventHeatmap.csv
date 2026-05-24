@@ -1,7 +1,7 @@
 ﻿city,snapshot_at,hex_id,neighborhood,event_category,event_count
-nyc,2026-05-24T14:09:40.780771+00:00,,Manhattan,Shooting Permit,60
-nyc,2026-05-24T14:09:40.780771+00:00,,Queens,Shooting Permit,11
-nyc,2026-05-24T14:09:40.780771+00:00,,Brooklyn,Shooting Permit,22
-nyc,2026-05-24T14:09:40.780771+00:00,,Bronx,Shooting Permit,5
-nyc,2026-05-24T14:09:40.780771+00:00,,Manhattan,Theater Load in and Load Outs,1
-nyc,2026-05-24T14:09:40.780771+00:00,,Manhattan,Rigging Permit,1
+nyc,2026-05-24T18:31:01.218006+00:00,,Manhattan,Shooting Permit,60
+nyc,2026-05-24T18:31:01.218006+00:00,,Queens,Shooting Permit,11
+nyc,2026-05-24T18:31:01.218006+00:00,,Brooklyn,Shooting Permit,22
+nyc,2026-05-24T18:31:01.218006+00:00,,Bronx,Shooting Permit,5
+nyc,2026-05-24T18:31:01.218006+00:00,,Manhattan,Theater Load in and Load Outs,1
+nyc,2026-05-24T18:31:01.218006+00:00,,Manhattan,Rigging Permit,1
