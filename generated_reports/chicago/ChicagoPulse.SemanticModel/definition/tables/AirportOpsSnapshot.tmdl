@@ -22,6 +22,13 @@ table AirportOpsSnapshot
 		sourceColumn: station
 		annotation SummarizationSetBy = Automatic
 
+	column station_label
+		dataType: string
+		lineageTag: 5bbefc10-3a5b-5c53-b29c-ff96fbe107ea
+		summarizeBy: none
+		sourceColumn: station_label
+		annotation SummarizationSetBy = Automatic
+
 	column flight_category
 		dataType: string
 		lineageTag: 50ca8fa2-b500-573e-b8f7-f0cb390a352d
@@ -57,9 +64,9 @@ table AirportOpsSnapshot
 		sourceColumn: airport_ops_stress
 		annotation SummarizationSetBy = Automatic
 
-	measure 'ORD Ops Stress' = AVERAGE(AirportOpsSnapshot[airport_ops_stress])
+	measure 'Max Airport Ops Stress' = MAX(AirportOpsSnapshot[airport_ops_stress])
 		formatString: 0.0
-		lineageTag: faf4b44e-e5ae-5a9c-b1cb-8403b402ae0f
+		lineageTag: 8515225b-262f-5bd4-9194-ece45e1322a7
 
 	partition AirportOpsSnapshot-9aef3ae0-d85f-5e56-bdbe-c8e8437eddc5 = m
 		mode: import
@@ -76,6 +83,7 @@ table AirportOpsSnapshot
 					{"city", type text},
 					{"snapshot_at", type text},
 					{"station", type text},
+					{"station_label", type text},
 					{"flight_category", type text},
 					{"visibility_sm", type number},
 					{"wind_speed_kt", type number},

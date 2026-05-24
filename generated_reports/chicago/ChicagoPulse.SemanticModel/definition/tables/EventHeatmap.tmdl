@@ -1,54 +1,54 @@
-table PbipStudioCatalog
-	lineageTag: dde516a9-acc9-5c7c-9d08-120b52a00951
+table EventHeatmap
+	lineageTag: bc13320b-40fa-5a35-bd4a-3cb761d1a017
 
 	column city
 		dataType: string
-		lineageTag: abe22ce1-2235-56ef-9cf6-f7260a0b7f62
+		lineageTag: e554fd04-fb82-55ca-9377-21706f7cd514
 		summarizeBy: none
 		sourceColumn: city
 		annotation SummarizationSetBy = Automatic
 
 	column snapshot_at
 		dataType: string
-		lineageTag: 191e4448-5e53-5e70-b1e6-1b545cbbfe06
+		lineageTag: 88eb54db-2f30-572d-b345-582d1822b7d8
 		summarizeBy: none
 		sourceColumn: snapshot_at
 		annotation SummarizationSetBy = Automatic
 
-	column table_name
+	column hex_id
 		dataType: string
-		lineageTag: 86bf9ea0-46fb-57b2-811b-5724798939db
+		lineageTag: ff58729d-d9aa-582d-948c-c0bb937a72a0
 		summarizeBy: none
-		sourceColumn: table_name
+		sourceColumn: hex_id
 		annotation SummarizationSetBy = Automatic
 
-	column source_path
+	column neighborhood
 		dataType: string
-		lineageTag: 253e0ae8-563c-5015-aa49-ff6023054f15
+		lineageTag: 1c154788-c040-5794-a8dc-30d935ea0e97
 		summarizeBy: none
-		sourceColumn: source_path
+		sourceColumn: neighborhood
 		annotation SummarizationSetBy = Automatic
 
-	column column_count
+	column event_category
+		dataType: string
+		lineageTag: 7574beb5-3a85-568b-aef6-bc9d7fdd2339
+		summarizeBy: none
+		sourceColumn: event_category
+		annotation SummarizationSetBy = Automatic
+
+	column event_count
 		dataType: int64
-		lineageTag: 107f48d3-26e9-5f50-8105-0e79a270bafa
+		lineageTag: 0807f235-9258-5b43-bb2d-20e1260bfea2
 		summarizeBy: none
-		sourceColumn: column_count
+		sourceColumn: event_count
 		annotation SummarizationSetBy = Automatic
 
-	column columns_list
-		dataType: string
-		lineageTag: c1f8881e-b31e-5a79-90cd-4f670d058be1
-		summarizeBy: none
-		sourceColumn: columns_list
-		annotation SummarizationSetBy = Automatic
-
-	partition PbipStudioCatalog-005b86c4-48e4-54fa-b280-b9e5abc836f7 = m
+	partition EventHeatmap-b9777006-979c-5fec-86fa-a7c84f2ffb7b = m
 		mode: import
 		source =
 			let
 				Source = Csv.Document(
-					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/PbipStudioCatalog.csv"),
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/EventHeatmap.csv"),
 					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
 				),
 				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
@@ -57,10 +57,10 @@ table PbipStudioCatalog
 					{
 					{"city", type text},
 					{"snapshot_at", type text},
-					{"table_name", type text},
-					{"source_path", type text},
-					{"column_count", Int64.Type},
-					{"columns_list", type text}
+					{"hex_id", type text},
+					{"neighborhood", type text},
+					{"event_category", type text},
+					{"event_count", Int64.Type}
 					}
 				)
 			in

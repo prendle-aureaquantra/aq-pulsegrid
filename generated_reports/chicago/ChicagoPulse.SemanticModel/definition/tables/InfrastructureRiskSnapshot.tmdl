@@ -1,0 +1,118 @@
+table InfrastructureRiskSnapshot
+	lineageTag: e07f5d7c-f1da-55ad-8941-69abe9fb9d64
+
+	column city
+		dataType: string
+		lineageTag: 069d260f-35c4-51f3-b8fc-24c191effa74
+		summarizeBy: none
+		sourceColumn: city
+		annotation SummarizationSetBy = Automatic
+
+	column snapshot_at
+		dataType: string
+		lineageTag: a5623191-6b98-5bdd-a3fe-96ccab9d59e4
+		summarizeBy: none
+		sourceColumn: snapshot_at
+		annotation SummarizationSetBy = Automatic
+
+	column infrastructure_failure_risk
+		dataType: decimal
+		lineageTag: f7da63e8-127b-50df-bb4f-5661c57a0595
+		summarizeBy: sum
+		sourceColumn: infrastructure_failure_risk
+		annotation SummarizationSetBy = Automatic
+
+	column infrastructure_fatigue_risk
+		dataType: decimal
+		lineageTag: b3a5591d-47de-5266-8833-59473703a0cf
+		summarizeBy: sum
+		sourceColumn: infrastructure_fatigue_risk
+		annotation SummarizationSetBy = Automatic
+
+	column bridge_risk_score
+		dataType: decimal
+		lineageTag: c61871d6-b8bc-59e1-946d-04f4b7e431a3
+		summarizeBy: sum
+		sourceColumn: bridge_risk_score
+		annotation SummarizationSetBy = Automatic
+
+	column road_surface_risk_score
+		dataType: decimal
+		lineageTag: 86692fd5-d7b2-540d-a425-4a401b1e2599
+		summarizeBy: sum
+		sourceColumn: road_surface_risk_score
+		annotation SummarizationSetBy = Automatic
+
+	column structural_risk_score
+		dataType: decimal
+		lineageTag: 2e279096-62bb-53e6-89f3-3a918b030ed3
+		summarizeBy: sum
+		sourceColumn: structural_risk_score
+		annotation SummarizationSetBy = Automatic
+
+	column active_infrastructure_requests
+		dataType: int64
+		lineageTag: 6700c341-6109-5273-91f2-e820153ef5a0
+		summarizeBy: sum
+		sourceColumn: active_infrastructure_requests
+		annotation SummarizationSetBy = Automatic
+
+	column open_infrastructure_requests
+		dataType: int64
+		lineageTag: 547bbad2-de83-5d27-88c8-7e5b4ab80bf0
+		summarizeBy: sum
+		sourceColumn: open_infrastructure_requests
+		annotation SummarizationSetBy = Automatic
+
+	column critical_open_requests
+		dataType: int64
+		lineageTag: eb2fbdb2-7945-5d6e-bb23-dc9e2d4e290f
+		summarizeBy: sum
+		sourceColumn: critical_open_requests
+		annotation SummarizationSetBy = Automatic
+
+	column infrastructure_summary
+		dataType: string
+		lineageTag: a95a5511-2a44-5df0-b541-e30b87f306d2
+		summarizeBy: none
+		sourceColumn: infrastructure_summary
+		annotation SummarizationSetBy = Automatic
+
+	measure 'Max Infrastructure Failure Risk' = MAX(InfrastructureRiskSnapshot[infrastructure_failure_risk])
+		formatString: 0.0
+		lineageTag: deceb208-5ee2-57fe-b895-259c6391c528
+
+	measure 'Max Infrastructure Fatigue Risk' = MAX(InfrastructureRiskSnapshot[infrastructure_fatigue_risk])
+		formatString: 0.0
+		lineageTag: a7f69470-215c-5483-b37f-53c792c08ec3
+
+	partition InfrastructureRiskSnapshot-be6d292d-d75b-5184-83e1-956e84e5d931 = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(
+					File.Contents("G:/My Drive/aq_wp_selenium_bot/aq-pulsegrid/generated_reports/chicago/data/InfrastructureRiskSnapshot.csv"),
+					[Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]
+				),
+				#"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				#"Changed Column Types" = Table.TransformColumnTypes(
+					#"Promoted Headers",
+					{
+					{"city", type text},
+					{"snapshot_at", type text},
+					{"infrastructure_failure_risk", type number},
+					{"infrastructure_fatigue_risk", type number},
+					{"bridge_risk_score", type number},
+					{"road_surface_risk_score", type number},
+					{"structural_risk_score", type number},
+					{"active_infrastructure_requests", Int64.Type},
+					{"open_infrastructure_requests", Int64.Type},
+					{"critical_open_requests", Int64.Type},
+					{"infrastructure_summary", type text}
+					}
+				)
+			in
+				#"Changed Column Types"
+
+	annotation PBI_ResultType = Table
+

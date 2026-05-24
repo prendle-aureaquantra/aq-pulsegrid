@@ -8,6 +8,14 @@ ref table TransitAlertSummary
 ref table TransitAlertDetail
 ref table AnomalySignals
 ref table WeatherForecastPeriods
+ref table AirportOpsSnapshot
+ref table HexPulseGrid
+ref table EventHeatmap
+ref table OsmAmenitySummary
+ref table InfrastructureRiskSnapshot
+ref table InfrastructureAssetSummary
+ref table InfrastructureRequestDetail
+ref table PbipStudioCatalog
 
 ref cultureInfo en-US
 

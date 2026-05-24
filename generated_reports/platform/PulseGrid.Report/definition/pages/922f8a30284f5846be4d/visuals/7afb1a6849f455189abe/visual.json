@@ -59,13 +59,13 @@
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "CityPulseSnapshot"
+                      "Entity": "AirportOpsSnapshot"
                     }
                   },
-                  "Property": "Metro Airport Ops Stress"
+                  "Property": "Max Airport Ops Stress"
                 }
               },
-              "queryRef": "CityPulseSnapshot.Metro Airport Ops Stress"
+              "queryRef": "AirportOpsSnapshot.Max Airport Ops Stress"
             }
           ]
         }
