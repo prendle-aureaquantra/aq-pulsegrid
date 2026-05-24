@@ -1,0 +1,279 @@
+# Synthetic evaluation & ML training prompts
+# Docs: docs/SYNTHETIC_QUESTIONS.md, docs/SYNTHETIC_MODEL_TRAINING_QUESTIONS.md
+version: 2
+terminology:
+  pulse_score: City Stress Index
+  cta_delays: Active Transit Alerts
+  anomaly_score: AnomalySignals
+training_labels:
+  - pulse_score
+  - anomaly_detected
+  - congestion_risk
+  - transit_failure_probability
+  - airport_delay_risk
+  - operational_stress_level
+  - mobility_instability
+  - event_disruption_score
+  - weather_impact_score
+  - escalation_required
+  - infrastructure_failure_risk
+  - infrastructure_fatigue_risk
+categories:
+  executive:
+    tables: [CityPulseSnapshot, AnomalySignals, DimMetro]
+    measures: [City Stress Index, Anomaly Count]
+    prompts:
+      - Why is the Chicago City Stress Index down today?
+      - Which city has the highest operational stress right now?
+      - What factors contributed most to today's congestion increase?
+      - Which metro areas show the largest activity spike this week?
+      - What are the top operational risks currently affecting Chicago?
+      - Which signals are most volatile today?
+      - Which city has the highest anomaly count?
+  root_cause_analysis:
+    tables: [CityPulseSnapshot, AnomalySignals, TransitAlertDetail, AirportOpsSnapshot, CityEventDetail]
+    measures: [City Stress Index, Anomaly Count]
+    prompts:
+      - Why did the City Stress Index decline between 4 PM and 6 PM?
+      - What caused the largest operational disruption today?
+      - Which signals contributed most to congestion escalation?
+      - What factors caused airport delays to spike?
+      - Which combination of events produced anomaly conditions?
+      - Why did downtown transit delays exceed forecast levels?
+      - Which metrics deviated furthest from historical norms?
+      - What caused operational instability in the Loop?
+      - Which systems amplified weather-related disruptions?
+      - Why did the anomaly score increase after the Cubs game?
+  comparative_intelligence:
+    tables: [CityPulseSnapshot, DimMetro, HexPulseGrid, AirportOpsSnapshot]
+    measures: [City Stress Index]
+    prompts:
+      - Compare today's congestion levels to last Friday.
+      - Which city has the strongest operational stability this week?
+      - Compare airport disruptions across major metro areas.
+      - Which neighborhoods improved most week-over-week?
+      - Compare event-driven congestion across districts.
+      - Which transit lines are underperforming relative to baseline?
+      - Compare current weather impacts versus historical averages.
+      - Which airports recovered fastest after disruptions?
+      - Compare City Stress Index trends across cities.
+      - Which regions demonstrate the highest resilience?
+  temporal_patterns:
+    tables: [CityPulseSnapshot, AnomalySignals, WeatherForecastPeriods, CityEventDetail]
+    prompts:
+      - What time of day produces the highest anomaly frequency?
+      - Which hours show peak congestion risk?
+      - How do operational conditions evolve during severe weather?
+      - What trends emerge during weekend event spikes?
+      - Which seasonal patterns affect airport operations?
+      - What recurring timing patterns exist in transit disruptions?
+      - When are mobility systems most vulnerable?
+      - Which periods show the largest operational variance?
+      - What long-term trends are visible in City Stress Index values?
+      - How does congestion evolve during major festivals?
+  predictive_risk:
+    roadmap: true
+    tables: [CityPulseSnapshot, HexPulseGrid, WeatherForecastPeriods, AirportOpsSnapshot]
+    prompts:
+      - Which districts are most likely to experience congestion tomorrow?
+      - Predict operational instability over the next 12 hours.
+      - Which weather conditions are most likely to trigger anomalies?
+      - Forecast transit reliability for the evening rush hour.
+      - Which airport routes are at highest delay risk?
+      - Predict neighborhood stress during major events.
+      - Which systems are most vulnerable to cascading failures?
+      - What operational conditions may deteriorate overnight?
+      - Which city metrics indicate elevated future disruption risk?
+      - Forecast anomaly likelihood by district.
+  correlation_discovery:
+    tables: [CityPulseSnapshot, TransitAlertSummary, WeatherForecastPeriods, AirportOpsSnapshot, TrendInterestSummary]
+    prompts:
+      - Which weather variables correlate most with transit delays?
+      - Are airport disruptions correlated with downtown congestion?
+      - Which event types most strongly impact transit systems?
+      - What relationships exist between social trends and activity density?
+      - Which neighborhoods show strongest weather sensitivity?
+      - Are City Stress Index values correlated with airport congestion?
+      - Which metrics are most predictive of operational instability?
+      - What signals best predict nightlife surges?
+      - Which combinations of variables drive anomaly spikes?
+      - What operational indicators move together most frequently?
+  executive_summary:
+    tables: [CityPulseSnapshot, AnomalySignals, TransitAlertSummary, AirportOpsSnapshot, DimMetro]
+    measures: [City Stress Index, Anomaly Count]
+    prompts:
+      - Generate a summary of today's operational conditions.
+      - Explain the top operational risks in plain English.
+      - Summarize major transit disruptions.
+      - Describe current airport conditions for executives.
+      - Generate a citywide operational briefing.
+      - Explain current anomaly conditions for leadership.
+      - Summarize weather-related impacts across the city.
+      - Generate a regional risk assessment.
+      - Explain the top contributors to today's City Stress Index.
+      - Summarize operational conditions by district.
+  geospatial_reasoning:
+    tables: [HexPulseGrid, TransitAlertDetail, EventHeatmap, CityEventDetail, CityPulseSnapshot]
+    prompts:
+      - Which neighborhoods are operational hotspots?
+      - Where are anomaly clusters concentrated?
+      - Which areas demonstrate unusual activity density?
+      - Which districts are most affected by airport disruptions?
+      - What regions show elevated congestion propagation?
+      - Which neighborhoods exhibit highest stress volatility?
+      - Where are operational recovery rates weakest?
+      - Which transit corridors generate the largest downstream impacts?
+      - What regions demonstrate strongest event-driven spikes?
+      - Which areas show emerging operational instability?
+  semantic_layer:
+    tables: [CityPulseSnapshot, AnomalySignals, TransitAlertSummary, HexPulseGrid]
+    measures: [City Stress Index, Anomaly Count, Active Transit Alerts]
+    prompts:
+      - What is the average City Stress Index by district?
+      - Which regions exceed congestion thresholds?
+      - What is the rolling 7-day anomaly trend?
+      - Which operational metrics have highest variance?
+      - Which districts show sustained improvement?
+      - What percentage of transit routes experienced delays?
+      - Which metrics are outside acceptable thresholds?
+      - What are the top operational KPIs today?
+      - Which systems exceeded historical baselines?
+      - What operational trends are accelerating?
+  transit:
+    tables: [TransitAlertSummary, TransitAlertDetail, CityPulseSnapshot, HexPulseGrid]
+    measures: [Active Transit Alerts, Transit Load Score]
+    prompts:
+      - Which transit alert categories spiked today?
+      - Are transit disruptions correlated with weather events?
+      - Which neighborhoods experienced the largest congestion spikes?
+      - Are transit alerts increasing compared to last week?
+      - Which transit incidents had the largest citywide impact?
+  weather:
+    tables: [CityPulseSnapshot, WeatherForecastPeriods]
+    columns: [weather_risk_score, precip_risk_score, active_noaa_alerts]
+    prompts:
+      - How did severe weather impact city operations?
+      - Which weather conditions correlate most strongly with transit alerts?
+      - Which weather events caused the largest anomaly spikes?
+  airport:
+    tables: [AirportOpsSnapshot, CityPulseSnapshot]
+    prompts:
+      - Which airport has the highest ops stress today?
+      - Are airport METAR categories affecting regional stress scores?
+      - Are airport issues correlated with weather anomalies?
+  infrastructure:
+    tables:
+      - InfrastructureRiskSnapshot
+      - InfrastructureAssetSummary
+      - InfrastructureRequestDetail
+      - CityPulseSnapshot
+    measures:
+      - Infrastructure Failure Risk
+      - Infrastructure Fatigue Risk
+      - Bridge Risk Score
+    prompts:
+      - Which metros show the highest bridge or structural failure risk?
+      - Are open pothole and pavement requests driving fatigue risk this week?
+      - How many critical open infrastructure 311 requests are there in Chicago?
+      - Drill from bridge risk tier to individual service requests.
+      - Does precipitation correlate with road surface fatigue scores?
+  anomaly:
+    tables: [AnomalySignals]
+    prompts:
+      - Which operational signals are behaving abnormally?
+      - What caused the largest anomaly today?
+      - Which metrics exceeded historical thresholds?
+      - What are the top anomaly contributors this week?
+  copilot:
+    tables: [CityPulseSnapshot, AnomalySignals, TransitAlertSummary]
+    prompts:
+      - Summarize today's operational risks.
+      - Explain why the City Stress Index decreased.
+      - Describe current citywide anomalies.
+      - Explain transit disruptions in plain English.
+      - Generate an executive operations briefing.
+      - Explain today's city conditions conversationally.
+      - What should city leadership pay attention to?
+      - Which systems need intervention right now?
+      - Describe operational health in simple language.
+      - Explain why the anomaly engine triggered alerts.
+      - What factors are driving operational stress?
+      - What should operations teams monitor tonight?
+      - Explain the current congestion pattern.
+      - Which signals indicate elevated disruption risk?
+      - What does the current City Stress Index mean?
+  synthetic_alerting:
+    tables: [CityPulseSnapshot, AnomalySignals, AirportOpsSnapshot, InfrastructureRiskSnapshot]
+    measures: [City Stress Index, Anomaly Count, Max Airport Ops Stress]
+    prompts:
+      - Should the city issue a congestion advisory?
+      - Is operational stress above safe thresholds?
+      - Should airport operations escalate staffing?
+      - Are anomaly conditions severe enough for alerts?
+      - Which systems require immediate escalation?
+      - Is weather severity likely to impact mobility?
+      - Should transit systems enter high-alert mode?
+      - Are airport conditions approaching critical thresholds?
+      - Which districts require operational intervention?
+      - Should event traffic mitigation procedures activate?
+  ml_classification:
+    tables: [CityPulseSnapshot, AnomalySignals, TransitAlertSummary, AirportOpsSnapshot]
+    labels: [anomaly_detected, operational_stress_level, escalation_required]
+    prompts:
+      - Is this operational pattern anomalous?
+      - Classify current congestion severity.
+      - Determine whether airport operations are stable.
+      - Is the city currently in elevated stress mode?
+      - Does this event pattern indicate operational risk?
+      - Is the transit system operating normally?
+      - Does current weather increase disruption probability?
+      - Classify operational conditions by district.
+      - Is current activity density outside historical norms?
+      - Determine whether intervention is recommended.
+  feature_engineering:
+    tables: [CityPulseSnapshot, AnomalySignals]
+    labels: [pulse_score, congestion_risk, weather_impact_score]
+    prompts:
+      - Which variables contribute most to City Stress Index changes?
+      - Which metrics improve anomaly detection accuracy?
+      - What features best predict congestion spikes?
+      - Which external signals improve forecast quality?
+      - What geospatial features increase model performance?
+      - Which lag variables improve operational forecasting?
+      - What weather features correlate with mobility risk?
+      - Which event metrics predict transit instability?
+      - What derived metrics improve anomaly detection?
+      - Which operational indicators have strongest predictive power?
+  advanced_rag:
+    tables: [CityPulseSnapshot, AnomalySignals]
+    use_case: vector_search
+    prompts:
+      - Find historical scenarios similar to today's congestion pattern.
+      - Retrieve prior weather-related disruption events.
+      - Find past airport instability cases matching current conditions.
+      - Retrieve operational incidents similar to tonight's anomaly spike.
+      - Which historical events resemble current stress conditions?
+      - Find prior transit failures matching this pattern.
+      - Retrieve examples of cascading operational disruptions.
+      - Find similar event-driven congestion scenarios.
+      - Retrieve historical City Stress Index collapse events.
+      - Find operational recovery scenarios matching current conditions.
+  operational_narratives:
+    tables: [CityPulseSnapshot, TransitAlertSummary, AirportOpsSnapshot, AnomalySignals, WeatherForecastPeriods]
+    prompts:
+      - Describe how severe weather disrupted city systems today.
+      - Explain the relationship between airport delays and congestion.
+      - Narrate today's operational timeline from morning to evening.
+      - Describe the chain reaction caused by transit failures.
+      - Explain how event density affected operational conditions.
+      - Describe how anomaly conditions propagated geographically.
+      - Narrate the operational recovery process.
+      - Explain current citywide mobility behavior.
+      - Describe how weather and events interacted operationally.
+      - Explain why the City Stress Index changed throughout the day.
+  forecasting:
+    roadmap: true
+    prompts:
+      - Predict tomorrow's Chicago City Stress Index.
+      - Which city is likely to experience elevated stress tomorrow?
+      - Forecast transit alert volume for the next 24 hours.
