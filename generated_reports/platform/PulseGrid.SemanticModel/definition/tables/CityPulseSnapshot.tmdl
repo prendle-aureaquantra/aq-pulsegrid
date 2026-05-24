@@ -220,7 +220,7 @@ table CityPulseSnapshot
 		formatString: 0.0
 		lineageTag: 918ab3a7-54af-5aad-9627-890d458fc1f2
 
-	measure 'Max Airport Ops Stress' = MAX(CityPulseSnapshot[airport_ops_stress])
+	measure 'Metro Airport Ops Stress' = MAX(CityPulseSnapshot[airport_ops_stress])
 		formatString: 0.0
 		lineageTag: 8515225b-262f-5bd4-9194-ece45e1322a7
 

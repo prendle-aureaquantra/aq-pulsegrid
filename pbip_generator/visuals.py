@@ -912,7 +912,7 @@ def visuals_for_page(
             ("CityPulseSnapshot", "Weather Risk Score"),
             ("CityPulseSnapshot", "Precip Risk Score"),
             ("CityPulseSnapshot", "Disruption Ratio Score"),
-            ("CityPulseSnapshot", "Max Airport Ops Stress"),
+            ("CityPulseSnapshot", "Metro Airport Ops Stress"),
             ("CityPulseSnapshot", "Infrastructure Fatigue Risk"),
         ]
         items.append(
@@ -1082,7 +1082,7 @@ def visuals_for_page(
             ("CityPulseSnapshot", "Infrastructure Failure Risk"),
             ("CityPulseSnapshot", "Infrastructure Fatigue Risk"),
             ("CityPulseSnapshot", "Bridge Risk Score"),
-            ("CityPulseSnapshot", "Max Airport Ops Stress"),
+            ("CityPulseSnapshot", "Metro Airport Ops Stress"),
         ]
         items.append(
             (
@@ -1600,7 +1600,7 @@ def visuals_for_page(
                     0, ("CityPulseSnapshot", "Active Airport Stations")
                 )
                 kpi_measures.append(
-                    ("CityPulseSnapshot", "Max Airport Ops Stress")
+                    ("AirportOpsSnapshot", "Max Airport Ops Stress")
                 )
             items.append(
                 (

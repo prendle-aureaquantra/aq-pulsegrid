@@ -109,6 +109,18 @@ def test_build_pbip_structure(tmp_path, monkeypatch):
         len(visual_files) >= 25
     ), f"expected at least 25 visuals after redesign, got {len(visual_files)}"
 
+    tables_dir = (
+        pbip.parent / "ChicagoPulse.SemanticModel" / "definition" / "tables"
+    )
+    names: list[str] = []
+    import re
+
+    for tmdl in tables_dir.glob("*.tmdl"):
+        names.extend(
+            re.findall(r"\tmeasure '([^']+)'", tmdl.read_text(encoding="utf-8"))
+        )
+    assert len(names) == len(set(names)), f"duplicate measure names: {names}"
+
 
 def test_build_pbip_blank_pages(tmp_path, monkeypatch):
     import pulsegrid.config as cfg

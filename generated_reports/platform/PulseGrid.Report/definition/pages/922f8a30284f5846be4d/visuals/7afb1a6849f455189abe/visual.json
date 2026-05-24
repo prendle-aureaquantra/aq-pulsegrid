@@ -62,10 +62,10 @@
                       "Entity": "CityPulseSnapshot"
                     }
                   },
-                  "Property": "Max Airport Ops Stress"
+                  "Property": "Metro Airport Ops Stress"
                 }
               },
-              "queryRef": "CityPulseSnapshot.Max Airport Ops Stress"
+              "queryRef": "CityPulseSnapshot.Metro Airport Ops Stress"
             }
           ]
         }

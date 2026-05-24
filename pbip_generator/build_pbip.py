@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import uuid
 from pathlib import Path
@@ -465,7 +466,11 @@ def _table_tmdl(table: str, csv_path: Path) -> str:
             ("Reroute Count", "SUM(CityPulseSnapshot[reroute_count])", "#,0"),
             ("Trend Avg Interest", "AVERAGE(CityPulseSnapshot[trend_avg_interest])", "0.0"),
             ("Airport Visibility (sm)", "AVERAGE(CityPulseSnapshot[airport_visibility_sm])", "0.0"),
-            ("Max Airport Ops Stress", "MAX(CityPulseSnapshot[airport_ops_stress])", "0.0"),
+            (
+                "Metro Airport Ops Stress",
+                "MAX(CityPulseSnapshot[airport_ops_stress])",
+                "0.0",
+            ),
             ("Active Airport Stations", "MAX(CityPulseSnapshot[active_airport_stations])", "#,0"),
             (
                 "Infrastructure Failure Risk",
@@ -632,6 +637,7 @@ def _write_semantic_tables(
                 _table_tmdl(t, csv), encoding="utf-8"
             )
     _write_relationships(sm_def, data_dir)
+    _validate_unique_measure_names(sm_def)
     (model_root / "definition.pbism").write_text(
         json.dumps({"version": "4.1", "settings": {"qnaEnabled": True}}, indent=2) + "\n",
         encoding="utf-8",
@@ -642,6 +648,26 @@ def _write_semantic_tables(
         "\n".join(f"{m['name']} = {m['expression']}" for m in meta.get("measures", [])) + "\n",
         encoding="utf-8",
     )
+
+
+_MEASURE_NAME_RE = re.compile(r"\tmeasure '([^']+)'")
+
+
+def _validate_unique_measure_names(sm_def: Path) -> None:
+    """Power BI models reject duplicate measure names across tables."""
+    tables_dir = sm_def / "tables"
+    if not tables_dir.is_dir():
+        return
+    seen: dict[str, str] = {}
+    for tmdl in tables_dir.glob("*.tmdl"):
+        for match in _MEASURE_NAME_RE.finditer(tmdl.read_text(encoding="utf-8")):
+            name = match.group(1)
+            if name in seen:
+                raise RuntimeError(
+                    f"Duplicate measure name {name!r} in {seen[name]} and {tmdl.name}. "
+                    "Rename one measure in build_pbip._table_tmdl."
+                )
+            seen[name] = tmdl.name
 
 
 def _mirror_pbip(out_root: Path, city_slug: str, project: str) -> Path | None:
