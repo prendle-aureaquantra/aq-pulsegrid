@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       run_deploy:
-        description: Run bundle deploy before job
+        description: Run bundle deploy before job (local deploy preferred; GHA may hit Terraform checksum errors)
         type: boolean
         default: false
 
@@ -35,7 +35,9 @@ jobs:
           fi
           REPO_PATH="${DATABRICKS_REPO_PATH:-/Repos/prendleman@aureaquantra.com/aq-pulsegrid}"
           export DATABRICKS_HOST DATABRICKS_TOKEN
+          # Job definition is deployed from a dev machine (deploy_databricks_job.py).
+          # bundle deploy on GHA can fail with Terraform openpgp checksum errors.
           if [ "${{ github.event.inputs.run_deploy }}" = "true" ]; then
-            databricks bundle deploy --var="repo_path=${REPO_PATH}"
+            databricks bundle deploy --var="repo_path=${REPO_PATH}" || echo "WARN: bundle deploy failed; continuing with existing job"
           fi
           databricks bundle run pulsegrid_daily_global --var="repo_path=${REPO_PATH}"
