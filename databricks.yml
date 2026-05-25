@@ -24,42 +24,13 @@ resources:
           spec:
             client: "1"
       tasks:
-        - task_key: ingest_metros
+        # Single serverless task: shared /dbfs/tmp/aq_pulsegrid (multi-task runs lost local bronze).
+        - task_key: pipeline_daily
           environment_key: Default
           notebook_task:
-            notebook_path: ./databricks/ingest_metros.py
+            notebook_path: ./databricks/pipeline_daily.py
             base_parameters:
               tier: ${var.metro_tier}
-              repo_path: ${var.repo_path}
-        - task_key: transform_metros
-          environment_key: Default
-          depends_on:
-            - task_key: ingest_metros
-          notebook_task:
-            notebook_path: ./databricks/daily_global.py
-            base_parameters:
-              tier: ${var.metro_tier}
-              step: transform
-              repo_path: ${var.repo_path}
-        - task_key: ml_metros
-          environment_key: Default
-          depends_on:
-            - task_key: transform_metros
-          notebook_task:
-            notebook_path: ./databricks/daily_global.py
-            base_parameters:
-              tier: ${var.metro_tier}
-              step: ml
-              repo_path: ${var.repo_path}
-        - task_key: export_platform
-          environment_key: Default
-          depends_on:
-            - task_key: ml_metros
-          notebook_task:
-            notebook_path: ./databricks/daily_global.py
-            base_parameters:
-              tier: ${var.metro_tier}
-              step: export
               repo_path: ${var.repo_path}
 
     chicago_daily:

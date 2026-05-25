@@ -14,8 +14,15 @@ dbutils.widgets.text("repo_path", "/Repos/prendleman@aureaquantra.com/aq-pulsegr
 
 # COMMAND ----------
 
+import os
 import subprocess
 import sys
+from pathlib import Path
+
+_dbfs = Path("/dbfs/tmp/aq_pulsegrid")
+_dbfs.mkdir(parents=True, exist_ok=True)
+os.environ["PULSEGRID_DATA_ROOT"] = str(_dbfs)
+os.environ["PULSEGRID_ENGINE"] = "delta-rs"
 
 tier = dbutils.widgets.get("tier")
 step = dbutils.widgets.get("step")

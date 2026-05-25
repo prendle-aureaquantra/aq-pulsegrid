@@ -29,13 +29,13 @@ See [docs/PHASE2.md](docs/PHASE2.md) for multi-metro CLI, Databricks global job,
 
 If you are reviewing this project quickly:
 
-1. Start with `README.md`
+1. Start with `README.md` · live ops: [pulse.aureaquantra.com](https://pulse.aureaquantra.com)
 2. Review [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 3. Inspect [`generate_city.py`](generate_city.py)
-4. Open [`pbip_generator/`](pbip_generator/)
-5. Review [`generated_reports/chicago/`](generated_reports/chicago/)
-6. Check [`pulsegrid/web/status_app.py`](pulsegrid/web/status_app.py)
-7. Review [`deploy/lightsail/`](deploy/lightsail/)
+4. Open [`pbip_generator/`](pbip_generator/) · platform PBIP: `generated_reports/platform/PulseGrid.pbip`
+5. **Chicago full demo (PBIP + visuals):** `python generate_city.py --city chicago --extended-ingest --with-visuals`
+6. **Platform refresh (no PBIP wipe):** `python generate_city.py --all-metros --platform-csv-only`
+7. Check [`pulsegrid/web/status_app.py`](pulsegrid/web/status_app.py) · [`deploy/lightsail/`](deploy/lightsail/)
 
 ---
 
@@ -58,13 +58,13 @@ Nine themed report pages (~28 visuals) are generated from semantic metadata — 
 | Area | Status |
 |------|--------|
 | Spark pipeline scaffold | Active |
-| Public data ingestion | Active |
-| Chicago MVP | Active |
-| PBIP generation | Active |
-| ML scoring | Prototype |
-| Web status app | Prototype |
-| Databricks deployment | Planned |
-| Multi-city support | Planned |
+| Public data ingestion (71 metros) | Active |
+| Platform PBIP + metro slicer | Active |
+| ML scoring (Option A schedule) | Active |
+| Web status app (Lightsail) | Active |
+| Databricks daily job | Active — redeploy bundle after `databricks.yml` changes |
+| Fabric embed on site | Pending Desktop publish |
+| Feed coverage boost | `python generate_city.py --boost-feeds` |
 
 ---
 

@@ -5,11 +5,14 @@ from __future__ import annotations
 import csv
 import html
 import os
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
 
 from fastapi import FastAPI, Query
 from fastapi.responses import HTMLResponse, JSONResponse
+from pydantic import BaseModel, Field
 
 app = FastAPI(title="AQ PulseGrid", version="0.2.0")
 
@@ -20,6 +23,11 @@ PUBLIC_URL = (
 ).strip()
 REPO_URL = "https://github.com/prendle-aureaquantra/aq-pulsegrid"
 DEFAULT_METRO = (os.getenv("PULSEGRID_CITY") or "chicago").strip().lower()
+MIN_METRO_COUNT = int(os.getenv("PULSEGRID_MIN_METRO_COUNT", "70"))
+PIPELINE_STALE_HOURS = float(os.getenv("PULSEGRID_PIPELINE_STALE_HOURS", "36"))
+_insight_calls: list[float] = []
+_INSIGHT_LIMIT = 12
+_INSIGHT_WINDOW_SEC = 3600.0
 
 PHASE2_STATUS: list[tuple[str, str]] = [
     ("Worldwide metro registry (71 metros)", "Done"),
@@ -39,6 +47,49 @@ ROADMAP: list[tuple[str, str]] = [
     ("Apache Sedona Spark UDFs", "Done"),
     ("Fabric embed on status + WordPress", "Planned"),
 ]
+
+
+def _pipeline_status_file() -> Path | None:
+    for candidate in (
+        DATA_DIR.parent / "last_pipeline_run.json",
+        DATA_DIR / "last_pipeline_run.json",
+    ):
+        if candidate.is_file():
+            return candidate
+    return None
+
+
+def _load_pipeline_status() -> dict[str, object] | None:
+    from pulsegrid.pipeline_status import read_pipeline_status
+
+    local = read_pipeline_status()
+    if local:
+        return local
+    path = _pipeline_status_file()
+    if not path:
+        return None
+    try:
+        import json
+
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _pipeline_stale_hours(pipe: dict[str, object] | None) -> float | None:
+    if not pipe:
+        return None
+    raw = pipe.get("finished_at")
+    if not raw:
+        return None
+    try:
+        finished = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+        if finished.tzinfo is None:
+            finished = finished.replace(tzinfo=timezone.utc)
+        delta = datetime.now(timezone.utc) - finished.astimezone(timezone.utc)
+        return round(delta.total_seconds() / 3600.0, 2)
+    except (TypeError, ValueError):
+        return None
 
 
 def _read_csv(name: str) -> list[dict[str, str]]:
@@ -92,14 +143,34 @@ def _metro_options(selected: str) -> str:
 def health() -> dict[str, object]:
     snap = _read_csv("CityPulseSnapshot.csv")
     metros = _read_csv("DimMetro.csv")
+    pipe = _load_pipeline_status()
+    stale_h = _pipeline_stale_hours(pipe)
+    metro_n = len(metros)
+    snap_n = len(snap)
+    degraded: list[str] = []
+    if metro_n < MIN_METRO_COUNT:
+        degraded.append(f"metroCount<{MIN_METRO_COUNT}")
+    if snap_n < MIN_METRO_COUNT:
+        degraded.append(f"snapshotRows<{MIN_METRO_COUNT}")
+    if stale_h is not None and stale_h > PIPELINE_STALE_HOURS:
+        degraded.append(f"pipelineStale>{PIPELINE_STALE_HOURS}h")
+    if pipe and int(pipe.get("metros_failed") or 0) > 0:
+        degraded.append("lastPipelineHadFailures")
     return {
-        "status": "ok",
+        "status": "degraded" if degraded else "ok",
+        "degradedReasons": degraded,
         "defaultMetro": DEFAULT_METRO,
-        "metroCount": len(metros),
+        "metroCount": metro_n,
+        "minMetroCount": MIN_METRO_COUNT,
         "dataDir": str(DATA_DIR),
-        "snapshotRows": len(snap),
+        "snapshotRows": snap_n,
         "embedConfigured": bool(EMBED_URL),
         "publicUrl": PUBLIC_URL,
+        "pipeline": pipe,
+        "pipelineStaleHours": stale_h,
+        "pulseHistoryNote": (
+            "Anomaly z-scores improve after ~7 daily ML runs (Option A scoring)."
+        ),
     }
 
 
@@ -136,9 +207,39 @@ def api_example_prompts(metro: str = Query(default="")) -> JSONResponse:
 
 @app.get("/api/pipeline-status")
 def api_pipeline_status() -> JSONResponse:
-    from pulsegrid.pipeline_status import read_pipeline_status
+    return JSONResponse(_load_pipeline_status() or {"status": "unknown"})
 
-    return JSONResponse(read_pipeline_status() or {"status": "unknown"})
+
+class InsightRequest(BaseModel):
+    metro: str = Field(default="")
+    question: str = Field(min_length=3, max_length=500)
+
+
+@app.post("/api/insight")
+def api_insight(body: InsightRequest) -> JSONResponse:
+    """Rate-limited LLM summary of metro pulse (requires OPENAI_API_KEY on server)."""
+    now = time.time()
+    global _insight_calls
+    _insight_calls = [t for t in _insight_calls if now - t < _INSIGHT_WINDOW_SEC]
+    if len(_insight_calls) >= _INSIGHT_LIMIT:
+        return JSONResponse(
+            {"error": "Rate limit exceeded. Try again later."},
+            status_code=429,
+        )
+    slug = (body.metro or DEFAULT_METRO).strip().lower()
+    if not os.getenv("OPENAI_API_KEY", "").strip():
+        return JSONResponse(
+            {"error": "OPENAI_API_KEY not configured on server."},
+            status_code=503,
+        )
+    try:
+        from pulsegrid.copilot.insights import ask
+
+        answer = ask(slug, body.question)
+        _insight_calls.append(now)
+        return JSONResponse({"metro": slug, "question": body.question, "answer": answer})
+    except Exception as exc:
+        return JSONResponse({"error": str(exc)}, status_code=500)
 
 
 @app.get("/api/pulse")
@@ -185,9 +286,7 @@ def index(metro: str = Query(default="")) -> str:
     prompt_items = "".join(f"<li>{html.escape(p)}</li>" for p in prompts) or (
         "<li class='muted'>Run gold transform after civic311 ingest</li>"
     )
-    from pulsegrid.pipeline_status import read_pipeline_status
-
-    pipe = read_pipeline_status() or {}
+    pipe = _load_pipeline_status() or {}
     pipe_line = (
         f"Last job: {html.escape(str(pipe.get('job', '—')))} · "
         f"{html.escape(str(pipe.get('finished_at', '—')))} · "
@@ -248,6 +347,7 @@ def index(metro: str = Query(default="")) -> str:
       <h1>AQ PulseGrid — Worldwide Metros</h1>
       <p>{html.escape(display)} · snapshot {html.escape(str(snapshot_at))} · data refreshed {html.escape(str(refreshed))}</p>
       <p class="muted">{pipe_line}</p>
+      <p class="muted">Anomaly baselines improve after ~7 daily ML runs. <a href="/health">Health</a> shows pipeline staleness.</p>
       <p><a href="{REPO_URL}">github.com/prendle-aureaquantra/aq-pulsegrid</a></p>
     </header>
     <form class="slicer-bar" method="get" action="/">
@@ -284,7 +384,8 @@ def index(metro: str = Query(default="")) -> str:
       <a href="/api/metros">metros</a> ·
       <a href="/api/feed-coverage">feed coverage</a> ·
       <a href="/api/pipeline-status">pipeline</a> ·
-      <a href="/health">health</a>
+      <a href="/health">health</a> ·
+      POST <code>/api/insight</code> (LLM, rate-limited)
     </p>
   </div>
   <script>

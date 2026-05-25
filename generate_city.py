@@ -270,7 +270,7 @@ def main() -> int:
                     metros_failed=failed,
                     detail=f"tier={args.tier or 'all'}",
                 )
-            if failed == len(metro_slugs):
+            if failed == len(metro_slugs) or (args.all_metros and failed > 0):
                 return 1
         elif args.ml_only:
             failed = 0
@@ -289,7 +289,7 @@ def main() -> int:
                     metros_failed=failed,
                     detail=f"tier={args.tier or 'all'}",
                 )
-            if failed == len(metro_slugs):
+            if failed == len(metro_slugs) or (args.all_metros and failed > 0):
                 return 1
         elif args.pbip_only or args.pbip_blank:
             include_visuals = args.with_visuals and not args.pbip_blank

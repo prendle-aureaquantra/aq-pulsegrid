@@ -134,6 +134,13 @@ else {
   & ssh @sshBase $restart
 }
 
+$setupSh = Join-Path $ProjectRoot "tools\setup_lightsail_pipeline_remote.sh"
+if ((Test-Path -LiteralPath $setupSh) -and -not $DryRun) {
+  Write-Host "Configuring Lightsail pipeline timer + repo clone..."
+  Get-Content -LiteralPath $setupSh -Raw | & ssh @sshBase "bash -s"
+  if ($LASTEXITCODE -ne 0) { Write-Warning "Pipeline remote setup returned exit $LASTEXITCODE" }
+}
+
 Write-Host "Done."
 Write-Host "PulseGrid status: http://${hostAddr}:5190/ (open port 5190 in Lightsail networking if needed)"
 Write-Host "Health: http://${hostAddr}:5190/health"

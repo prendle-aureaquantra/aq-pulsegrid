@@ -1,6 +1,7 @@
-# Option A — automated ML scoring ops via Databricks (no trained models).
+# Option A — trigger aq-pulsegrid-daily-global (single-task pipeline_daily on DBFS).
 # Requires repo secrets: DATABRICKS_HOST, DATABRICKS_TOKEN
-# Optional variable: DATABRICKS_REPO_PATH (default /Repos/pulsegrid/aq-pulsegrid)
+# Optional variable: DATABRICKS_REPO_PATH
+# Deploy job locally after databricks.yml changes: python tools/deploy_databricks_job.py
 
 name: Scheduled pipeline
 

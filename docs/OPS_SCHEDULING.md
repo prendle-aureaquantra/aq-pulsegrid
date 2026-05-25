@@ -21,7 +21,11 @@ python tools/deploy_databricks_job.py --repo-path /Repos/YOUR_USER/aq-pulsegrid
 python tools/deploy_databricks_job.py --run-now   # optional smoke run
 ```
 
-Tasks: `ingest_metros` → `transform_metros` → `ml_metros` → `export_platform` (see `databricks.yml`).
+Task: `pipeline_daily` — single serverless notebook (`databricks/pipeline_daily.py`) using shared `/dbfs/tmp/aq_pulsegrid` for bronze + Delta (see `databricks.yml`). Redeploy after bundle changes:
+
+```powershell
+python tools/deploy_databricks_job.py
+```
 
 After deploy, confirm in **Workflows** that the job is **Active** and the Repos path matches your Git integration.
 

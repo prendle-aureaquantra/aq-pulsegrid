@@ -1,0 +1,15 @@
+[Unit]
+Description=AQ PulseGrid daily ingest/transform/ML/platform export
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=bitnami
+WorkingDirectory=/var/aq-pulsegrid/repo
+Environment=PULSEGRID_DATA_ROOT=/var/aq-pulsegrid/pipeline-data
+ExecStart=/var/aq-pulsegrid/repo/.venv/bin/python tools/run_scheduled_pipeline.py
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

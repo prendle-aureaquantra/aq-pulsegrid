@@ -16,7 +16,14 @@ REPO_ROOT = ROOT.parent
 _default_data = Path.home() / ".local" / "aq-pulsegrid"
 DATA_ROOT = Path(os.getenv("PULSEGRID_DATA_ROOT", str(_default_data)))
 DATASETS = ROOT / "datasets"
-BRONZE = DATASETS / "bronze"
+# When PULSEGRID_DATA_ROOT is set (Databricks DBFS), bronze lives with silver/gold on shared storage.
+_bronze_override = os.getenv("PULSEGRID_BRONZE_ROOT", "").strip()
+if _bronze_override:
+    BRONZE = Path(_bronze_override)
+elif os.getenv("PULSEGRID_DATA_ROOT"):
+    BRONZE = DATA_ROOT / "bronze"
+else:
+    BRONZE = DATASETS / "bronze"
 SILVER = DATA_ROOT / "silver"
 GOLD = DATA_ROOT / "gold"
 DELTA = DATA_ROOT / "delta"

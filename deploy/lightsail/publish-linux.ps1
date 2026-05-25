@@ -11,6 +11,12 @@ if (-not (Test-Path $PlatformData) -and -not (Test-Path $DataSrc)) {
   throw "Missing platform/chicago data - run: python generate_city.py --all-metros --platform-csv-only"
 }
 
+$Validate = Join-Path $Root "tools\validate_platform_export.py"
+if ((Test-Path $Validate) -and (Test-Path $PlatformData)) {
+  python $Validate --data-dir $PlatformData
+  if ($LASTEXITCODE -ne 0) { throw "Platform export validation failed." }
+}
+
 Write-Host "Project root: $Root"
 Write-Host "Output:       $Out"
 if (Test-Path $Out) { Remove-Item -Recurse -Force $Out }
@@ -18,14 +24,22 @@ New-Item -ItemType Directory -Force -Path $Out, "$Out\data", "$Out\systemd" | Ou
 
 Copy-Item $AppSrc (Join-Path $Out "status_app.py")
 Copy-Item (Join-Path $PSScriptRoot "requirements-web.txt") (Join-Path $Out "requirements.txt")
+$StatusSrc = Join-Path $Root "generated_reports\platform\last_pipeline_run.json"
 if (Test-Path $PlatformData) {
   Copy-Item (Join-Path $PlatformData "*.csv") (Join-Path $Out "data")
   Write-Host "Included platform CSVs ($((Get-ChildItem (Join-Path $PlatformData '*.csv')).Count) files, multi-metro ML)"
+  if (Test-Path $StatusSrc) {
+    Copy-Item $StatusSrc (Join-Path $Out "last_pipeline_run.json")
+  }
 } else {
   Copy-Item (Join-Path $DataSrc "*.csv") (Join-Path $Out "data")
   Write-Warning "Platform data missing; using Chicago sample CSVs only"
 }
 Copy-Item (Join-Path $PSScriptRoot "aq-pulsegrid.service") (Join-Path $Out "systemd")
+$PipelineSystemd = Join-Path $PSScriptRoot "systemd"
+if (Test-Path $PipelineSystemd) {
+  Copy-Item (Join-Path $PipelineSystemd "aq-pulsegrid-pipeline.*") (Join-Path $Out "systemd") -ErrorAction SilentlyContinue
+}
 
 $startSh = @'
 #!/usr/bin/env bash

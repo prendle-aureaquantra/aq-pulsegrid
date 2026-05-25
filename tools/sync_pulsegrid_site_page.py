@@ -23,19 +23,22 @@ def build_pulsegrid_page_html(*, embed_url: str = "", repo_url: str = "") -> str
   <iframe title="Chicago Live City Pulse" width="1140" height="541" src="{embed}"
     frameborder="0" allowFullScreen="true" style="display:block;width:100%;max-width:1140px;"></iframe>
 </figure>"""
-    return f"""<h1>Chicago Live City Pulse</h1>
-<p>AQ PulseGrid — Spark-powered urban intelligence: streaming public data, ML stress index, automated Power BI PBIP.</p>
-<p><a class="wp-block-button__link" href="{repo}">View on GitHub</a>
+    status_url = os.getenv("PULSEGRID_PUBLIC_URL", "https://pulse.aureaquantra.com/").strip()
+    return f"""<h1>AQ PulseGrid — Worldwide Metros</h1>
+<p>Operational urban intelligence: 71 metros, public feeds, ML stress scoring, automated Power BI PBIP.</p>
+<p><a class="wp-block-button__link" href="{status_url}">Live ops console</a>
+&nbsp; <a class="wp-block-button__link" href="{repo}">View on GitHub</a>
 &nbsp; <a class="wp-block-button__link" href="/book/" style="background:#2C2C2C;">Book a discovery call</a></p>
 {iframe}
 <h2>What it demonstrates</h2>
 <ul>
   <li>Delta Lake bronze / silver / gold medallion architecture</li>
-  <li>Spark Structured Streaming + ML anomaly detection</li>
-  <li>Metadata-driven Power BI PBIP generation</li>
-  <li>Geospatial hex grid + OpenStreetMap enrichment</li>
+  <li>Scheduled ML scoring (Option A) + anomaly detection</li>
+  <li>Platform PBIP with worldwide metro slicer</li>
+  <li>Geospatial hex grid + OpenSky / GTFS-RT / weather feeds</li>
 </ul>
-<p><img src="/wp-content/uploads/pulsegrid/live-city-pulse.png" alt="Chicago Pulse dashboard" style="max-width:100%;height:auto;border-radius:12px;" loading="lazy" /></p>
+<p><img src="/wp-content/uploads/pulsegrid/live-city-pulse.png" alt="PulseGrid dashboard" style="max-width:100%;height:auto;border-radius:12px;" loading="lazy" /></p>
+<p class="has-small-font-size">Without Fabric embed, use the <a href="{status_url}">ops console</a> and GitHub sample PBIP.</p>
 """
 
 
