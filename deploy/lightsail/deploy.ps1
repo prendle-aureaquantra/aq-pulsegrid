@@ -137,7 +137,8 @@ else {
 $setupSh = Join-Path $ProjectRoot "tools\setup_lightsail_pipeline_remote.sh"
 if ((Test-Path -LiteralPath $setupSh) -and -not $DryRun) {
   Write-Host "Configuring Lightsail pipeline timer + repo clone..."
-  Get-Content -LiteralPath $setupSh -Raw | & ssh @sshBase "bash -s"
+  $setupBody = [System.IO.File]::ReadAllText($setupSh) -replace "`r`n", "`n" -replace "`r", "`n"
+  $setupBody | & ssh @sshBase "bash -s"
   if ($LASTEXITCODE -ne 0) { Write-Warning "Pipeline remote setup returned exit $LASTEXITCODE" }
 }
 

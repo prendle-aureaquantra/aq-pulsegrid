@@ -10,6 +10,11 @@ PIPE_DATA="$REMOTE_DIR/pipeline-data"
 sudo mkdir -p "$REMOTE_DIR" "$PIPE_DATA"
 sudo chown -R "$(whoami):$(whoami)" "$REMOTE_DIR" "$PIPE_DATA"
 
+if ! command -v git >/dev/null 2>&1; then
+  sudo apt-get update -qq
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq git
+fi
+
 if [[ ! -d "$REPO_DIR/.git" ]]; then
   git clone --depth 1 "$REPO_URL" "$REPO_DIR"
 else
@@ -23,7 +28,9 @@ if [[ ! -d .venv ]]; then
   python3 -m venv .venv
 fi
 . .venv/bin/activate
-pip install -q -r requirements.txt
+# Minimal deps for generate_city (avoid OOM from full editable install on small instances).
+pip install -q deltalake pandas pyarrow requests pyyaml python-dotenv httpx 2>/dev/null || true
+export PYTHONPATH="$REPO_DIR"
 
 if [[ -f "$REMOTE_DIR/systemd/aq-pulsegrid-pipeline.service" ]]; then
   sudo cp "$REMOTE_DIR/systemd/aq-pulsegrid-pipeline.service" /etc/systemd/system/

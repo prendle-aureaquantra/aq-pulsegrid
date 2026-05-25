@@ -60,17 +60,12 @@ def _pipeline_status_file() -> Path | None:
 
 
 def _load_pipeline_status() -> dict[str, object] | None:
-    from pulsegrid.pipeline_status import read_pipeline_status
+    import json
 
-    local = read_pipeline_status()
-    if local:
-        return local
     path = _pipeline_status_file()
     if not path:
         return None
     try:
-        import json
-
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return None

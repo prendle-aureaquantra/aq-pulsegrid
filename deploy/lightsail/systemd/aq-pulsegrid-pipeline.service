@@ -7,7 +7,8 @@ Type=oneshot
 User=bitnami
 WorkingDirectory=/var/aq-pulsegrid/repo
 Environment=PULSEGRID_DATA_ROOT=/var/aq-pulsegrid/pipeline-data
-ExecStart=/var/aq-pulsegrid/repo/.venv/bin/python tools/run_scheduled_pipeline.py
+Environment=PYTHONPATH=/var/aq-pulsegrid/repo
+ExecStart=/var/aq-pulsegrid/repo/.venv/bin/python /var/aq-pulsegrid/repo/tools/run_scheduled_pipeline.py
 StandardOutput=journal
 StandardError=journal
 
