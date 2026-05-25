@@ -204,9 +204,12 @@ def main() -> int:
             return 0
 
         if args.platform_only or args.platform_csv_only:
+            export_tier = args.tier
+            if args.platform_csv_only and args.all_metros and not args.metros:
+                export_tier = None
             run_platform(
                 with_visuals=args.with_visuals,
-                tier=args.tier,
+                tier=export_tier,
                 csv_only=args.platform_csv_only,
             )
             from pulsegrid.pipeline_status import write_pipeline_status

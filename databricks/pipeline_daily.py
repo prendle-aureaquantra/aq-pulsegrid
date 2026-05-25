@@ -44,7 +44,7 @@ steps = [
     ("ingest", gen + ["--ingest-only", "--extended-ingest"]),
     ("transform", gen + ["--transform-only"]),
     ("ml", gen + ["--ml-only"]),
-    ("export", [sys.executable, f"{repo}/generate_city.py", "--platform-csv-only", "--all-metros", "--tier", tier]),
+    ("export", [sys.executable, f"{repo}/generate_city.py", "--platform-csv-only", "--all-metros"]),
 ]
 for name, cmd in steps:
     print("===", name, "===")
