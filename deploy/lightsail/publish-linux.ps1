@@ -8,7 +8,7 @@ $AppSrc = Join-Path $Root "pulsegrid\web\status_app.py"
 
 if (-not (Test-Path $AppSrc)) { throw "Missing $AppSrc" }
 if (-not (Test-Path $PlatformData) -and -not (Test-Path $DataSrc)) {
-  throw "Missing platform/chicago data - run: python generate_city.py --platform-only --tier full"
+  throw "Missing platform/chicago data - run: python generate_city.py --all-metros --platform-csv-only"
 }
 
 Write-Host "Project root: $Root"

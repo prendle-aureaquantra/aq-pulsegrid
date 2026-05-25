@@ -1,8 +1,7 @@
 {
-  "job": "scheduled-pipeline",
-  "finished_at": "2026-05-25T11:02:37.884873+00:00",
-  "metros_ok": 4,
+  "job": "platform-csv-only",
+  "finished_at": "2026-05-25T14:56:12.172838+00:00",
+  "metros_ok": 71,
   "metros_failed": 0,
-  "detail": "steps=ingest,transform,ml,export tier=full scope=all-metros",
-  "failed_steps": []
+  "detail": "visuals=False"
 }

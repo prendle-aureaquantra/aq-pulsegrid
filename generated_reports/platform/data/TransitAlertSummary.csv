@@ -1,4 +1,12 @@
 ﻿city,alert_category,alert_count,snapshot_at
+barcelona,other,123,2026-05-24T14:09:18.858182+00:00
+denver,accessibility,2,2026-05-24T14:09:26.382400+00:00
+denver,delay,1,2026-05-24T14:09:26.382400+00:00
+denver,other,57,2026-05-24T14:09:26.382400+00:00
+denver,station,3,2026-05-24T14:09:26.382400+00:00
+denver,stop_change,5,2026-05-24T14:09:26.382400+00:00
+madrid,other,138,2026-05-24T14:09:34.837627+00:00
+san-francisco,other,1,2026-05-24T14:09:45.831903+00:00
 chicago,accessibility,11,2026-05-25T11:02:16.622299+00:00
 chicago,delay,3,2026-05-25T11:02:16.622299+00:00
 chicago,other,6,2026-05-25T11:02:16.622299+00:00
