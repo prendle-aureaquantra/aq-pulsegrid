@@ -28,7 +28,6 @@ if [[ ! -d .venv ]]; then
   python3 -m venv .venv
 fi
 . .venv/bin/activate
-# Minimal deps for generate_city (avoid OOM from full editable install on small instances).
 pip install -q deltalake pandas pyarrow requests pyyaml python-dotenv httpx 2>/dev/null || true
 export PYTHONPATH="$REPO_DIR"
 

@@ -18,7 +18,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-_data = Path(os.getenv("PULSEGRID_DATABRICKS_DATA_ROOT", "/local_disk0/pulsegrid"))
+_data = Path(os.getenv("PULSEGRID_DATABRICKS_DATA_ROOT", "/tmp/aq_pulsegrid"))
 _data.mkdir(parents=True, exist_ok=True)
 os.environ["PULSEGRID_DATA_ROOT"] = str(_data)
 os.environ["PULSEGRID_ENGINE"] = "delta-rs"

@@ -15,8 +15,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-# Serverless: use local_disk0 (DBFS /dbfs/tmp is not writable on serverless).
-_data = Path(os.getenv("PULSEGRID_DATABRICKS_DATA_ROOT", "/local_disk0/pulsegrid"))
+# Serverless: writable scratch under /tmp (not /dbfs or /local_disk0 on all runtimes).
+_data = Path(os.getenv("PULSEGRID_DATABRICKS_DATA_ROOT", "/tmp/aq_pulsegrid"))
 _data.mkdir(parents=True, exist_ok=True)
 os.environ["PULSEGRID_DATA_ROOT"] = str(_data)
 os.environ["PULSEGRID_ENGINE"] = "delta-rs"
