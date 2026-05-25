@@ -1,17 +1,21 @@
 ﻿city,snapshot_at,asset_class,risk_tier,request_type,request_count
-chicago,2026-05-24T18:30:54.685448+00:00,road_surface,fatigue,Alley Pothole Complaint,1
-chicago,2026-05-24T18:30:54.685448+00:00,road_surface,fatigue,Pothole in Street Complaint,4
-chicago,2026-05-24T18:30:54.685448+00:00,road_surface,fatigue,Street Light Pole Damage Complaint,1
-chicago,2026-05-24T18:30:54.685448+00:00,road_surface,fatigue,Water On Street Complaint,7
-chicago,2026-05-24T18:30:54.685448+00:00,structural,failure,Sewer Cave-In Inspection Request,2
-chicago,2026-05-24T18:30:54.685448+00:00,structural,failure,Tree Emergency,3
-chicago,2026-05-24T18:30:54.685448+00:00,utility,routine,Sewer Cleaning Inspection Request,2
-nyc,2026-05-24T18:31:01.218006+00:00,road_surface,fatigue,Consumer Complaint,1
-nyc,2026-05-24T18:31:01.218006+00:00,road_surface,fatigue,Illegal Parking,2
-nyc,2026-05-24T18:31:01.218006+00:00,road_surface,fatigue,Noise - Street/Sidewalk,30
-nyc,2026-05-24T18:31:01.218006+00:00,road_surface,fatigue,Overgrown Tree/Branches,1
-nyc,2026-05-24T18:31:01.218006+00:00,road_surface,fatigue,Street Condition,14
-nyc,2026-05-24T18:31:01.218006+00:00,road_surface,fatigue,Street Sign - Dangling,1
-nyc,2026-05-24T18:31:01.218006+00:00,road_surface,fatigue,Street Sign - Missing,1
-nyc,2026-05-24T18:31:01.218006+00:00,structural,failure,Non-Emergency Police Matter,1
-nyc,2026-05-24T18:31:01.218006+00:00,utility,routine,Illegal Parking,10
+chicago,2026-05-25T11:02:16.622299+00:00,road_surface,fatigue,Alley Pothole Complaint,1
+chicago,2026-05-25T11:02:16.622299+00:00,road_surface,fatigue,Pothole in Street Complaint,13
+chicago,2026-05-25T11:02:16.622299+00:00,road_surface,fatigue,Street Light Out Complaint,3
+chicago,2026-05-25T11:02:16.622299+00:00,road_surface,fatigue,Street Light Pole Damage Complaint,1
+chicago,2026-05-25T11:02:16.622299+00:00,road_surface,fatigue,Water On Street Complaint,8
+chicago,2026-05-25T11:02:16.622299+00:00,structural,failure,Sewer Cave-In Inspection Request,2
+chicago,2026-05-25T11:02:16.622299+00:00,structural,failure,Tree Emergency,3
+chicago,2026-05-25T11:02:16.622299+00:00,utility,routine,Sewer Cleaning Inspection Request,3
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Consumer Complaint,1
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Illegal Parking,3
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Noise - Street/Sidewalk,35
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Overgrown Tree/Branches,1
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Sidewalk Condition,2
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Street Condition,16
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Street Sign - Dangling,1
+nyc,2026-05-25T11:02:20.017829+00:00,road_surface,fatigue,Street Sign - Missing,1
+nyc,2026-05-25T11:02:20.017829+00:00,structural,failure,Damaged Tree,1
+nyc,2026-05-25T11:02:20.017829+00:00,structural,failure,Non-Emergency Police Matter,3
+nyc,2026-05-25T11:02:20.017829+00:00,utility,routine,Illegal Parking,18
+nyc,2026-05-25T11:02:20.017829+00:00,utility,routine,Standing Water,1

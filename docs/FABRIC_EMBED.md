@@ -15,9 +15,21 @@ Open: `generated_reports/platform/PulseGrid.pbip`
 
 ## 2. Publish to Power BI Service
 
+**Automated (if report already exists in your workspace):**
+
+```powershell
+cd aq-pulsegrid
+python tools/publish_pulsegrid_fabric.py
+```
+
+Requires in parent `.env`: `FABRIC_TENANT_ID`, `FABRIC_CLIENT_ID`, `FABRIC_CLIENT_SECRET`.  
+The script enables **Publish to web**, writes `POWERBI_PULSEGRID_EMBED_URL` to `.env` and `deploy/lightsail/secrets/pulsegrid.env`.
+
+**Manual (first time):**
+
 1. Sign in to [Power BI](https://app.powerbi.com).
-2. **Publish** the semantic model + report (or upload `.pbip` from Desktop).
-3. Enable **Publish to web** (public embed) *or* configure **Embed in website** (org) per your license.
+2. Open `generated_reports/platform/PulseGrid.pbip` in **Power BI Desktop** → **Load** all tables → **Publish**.
+3. Re-run `python tools/publish_pulsegrid_fabric.py` (or paste embed URL into `.env` yourself).
 
 Copy the iframe `src` URL.
 

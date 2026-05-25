@@ -9,18 +9,18 @@ barcelona,"Barcelona, ES","Barcelona, ES · Tier 2",Barcelona,ES,weather_only,41
 beijing,"Beijing, CN","Beijing, CN · Tier 2",Beijing,CN,weather_only,39.9042,116.4074,Asia/Shanghai,"airports,weather",
 berlin,"Berlin, DE","Berlin, DE · Tier 2",Berlin,DE,weather_only,52.52,13.405,Europe/Berlin,"airports,weather",
 bogota,"Bogotá, CO","Bogotá, CO · Tier 2",Bogotá,CO,weather_only,4.711,-74.0721,America/Bogota,"airports,weather",
-boston,"Boston, US","Boston, US · Tier 1",Boston,US,full,42.3601,-71.0589,America/New_York,"airports,civic311,fred,osm,transit,trends,weather",2026-05-24T18:32:54.909549+00:00
+boston,"Boston, US","Boston, US · Tier 1",Boston,US,full,42.3601,-71.0589,America/New_York,"airports,civic311,fred,osm,transit,trends,weather",2026-05-25T11:02:37.019163+00:00
 brussels,"Brussels, BE","Brussels, BE · Tier 2",Brussels,BE,weather_only,50.8503,4.3517,Europe/Brussels,"airports,weather",
 budapest,"Budapest, HU","Budapest, HU · Tier 2",Budapest,HU,weather_only,47.4979,19.0402,Europe/Budapest,"airports,transit,weather",
 buenos-aires,"Buenos Aires, AR","Buenos Aires, AR · Tier 2",Buenos Aires,AR,weather_only,-34.6037,-58.3816,America/Argentina/Buenos_Aires,"airports,weather",
 cairo,"Cairo, EG","Cairo, EG · Tier 2",Cairo,EG,weather_only,30.0444,31.2357,Africa/Cairo,"airports,weather",
-chicago,"Chicago, US","Chicago, US · Tier 1",Chicago,US,full,41.8781,-87.6298,America/Chicago,"airports,civic311,events,fred,osm,transit,trends,weather",2026-05-24T18:32:54.909549+00:00
+chicago,"Chicago, US","Chicago, US · Tier 1",Chicago,US,full,41.8781,-87.6298,America/Chicago,"airports,civic311,events,fred,osm,transit,trends,weather",2026-05-25T11:02:37.019163+00:00
 copenhagen,"Copenhagen, DK","Copenhagen, DK · Tier 2",Copenhagen,DK,weather_only,55.6761,12.5683,Europe/Copenhagen,"airports,weather",
 dallas,"Dallas, US","Dallas, US · Tier 2",Dallas,US,weather_only,32.7767,-96.797,America/Chicago,"airports,civic311,weather",
 delhi,"Delhi, IN","Delhi, IN · Tier 2",Delhi,IN,weather_only,28.7041,77.1025,Asia/Kolkata,"airports,weather",
 denver,"Denver, US","Denver, US · Tier 2",Denver,US,weather_only,39.7392,-104.9903,America/Denver,"airports,civic311,transit,weather",
 doha,"Doha, QA","Doha, QA · Tier 2",Doha,QA,weather_only,25.2854,51.531,Asia/Qatar,"airports,weather",
-dubai,"Dubai, AE","Dubai, AE · Tier 1",Dubai,AE,full,25.2048,55.2708,Asia/Dubai,"airports,transit,weather",2026-05-24T18:32:54.909549+00:00
+dubai,"Dubai, AE","Dubai, AE · Tier 1",Dubai,AE,full,25.2048,55.2708,Asia/Dubai,"airports,transit,weather",2026-05-25T11:02:37.019163+00:00
 dublin,"Dublin, IE","Dublin, IE · Tier 2",Dublin,IE,weather_only,53.3498,-6.2603,Europe/Dublin,"airports,weather",
 helsinki,"Helsinki, FI","Helsinki, FI · Tier 2",Helsinki,FI,weather_only,60.1699,24.9384,Europe/Helsinki,"airports,weather",
 hong-kong,"Hong Kong, HK","Hong Kong, HK · Tier 2",Hong Kong,HK,weather_only,22.3193,114.1694,Asia/Hong_Kong,"airports,weather",
@@ -32,8 +32,8 @@ kuala-lumpur,"Kuala Lumpur, MY","Kuala Lumpur, MY · Tier 2",Kuala Lumpur,MY,wea
 lagos,"Lagos, NG","Lagos, NG · Tier 2",Lagos,NG,weather_only,6.5244,3.3792,Africa/Lagos,"airports,weather",
 lima,"Lima, PE","Lima, PE · Tier 2",Lima,PE,weather_only,-12.0464,-77.0428,America/Lima,"airports,weather",
 lisbon,"Lisbon, PT","Lisbon, PT · Tier 2",Lisbon,PT,weather_only,38.7223,-9.1393,Europe/Lisbon,"airports,weather",
-london,"London, GB","London, GB · Tier 1",London,GB,full,51.5074,-0.1278,Europe/London,"airports,transit,weather",2026-05-24T18:32:54.909549+00:00
-la,"Los Angeles, US","Los Angeles, US · Tier 1",Los Angeles,US,full,34.0522,-118.2437,America/Los_Angeles,"airports,civic311,fred,osm,transit,trends,weather",2026-05-24T18:32:54.909549+00:00
+london,"London, GB","London, GB · Tier 1",London,GB,full,51.5074,-0.1278,Europe/London,"airports,transit,weather",2026-05-25T11:02:37.019163+00:00
+la,"Los Angeles, US","Los Angeles, US · Tier 1",Los Angeles,US,full,34.0522,-118.2437,America/Los_Angeles,"airports,civic311,fred,osm,transit,trends,weather",2026-05-25T11:02:37.019163+00:00
 madrid,"Madrid, ES","Madrid, ES · Tier 2",Madrid,ES,weather_only,40.4168,-3.7038,Europe/Madrid,"airports,transit,weather",
 manila,"Manila, PH","Manila, PH · Tier 2",Manila,PH,weather_only,14.5995,120.9842,Asia/Manila,"airports,weather",
 melbourne,"Melbourne, AU","Melbourne, AU · Tier 2",Melbourne,AU,weather_only,-37.8136,144.9631,Australia/Melbourne,"airports,weather",
@@ -45,9 +45,9 @@ moscow,"Moscow, RU","Moscow, RU · Tier 2",Moscow,RU,weather_only,55.7558,37.617
 mumbai,"Mumbai, IN","Mumbai, IN · Tier 2",Mumbai,IN,weather_only,19.076,72.8777,Asia/Kolkata,"airports,weather",
 munich,"Munich, DE","Munich, DE · Tier 2",Munich,DE,weather_only,48.1351,11.582,Europe/Berlin,"airports,weather",
 nairobi,"Nairobi, KE","Nairobi, KE · Tier 2",Nairobi,KE,weather_only,-1.2921,36.8219,Africa/Nairobi,"airports,weather",
-nyc,"New York City, US","New York City, US · Tier 1",New York City,US,full,40.7128,-74.006,America/New_York,"airports,civic311,events,fred,osm,transit,trends,weather",2026-05-24T18:32:54.909549+00:00
+nyc,"New York City, US","New York City, US · Tier 1",New York City,US,full,40.7128,-74.006,America/New_York,"airports,civic311,events,fred,osm,transit,trends,weather",2026-05-25T11:02:37.019163+00:00
 oslo,"Oslo, NO","Oslo, NO · Tier 2",Oslo,NO,weather_only,59.9139,10.7522,Europe/Oslo,"airports,weather",
-paris,"Paris, FR","Paris, FR · Tier 1",Paris,FR,full,48.8566,2.3522,Europe/Paris,"airports,transit,weather",2026-05-24T18:32:54.909549+00:00
+paris,"Paris, FR","Paris, FR · Tier 1",Paris,FR,full,48.8566,2.3522,Europe/Paris,"airports,transit,weather",2026-05-25T11:02:37.019163+00:00
 philadelphia,"Philadelphia, US","Philadelphia, US · Tier 2",Philadelphia,US,weather_only,39.9526,-75.1652,America/New_York,"airports,civic311,transit,weather",
 phoenix,"Phoenix, US","Phoenix, US · Tier 2",Phoenix,US,weather_only,33.4484,-112.074,America/Phoenix,"airports,civic311,weather",
 prague,"Prague, CZ","Prague, CZ · Tier 2",Prague,CZ,weather_only,50.0755,14.4378,Europe/Prague,"airports,weather",
@@ -57,13 +57,13 @@ san-francisco,"San Francisco, US","San Francisco, US · Tier 2",San Francisco,US
 seattle,"Seattle, US","Seattle, US · Tier 2",Seattle,US,weather_only,47.6062,-122.3321,America/Los_Angeles,"airports,civic311,transit,weather",
 seoul,"Seoul, KR","Seoul, KR · Tier 2",Seoul,KR,weather_only,37.5665,126.978,Asia/Seoul,"airports,weather",
 shanghai,"Shanghai, CN","Shanghai, CN · Tier 2",Shanghai,CN,weather_only,31.2304,121.4737,Asia/Shanghai,"airports,weather",
-singapore,"Singapore, SG","Singapore, SG · Tier 1",Singapore,SG,full,1.3521,103.8198,Asia/Singapore,"airports,transit,weather",2026-05-24T18:32:54.909549+00:00
+singapore,"Singapore, SG","Singapore, SG · Tier 1",Singapore,SG,full,1.3521,103.8198,Asia/Singapore,"airports,transit,weather",2026-05-25T11:02:37.019163+00:00
 stockholm,"Stockholm, SE","Stockholm, SE · Tier 2",Stockholm,SE,weather_only,59.3293,18.0686,Europe/Stockholm,"airports,weather",
-sydney,"Sydney, AU","Sydney, AU · Tier 1",Sydney,AU,full,-33.8688,151.2093,Australia/Sydney,"airports,transit,weather",2026-05-24T18:32:54.909549+00:00
+sydney,"Sydney, AU","Sydney, AU · Tier 1",Sydney,AU,full,-33.8688,151.2093,Australia/Sydney,"airports,transit,weather",2026-05-25T11:02:37.019163+00:00
 sao-paulo,"São Paulo, BR","São Paulo, BR · Tier 2",São Paulo,BR,weather_only,-23.5505,-46.6333,America/Sao_Paulo,"airports,weather",
 taipei,"Taipei, TW","Taipei, TW · Tier 2",Taipei,TW,weather_only,25.033,121.5654,Asia/Taipei,"airports,weather",
 tel-aviv,"Tel Aviv, IL","Tel Aviv, IL · Tier 2",Tel Aviv,IL,weather_only,32.0853,34.7818,Asia/Jerusalem,"airports,weather",
-tokyo,"Tokyo, JP","Tokyo, JP · Tier 1",Tokyo,JP,full,35.6762,139.6503,Asia/Tokyo,"airports,transit,weather",2026-05-24T18:32:54.909549+00:00
+tokyo,"Tokyo, JP","Tokyo, JP · Tier 1",Tokyo,JP,full,35.6762,139.6503,Asia/Tokyo,"airports,transit,weather",2026-05-25T11:02:37.019163+00:00
 toronto,"Toronto, CA","Toronto, CA · Tier 2",Toronto,CA,weather_only,43.6532,-79.3832,America/Toronto,"airports,transit,weather",
 vancouver,"Vancouver, CA","Vancouver, CA · Tier 2",Vancouver,CA,weather_only,49.2827,-123.1207,America/Vancouver,"airports,transit,weather",
 vienna,"Vienna, AT","Vienna, AT · Tier 2",Vienna,AT,weather_only,48.2082,16.3738,Europe/Vienna,"airports,weather",

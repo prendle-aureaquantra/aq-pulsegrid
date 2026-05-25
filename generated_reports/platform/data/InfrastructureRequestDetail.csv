@@ -1,501 +1,751 @@
 ﻿city,snapshot_at,request_id,request_type,descriptor,status,asset_class,risk_tier,failure_risk_score
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Report an Injured Animal,Report an Injured Animal,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Cab Feedback,Cab Feedback,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sewer Cave-In Inspection Request,Sewer Cave-In Inspection Request,Open,structural,failure,20.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Clean Vacant Lot Request,Clean Vacant Lot Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Fly Dumping Complaint,Fly Dumping Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sign Repair Request - All Other Signs,Sign Repair Request - All Other Signs,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Weed Removal Request,Weed Removal Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sign Repair Request - All Other Signs,Sign Repair Request - All Other Signs,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Blue Recycling Cart,Blue Recycling Cart,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Graffiti Removal Request,Graffiti Removal Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Report an Injured Animal,Report an Injured Animal,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Finance Parking Code Enforcement Review,Finance Parking Code Enforcement Review,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Inspect Public Way Request,Inspect Public Way Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Building Violation,Building Violation,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Weed Removal Request,Weed Removal Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sewer Cleaning Inspection Request,Sewer Cleaning Inspection Request,Open,utility,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Missed Garbage Pick-Up Complaint,Missed Garbage Pick-Up Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Buildings - Plumbing Violation,Buildings - Plumbing Violation,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Buildings - Plumbing Violation,Buildings - Plumbing Violation,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sewer Cleaning Inspection Request,Sewer Cleaning Inspection Request,Open,utility,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Nuisance Animal Complaint,Nuisance Animal Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Alley Pothole Complaint,Alley Pothole Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Dead Animal Pick-Up Request,Dead Animal Pick-Up Request,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Street Light Pole Damage Complaint,Street Light Pole Damage Complaint,Open,road_surface,fatigue,9.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
-chicago,2026-05-24T18:30:54.685448+00:00,0.0,Sewer Cave-In Inspection Request,Sewer Cave-In Inspection Request,Open,structural,failure,20.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084522.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078050.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69083205.0,Noise - Street/Sidewalk,Loud Talking,Unspecified,road_surface,fatigue,7.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075088.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073485.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084618.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073486.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075090.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073487.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078341.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073468.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081604.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084794.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69083321.0,Encampment,N/A,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075049.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084727.0,Traffic,Chronic Speeding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69080004.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073405.0,Noise - House of Worship,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075078.0,Noise - House of Worship,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081590.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69076803.0,Homeless Person Assistance,Non-Chronic,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69083492.0,Rodent,Condition Attracting Rodents,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075103.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073479.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081420.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075047.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075051.0,Illegal Parking,Blocked Sidewalk,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69077729.0,Noise - Street/Sidewalk,Loud Music/Party,Closed,road_surface,fatigue,7.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078330.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078340.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073353.0,Dead/Dying Tree,Planted More Than 2 Years Ago,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078342.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69076642.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69083170.0,Illegal Parking,Double Parked Blocking Vehicle,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081905.0,Consumer Complaint,Dealer in Products for the Disabled,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69083200.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081554.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078324.0,Noise - Commercial,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084135.0,Noise - Residential,Banging/Pounding,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075100.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69076656.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079894.0,Overgrown Tree/Branches,Hitting Building,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69077571.0,Street Condition,Pothole,Closed,road_surface,fatigue,7.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078132.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075146.0,Street Sign - Dangling,St Name - Attached to Pole,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69080117.0,Homeless Person Assistance,Non-Chronic,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69072751.0,Street Condition,Pothole,Closed,road_surface,fatigue,7.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084795.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084791.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079919.0,Noise - House of Worship,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084523.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073472.0,Noise - House of Worship,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69082548.0,Noise - Residential,Banging/Pounding,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079685.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075155.0,Taxi Complaint,Driver Complaint - Non Passenger,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081006.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079777.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073214.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079996.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073465.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079775.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073294.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078631.0,Illegal Parking,Blocked Crosswalk,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079686.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079952.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078051.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081606.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081600.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073281.0,Abandoned Vehicle,With License Plate,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69084524.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69083204.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081612.0,Noise - Vehicle,Car/Truck Horn,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081492.0,Overgrown Tree/Branches,Blocking Street,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073480.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073477.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079961.0,Illegal Parking,Commercial Overnight Parking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69076492.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079967.0,Lost Property,Electronics/Phones,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078302.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079978.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078328.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073447.0,Illegal Parking,Double Parked Blocking Vehicle,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69076645.0,Illegal Parking,Commercial Overnight Parking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078335.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078334.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69081522.0,Noise - House of Worship,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69073473.0,Noise - House of Worship,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69080001.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69080062.0,Illegal Parking,Parking Permit Improper Use,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075086.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078336.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69075236.0,Homeless Person Assistance,Chronic,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69076924.0,Obstruction,Weeds or Grass,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079778.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69080000.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69080141.0,Dirty Condition,Trash,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079997.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69078337.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69079062.0,Noise - Commercial,Loud Talking,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69076686.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69087380.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69088889.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093320.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096233.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093112.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086205.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090704.0,Vendor Enforcement,Food Vendor,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091894.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094632.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090470.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096206.0,Noise - Park,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090330.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69092167.0,Consumer Complaint,Street Fair Vendor,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089035.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094763.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69085471.0,Street Condition,Pothole,Closed,road_surface,fatigue,7.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090455.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096207.0,Noise - Park,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093333.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69087618.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69088885.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093331.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094148.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090420.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093327.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69087730.0,Homeless Person Assistance,Non-Chronic,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093608.0,Rodent,Rat Sighting,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096215.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089074.0,Street Sign - Missing,"No Parking, Standing, Stopping",In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091860.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69087533.0,Taxi Complaint,Driver Complaint - Passenger,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090446.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094746.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094755.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089038.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094633.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096222.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69087568.0,Food Establishment,Pet/Animal,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094779.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091916.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094764.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090463.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086208.0,Noise - Residential,Loud Television,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086153.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090453.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086218.0,Non-Emergency Police Matter,Other (complaint details),In Progress,structural,failure,20.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094777.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096503.0,Rodent,Rat Sighting,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086983.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086182.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089016.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090421.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089047.0,Noise - Vehicle,Engine Idling,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096060.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090450.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69088479.0,Noise - Residential,Loud Talking,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094767.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086169.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093324.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091905.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094074.0,Noise - Commercial,Loud Music/Party,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086201.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086161.0,Illegal Parking,Blocked Sidewalk,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086202.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093317.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090445.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69087629.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094757.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089029.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093381.0,Drinking,In Public,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69085979.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089082.0,Illegal Parking,Parking Permit Improper Use,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090457.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089011.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089040.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096062.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093302.0,Noise - Commercial,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091906.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094772.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093334.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096213.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091363.0,Noise - Residential,Loud Talking,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091914.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090451.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69091325.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69095035.0,Illegal Parking,Blocked Crosswalk,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69096223.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089125.0,Homeless Person Assistance,Chronic,Closed,other,routine,1.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089025.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094765.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69086210.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094719.0,Illegal Parking,Blocked Bike Lane,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089013.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69090459.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093289.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094766.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69092832.0,Noise - Street/Sidewalk,Loud Music/Party,Closed,road_surface,fatigue,7.0
-nyc,2026-05-24T18:31:01.218006+00:00,69093329.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
-nyc,2026-05-24T18:31:01.218006+00:00,69094732.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
-nyc,2026-05-24T18:31:01.218006+00:00,69089030.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Report an Injured Animal,Report an Injured Animal,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Cab Feedback,Cab Feedback,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sewer Cave-In Inspection Request,Sewer Cave-In Inspection Request,Open,structural,failure,20.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Clean Vacant Lot Request,Clean Vacant Lot Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Fly Dumping Complaint,Fly Dumping Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sign Repair Request - All Other Signs,Sign Repair Request - All Other Signs,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Weed Removal Request,Weed Removal Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sign Repair Request - All Other Signs,Sign Repair Request - All Other Signs,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Blue Recycling Cart,Blue Recycling Cart,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Graffiti Removal Request,Graffiti Removal Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Report an Injured Animal,Report an Injured Animal,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Emergency,Tree Emergency,Open,structural,failure,20.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Finance Parking Code Enforcement Review,Finance Parking Code Enforcement Review,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Inspect Public Way Request,Inspect Public Way Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Building Violation,Building Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Weed Removal Request,Weed Removal Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sewer Cleaning Inspection Request,Sewer Cleaning Inspection Request,Open,utility,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Missed Garbage Pick-Up Complaint,Missed Garbage Pick-Up Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Buildings - Plumbing Violation,Buildings - Plumbing Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Planting Request,Tree Planting Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Buildings - Plumbing Violation,Buildings - Plumbing Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,E-Scooter Parking Complaint,E-Scooter Parking Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Debris Clean-Up Request,Tree Debris Clean-Up Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Abandoned Vehicle Complaint,Abandoned Vehicle Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Yard Waste Pick-Up Request,Yard Waste Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sewer Cleaning Inspection Request,Sewer Cleaning Inspection Request,Open,utility,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Vicious Animal Complaint,Vicious Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Nuisance Animal Complaint,Nuisance Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Alley Pothole Complaint,Alley Pothole Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Dead Animal Pick-Up Request,Dead Animal Pick-Up Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Street Light Pole Damage Complaint,Street Light Pole Damage Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sewer Cave-In Inspection Request,Sewer Cave-In Inspection Request,Open,structural,failure,20.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Cab Feedback,Cab Feedback,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Rodent Baiting/Rat Complaint,Rodent Baiting/Rat Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Street Light Out Complaint,Street Light Out Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Tree Removal Inspection,Tree Removal Inspection,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Nuisance Animal Complaint,Nuisance Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Graffiti Removal Request,Graffiti Removal Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water Lead Test Kit Request,Water Lead Test Kit Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Finance Parking Code Enforcement Review,Finance Parking Code Enforcement Review,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Graffiti Removal Request,Graffiti Removal Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Finance Parking Code Enforcement Review,Finance Parking Code Enforcement Review,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sewer Cleaning Inspection Request,Sewer Cleaning Inspection Request,Open,utility,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Garbage Cart Maintenance,Garbage Cart Maintenance,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Stray Animal Complaint,Stray Animal Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Business Complaints,Business Complaints,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Water On Street Complaint,Water On Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Street Light Out Complaint,Street Light Out Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pothole in Street Complaint,Pothole in Street Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Finance Parking Code Enforcement Review,Finance Parking Code Enforcement Review,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Pet Wellness Check Request,Pet Wellness Check Request,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Street Light Out Complaint,Street Light Out Complaint,Open,road_surface,fatigue,9.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Sanitation Code Violation,Sanitation Code Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Buildings - Plumbing Violation,Buildings - Plumbing Violation,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Traffic Signal Out Complaint,Traffic Signal Out Complaint,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Report an Injured Animal,Report an Injured Animal,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,311 INFORMATION ONLY CALL,311 INFORMATION ONLY CALL,Completed,other,routine,1.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Coyote Interaction Complaint,Coyote Interaction Complaint,Open,other,routine,3.0
+chicago,2026-05-25T11:02:16.622299+00:00,0.0,Aircraft Noise Complaint,Aircraft Noise Complaint,Completed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084522.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078050.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69083205.0,Noise - Street/Sidewalk,Loud Talking,Unspecified,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075088.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073485.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084618.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073486.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075090.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073487.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078341.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073468.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081604.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084794.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69083321.0,Encampment,N/A,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075049.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084727.0,Traffic,Chronic Speeding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69080004.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073405.0,Noise - House of Worship,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075078.0,Noise - House of Worship,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081590.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69076803.0,Homeless Person Assistance,Non-Chronic,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69083492.0,Rodent,Condition Attracting Rodents,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075103.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073479.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081420.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075047.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075051.0,Illegal Parking,Blocked Sidewalk,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69077729.0,Noise - Street/Sidewalk,Loud Music/Party,Closed,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078330.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078340.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073353.0,Dead/Dying Tree,Planted More Than 2 Years Ago,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078342.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69076642.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69083170.0,Illegal Parking,Double Parked Blocking Vehicle,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081905.0,Consumer Complaint,Dealer in Products for the Disabled,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69083200.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081554.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078324.0,Noise - Commercial,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084135.0,Noise - Residential,Banging/Pounding,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075100.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69076656.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079894.0,Overgrown Tree/Branches,Hitting Building,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69077571.0,Street Condition,Pothole,Closed,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078132.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075146.0,Street Sign - Dangling,St Name - Attached to Pole,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69080117.0,Homeless Person Assistance,Non-Chronic,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69072751.0,Street Condition,Pothole,Closed,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084795.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084791.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079919.0,Noise - House of Worship,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084523.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073472.0,Noise - House of Worship,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69082548.0,Noise - Residential,Banging/Pounding,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079685.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075155.0,Taxi Complaint,Driver Complaint - Non Passenger,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081006.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079777.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073214.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079996.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073465.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079775.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073294.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078631.0,Illegal Parking,Blocked Crosswalk,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079686.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079952.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078051.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081606.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081600.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073281.0,Abandoned Vehicle,With License Plate,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69084524.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69083204.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081612.0,Noise - Vehicle,Car/Truck Horn,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081492.0,Overgrown Tree/Branches,Blocking Street,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073480.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073477.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079961.0,Illegal Parking,Commercial Overnight Parking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69076492.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079967.0,Lost Property,Electronics/Phones,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078302.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079978.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078328.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073447.0,Illegal Parking,Double Parked Blocking Vehicle,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69076645.0,Illegal Parking,Commercial Overnight Parking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078335.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078334.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69081522.0,Noise - House of Worship,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69073473.0,Noise - House of Worship,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69080001.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69080062.0,Illegal Parking,Parking Permit Improper Use,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075086.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078336.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69075236.0,Homeless Person Assistance,Chronic,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69076924.0,Obstruction,Weeds or Grass,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079778.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69080000.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69080141.0,Dirty Condition,Trash,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079997.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69078337.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69079062.0,Noise - Commercial,Loud Talking,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69076686.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69087380.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69088889.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093320.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096233.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093112.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086205.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090704.0,Vendor Enforcement,Food Vendor,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091894.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094632.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090470.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096206.0,Noise - Park,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090330.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69092167.0,Consumer Complaint,Street Fair Vendor,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089035.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094763.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69085471.0,Street Condition,Pothole,Closed,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090455.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096207.0,Noise - Park,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093333.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69087618.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69088885.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093331.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094148.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090420.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093327.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69087730.0,Homeless Person Assistance,Non-Chronic,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093608.0,Rodent,Rat Sighting,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096215.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089074.0,Street Sign - Missing,"No Parking, Standing, Stopping",In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091860.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69087533.0,Taxi Complaint,Driver Complaint - Passenger,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090446.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094746.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094755.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089038.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094633.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096222.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69087568.0,Food Establishment,Pet/Animal,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094779.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091916.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094764.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090463.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086208.0,Noise - Residential,Loud Television,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086153.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090453.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086218.0,Non-Emergency Police Matter,Other (complaint details),In Progress,structural,failure,20.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094777.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096503.0,Rodent,Rat Sighting,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086983.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086182.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089016.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090421.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089047.0,Noise - Vehicle,Engine Idling,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096060.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090450.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69088479.0,Noise - Residential,Loud Talking,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094767.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086169.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093324.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091905.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094074.0,Noise - Commercial,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086201.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086161.0,Illegal Parking,Blocked Sidewalk,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086202.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093317.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090445.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69087629.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094757.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089029.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093381.0,Drinking,In Public,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69085979.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089082.0,Illegal Parking,Parking Permit Improper Use,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090457.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089011.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089040.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096062.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093302.0,Noise - Commercial,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091906.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094772.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093334.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096213.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091363.0,Noise - Residential,Loud Talking,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091914.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090451.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69091325.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69095035.0,Illegal Parking,Blocked Crosswalk,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69096223.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089125.0,Homeless Person Assistance,Chronic,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089025.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094765.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69086210.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094719.0,Illegal Parking,Blocked Bike Lane,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089013.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69090459.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093289.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094766.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69092832.0,Noise - Street/Sidewalk,Loud Music/Party,Closed,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69093329.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69094732.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69089030.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099791.0,Street Condition,Pothole,Closed,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099349.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100208.0,Street Condition,Pothole,Open,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102340.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102435.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100298.0,Illegal Parking,Commercial Overnight Parking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101273.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099358.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097350.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102427.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100240.0,Animal-Abuse,Neglected,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104436.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097359.0,Non-Emergency Police Matter,Trespassing,In Progress,structural,failure,20.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099362.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099363.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102407.0,Illegal Parking,Double Parked Blocking Traffic,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102436.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097421.0,Missed Collection,Bulky Trash,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101354.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101358.0,Noise - Commercial,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097269.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101322.0,Sidewalk Condition,Broken Sidewalk,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102398.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102410.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101330.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099359.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102626.0,Smoking or Vaping,Allowed in Smoke Free Area,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103427.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098374.0,Drinking,After Hours - Licensed Est,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097292.0,Damaged Tree,Entire Tree Has Fallen Down,In Progress,structural,failure,20.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103353.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098403.0,Homeless Person Assistance,Chronic,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100315.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101362.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103433.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103449.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103413.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099338.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100324.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100243.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103441.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104430.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101356.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099326.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100385.0,Homeless Person Assistance,Chronic,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101339.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104425.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101270.0,Animal-Abuse,Other (complaint details),In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103438.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100943.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100330.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102429.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102623.0,Rodent,Condition Attracting Rodents,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097358.0,Noise - Vehicle,Car/Truck Music,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103405.0,Drinking,In Public,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097347.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098275.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097337.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098321.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099342.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097343.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097911.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104358.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101346.0,Illegal Parking,Blocked Sidewalk,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098351.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100345.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100343.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100337.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102386.0,Standing Water,Sewer or Drain,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099372.0,Noise - Street/Sidewalk,Loud Talking,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101378.0,Noise - Residential,Loud Talking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103446.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101363.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69103432.0,Noise - Residential,Banging/Pounding,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097273.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101370.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098359.0,Non-Emergency Police Matter,Trespassing,In Progress,structural,failure,20.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101957.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099369.0,Noise - Street/Sidewalk,Loud Music/Party,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098861.0,Noise - Commercial,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098347.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100347.0,Sidewalk Condition,Blocked - Construction,In Progress,road_surface,fatigue,9.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099607.0,Illegal Parking,Blocked Hydrant,Closed,utility,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099356.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102499.0,Panhandling,N/A,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69097405.0,Panhandling,N/A,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098353.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099330.0,Illegal Parking,Blocked Hydrant,In Progress,utility,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69099284.0,Blocked Driveway,Partial Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104381.0,Food Poisoning,1 or 2,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098344.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098020.0,Noise - Street/Sidewalk,Loud Music/Party,Closed,road_surface,fatigue,7.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102357.0,Dead/Dying Tree,Planted More Than 2 Years Ago,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69102500.0,Panhandling,N/A,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104421.0,Noise - Commercial,Loud Music/Party,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69098957.0,Noise - Residential,Loud Music/Party,Closed,other,routine,1.0
+nyc,2026-05-25T11:02:20.017829+00:00,69100302.0,Illegal Parking,Posted Parking Sign Violation,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104404.0,Illegal Parking,Commercial Overnight Parking,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69104360.0,Blocked Driveway,No Access,In Progress,other,routine,3.0
+nyc,2026-05-25T11:02:20.017829+00:00,69101367.0,Noise - Residential,Loud Music/Party,In Progress,other,routine,3.0

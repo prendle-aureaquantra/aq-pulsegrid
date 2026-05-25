@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: databricks/setup-cli@0
+      - uses: databricks/setup-cli@v0.296.0
 
       - name: Run aq-pulsegrid-daily-global
         env:
@@ -33,7 +33,8 @@ jobs:
             echo "Skipping: set DATABRICKS_HOST and DATABRICKS_TOKEN repo secrets to enable scheduled runs."
             exit 0
           fi
-          REPO_PATH="${DATABRICKS_REPO_PATH:-/Repos/pulsegrid/aq-pulsegrid}"
+          REPO_PATH="${DATABRICKS_REPO_PATH:-/Repos/prendleman@aureaquantra.com/aq-pulsegrid}"
+          export DATABRICKS_HOST DATABRICKS_TOKEN
           if [ "${{ github.event.inputs.run_deploy }}" = "true" ]; then
             databricks bundle deploy --var="repo_path=${REPO_PATH}"
           fi
