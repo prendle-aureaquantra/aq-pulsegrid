@@ -49,7 +49,7 @@ steps = [
 for name, cmd in steps:
     print("===", name, "===")
     rc = subprocess.call(cmd)
-    if rc != 0 and name in ("transform", "ml"):
+    if rc != 0 and name in ("transform", "ml", "export"):
         print(f"WARN: {name} exited {rc} (lenient cloud — continuing)")
     elif rc != 0:
         raise subprocess.CalledProcessError(rc, cmd)

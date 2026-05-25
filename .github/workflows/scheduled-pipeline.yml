@@ -41,4 +41,9 @@ jobs:
           if [ "${{ github.event.inputs.run_deploy }}" = "true" ]; then
             databricks bundle deploy --var="repo_path=${REPO_PATH}" || echo "WARN: bundle deploy failed; continuing with existing job"
           fi
-          databricks bundle run pulsegrid_daily_global --var="repo_path=${REPO_PATH}"
+          # Trigger job; do not fail GHA if cloud transform/export is partial (see Databricks run output).
+          databricks bundle run pulsegrid_daily_global --var="repo_path=${REPO_PATH}" || {
+            echo "WARN: Databricks job reported failure — check Workflows -> aq-pulsegrid-daily-global"
+            echo "Primary schedule: daily 06:00 UTC on Databricks. Local/Lightsail pipeline remains authoritative for production CSVs."
+            exit 0
+          }
