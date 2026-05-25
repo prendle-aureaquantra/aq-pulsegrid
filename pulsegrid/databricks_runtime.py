@@ -16,7 +16,7 @@ def setup_databricks_env(
     Call before importing pulsegrid.config in notebooks.
     """
     root = Path(
-        data_root or os.getenv("PULSEGRID_DATABRICKS_DATA_ROOT", "/dbfs/tmp/aq_pulsegrid")
+        data_root or os.getenv("PULSEGRID_DATABRICKS_DATA_ROOT", "/local_disk0/pulsegrid")
     )
     root.mkdir(parents=True, exist_ok=True)
     os.environ["PULSEGRID_DATA_ROOT"] = str(root)

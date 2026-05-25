@@ -21,7 +21,7 @@ python tools/deploy_databricks_job.py --repo-path /Repos/YOUR_USER/aq-pulsegrid
 python tools/deploy_databricks_job.py --run-now   # optional smoke run
 ```
 
-Task: `pipeline_daily` — single serverless notebook (`databricks/pipeline_daily.py`) using shared `/dbfs/tmp/aq_pulsegrid` for bronze + Delta (see `databricks.yml`). Redeploy after bundle changes:
+Task: `pipeline_daily` — single serverless notebook (`databricks/pipeline_daily.py`) using shared `/local_disk0/pulsegrid` for bronze + Delta (see `databricks.yml`). Redeploy after bundle changes:
 
 ```powershell
 python tools/deploy_databricks_job.py

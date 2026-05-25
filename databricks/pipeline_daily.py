@@ -15,10 +15,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-# Shared DBFS root — all steps in this task see the same bronze/Delta paths.
-_dbfs = Path("/dbfs/tmp/aq_pulsegrid")
-_dbfs.mkdir(parents=True, exist_ok=True)
-os.environ["PULSEGRID_DATA_ROOT"] = str(_dbfs)
+# Serverless: use local_disk0 (DBFS /dbfs/tmp is not writable on serverless).
+_data = Path(os.getenv("PULSEGRID_DATABRICKS_DATA_ROOT", "/local_disk0/pulsegrid"))
+_data.mkdir(parents=True, exist_ok=True)
+os.environ["PULSEGRID_DATA_ROOT"] = str(_data)
 os.environ["PULSEGRID_ENGINE"] = "delta-rs"
 
 tier = dbutils.widgets.get("tier")
