@@ -11,6 +11,7 @@ Examples:
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 import time
 from pathlib import Path
@@ -270,7 +271,14 @@ def main() -> int:
                     metros_failed=failed,
                     detail=f"tier={args.tier or 'all'}",
                 )
-            if failed == len(metro_slugs) or (args.all_metros and failed > 0):
+            strict = os.getenv("PULSEGRID_LENIENT_CLOUD", "").lower() not in (
+                "1",
+                "true",
+                "yes",
+            )
+            if failed == len(metro_slugs) or (
+                strict and args.all_metros and failed > 0
+            ):
                 return 1
         elif args.ml_only:
             failed = 0
@@ -289,7 +297,14 @@ def main() -> int:
                     metros_failed=failed,
                     detail=f"tier={args.tier or 'all'}",
                 )
-            if failed == len(metro_slugs) or (args.all_metros and failed > 0):
+            strict = os.getenv("PULSEGRID_LENIENT_CLOUD", "").lower() not in (
+                "1",
+                "true",
+                "yes",
+            )
+            if failed == len(metro_slugs) or (
+                strict and args.all_metros and failed > 0
+            ):
                 return 1
         elif args.pbip_only or args.pbip_blank:
             include_visuals = args.with_visuals and not args.pbip_blank
