@@ -22,6 +22,10 @@ PUBLIC_URL = (
     os.getenv("PULSEGRID_PUBLIC_URL") or "https://pulse.aureaquantra.com/"
 ).strip()
 REPO_URL = "https://github.com/prendle-aureaquantra/aq-pulsegrid"
+SITE_DEMO_URL = (
+    os.getenv("AUREAQUANTRA_DEMO_PAGE_URL")
+    or "https://aureaquantra.com/demo-dashboard/"
+).strip()
 DEFAULT_METRO = (os.getenv("PULSEGRID_CITY") or "chicago").strip().lower()
 MIN_METRO_COUNT = int(os.getenv("PULSEGRID_MIN_METRO_COUNT", "70"))
 PIPELINE_STALE_HOURS = float(os.getenv("PULSEGRID_PIPELINE_STALE_HOURS", "36"))
@@ -403,7 +407,7 @@ def index(metro: str = Query(default="")) -> str:
       <p>{html.escape(display)} · snapshot {html.escape(str(snapshot_at))} · data refreshed {html.escape(str(refreshed))}</p>
       <p class="muted">{pipe_line}</p>
       <p class="muted">Anomaly baselines improve after ~7 daily ML runs. <a href="/health">Health</a> shows pipeline staleness.</p>
-      <p><a href="{REPO_URL}">github.com/prendle-aureaquantra/aq-pulsegrid</a></p>
+      <p><a href="{REPO_URL}">GitHub</a> · <a href="{html.escape(SITE_DEMO_URL, quote=True)}">Aurea Quantra demo page</a></p>
     </header>
     <form class="slicer-bar" method="get" action="/">
       <label for="metro">Metro slicer</label>
