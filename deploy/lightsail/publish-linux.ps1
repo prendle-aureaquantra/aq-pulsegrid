@@ -23,8 +23,16 @@ if (Test-Path $Out) { Remove-Item -Recurse -Force $Out }
 New-Item -ItemType Directory -Force -Path $Out, "$Out\data", "$Out\systemd" | Out-Null
 
 Copy-Item $AppSrc (Join-Path $Out "status_app.py")
-$EmbedSrc = Join-Path (Split-Path $AppSrc) "pbi_embed_service.py"
+$WebDir = Split-Path $AppSrc
+$EmbedSrc = Join-Path $WebDir "pbi_embed_service.py"
 if (Test-Path $EmbedSrc) { Copy-Item $EmbedSrc (Join-Path $Out "pbi_embed_service.py") }
+$CopilotSrc = Join-Path $WebDir "copilot_chat.py"
+if (Test-Path $CopilotSrc) { Copy-Item $CopilotSrc (Join-Path $Out "copilot_chat.py") }
+$PromptsSrc = Join-Path $Root "datasets\reference\synthetic_questions.yaml"
+if (Test-Path $PromptsSrc) {
+  Copy-Item $PromptsSrc (Join-Path $Out "synthetic_questions.yaml")
+  Write-Host "Included copilot prompts catalog"
+}
 Copy-Item (Join-Path $PSScriptRoot "requirements-web.txt") (Join-Path $Out "requirements.txt")
 $StatusSrc = Join-Path $Root "generated_reports\platform\last_pipeline_run.json"
 if (Test-Path $PlatformData) {

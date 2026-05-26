@@ -187,6 +187,8 @@ def _update_env_files(embed_url: str) -> None:
         "FABRIC_CLIENT_SECRET",
         "POWERBI_PULSEGRID_WORKSPACE_ID",
         "POWERBI_PULSEGRID_REPORT_ID",
+        "OPENAI_API_KEY",
+        "OPENAI_MODEL",
     ):
         val = (os.getenv(key) or "").strip()
         if val:

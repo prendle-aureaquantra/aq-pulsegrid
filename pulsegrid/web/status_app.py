@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import html
+import json
 import os
 import time
 from datetime import datetime, timezone
@@ -30,8 +31,19 @@ DEFAULT_METRO = (os.getenv("PULSEGRID_CITY") or "chicago").strip().lower()
 MIN_METRO_COUNT = int(os.getenv("PULSEGRID_MIN_METRO_COUNT", "70"))
 PIPELINE_STALE_HOURS = float(os.getenv("PULSEGRID_PIPELINE_STALE_HOURS", "36"))
 _insight_calls: list[float] = []
-_INSIGHT_LIMIT = 12
-_INSIGHT_WINDOW_SEC = 3600.0
+_INSIGHT_LIMIT = int(os.getenv("PULSEGRID_INSIGHT_LIMIT", "12"))
+_INSIGHT_WINDOW_SEC = float(os.getenv("PULSEGRID_INSIGHT_WINDOW_SEC", "3600"))
+
+try:
+    from copilot_chat import ask as _copilot_ask
+    from copilot_chat import copilot_configured as _copilot_configured
+    from copilot_chat import sample_questions as _copilot_sample_questions
+except ImportError:
+    from pulsegrid.web.copilot_chat import (  # type: ignore[no-redef]
+        ask as _copilot_ask,
+        copilot_configured as _copilot_configured,
+        sample_questions as _copilot_sample_questions,
+    )
 
 
 def _embed_ready() -> bool:
@@ -218,6 +230,7 @@ def health() -> dict[str, object]:
         "dataDir": str(DATA_DIR),
         "snapshotRows": snap_n,
         "embedConfigured": _embed_ready(),
+        "copilotConfigured": _copilot_configured(),
         "publicUrl": PUBLIC_URL,
         "pipeline": pipe,
         "pipelineStaleHours": stale_h,
@@ -251,9 +264,7 @@ def api_feed_coverage() -> JSONResponse:
 def api_example_prompts(metro: str = Query(default="")) -> JSONResponse:
     slug = (metro or DEFAULT_METRO).strip().lower()
     try:
-        from pulsegrid.copilot.prompts import sample_questions
-
-        return JSONResponse({"metro": slug, "prompts": sample_questions(slug)})
+        return JSONResponse({"metro": slug, "prompts": _copilot_sample_questions(slug)})
     except Exception as exc:
         return JSONResponse({"error": str(exc)}, status_code=500)
 
@@ -286,9 +297,7 @@ def api_insight(body: InsightRequest) -> JSONResponse:
             status_code=503,
         )
     try:
-        from pulsegrid.copilot.insights import ask
-
-        answer = ask(slug, body.question)
+        answer = _copilot_ask(slug, body.question)
         _insight_calls.append(now)
         return JSONResponse({"metro": slug, "question": body.question, "answer": answer})
     except Exception as exc:
@@ -331,14 +340,34 @@ def index(metro: str = Query(default="")) -> str:
     snapshot_at = latest.get("snapshot_at", "—")
     refreshed = latest.get("data_refreshed_at", "—")
     try:
-        from pulsegrid.copilot.prompts import sample_questions
-
-        prompts = sample_questions(slug, limit=5)
+        prompts = _copilot_sample_questions(slug, limit=5)
     except Exception:
         prompts = []
-    prompt_items = "".join(f"<li>{html.escape(p)}</li>" for p in prompts) or (
-        "<li class='muted'>Run gold transform after civic311 ingest</li>"
+    prompt_items = "".join(
+        f'<li><button type="button" class="copilot-chip" data-prompt="{html.escape(p, quote=True)}">'
+        f"{html.escape(p)}</button></li>"
+        for p in prompts
+    ) or ("<li class='muted'>Copilot prompts unavailable</li>")
+    copilot_ready = _copilot_configured()
+    copilot_status = (
+        '<p class="muted">Ask about City Pulse, transit, weather, and anomalies for the selected metro.</p>'
+        if copilot_ready
+        else '<p class="muted">Set <code>OPENAI_API_KEY</code> in pulsegrid.env to enable chat.</p>'
     )
+    copilot_panel = f"""
+    <section class="panel copilot-panel" id="copilot-chat" style="margin-top:1.25rem">
+      <h2>PulseGrid Copilot</h2>
+      {copilot_status}
+      <div id="chat-log" class="chat-log" aria-live="polite"></div>
+      <form id="chat-form" class="chat-form" {"hidden" if not copilot_ready else ""}>
+        <label class="sr-only" for="chat-input">Question</label>
+        <textarea id="chat-input" rows="2" maxlength="500" placeholder="Ask about stress index, transit, weather…"></textarea>
+        <button type="submit" id="chat-send">Ask</button>
+      </form>
+      <h3 style="font-size:0.95rem;margin:1rem 0 0.5rem;color:var(--muted)">Example prompts</h3>
+      <ul class="copilot-prompts">{prompt_items}</ul>
+    </section>
+    """
     pipe = _load_pipeline_status() or {}
     pipe_line = (
         f"Last job: {html.escape(str(pipe.get('job', '—')))} · "
@@ -398,6 +427,32 @@ def index(metro: str = Query(default="")) -> str:
     .muted {{ color: var(--muted); }}
     code {{ background: #243044; padding: .1rem .35rem; border-radius: 4px; font-size: .85em; }}
     .embed {{ margin-top: 1.5rem; }}
+    .copilot-panel .chat-log {{
+      min-height: 6rem; max-height: 14rem; overflow-y: auto;
+      background: #0b1018; border: 1px solid #243044; border-radius: 8px;
+      padding: 0.75rem; margin: 0.75rem 0; font-size: 0.92rem;
+    }}
+    .chat-log .msg {{ margin: 0 0 0.65rem; }}
+    .chat-log .msg.user {{ color: var(--accent); }}
+    .chat-log .msg.bot {{ color: #e7ecf1; white-space: pre-wrap; }}
+    .chat-form {{ display: flex; gap: 0.5rem; align-items: flex-end; flex-wrap: wrap; }}
+    .chat-form textarea {{
+      flex: 1 1 220px; min-height: 2.5rem; resize: vertical;
+      background: #243044; color: var(--text); border: 1px solid #334155;
+      border-radius: 6px; padding: 0.5rem 0.65rem; font: inherit;
+    }}
+    .chat-form button {{
+      background: var(--gold); color: #1a1a1a; border: none; border-radius: 6px;
+      padding: 0.55rem 1rem; font-weight: 600; cursor: pointer;
+    }}
+    .chat-form button:disabled {{ opacity: 0.5; cursor: wait; }}
+    .copilot-prompts {{ list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }}
+    .copilot-prompts li {{ margin: 0; }}
+    .copilot-chip {{
+      background: #243044; color: var(--accent); border: 1px solid #334155;
+      border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.82rem; cursor: pointer;
+    }}
+    .sr-only {{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }}
   </style>
 </head>
 <body>
@@ -422,11 +477,7 @@ def index(metro: str = Query(default="")) -> str:
       <div class="kpi"><span>Weather risk</span><strong>{html.escape(str(weather))}</strong></div>
       <div class="kpi"><span>Infra failure risk</span><strong>{html.escape(str(infra_fail))}</strong></div>
     </section>
-    <section class="panel" style="margin-top:1.25rem">
-      <h2>Copilot demo prompts</h2>
-      <ul>{prompt_items}</ul>
-      <p class="muted">CLI: <code>python -m pulsegrid.copilot.insights {html.escape(slug)} --list-prompts</code></p>
-    </section>
+    {copilot_panel}
     <section class="grid2">
       <div class="panel">
         <h2>Phase 2 status</h2>
@@ -451,6 +502,55 @@ def index(metro: str = Query(default="")) -> str:
     document.getElementById('metro').addEventListener('change', function() {{
       history.replaceState(null, '', '/?metro=' + encodeURIComponent(this.value));
     }});
+    (function() {{
+      const form = document.getElementById('chat-form');
+      const input = document.getElementById('chat-input');
+      const log = document.getElementById('chat-log');
+      const sendBtn = document.getElementById('chat-send');
+      if (!form || !input || !log) return;
+      function metro() {{
+        const el = document.getElementById('metro');
+        return el ? el.value : {json.dumps(slug)};
+      }}
+      function append(role, text) {{
+        const div = document.createElement('div');
+        div.className = 'msg ' + role;
+        div.textContent = text;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+      }}
+      async function ask(question) {{
+        const q = (question || '').trim();
+        if (q.length < 3) return;
+        append('user', q);
+        input.value = '';
+        sendBtn.disabled = true;
+        try {{
+          const res = await fetch('/api/insight', {{
+            method: 'POST',
+            headers: {{ 'Content-Type': 'application/json' }},
+            body: JSON.stringify({{ metro: metro(), question: q }}),
+          }});
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || res.statusText);
+          append('bot', data.answer || '(empty response)');
+        }} catch (err) {{
+          append('bot', 'Error: ' + err.message);
+        }} finally {{
+          sendBtn.disabled = false;
+          input.focus();
+        }}
+      }}
+      form.addEventListener('submit', function(ev) {{
+        ev.preventDefault();
+        ask(input.value);
+      }});
+      document.querySelectorAll('.copilot-chip').forEach(function(btn) {{
+        btn.addEventListener('click', function() {{
+          ask(btn.getAttribute('data-prompt') || '');
+        }});
+      }});
+    }})();
   </script>
 </body>
 </html>"""

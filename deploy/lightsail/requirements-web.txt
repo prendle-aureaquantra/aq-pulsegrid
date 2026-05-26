@@ -2,3 +2,5 @@ fastapi>=0.110
 uvicorn[standard]>=0.27
 requests>=2.31
 msal>=1.28
+openai>=1.30
+pyyaml>=6.0
