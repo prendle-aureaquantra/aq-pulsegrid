@@ -6,16 +6,18 @@ AQ PulseGrid is a Spark-powered urban intelligence platform that combines stream
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
 [![Spark](https://img.shields.io/badge/Spark-3.5-orange)](https://spark.apache.org/)
-[![Databricks](https://img.shields.io/badge/Databricks-Compatible-red)](https://www.databricks.com/)
+[![Databricks](https://img.shields.io/badge/Databricks-optional%20(DABs)-red)](databricks/README.md)
 [![Power BI](https://img.shields.io/badge/Power%20BI-PBIP-yellow)](https://powerbi.microsoft.com/)
 [![Delta Lake](https://img.shields.io/badge/Delta-Lake-00ADD8)](https://delta.io/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 **Repository:** [github.com/prendle-aureaquantra/aq-pulsegrid](https://github.com/prendle-aureaquantra/aq-pulsegrid)
 
+Runs locally by default (PySpark + Delta under `~/.local/aq-pulsegrid`). **Databricks is optional** for scheduled serverless jobs via [Asset Bundle](databricks/README.md) (`databricks.yml` → `aq-pulsegrid-daily-global`).
+
 > Public demo by [Aurea Quantra](https://aureaquantra.com). **Phase 2:** worldwide metros + metro slicer.
 
-See [docs/PHASE2.md](docs/PHASE2.md) for multi-metro CLI, Databricks global job, and public feeds.
+See [docs/PHASE2.md](docs/PHASE2.md) for multi-metro CLI, optional Databricks global job, and public feeds.
 
 **After git pull:** if Power BI shows *“file path must be a valid absolute path”*, run `python tools/fix_pbip_csv_paths.py generated_reports/chicago` or regenerate the PBIP ([docs/FABRIC_EMBED.md](docs/FABRIC_EMBED.md)).
 
@@ -64,7 +66,7 @@ Nine themed report pages (~28 visuals) are generated from semantic metadata — 
 | Platform PBIP + metro slicer | Active |
 | ML scoring (Option A schedule) | Active |
 | Web status app (Lightsail) | Active |
-| Databricks daily job | Active — redeploy bundle after `databricks.yml` changes |
+| Databricks daily job (optional) | Active when deployed — serverless DABs; redeploy after `databricks.yml` changes · local/GHA fallback — [databricks/README.md](databricks/README.md) |
 | Fabric embed on site | Active — [pulse.aureaquantra.com/embed](https://pulse.aureaquantra.com/embed) + [aureaquantra.com/demo-dashboard](https://aureaquantra.com/demo-dashboard/) (service-principal `GenerateToken`; optional anonymous Publish-to-web — [docs/FABRIC_PUBLISH_WORKAROUND.md](docs/FABRIC_PUBLISH_WORKAROUND.md)) |
 | Feed coverage boost | `python generate_city.py --boost-feeds` |
 
@@ -224,6 +226,7 @@ See [docs/SYNTHETIC_QUESTIONS.md](docs/SYNTHETIC_QUESTIONS.md) for evaluation pr
 | Automation | Python metadata to TMDL + PBIR |
 | Containers | Docker / Dev Containers |
 | CI/CD | GitHub Actions |
+| Production scheduling | **Optional** [Databricks DABs](databricks/README.md) (`aq-pulsegrid-daily-global`) · GitHub Actions · local cron |
 
 ---
 
@@ -236,7 +239,7 @@ Copy [`.env.example`](.env.example) to `.env`. **Never commit `.env`.**
 | `PULSEGRID_DATA_ROOT` | Delta + PBIP mirror (default `~/.local/aq-pulsegrid`) |
 | `FRED_API_KEY` | Optional FRED macro ingest |
 | `AUREAQUANTRA_GITHUB_TOKEN` | PAT for [prendle-aureaquantra](https://github.com/prendle-aureaquantra) org push/CI |
-| `DATABRICKS_HOST` / `DATABRICKS_TOKEN` | Optional Databricks job deploy |
+| `DATABRICKS_HOST` / `DATABRICKS_TOKEN` | Optional — deploy serverless job with `python tools/deploy_databricks_job.py` ([databricks/README.md](databricks/README.md)) |
 | `FABRIC_TENANT_ID` / `FABRIC_CLIENT_ID` / `FABRIC_CLIENT_SECRET` | Azure AD app for Power BI REST + embed tokens (see parent monorepo `.env`) |
 | `POWERBI_PULSEGRID_WORKSPACE_ID` / `POWERBI_PULSEGRID_REPORT_ID` | Report embedded at `/embed` when Publish-to-web URL is unset |
 | `POWERBI_PULSEGRID_EMBED_URL` | Optional anonymous `app.powerbi.com/view?r=...` URL; else defaults to `{PULSEGRID_PUBLIC_URL}/embed` |
