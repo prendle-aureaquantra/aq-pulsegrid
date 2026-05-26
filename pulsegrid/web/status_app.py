@@ -503,6 +503,14 @@ def index(metro: str = Query(default="")) -> str:
       history.replaceState(null, '', '/?metro=' + encodeURIComponent(this.value));
     }});
     (function() {{
+      if (location.hash === '#copilot-chat') {{
+        const panel = document.getElementById('copilot-chat');
+        if (panel) panel.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+        const focusInput = document.getElementById('chat-input');
+        if (focusInput) setTimeout(function() {{ focusInput.focus(); }}, 400);
+      }}
+    }})();
+    (function() {{
       const form = document.getElementById('chat-form');
       const input = document.getElementById('chat-input');
       const log = document.getElementById('chat-log');
