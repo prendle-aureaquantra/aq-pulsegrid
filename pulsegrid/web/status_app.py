@@ -29,6 +29,18 @@ _insight_calls: list[float] = []
 _INSIGHT_LIMIT = 12
 _INSIGHT_WINDOW_SEC = 3600.0
 
+
+def _embed_ready() -> bool:
+    if EMBED_URL and "view?r=" in EMBED_URL:
+        return True
+    try:
+        from pbi_embed_service import embed_configured
+
+        return embed_configured()
+    except Exception:
+        return False
+
+
 PHASE2_STATUS: list[tuple[str, str]] = [
     ("Worldwide metro registry (71 metros)", "Done"),
     ("Metro slicer — PBIP + ops console", "Done"),
@@ -36,7 +48,7 @@ PHASE2_STATUS: list[tuple[str, str]] = [
     ("OpenSky + GTFS-RT + USGS + AQI feeds", "Done"),
     ("Platform PulseGrid.pbip export", "Done"),
     ("Databricks global daily job", "Done"),
-    ("Fabric / Publish-to-web embed", "Next"),
+    ("Fabric / service-principal embed", "Done"),
 ]
 
 ROADMAP: list[tuple[str, str]] = [
@@ -45,7 +57,7 @@ ROADMAP: list[tuple[str, str]] = [
     ("Full Databricks deployment", "Done"),
     ("Expanded public data feeds", "Done"),
     ("Apache Sedona Spark UDFs", "Done"),
-    ("Fabric embed on status + WordPress", "Planned"),
+    ("Fabric embed on status + WordPress", "Done"),
 ]
 
 
@@ -134,6 +146,48 @@ def _metro_options(selected: str) -> str:
     return "\n".join(opts)
 
 
+@app.get("/embed", response_class=HTMLResponse)
+def embed_report() -> str:
+    if EMBED_URL and "view?r=" in EMBED_URL:
+        safe = html.escape(EMBED_URL, quote=True)
+        return (
+            f'<!doctype html><html><head><meta charset="utf-8"/>'
+            f'<title>PulseGrid report</title></head><body style="margin:0">'
+            f'<iframe title="PulseGrid" src="{safe}" style="width:100%;height:100vh;border:0" '
+            f'allowfullscreen></iframe></body></html>'
+        )
+    try:
+        from pbi_embed_service import get_report_embed
+
+        cfg = get_report_embed()
+    except Exception as exc:
+        return (
+            "<!doctype html><html><body style='font-family:system-ui;padding:2rem'>"
+            f"<p>Power BI embed unavailable: {html.escape(str(exc))}</p></body></html>"
+        )
+    embed_url = html.escape(cfg["embedUrl"], quote=True)
+    token = html.escape(cfg["accessToken"], quote=True)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>PulseGrid — Power BI</title>
+  <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.1/dist/powerbi.min.js"></script>
+  <style>html,body{{margin:0;height:100%}}#report{{height:100vh}}</style>
+</head>
+<body><div id="report"></div>
+  <script>
+    const models = window["powerbi-client"].models;
+    powerbi.embed(document.getElementById("report"), {{
+      type: "report",
+      tokenType: models.TokenType.Embed,
+      accessToken: "{token}",
+      embedUrl: "{embed_url}",
+    }});
+  </script>
+</body></html>"""
+
+
 @app.get("/health")
 def health() -> dict[str, object]:
     snap = _read_csv("CityPulseSnapshot.csv")
@@ -159,7 +213,7 @@ def health() -> dict[str, object]:
         "minMetroCount": MIN_METRO_COUNT,
         "dataDir": str(DATA_DIR),
         "snapshotRows": snap_n,
-        "embedConfigured": bool(EMBED_URL),
+        "embedConfigured": _embed_ready(),
         "publicUrl": PUBLIC_URL,
         "pipeline": pipe,
         "pipelineStaleHours": stale_h,
@@ -289,16 +343,22 @@ def index(metro: str = Query(default="")) -> str:
         if pipe
         else "No pipeline status file — run multi-metro ingest or platform export."
     )
-    embed = (
-        f'<iframe title="PulseGrid {html.escape(display)}" src="{html.escape(EMBED_URL)}" '
-        'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
-        if EMBED_URL
-        else (
-            '<p class="muted">Fabric embed pending — publish PulseGrid.pbip to Power BI Service, '
-            "then set <code>POWERBI_PULSEGRID_EMBED_URL</code>.</p>"
-            f'<p><a href="{REPO_URL}">View repo &amp; platform PBIP</a></p>'
+    if EMBED_URL and "view?r=" in EMBED_URL:
+        embed = (
+            f'<iframe title="PulseGrid {html.escape(display)}" src="{html.escape(EMBED_URL)}" '
+            'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
         )
-    )
+    elif _embed_ready():
+        embed = (
+            '<iframe title="PulseGrid Power BI" src="/embed" '
+            'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
+            '<p class="muted"><a href="/embed" target="_blank" rel="noopener">Open Fabric report</a></p>'
+        )
+    else:
+        embed = (
+            '<p class="muted">Fabric embed pending.</p>'
+            f'<p><a href="{REPO_URL}">View repo</a></p>'
+        )
     metro_opts = _metro_options(slug)
     return f"""<!doctype html>
 <html lang="en">

@@ -10,47 +10,28 @@ import sys
 import time
 from pathlib import Path
 
+_TOOLS = Path(__file__).resolve().parent
+if str(_TOOLS) not in sys.path:
+    sys.path.insert(0, str(_TOOLS))
+
 import requests
+
+from powerbi_auth import (
+    POWER_BI_API,
+    load_env,
+    token_delegated,
+    token_service_principal,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = ROOT.parent
-POWER_BI_API = "https://api.powerbi.com/v1.0/myorg"
-SCOPE = ["https://analysis.windows.net/powerbi/api/.default"]
 
 REPORT_NAMES = ("PulseGrid", "ChicagoPulse", "Chicago Pulse", "AQ PulseGrid")
 
 
-def _load_env() -> None:
-    try:
-        from dotenv import load_dotenv
-    except ImportError:
-        return
-    for p in (REPO_ROOT / ".env", ROOT / ".env"):
-        if p.is_file():
-            load_dotenv(p)
-
-
 def _token() -> str:
-    from msal import ConfidentialClientApplication
-
-    tenant = (os.getenv("FABRIC_TENANT_ID") or os.getenv("AZURE_TENANT_ID") or "").strip()
-    client_id = (os.getenv("FABRIC_CLIENT_ID") or os.getenv("AZURE_CLIENT_ID") or "").strip()
-    secret = (
-        os.getenv("FABRIC_CLIENT_SECRET") or os.getenv("AZURE_CLIENT_SECRET") or ""
-    ).strip()
-    if not all([tenant, client_id, secret]):
-        raise RuntimeError(
-            "Set FABRIC_TENANT_ID, FABRIC_CLIENT_ID, FABRIC_CLIENT_SECRET in .env"
-        )
-    app = ConfidentialClientApplication(
-        client_id,
-        authority=f"https://login.microsoftonline.com/{tenant}",
-        client_credential=secret,
-    )
-    result = app.acquire_token_for_client(scopes=SCOPE)
-    if "access_token" not in result:
-        raise RuntimeError(f"Token failed: {result.get('error_description', result)}")
-    return result["access_token"]
+    """Service principal token (import, workspace APIs)."""
+    return token_service_principal()
 
 
 def _headers(token: str) -> dict[str, str]:
@@ -79,48 +60,66 @@ def _find_report(token: str, workspace: str | None) -> tuple[str, str, dict] | N
         )
         if r.status_code != 200:
             continue
-        for rep in r.json().get("value", []):
-            name = (rep.get("name") or "").strip()
-            if any(n.lower() in name.lower() for n in REPORT_NAMES):
-                return wid, rep["id"], rep
+        matches = [
+            rep
+            for rep in r.json().get("value", [])
+            if any(
+                n.lower() in (rep.get("name") or "").strip().lower()
+                for n in REPORT_NAMES
+            )
+        ]
+        if not matches:
+            continue
+        # Prefer imported PBIX (isFromPbix) or newest id when duplicates exist.
+        pbix_only = [m for m in matches if m.get("isFromPbix")]
+        pool = pbix_only if pbix_only else matches
+        pool.sort(key=lambda rep: rep.get("id") or "", reverse=True)
+        rep = pool[0]
+        return wid, rep["id"], rep
     return None
 
 
-def _publish_to_web(token: str, report_id: str) -> str:
-    """Return public embed URL (app.powerbi.com/view?r=...)."""
-    r = requests.post(
-        f"{POWER_BI_API}/reports/{report_id}/PublishToWeb",
-        headers=_headers(token),
-        timeout=60,
-    )
-    if r.status_code == 200:
-        embed = (r.json().get("embedUrl") or "").strip()
-        if embed:
-            return embed
-    # Already published or alternate endpoint
-    r2 = requests.get(
-        f"{POWER_BI_API}/reports/{report_id}",
-        headers=_headers(token),
-        timeout=60,
-    )
-    r2.raise_for_status()
-    web = (r2.json().get("webUrl") or "").strip()
-    if "view?r=" in web:
-        return web
+def _publish_to_web(token: str, report_id: str, workspace_id: str | None = None) -> str:
+    """Return public embed URL (app.powerbi.com/view?r=...). Requires delegated user token."""
+    urls = []
+    if workspace_id:
+        urls.append(
+            f"{POWER_BI_API}/groups/{workspace_id}/reports/{report_id}/PublishToWeb"
+        )
+    urls.append(f"{POWER_BI_API}/reports/{report_id}/PublishToWeb")
+    r = None
+    for url in urls:
+        r = requests.post(url, headers=_headers(token), timeout=60)
+        if r.status_code == 200:
+            embed = (r.json().get("embedUrl") or "").strip()
+            if embed:
+                return embed
+    last_status = r.status_code if r else 0
+    last_body = (r.text[:300] if r else "")
+    if last_status == 403 and "not accessible for application" in last_body.lower():
+        raise RuntimeError(
+            "PublishToWeb requires a signed-in user token, not service principal. "
+            "Re-run without --service-principal-only."
+        )
     raise RuntimeError(
-        f"PublishToWeb failed ({r.status_code}): {r.text[:300]}. "
-        "Publish manually in Power BI Service → Publish to web."
+        f"PublishToWeb failed ({last_status}): {last_body}. "
+        "Check tenant setting 'Publish to web' and report edit permissions."
     )
 
 
 def _import_pbix(token: str, workspace_id: str, pbix_path: Path, name: str) -> str | None:
+    display = name if name.lower().endswith(".pbix") else f"{name}.pbix"
+    url = (
+        f"{POWER_BI_API}/groups/{workspace_id}/imports"
+        f"?datasetDisplayName={requests.utils.quote(display)}"
+        "&nameConflict=Overwrite"
+    )
     headers = {"Authorization": f"Bearer {token}"}
     with pbix_path.open("rb") as f:
         resp = requests.post(
-            f"{POWER_BI_API}/groups/{workspace_id}/imports",
+            url,
             headers=headers,
             files={"file": (pbix_path.name, f, "application/octet-stream")},
-            data={"datasetDisplayName": name, "nameConflict": "CreateOrOverwrite"},
             timeout=300,
         )
     if resp.status_code != 202:
@@ -147,33 +146,52 @@ def _import_pbix(token: str, workspace_id: str, pbix_path: Path, name: str) -> s
     return None
 
 
+def _pulse_embed_page_url() -> str:
+    public = (os.getenv("PULSEGRID_PUBLIC_URL") or "https://pulse.aureaquantra.com/").strip()
+    return public.rstrip("/") + "/embed"
+
+
 def _update_env_files(embed_url: str) -> None:
     embed_url = embed_url.strip()
     for env_path in (REPO_ROOT / ".env", ROOT / ".env"):
         if not env_path.is_file():
             continue
         text = env_path.read_text(encoding="utf-8")
-        key = "POWERBI_PULSEGRID_EMBED_URL"
-        line = f"{key}={embed_url}"
-        if re.search(rf"^{re.escape(key)}=", text, flags=re.MULTILINE):
-            text = re.sub(rf"^{re.escape(key)}=.*$", line, text, flags=re.MULTILINE)
-        else:
-            text = text.rstrip() + f"\n{line}\n"
+        for key in ("POWERBI_PULSEGRID_EMBED_URL", "POWERBI_DEMO_EMBED_URL"):
+            line = f"{key}={embed_url}"
+            if re.search(rf"^{re.escape(key)}=", text, flags=re.MULTILINE):
+                text = re.sub(rf"^{re.escape(key)}=.*$", line, text, flags=re.MULTILINE)
+            else:
+                text = text.rstrip() + f"\n{line}\n"
+        for key in ("POWERBI_PULSEGRID_WORKSPACE_ID", "POWERBI_PULSEGRID_REPORT_ID"):
+            val = (os.getenv(key) or "").strip()
+            if not val:
+                continue
+            line = f"{key}={val}"
+            if re.search(rf"^{re.escape(key)}=", text, flags=re.MULTILINE):
+                text = re.sub(rf"^{re.escape(key)}=.*$", line, text, flags=re.MULTILINE)
+            else:
+                text = text.rstrip() + f"\n{line}\n"
         env_path.write_text(text, encoding="utf-8")
         print(f"Updated {env_path}")
 
     secrets = ROOT / "deploy" / "lightsail" / "secrets" / "pulsegrid.env"
     secrets.parent.mkdir(parents=True, exist_ok=True)
-    secrets.write_text(
-        "\n".join(
-            [
-                "# Generated by tools/publish_pulsegrid_fabric.py",
-                f"POWERBI_PULSEGRID_EMBED_URL={embed_url}",
-                "",
-            ]
-        ),
-        encoding="utf-8",
-    )
+    secret_lines = [
+        "# Generated by tools/publish_pulsegrid_fabric.py",
+        f"POWERBI_PULSEGRID_EMBED_URL={embed_url}",
+    ]
+    for key in (
+        "FABRIC_TENANT_ID",
+        "FABRIC_CLIENT_ID",
+        "FABRIC_CLIENT_SECRET",
+        "POWERBI_PULSEGRID_WORKSPACE_ID",
+        "POWERBI_PULSEGRID_REPORT_ID",
+    ):
+        val = (os.getenv(key) or "").strip()
+        if val:
+            secret_lines.append(f"{key}={val}")
+    secrets.write_text("\n".join(secret_lines) + "\n", encoding="utf-8")
     print(f"Wrote {secrets}")
 
 
@@ -190,17 +208,41 @@ def main() -> int:
         help="Optional .pbix to import if report not found",
     )
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--embed-url",
+        default=os.getenv("POWERBI_PULSEGRID_EMBED_URL", ""),
+        help="Skip PublishToWeb API; save this https://app.powerbi.com/view?r=... URL",
+    )
+    parser.add_argument(
+        "--service-principal-only",
+        action="store_true",
+        help="Use SP token only (cannot PublishToWeb; for listing/import)",
+    )
+    parser.add_argument(
+        "--device-code",
+        action="store_true",
+        help="Force device-code login for delegated token",
+    )
     args = parser.parse_args()
-    _load_env()
+    load_env()
 
     try:
-        token = _token()
+        sp_token = token_service_principal()
+        print("Auth: service principal (workspace API)")
     except Exception as exc:
         print(f"Auth error: {exc}", file=sys.stderr)
         return 1
 
+    user_token: str | None = None
+    if not args.service_principal_only:
+        try:
+            user_token = token_delegated(prefer_device_code=args.device_code)
+        except Exception as exc:
+            print(f"User auth error: {exc}", file=sys.stderr)
+            return 1
+
     ws_filter = args.workspace.strip() or None
-    found = _find_report(token, ws_filter)
+    found = _find_report(sp_token, ws_filter)
     if not found and args.pbix and args.pbix.is_file():
         workspaces = _list_workspaces(token)
         target = next(
@@ -211,7 +253,7 @@ def main() -> int:
             print("No workspace found for import.", file=sys.stderr)
             return 1
         print(f"Importing {args.pbix} into {target.get('name')}...")
-        rid = _import_pbix(token, target["id"], args.pbix, "PulseGrid")
+        rid = _import_pbix(sp_token, target["id"], args.pbix, "PulseGrid")
         if rid:
             found = (target["id"], rid, {"id": rid, "name": "PulseGrid"})
 
@@ -232,7 +274,28 @@ def main() -> int:
         print("[dry-run] would publish to web and update .env")
         return 0
 
-    embed = _publish_to_web(token, rid)
+    embed = (args.embed_url or "").strip()
+    if embed:
+        if "view?r=" not in embed:
+            print("Embed URL should be https://app.powerbi.com/view?r=...", file=sys.stderr)
+            return 1
+        print(f"Using provided embed URL (report {rid[:8]}…)")
+    else:
+        if args.service_principal_only or not user_token:
+            print(
+                "PublishToWeb needs a user token. Re-run without --service-principal-only.",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            embed = _publish_to_web(user_token, rid, wid)
+            print(f"Publish to web: {embed}")
+        except RuntimeError as exc:
+            print(f"PublishToWeb: {exc}", file=sys.stderr)
+            embed = _pulse_embed_page_url()
+            print(f"Using service-principal embed page: {embed}")
+        os.environ["POWERBI_PULSEGRID_WORKSPACE_ID"] = wid
+        os.environ["POWERBI_PULSEGRID_REPORT_ID"] = rid
     print(f"Embed URL: {embed}")
     _update_env_files(embed)
     return 0

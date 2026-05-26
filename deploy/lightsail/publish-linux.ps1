@@ -23,6 +23,8 @@ if (Test-Path $Out) { Remove-Item -Recurse -Force $Out }
 New-Item -ItemType Directory -Force -Path $Out, "$Out\data", "$Out\systemd" | Out-Null
 
 Copy-Item $AppSrc (Join-Path $Out "status_app.py")
+$EmbedSrc = Join-Path (Split-Path $AppSrc) "pbi_embed_service.py"
+if (Test-Path $EmbedSrc) { Copy-Item $EmbedSrc (Join-Path $Out "pbi_embed_service.py") }
 Copy-Item (Join-Path $PSScriptRoot "requirements-web.txt") (Join-Path $Out "requirements.txt")
 $StatusSrc = Join-Path $Root "generated_reports\platform\last_pipeline_run.json"
 if (Test-Path $PlatformData) {
