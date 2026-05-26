@@ -21,7 +21,8 @@ See [docs/PHASE2.md](docs/PHASE2.md) for multi-metro CLI, Databricks global job,
 
 **Feed coverage:** `python tools/ingest_feed_coverage.py` · **Copilot prompts:** `python -m pulsegrid.copilot.insights chicago --list-prompts`
 
-> **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com)
+> **Live ops status:** [pulse.aureaquantra.com](https://pulse.aureaquantra.com)  
+> **Live Power BI embed:** [pulse.aureaquantra.com/embed](https://pulse.aureaquantra.com/embed) · **WordPress demo:** [aureaquantra.com/demo-dashboard/](https://aureaquantra.com/demo-dashboard/)
 
 ---
 
@@ -36,6 +37,7 @@ If you are reviewing this project quickly:
 5. **Chicago full demo (PBIP + visuals):** `python generate_city.py --city chicago --extended-ingest --with-visuals`
 6. **Platform refresh (no PBIP wipe):** `python generate_city.py --all-metros --platform-csv-only`
 7. Check [`pulsegrid/web/status_app.py`](pulsegrid/web/status_app.py) · [`deploy/lightsail/`](deploy/lightsail/)
+8. **Live embed:** [pulse.aureaquantra.com/embed](https://pulse.aureaquantra.com/embed) · wiring: [`docs/FABRIC_EMBED.md`](docs/FABRIC_EMBED.md) · [`tools/publish_pulsegrid_fabric.py`](tools/publish_pulsegrid_fabric.py)
 
 ---
 
@@ -63,7 +65,7 @@ Nine themed report pages (~28 visuals) are generated from semantic metadata — 
 | ML scoring (Option A schedule) | Active |
 | Web status app (Lightsail) | Active |
 | Databricks daily job | Active — redeploy bundle after `databricks.yml` changes |
-| Fabric embed on site | Pending Desktop publish |
+| Fabric embed on site | Active — [pulse.aureaquantra.com/embed](https://pulse.aureaquantra.com/embed) + [aureaquantra.com/demo-dashboard](https://aureaquantra.com/demo-dashboard/) (service-principal `GenerateToken`; optional anonymous Publish-to-web — [docs/FABRIC_PUBLISH_WORKAROUND.md](docs/FABRIC_PUBLISH_WORKAROUND.md)) |
 | Feed coverage boost | `python generate_city.py --boost-feeds` |
 
 ---
@@ -138,7 +140,9 @@ AQ PulseGrid includes a lightweight operational web console for enterprise-style
 | **FastAPI status app** | [`pulsegrid/web/status_app.py`](pulsegrid/web/status_app.py) |
 | **Lightsail deploy** | [`deploy/lightsail/`](deploy/lightsail/) |
 | **Live HTTPS endpoint** | [https://pulse.aureaquantra.com](https://pulse.aureaquantra.com) |
-| **ASP.NET sibling demo** | Aurea Quantra monorepo `asp-demo-dashboard` (separate operational BI demo) |
+| **Power BI embed** | [`/embed`](https://pulse.aureaquantra.com/embed) — [`pulsegrid/web/pbi_embed_service.py`](pulsegrid/web/pbi_embed_service.py) |
+| **WordPress demo page** | [aureaquantra.com/demo-dashboard](https://aureaquantra.com/demo-dashboard/) (monorepo `sync_pages_from_spec.py`) |
+| **ASP.NET sibling demo** | Aurea Quantra monorepo `asp-demo-dashboard` (legacy operational BI demo; superseded on site by PulseGrid embed) |
 
 See [`docs/OPERATIONAL_WEB_CONSOLE.md`](docs/OPERATIONAL_WEB_CONSOLE.md) and [`web/README.md`](web/README.md).
 
@@ -233,7 +237,10 @@ Copy [`.env.example`](.env.example) to `.env`. **Never commit `.env`.**
 | `FRED_API_KEY` | Optional FRED macro ingest |
 | `AUREAQUANTRA_GITHUB_TOKEN` | PAT for [prendle-aureaquantra](https://github.com/prendle-aureaquantra) org push/CI |
 | `DATABRICKS_HOST` / `DATABRICKS_TOKEN` | Optional Databricks job deploy |
-| `POWERBI_PULSEGRID_EMBED_URL` | Fabric embed for status page + WordPress |
+| `FABRIC_TENANT_ID` / `FABRIC_CLIENT_ID` / `FABRIC_CLIENT_SECRET` | Azure AD app for Power BI REST + embed tokens (see parent monorepo `.env`) |
+| `POWERBI_PULSEGRID_WORKSPACE_ID` / `POWERBI_PULSEGRID_REPORT_ID` | Report embedded at `/embed` when Publish-to-web URL is unset |
+| `POWERBI_PULSEGRID_EMBED_URL` | Optional anonymous `app.powerbi.com/view?r=...` URL; else defaults to `{PULSEGRID_PUBLIC_URL}/embed` |
+| `PULSEGRID_PUBLIC_URL` | Public base URL for status app (default `https://pulse.aureaquantra.com`) |
 
 ---
 
@@ -247,7 +254,7 @@ AQ PulseGrid demonstrates how Spark, machine learning, semantic BI modeling, and
 
 ## Roadmap
 
-[docs/ROADMAP.md](docs/ROADMAP.md) · [docs/PHASE2.md](docs/PHASE2.md) — Fabric embed, Sedona, worldwide metros.
+[docs/ROADMAP.md](docs/ROADMAP.md) · [docs/PHASE2.md](docs/PHASE2.md) — Sedona, worldwide metros, richer PBIP on Fabric ([FABRIC_EMBED.md](docs/FABRIC_EMBED.md)).
 
 ---
 

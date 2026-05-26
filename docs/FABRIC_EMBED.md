@@ -1,67 +1,76 @@
 # Fabric / Power BI embed on aureaquantra.com
 
-## 1. Regenerate portable PBIP (after pull)
+**Live:** [pulse.aureaquantra.com/embed](https://pulse.aureaquantra.com/embed) · [aureaquantra.com/demo-dashboard](https://aureaquantra.com/demo-dashboard/)
 
-CSV partitions use **absolute** paths (required by Power BI Desktop `File.Contents` on Windows). After cloning the repo on a new machine, regenerate or patch paths:
+When the tenant blocks **Publish to web** for service principals (or returns 404), the status app serves an authenticated embed via **`GenerateToken`** at `/embed`. Set `FABRIC_*` + `POWERBI_PULSEGRID_WORKSPACE_ID` / `POWERBI_PULSEGRID_REPORT_ID` on Lightsail (`pulsegrid.env`).
+
+## Automated wiring (Azure service principal)
+
+Uses `FABRIC_TENANT_ID`, `FABRIC_CLIENT_ID`, `FABRIC_CLIENT_SECRET` (or `AZURE_*` aliases) from the parent repo `.env`.
 
 ```powershell
 cd aq-pulsegrid
+python tools/fabric_wire_pulsegrid.py
+```
+
+This script:
+
+1. Creates or reuses workspace **`AQ PulseGrid`** (override with `POWERBI_WORKSPACE`).
+2. Imports platform CSVs as an Excel semantic model (`PulseGrid_platform` dataset).
+3. Clones a shell report (default: `AMC_ProduceOps` from `Produce Ops - amc_marano`) and binds it to that dataset.
+4. Calls **Publish to web** and writes `POWERBI_PULSEGRID_EMBED_URL` when the tenant allows it.
+
+If step 4 returns **403** (`API is not accessible for application`), publish to web once in the browser:
+
+1. Open the report URL printed by the script (workspace **AQ PulseGrid** → report **PulseGrid**).
+2. **File → Embed report → Publish to web**.
+3. Re-run: `python tools/publish_pulsegrid_fabric.py --workspace "AQ PulseGrid"`
+
+Then redeploy and sync WordPress:
+
+```powershell
+cd ..
+python deploy_pulsegrid.py --from-dotenv
+cd aq-pulsegrid
+python tools/sync_pulsegrid_wp_page.py
+```
+
+Verify: https://pulse.aureaquantra.com/health → `embedConfigured: true`
+
+## List workspaces / reports
+
+```powershell
+python tools/list_powerbi_reports.py
+```
+
+## Full PBIP (optional, richer visuals)
+
+CSV partitions use **absolute** paths (required by Power BI Desktop). Regenerate after clone:
+
+```powershell
 python generate_city.py --platform-only --with-visuals
-# or fix existing PBIP without full rebuild:
 python tools/fix_pbip_csv_paths.py generated_reports/chicago generated_reports/platform
 ```
 
-Open: `generated_reports/platform/PulseGrid.pbip`
+Open `generated_reports/platform/PulseGrid.pbip` in Desktop → publish to **AQ PulseGrid** (refresh the publish dialog if you do not see it; `fabric_wire_pulsegrid.py` adds your account as workspace admin) → publish to web (manual or `publish_pulsegrid_fabric.py`).
 
-## 2. Publish to Power BI Service
-
-**Automated (if report already exists in your workspace):**
-
-```powershell
-cd aq-pulsegrid
-python tools/publish_pulsegrid_fabric.py
-```
-
-Requires in parent `.env`: `FABRIC_TENANT_ID`, `FABRIC_CLIENT_ID`, `FABRIC_CLIENT_SECRET`.  
-The script enables **Publish to web**, writes `POWERBI_PULSEGRID_EMBED_URL` to `.env` and `deploy/lightsail/secrets/pulsegrid.env`.
-
-**Manual (first time):**
-
-1. Sign in to [Power BI](https://app.powerbi.com).
-2. Open `generated_reports/platform/PulseGrid.pbip` in **Power BI Desktop** → **Load** all tables → **Publish**.
-3. Re-run `python tools/publish_pulsegrid_fabric.py` (or paste embed URL into `.env` yourself).
-
-Copy the iframe `src` URL.
-
-## 3. Configure Lightsail / local ops app
-
-In `.env` on the server (or local):
+## Configure Lightsail / local ops app
 
 ```env
+POWERBI_WORKSPACE=AQ PulseGrid
 POWERBI_PULSEGRID_EMBED_URL=https://app.powerbi.com/view?r=...
 PULSEGRID_PUBLIC_URL=https://pulse.aureaquantra.com/
 ```
-
-Redeploy status app:
-
-```powershell
-python tools/deploy_pulsegrid_lightsail.py
-```
-
-## 4. WordPress page
-
-```powershell
-python tools/sync_pulsegrid_site_page.py
-```
-
-Uses `POWERBI_PULSEGRID_EMBED_URL` from the parent repo `.env` when configured.
 
 ## Troubleshooting
 
 | Issue | Fix |
 |-------|-----|
-| Ambiguous relationship paths | Regenerate PBIP (`build_pbip` validates AirportOps → DimAirport → DimMetro) |
-| Missing CSV | Run `python generate_city.py --all-metros --tier full --ingest-only` then `--platform-only` |
-| Stale data | Check `data_refreshed_at` on `CityPulseSnapshot`; re-run ingest |
+| PublishToWeb 403 for SP | One-time manual publish to web (see above) |
+| Desktop: “Only users with certain licenses…” | Publish to **Produce Ops - amc_marano** (shared/Pro), or get **Power BI Pro** for `prendleman@aureaquantra.com`. Do not put AQ PulseGrid on PPU unless you have a PPU license. |
+| Excel import dataset-only | Expected — script clones a report via REST |
+| No PulseGrid report | Run `fabric_wire_pulsegrid.py` |
+| Ambiguous relationship paths | Regenerate PBIP; validate AirportOps → DimMetro |
+| Missing CSV | `python generate_city.py --all-metros --platform-csv-only` |
 
-See also [SITE_INTEGRATION.md](SITE_INTEGRATION.md) · [PHASE2.md](PHASE2.md).
+See also [SITE_INTEGRATION.md](SITE_INTEGRATION.md).
