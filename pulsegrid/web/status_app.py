@@ -46,6 +46,37 @@ except ImportError:
     )
 
 
+def _copilot_deep_link(metro: str | None = None) -> str:
+    m = (metro or DEFAULT_METRO).strip().lower()
+    return f"/?metro={quote(m)}#copilot-chat"
+
+
+_EMBED_BAR_STYLE = (
+    "display:flex;flex-wrap:wrap;align-items:center;gap:0.65rem 1rem;"
+    "padding:0.45rem 0.85rem;font-family:system-ui,sans-serif;font-size:0.88rem;"
+    "background:#1a1a1a;color:#e8e4dc;border-bottom:1px solid #333;"
+)
+_EMBED_BAR_LINK = "color:#e8e4dc;text-decoration:none"
+_EMBED_BAR_COPILOT = (
+    "display:inline-block;padding:0.28rem 0.65rem;border-radius:4px;"
+    "background:#D4AF37;color:#1a1a1a;font-weight:600;text-decoration:none"
+)
+
+
+def _embed_page_chrome() -> str:
+    copilot_href = html.escape(_copilot_deep_link(), quote=True)
+    console_href = html.escape("/", quote=True)
+    site_href = html.escape(SITE_DEMO_URL, quote=True)
+    return (
+        f'<header style="{_EMBED_BAR_STYLE}">'
+        f'<a href="{copilot_href}" style="{_EMBED_BAR_COPILOT}">Ask Copilot</a>'
+        f'<a href="{console_href}" style="{_EMBED_BAR_LINK}">Ops console</a>'
+        f'<a href="{site_href}" style="{_EMBED_BAR_LINK}">Site demo page</a>'
+        f'<span style="margin-left:auto;opacity:0.75;">AQ PulseGrid · Fabric embed</span>'
+        "</header>"
+    )
+
+
 def _embed_ready() -> bool:
     if EMBED_URL and "view?r=" in EMBED_URL:
         return True
@@ -166,10 +197,12 @@ def _metro_options(selected: str) -> str:
 def embed_report() -> str:
     if EMBED_URL and "view?r=" in EMBED_URL:
         safe = html.escape(EMBED_URL, quote=True)
+        chrome = _embed_page_chrome()
         return (
             f'<!doctype html><html><head><meta charset="utf-8"/>'
             f'<title>PulseGrid report</title></head><body style="margin:0">'
-            f'<iframe title="PulseGrid" src="{safe}" style="width:100%;height:100vh;border:0" '
+            f"{chrome}"
+            f'<iframe title="PulseGrid" src="{safe}" style="width:100%;height:calc(100vh - 2.5rem);border:0" '
             f'allowfullscreen></iframe></body></html>'
         )
     try:
@@ -183,15 +216,16 @@ def embed_report() -> str:
         )
     embed_url = html.escape(cfg["embedUrl"], quote=True)
     token = html.escape(cfg["accessToken"], quote=True)
+    chrome = _embed_page_chrome()
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <title>PulseGrid — Power BI</title>
   <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.1/dist/powerbi.min.js"></script>
-  <style>html,body{{margin:0;height:100%}}#report{{height:100vh}}</style>
+  <style>html,body{{margin:0;height:100%}}#report{{height:calc(100vh - 2.5rem)}}</style>
 </head>
-<body><div id="report"></div>
+<body>{chrome}<div id="report"></div>
   <script>
     const models = window["powerbi-client"].models;
     powerbi.embed(document.getElementById("report"), {{
