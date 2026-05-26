@@ -50,3 +50,9 @@ deploy/lightsail/secrets/*
 !deploy/lightsail/secrets/README.md
 !deploy/lightsail/secrets/pulsegrid.env.example
 publish/linux/
+
+# Power BI Desktop cache / local layout (keep committed PBIP sources)
+**/.pbi/
+**/diagramLayout.json
+databricks_run.log
+deploy/secrets/

@@ -275,18 +275,17 @@ def main() -> int:
         return 0
 
     embed = (args.embed_url or "").strip()
+    if embed and "view?r=" not in embed:
+        # e.g. POWERBI_PULSEGRID_EMBED_URL=https://pulse.../embed — not a Publish-to-web URL
+        embed = ""
+    os.environ["POWERBI_PULSEGRID_WORKSPACE_ID"] = wid
+    os.environ["POWERBI_PULSEGRID_REPORT_ID"] = rid
     if embed:
-        if "view?r=" not in embed:
-            print("Embed URL should be https://app.powerbi.com/view?r=...", file=sys.stderr)
-            return 1
-        print(f"Using provided embed URL (report {rid[:8]}…)")
+        print(f"Using provided Publish-to-web URL (report {rid[:8]}…)")
+    elif args.service_principal_only or not user_token:
+        embed = _pulse_embed_page_url()
+        print(f"Using service-principal embed page: {embed}")
     else:
-        if args.service_principal_only or not user_token:
-            print(
-                "PublishToWeb needs a user token. Re-run without --service-principal-only.",
-                file=sys.stderr,
-            )
-            return 1
         try:
             embed = _publish_to_web(user_token, rid, wid)
             print(f"Publish to web: {embed}")
@@ -294,8 +293,6 @@ def main() -> int:
             print(f"PublishToWeb: {exc}", file=sys.stderr)
             embed = _pulse_embed_page_url()
             print(f"Using service-principal embed page: {embed}")
-        os.environ["POWERBI_PULSEGRID_WORKSPACE_ID"] = wid
-        os.environ["POWERBI_PULSEGRID_REPORT_ID"] = rid
     print(f"Embed URL: {embed}")
     _update_env_files(embed)
     return 0
