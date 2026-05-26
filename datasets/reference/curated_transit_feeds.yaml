@@ -1,0 +1,32 @@
+# Hand-verified GTFS-RT service-alert URLs (override transit_feeds.yaml / MobilityData guesses).
+metros:
+  phoenix:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://app.mecatran.com/utw/ws/gtfsfeed/alerts/valleymetro?apiKey=4f22263f69671d7f49726c3011333e527368211f
+  la:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://cdn.simplifytransit.com/metrolink/alerts/service-alerts.pb
+  philadelphia:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://www3.septa.org/gtfsrt/septa-pa-us/Service/rtServiceAlerts.pb
+  denver:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://www.rtd-denver.com/files/gtfs-rt/Alerts.pb
+  san-francisco:
+    adapter: gtfs_rt
+    gtfs_rt_url: http://api.511.org/transit/servicealerts?agency=SF
+  nyc:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/camsys%2Fbus-alerts
+  seattle:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://s3.amazonaws.com/kcm-alerts-realtime-prod/alerts.pb
+  portland:
+    adapter: gtfs_rt
+    gtfs_rt_url: http://developer.trimet.org/ws/V1/FeedSpecAlerts/
+  toronto:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://bustime.ttc.ca/gtfsrt/alerts
+  washington-dc:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://api.wmata.com/gtfs/bus-gtfsrt-alerts.pb

@@ -8,22 +8,19 @@ metros:
     gtfs_rt_url: http://nycferry.connexionz.net/rtt/public/utility/gtfsrealtime.aspx/alert
   la:
     adapter: gtfs_rt
-    gtfs_rt_url: http://api.actransit.org/transit/gtfsrt/alerts
+    gtfs_rt_url: https://cdn.simplifytransit.com/metrolink/alerts/service-alerts.pb
   san-francisco:
     adapter: gtfs_rt
-    gtfs_rt_url: http://gtfs-realtime.trilliumtransit.com/gtfs-realtime/feed/thousandoaks-ca-us/service_alerts.proto
+    gtfs_rt_url: http://api.bart.gov/gtfsrt/alerts.aspx
   seattle:
     adapter: gtfs_rt
-    gtfs_rt_url: https://api.pugetsound.onebusaway.org/api/gtfs_realtime/alerts-for-agency/23.pb
+    gtfs_rt_url: https://s3.amazonaws.com/kcm-alerts-realtime-prod/alerts.pb
   philadelphia:
     adapter: gtfs_rt
-    gtfs_rt_url: http://gtfs-realtime.trilliumtransit.com/gtfs-realtime/feed/banning-ca-us/service_alerts.proto
-  atlanta:
-    adapter: gtfs_rt
-    gtfs_rt_url: http://developers.cata.org/gtfsrt/alert/alerts.pb
+    gtfs_rt_url: https://www3.septa.org/gtfsrt/septa-pa-us/Service/rtServiceAlerts.pb
   denver:
     adapter: gtfs_rt
-    gtfs_rt_url: http://api.actransit.org/transit/gtfsrt/alerts
+    gtfs_rt_url: https://www.rtd-denver.com/files/gtfs-rt/Alerts.pb
   minneapolis:
     adapter: gtfs_rt
     gtfs_rt_url: https://svc.metrotransit.org/mtgtfs/alerts.pb
@@ -56,10 +53,16 @@ metros:
     gtfs_rt_url: http://gtfsrt.golynx.com/gtfsrt/GTFS_ServiceAlerts.pb
   toronto:
     adapter: gtfs_rt
-    gtfs_rt_url: http://transitdata.calgary.ca/ctransit/alerts.pb
+    gtfs_rt_url: https://bustime.ttc.ca/gtfsrt/alerts
   vancouver:
     adapter: gtfs_rt
-    gtfs_rt_url: https://bct.tmix.se/gtfs-realtime/alerts.pb?operatorIds=34
+    gtfs_rt_url: https://gtfs.translink.ca/v2/gtfsalerts
   washington-dc:
     adapter: gtfs_rt
-    gtfs_rt_url: https://api.goswift.ly/real-time/dc-streetcar/gtfs-rt-alerts/
+    gtfs_rt_url: https://api.wmata.com/gtfs/bus-gtfsrt-alerts.pb
+  melbourne:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://api.opendata.transport.vic.gov.au/opendata/public-transport/gtfs/realtime/v1/tram/service-alerts
+  phoenix:
+    adapter: gtfs_rt
+    gtfs_rt_url: https://app.mecatran.com/utw/ws/gtfsfeed/alerts/valleymetro?apiKey=4f22263f69671d7f49726c3011333e527368211f

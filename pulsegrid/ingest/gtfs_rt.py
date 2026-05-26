@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 import requests
 
@@ -81,11 +83,41 @@ def _parse_json_alerts(body: dict | list) -> list[dict]:
     return alerts
 
 
+def _default_transit_alerts_url(metro: MetroConfig) -> str:
+    """Optional env-backed URLs when catalog/ YAML has no feed."""
+    slug = metro.slug.lower()
+    if slug == "dallas":
+        return (os.getenv("DART_GTFS_RT_ALERTS_URL") or "").strip()
+    if slug == "houston":
+        return (os.getenv("HOUSTON_METRO_GTFS_RT_ALERTS_URL") or "").strip() or (
+            "https://api.ridemetro.org/v2alertspb/alerts.pb"
+        )
+    return ""
+
+
+def _prepare_transit_http(url: str) -> tuple[str, dict[str, str]]:
+    headers: dict[str, str] = {"User-Agent": http_user_agent()}
+    wmata_key = (os.getenv("WMATA_API_KEY") or "").strip()
+    if wmata_key and "api.wmata.com" in url:
+        headers["api_key"] = wmata_key
+    houston_key = (os.getenv("HOUSTON_METRO_API_KEY") or "").strip()
+    if houston_key and "api.ridemetro.org" in url:
+        sep = "&" if "?" in url else "?"
+        if "subscription-key=" not in url:
+            url = f"{url}{sep}subscription-key={quote(houston_key)}"
+    dart_key = (os.getenv("DART_API_KEY") or "").strip()
+    if dart_key and ("dart.org" in url or "developerservices.itsmarta.com" in url):
+        sep = "&" if "?" in url else "?"
+        if "apikey=" not in url.lower() and "api_key=" not in url.lower():
+            url = f"{url}{sep}apiKey={quote(dart_key)}"
+    return url, headers
+
+
 def ingest_gtfs_rt(metro: MetroConfig, out_dir: Path | None = None) -> list[Path]:
     base = out_dir or BRONZE / metro.slug / "transit"
     base.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    url = metro.gtfs_rt_url.strip()
+    url = metro.gtfs_rt_url.strip() or _default_transit_alerts_url(metro)
     if not url:
         from pulsegrid.ingest.mobility_catalog import lookup_gtfs_rt_alerts_url
 
@@ -93,9 +125,10 @@ def ingest_gtfs_rt(metro: MetroConfig, out_dir: Path | None = None) -> list[Path
     alerts: list[dict] = []
     raw_body: dict | list | str = {}
     if url:
+        url, headers = _prepare_transit_http(url)
         resp = requests.get(
             url,
-            headers={"User-Agent": http_user_agent()},
+            headers=headers,
             timeout=45,
         )
         if resp.status_code == 200:

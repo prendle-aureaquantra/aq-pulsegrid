@@ -31,8 +31,14 @@ def trends_config(metro_slug: str) -> dict[str, Any] | None:
 
 
 def transit_feed_config(metro_slug: str) -> dict[str, Any] | None:
-    cfg = _load_yaml("transit_feeds.yaml").get("metros", {}).get(metro_slug)
-    if not isinstance(cfg, dict):
+    base = _load_yaml("transit_feeds.yaml").get("metros", {}).get(metro_slug)
+    curated = _load_yaml("curated_transit_feeds.yaml").get("metros", {}).get(metro_slug)
+    cfg: dict[str, Any] = {}
+    if isinstance(base, dict):
+        cfg.update(base)
+    if isinstance(curated, dict):
+        cfg.update(curated)
+    if not cfg:
         return None
     adapter = str(cfg.get("adapter", "")).strip()
     if adapter and adapter != "none":

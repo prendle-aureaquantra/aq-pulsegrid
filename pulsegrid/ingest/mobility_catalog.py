@@ -12,8 +12,10 @@ import time
 from datetime import datetime, timezone
 from functools import lru_cache
 from pathlib import Path
+from typing import Any
 
 import requests
+import yaml
 
 from pulsegrid.config import DATA_ROOT, http_user_agent
 from pulsegrid.metros import MetroConfig
@@ -66,6 +68,81 @@ _COUNTRY_PREFIX = {
     "CO": "co",
 }
 
+_US_STATE_NAMES: dict[str, str] = {
+    "AL": "alabama",
+    "AK": "alaska",
+    "AZ": "arizona",
+    "AR": "arkansas",
+    "CA": "california",
+    "CO": "colorado",
+    "CT": "connecticut",
+    "DC": "district-of-columbia",
+    "DE": "delaware",
+    "FL": "florida",
+    "GA": "georgia",
+    "HI": "hawaii",
+    "IA": "iowa",
+    "ID": "idaho",
+    "IL": "illinois",
+    "IN": "indiana",
+    "KS": "kansas",
+    "KY": "kentucky",
+    "LA": "louisiana",
+    "MA": "massachusetts",
+    "MD": "maryland",
+    "ME": "maine",
+    "MI": "michigan",
+    "MN": "minnesota",
+    "MO": "missouri",
+    "MS": "mississippi",
+    "MT": "montana",
+    "NC": "north-carolina",
+    "ND": "north-dakota",
+    "NE": "nebraska",
+    "NH": "new-hampshire",
+    "NJ": "new-jersey",
+    "NM": "new-mexico",
+    "NV": "nevada",
+    "NY": "new-york",
+    "OH": "ohio",
+    "OK": "oklahoma",
+    "OR": "oregon",
+    "PA": "pennsylvania",
+    "RI": "rhode-island",
+    "SC": "south-carolina",
+    "SD": "south-dakota",
+    "TN": "tennessee",
+    "TX": "texas",
+    "UT": "utah",
+    "VA": "virginia",
+    "VT": "vermont",
+    "WA": "washington",
+    "WI": "wisconsin",
+    "WV": "west-virginia",
+    "WY": "wyoming",
+}
+
+_MIN_TOKEN_LEN = 3
+_SHORT_SLUG_TOKENS = frozenset({"la"})
+_MIN_RANK_SCORE = 15
+
+
+@lru_cache(maxsize=1)
+def _alias_catalog() -> dict[str, Any]:
+    path = ROOT / "datasets" / "reference" / "transit_metro_aliases.yaml"
+    if not path.is_file():
+        return {}
+    doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return doc.get("metros") or {}
+
+
+def _metro_alias_keywords(metro_slug: str) -> tuple[str, ...]:
+    raw = _alias_catalog().get(metro_slug) or {}
+    if not isinstance(raw, dict):
+        return ()
+    kws = raw.get("keywords") or []
+    return tuple(str(k).strip().lower() for k in kws if str(k).strip())
+
 
 def _country_prefix(country: str) -> str:
     c = country.upper().strip()
@@ -79,14 +156,28 @@ def _country_prefix(country: str) -> str:
 def _metro_tokens(metro: MetroConfig) -> set[str]:
     tokens: set[str] = set()
     for part in re.split(r"[-_\s]+", metro.slug.lower()):
-        if len(part) > 2:
+        if len(part) >= _MIN_TOKEN_LEN or part in _SHORT_SLUG_TOKENS:
             tokens.add(part)
     for part in re.split(r"[-_\s]+", metro.name.lower()):
-        if len(part) > 2:
+        if len(part) >= _MIN_TOKEN_LEN:
             tokens.add(part)
     if metro.state:
         tokens.add(metro.state.lower())
+    tokens.update(_metro_alias_keywords(metro.slug))
     return tokens
+
+
+def _us_subregion_hints(state: str) -> list[str]:
+    st = state.upper().strip()
+    hints = [st.lower()]
+    full = _US_STATE_NAMES.get(st, "")
+    if full:
+        hints.append(full)
+    return hints
+
+
+def _filename_matches_us_state(fn_l: str, state: str) -> bool:
+    return any(hint in fn_l for hint in _us_subregion_hints(state))
 
 
 def _list_sa_filenames() -> list[str]:
@@ -194,18 +285,29 @@ def _fetch_download_url(filename: str) -> str | None:
 def _rank_filenames(metro: MetroConfig) -> list[tuple[int, str]]:
     prefix = _country_prefix(metro.country)
     tokens = _metro_tokens(metro)
+    alias_kws = _metro_alias_keywords(metro.slug)
     ranked: list[tuple[int, str]] = []
     for fn in _filename_list():
         if not fn.startswith(prefix + "-"):
             continue
         fn_l = fn.lower()
         score = 0
+        alias_hit = False
         for tok in tokens:
+            if len(tok) < _MIN_TOKEN_LEN and tok not in _SHORT_SLUG_TOKENS:
+                continue
             if tok in fn_l:
                 score += 12
-        if metro.state and metro.state.lower() in fn_l:
-            score += 8
-        if score >= 12:
+        for kw in alias_kws:
+            if kw in fn_l:
+                score += 24
+                alias_hit = True
+        if metro.country.upper() == "US" and metro.state:
+            if _filename_matches_us_state(fn_l, metro.state):
+                score += 15
+            elif score > 0 and not alias_hit:
+                continue
+        if score >= _MIN_RANK_SCORE:
             ranked.append((score, fn))
     ranked.sort(key=lambda x: (-x[0], x[1]))
     return ranked

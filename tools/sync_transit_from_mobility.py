@@ -17,6 +17,16 @@ from pulsegrid.metros import list_metros
 
 FEEDS_PATH = ROOT / "datasets" / "reference" / "transit_feeds.yaml"
 
+_REJECT_URL_SUBSTRINGS = (
+    "data.texas.gov/download",
+    "passio3.com/uga/passiotransit",
+)
+
+
+def _mobility_url_ok(url: str) -> bool:
+    low = url.lower()
+    return not any(bad in low for bad in _REJECT_URL_SUBSTRINGS)
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Sync GTFS-RT URLs from MobilityData catalog")
@@ -52,7 +62,7 @@ def main() -> int:
             if url and not args.fill_empty_urls:
                 continue
         url = lookup_gtfs_rt_alerts_url(metro)
-        if not url:
+        if not url or not _mobility_url_ok(url):
             continue
         entry = {"adapter": "gtfs_rt", "gtfs_rt_url": url}
         if metro.slug not in metros:

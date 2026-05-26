@@ -1,0 +1,75 @@
+# Extra MobilityData filename tokens per metro (improves GTFS-RT SA matching).
+# Used by pulsegrid.ingest.mobility_catalog._rank_filenames.
+metros:
+  phoenix:
+    keywords: [valley-metro, arizona-valley]
+  la:
+    keywords: [la-metrolink, metrolink, los-angeles]
+  philadelphia:
+    keywords: [septa, pennsylvania]
+  denver:
+    keywords: [rtd, colorado, transportation-district]
+  san-francisco:
+    keywords: [sfmta, bay-area, bart]
+  nyc:
+    keywords: [mta, new-york]
+  seattle:
+    keywords: [king-county, sound-transit, puget]
+  portland:
+    keywords: [oregon-trimet, trimet]
+  minneapolis:
+    keywords: [metrotransit, minnesota]
+  washington-dc:
+    keywords: [wmata, metropolitan-area-transit]
+  toronto:
+    keywords: [ttc, toronto, bustime]
+  miami:
+    keywords: [miami-dade, golynx]
+  san-diego:
+    keywords: [sdmts, san-diego]
+  vancouver:
+    keywords: [translink, british-columbia]
+  singapore:
+    keywords: [land-transport, lta, singapore]
+  tokyo:
+    keywords: [tokyo, toei, tokyo-metro]
+  sydney:
+    keywords: [transport-nsw, sydney]
+  melbourne:
+    keywords: [ptv, victoria, yarra]
+  paris:
+    keywords: [ratp, ile-de-france, stif]
+  london:
+    keywords: [tfl, transport-for-london]
+  berlin:
+    keywords: [berlin, bvg, vbb]
+  munich:
+    keywords: [mvv, munich]
+  amsterdam:
+    keywords: [gvb, ovapi, netherlands]
+  madrid:
+    keywords: [emtmadrid, emt-madrid]
+  barcelona:
+    keywords: [amb-mobilitat, barcelona]
+  rome:
+    keywords: [atac, rome]
+  milan:
+    keywords: [atm-milano, milan]
+  delhi:
+    keywords: [delhi, dmrc]
+  mumbai:
+    keywords: [mumbai, best]
+  bangalore:
+    keywords: [bengaluru, bangalore, bmtc]
+  dubai:
+    keywords: [dubai, rta]
+  istanbul:
+    keywords: [istanbul, iett]
+  seoul:
+    keywords: [seoul, smrt]
+  hong-kong:
+    keywords: [hong-kong, mtr]
+  beijing:
+    keywords: [beijing, bjbus]
+  shanghai:
+    keywords: [shanghai, shmetro]
