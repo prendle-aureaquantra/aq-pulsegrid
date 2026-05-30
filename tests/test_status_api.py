@@ -171,6 +171,17 @@ def test_api_ml_anomalies_severity_filter(api_client: TestClient) -> None:
     assert body["anomalies"][0]["severity"] == "high"
 
 
+def test_api_ml_anomalies_signal_type_filter(api_client: TestClient) -> None:
+    res = api_client.get(
+        "/api/ml/anomalies?metro=chicago&signal_type=transit_alert_spike"
+    )
+    assert res.status_code == 200
+    body = res.json()
+    assert all(
+        a["signal_type"] == "transit_alert_spike" for a in body["anomalies"]
+    )
+
+
 def test_api_ml_history(api_client: TestClient) -> None:
     res = api_client.get("/api/ml/history?metro=chicago&days=30")
     assert res.status_code == 200

@@ -518,6 +518,9 @@ def index(metro: str = Query(default="")) -> str:
       border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.82rem; cursor: pointer;
     }}
     .sr-only {{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }}
+    .sparkline-panel {{ margin-top: 1rem; }}
+    .sparkline-panel canvas {{ width: 100%; height: 72px; display: block; }}
+    .sparkline-meta {{ display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); margin-top: 0.35rem; }}
   </style>
 </head>
 <body>
@@ -541,6 +544,11 @@ def index(metro: str = Query(default="")) -> str:
       <div class="kpi"><span>Transit load</span><strong>{html.escape(str(transit))}</strong></div>
       <div class="kpi"><span>Weather risk</span><strong>{html.escape(str(weather))}</strong></div>
       <div class="kpi"><span>Infra failure risk</span><strong>{html.escape(str(infra_fail))}</strong></div>
+    </section>
+    <section class="panel sparkline-panel" id="stress-sparkline" aria-label="City stress history">
+      <h2>Stress trend (30d)</h2>
+      <canvas id="stress-chart" width="900" height="72" role="img" aria-label="City stress index sparkline"></canvas>
+      <p class="sparkline-meta" id="stress-sparkline-meta">Loading history…</p>
     </section>
     {copilot_panel}
     <section class="grid2">
@@ -569,7 +577,55 @@ def index(metro: str = Query(default="")) -> str:
   <script>
     document.getElementById('metro').addEventListener('change', function() {{
       history.replaceState(null, '', '/?metro=' + encodeURIComponent(this.value));
+      if (window._loadStressSparkline) window._loadStressSparkline(this.value);
     }});
+    (function() {{
+      const canvas = document.getElementById('stress-chart');
+      const meta = document.getElementById('stress-sparkline-meta');
+      if (!canvas || !meta) return;
+      const ctx = canvas.getContext('2d');
+      function metroSlug() {{
+        const el = document.getElementById('metro');
+        return el ? el.value : {json.dumps(slug)};
+      }}
+      function drawSparkline(values) {{
+        const w = canvas.width; const h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+        if (!values.length) {{
+          meta.textContent = 'No pulse history yet — improves after daily ML runs.';
+          return;
+        }}
+        const min = Math.min.apply(null, values);
+        const max = Math.max.apply(null, values);
+        const pad = 6;
+        const range = Math.max(max - min, 1);
+        ctx.strokeStyle = '#7dd3fc';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        values.forEach(function(v, i) {{
+          const x = pad + (i / Math.max(values.length - 1, 1)) * (w - pad * 2);
+          const y = h - pad - ((v - min) / range) * (h - pad * 2);
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }});
+        ctx.stroke();
+        const last = values[values.length - 1];
+        meta.textContent = 'Latest ' + last.toFixed(1) + ' · min ' + min.toFixed(1) + ' · max ' + max.toFixed(1) + ' · ' + values.length + ' points';
+      }}
+      async function loadStressSparkline(m) {{
+        const slug = m || metroSlug();
+        meta.textContent = 'Loading history…';
+        try {{
+          const res = await fetch('/api/ml/history?metro=' + encodeURIComponent(slug) + '&days=30&limit=60');
+          const data = await res.json();
+          const values = (data.history || []).map(function(r) {{ return parseFloat(r.city_stress_index || '0'); }}).filter(function(v) {{ return !isNaN(v); }});
+          drawSparkline(values);
+        }} catch (err) {{
+          meta.textContent = 'History unavailable: ' + err.message;
+        }}
+      }}
+      window._loadStressSparkline = loadStressSparkline;
+      loadStressSparkline({json.dumps(slug)});
+    }})();
     (function() {{
       if (location.hash === '#copilot-chat') {{
         const panel = document.getElementById('copilot-chat');

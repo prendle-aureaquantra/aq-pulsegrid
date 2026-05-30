@@ -73,7 +73,7 @@ def run_ml(city_slug: str = "chicago") -> dict[str, Path]:
         civic311,
         infrastructure_rollup=infra,
     )
-    metrics = enrich_metrics_with_mllib(metrics)
+    metrics = enrich_metrics_with_mllib(metrics, history=history)
     metrics["city"] = city.slug
     metrics["snapshot_at"] = snapshot_at
 

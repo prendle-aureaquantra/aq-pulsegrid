@@ -21,7 +21,7 @@ Status key: **Done** · **Scaffold** · **Planned**
 - [x] Fabric live embed on aureaquantra.com — [pulse.aureaquantra.com/embed](https://pulse.aureaquantra.com/embed) + [demo-dashboard](https://aureaquantra.com/demo-dashboard/) (service-principal embed; optional anonymous Publish-to-web — [FABRIC_EMBED.md](FABRIC_EMBED.md), [FABRIC_PUBLISH_WORKAROUND.md](FABRIC_PUBLISH_WORKAROUND.md))
 - [x] Lightsail ops app + **https://pulse.aureaquantra.com/** (Apache + Let's Encrypt)
 - [x] Apache Sedona Spark UDFs (`pulsegrid/geo/sedona_hex.py` — UDFs + Spark hex aggregation)
-- [ ] Spark MLlib production anomaly model (optional z-score path when `PULSEGRID_ENGINE=spark`)
+- [x] Spark MLlib production anomaly model (pandas multivariate path on delta-rs; Spark when `PULSEGRID_ENGINE=spark`)
 - [x] Boston full pipeline (MBTA adapter)
 
 ## Dashboard pages (PBIP)

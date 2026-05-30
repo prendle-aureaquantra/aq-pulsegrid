@@ -63,6 +63,7 @@ STRESS_COMPONENT_FIELDS = (
     "bridge_risk_score",
     "road_surface_risk_score",
     "open_infrastructure_requests",
+    "mllib_z_score",
 )
 
 FRESHNESS_FIELDS = (

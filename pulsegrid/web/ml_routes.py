@@ -63,11 +63,24 @@ def _filter_history_days(rows: list[dict[str, str]], days: int) -> list[dict[str
 def api_ml_stress(metro: str = Query(default="")) -> JSONResponse:
     slug = (metro or DEFAULT_METRO).strip().lower()
     snap = latest_snapshot(slug)
+    history_rows = filter_city(read_csv_rows("PulseHistory.csv"), slug)
+    latest_hist = history_rows[-1] if history_rows else None
+    mllib_score = None
+    if snap and snap.get("mllib_z_score"):
+        mllib_score = snap.get("mllib_z_score")
+    elif latest_hist and latest_hist.get("mllib_z_score"):
+        mllib_score = latest_hist.get("mllib_z_score")
     return JSONResponse(
         {
             "metro": slug,
             "snapshotAt": snap.get("snapshot_at") if snap else None,
             "stressIndex": snap.get("city_stress_index") if snap else None,
+            "mllibZScore": mllib_score,
+            "mllibNote": (
+                "Multivariate z-score vs pulse_history; improves after ~3 daily ML runs."
+                if mllib_score is None
+                else None
+            ),
             "components": pick_fields(snap, STRESS_COMPONENT_FIELDS),
             "freshness": pick_fields(snap, FRESHNESS_FIELDS),
             "airport": pick_fields(
@@ -90,19 +103,26 @@ def api_ml_stress(metro: str = Query(default="")) -> JSONResponse:
 def api_ml_anomalies(
     metro: str = Query(default=""),
     severity: str = Query(default=""),
+    signal_type: str = Query(default=""),
     limit: int = Query(default=DEFAULT_PAGE_SIZE, ge=1, le=MAX_PAGE_SIZE),
 ) -> JSONResponse:
     slug = (metro or DEFAULT_METRO).strip().lower()
     rows = filter_city(read_csv_rows("AnomalySignals.csv"), slug)
     sev = severity.strip().lower()
+    sig = signal_type.strip().lower()
     if sev:
         rows = [r for r in rows if r.get("severity", "").lower() == sev]
+    if sig:
+        rows = [r for r in rows if r.get("signal_type", "").lower() == sig]
+    mllib_rows = [r for r in rows if r.get("signal_type") == "mllib_multivariate_spike"]
     rows = rows[-limit:]
     return JSONResponse(
         {
             "metro": slug,
             "severityFilter": sev or None,
+            "signalTypeFilter": sig or None,
             "count": len(rows),
+            "mllibSpikeCount": len(mllib_rows),
             "anomalies": rows,
         }
     )
