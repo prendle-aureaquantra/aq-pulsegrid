@@ -25,6 +25,7 @@ except ImportError:
         render_sdk_page,
     )
 from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 app = FastAPI(
@@ -32,6 +33,19 @@ app = FastAPI(
     version="0.3.0",
     description="Worldwide metro pulse APIs — data tables, ML scores, and ops health.",
 )
+
+_cors_raw = os.getenv(
+    "PULSEGRID_CORS_ORIGINS",
+    "https://aureaquantra.com,https://www.aureaquantra.com",
+)
+_cors_origins = [origin.strip() for origin in _cors_raw.split(",") if origin.strip()]
+if _cors_origins:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=_cors_origins,
+        allow_methods=["GET", "POST", "OPTIONS"],
+        allow_headers=["*"],
+    )
 
 DATA_DIR = Path(os.getenv("PULSEGRID_DATA_DIR", "data"))
 EMBED_URL = (os.getenv("POWERBI_PULSEGRID_EMBED_URL") or "").strip()
