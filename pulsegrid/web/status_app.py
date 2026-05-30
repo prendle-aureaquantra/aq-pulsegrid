@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import csv
 import html
 import json
 import os
@@ -12,10 +11,27 @@ from pathlib import Path
 from urllib.parse import quote
 
 from fastapi import FastAPI, Query
+
+try:
+    from pbi_embed_page import (
+        augment_publish_to_web_url,
+        render_iframe_page,
+        render_sdk_page,
+    )
+except ImportError:
+    from pulsegrid.web.pbi_embed_page import (  # type: ignore[no-redef]
+        augment_publish_to_web_url,
+        render_iframe_page,
+        render_sdk_page,
+    )
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel, Field
 
-app = FastAPI(title="AQ PulseGrid", version="0.2.0")
+app = FastAPI(
+    title="AQ PulseGrid",
+    version="0.3.0",
+    description="Worldwide metro pulse APIs — data tables, ML scores, and ops health.",
+)
 
 DATA_DIR = Path(os.getenv("PULSEGRID_DATA_DIR", "data"))
 EMBED_URL = (os.getenv("POWERBI_PULSEGRID_EMBED_URL") or "").strip()
@@ -44,6 +60,32 @@ except ImportError:
         copilot_configured as _copilot_configured,
         sample_questions as _copilot_sample_questions,
     )
+
+try:
+    from csv_store import (
+        FRESHNESS_FIELDS,
+        STRESS_COMPONENT_FIELDS,
+        filter_city as _filter_city,
+        latest_snapshot as _latest_snapshot,
+        pick_fields as _pick_fields,
+        read_csv_rows as _read_csv,
+    )
+    from data_routes import router as _data_router
+    from ml_routes import router as _ml_router
+except ImportError:
+    from pulsegrid.web.csv_store import (  # type: ignore[no-redef]
+        FRESHNESS_FIELDS,
+        STRESS_COMPONENT_FIELDS,
+        filter_city as _filter_city,
+        latest_snapshot as _latest_snapshot,
+        pick_fields as _pick_fields,
+        read_csv_rows as _read_csv,
+    )
+    from pulsegrid.web.data_routes import router as _data_router  # type: ignore[no-redef]
+    from pulsegrid.web.ml_routes import router as _ml_router  # type: ignore[no-redef]
+
+app.include_router(_data_router)
+app.include_router(_ml_router)
 
 
 def _copilot_deep_link(metro: str | None = None) -> str:
@@ -146,20 +188,6 @@ def _pipeline_stale_hours(pipe: dict[str, object] | None) -> float | None:
         return None
 
 
-def _read_csv(name: str) -> list[dict[str, str]]:
-    path = DATA_DIR / name
-    if not path.is_file():
-        return []
-    with path.open(encoding="utf-8-sig", newline="") as handle:
-        return list(csv.DictReader(handle))
-
-
-def _filter_city(rows: list[dict[str, str]], metro: str) -> list[dict[str, str]]:
-    if not rows or "city" not in rows[0]:
-        return rows
-    return [r for r in rows if r.get("city", "").lower() == metro.lower()]
-
-
 def _status_badge(label: str) -> str:
     key = label.lower()
     if key == "done":
@@ -194,16 +222,13 @@ def _metro_options(selected: str) -> str:
 
 
 @app.get("/embed", response_class=HTMLResponse)
-def embed_report() -> str:
+def embed_report(chromeless: bool = Query(False, description="Hide PulseGrid header bar")) -> str:
+    chrome = _embed_page_chrome()
     if EMBED_URL and "view?r=" in EMBED_URL:
-        safe = html.escape(EMBED_URL, quote=True)
-        chrome = _embed_page_chrome()
-        return (
-            f'<!doctype html><html><head><meta charset="utf-8"/>'
-            f'<title>PulseGrid report</title></head><body style="margin:0">'
-            f"{chrome}"
-            f'<iframe title="PulseGrid" src="{safe}" style="width:100%;height:calc(100vh - 2.5rem);border:0" '
-            f'allowfullscreen></iframe></body></html>'
+        return render_iframe_page(
+            EMBED_URL,
+            chromeless=chromeless,
+            header_html=chrome,
         )
     try:
         from pbi_embed_service import get_report_embed
@@ -211,31 +236,15 @@ def embed_report() -> str:
         cfg = get_report_embed()
     except Exception as exc:
         return (
-            "<!doctype html><html><body style='font-family:system-ui;padding:2rem'>"
+            "<!doctype html><html><body style='font-family:system-ui;padding:2rem;background:#0a0a0a;color:#e8e4dc'>"
             f"<p>Power BI embed unavailable: {html.escape(str(exc))}</p></body></html>"
         )
-    embed_url = html.escape(cfg["embedUrl"], quote=True)
-    token = html.escape(cfg["accessToken"], quote=True)
-    chrome = _embed_page_chrome()
-    return f"""<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <title>PulseGrid — Power BI</title>
-  <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.1/dist/powerbi.min.js"></script>
-  <style>html,body{{margin:0;height:100%}}#report{{height:calc(100vh - 2.5rem)}}</style>
-</head>
-<body>{chrome}<div id="report"></div>
-  <script>
-    const models = window["powerbi-client"].models;
-    powerbi.embed(document.getElementById("report"), {{
-      type: "report",
-      tokenType: models.TokenType.Embed,
-      accessToken: "{token}",
-      embedUrl: "{embed_url}",
-    }});
-  </script>
-</body></html>"""
+    return render_sdk_page(
+        cfg["embedUrl"],
+        cfg["accessToken"],
+        chromeless=chromeless,
+        header_html=chrome,
+    )
 
 
 @app.get("/health")
@@ -341,7 +350,7 @@ def api_insight(body: InsightRequest) -> JSONResponse:
 @app.get("/api/pulse")
 def api_pulse(metro: str = Query(default="")) -> JSONResponse:
     slug = (metro or DEFAULT_METRO).strip().lower()
-    snap = _filter_city(_read_csv("CityPulseSnapshot.csv"), slug)
+    snap = _latest_snapshot(slug)
     anomalies = _filter_city(_read_csv("AnomalySignals.csv"), slug)
     transit = _filter_city(_read_csv("TransitAlertSummary.csv"), slug)
     dim = _filter_city(_read_csv("DimMetro.csv"), slug)
@@ -349,9 +358,19 @@ def api_pulse(metro: str = Query(default="")) -> JSONResponse:
         {
             "metro": slug,
             "metroInfo": dim[-1] if dim else None,
-            "snapshot": snap[-1] if snap else None,
+            "snapshot": snap,
+            "stressComponents": _pick_fields(snap, STRESS_COMPONENT_FIELDS),
+            "freshness": _pick_fields(snap, FRESHNESS_FIELDS),
             "anomalies": anomalies[-10:],
             "transitAlerts": transit[:20],
+            "links": {
+                "stress": f"/api/ml/stress?metro={quote(slug)}",
+                "anomalies": f"/api/ml/anomalies?metro={quote(slug)}",
+                "history": f"/api/ml/history?metro={quote(slug)}",
+                "weather": f"/api/weather?metro={quote(slug)}",
+                "infrastructure": f"/api/infrastructure?metro={quote(slug)}",
+                "dataCatalog": "/api/data",
+            },
             "phase2Status": [{"item": n, "status": s} for n, s in PHASE2_STATUS],
             "roadmap": [{"item": n, "status": s} for n, s in ROADMAP],
         }
@@ -411,14 +430,17 @@ def index(metro: str = Query(default="")) -> str:
         else "No pipeline status file — run multi-metro ingest or platform export."
     )
     if EMBED_URL and "view?r=" in EMBED_URL:
+        src = html.escape(augment_publish_to_web_url(EMBED_URL), quote=True)
         embed = (
-            f'<iframe title="PulseGrid {html.escape(display)}" src="{html.escape(EMBED_URL)}" '
-            'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
+            f'<div class="embed-frame">'
+            f'<iframe title="PulseGrid {html.escape(display)}" src="{src}" '
+            'allowfullscreen loading="lazy"></iframe></div>'
         )
     elif _embed_ready():
         embed = (
-            '<iframe title="PulseGrid Power BI" src="/embed" '
-            'style="width:100%;min-height:520px;border:0;border-radius:8px"></iframe>'
+            '<div class="embed-frame">'
+            '<iframe title="PulseGrid Power BI" src="/embed?chromeless=1" '
+            'allowfullscreen loading="lazy"></iframe></div>'
             '<p class="muted"><a href="/embed" target="_blank" rel="noopener">Open Fabric report</a></p>'
         )
     else:
@@ -460,7 +482,16 @@ def index(metro: str = Query(default="")) -> str:
     a {{ color: var(--accent); }}
     .muted {{ color: var(--muted); }}
     code {{ background: #243044; padding: .1rem .35rem; border-radius: 4px; font-size: .85em; }}
-    .embed {{ margin-top: 1.5rem; }}
+    .embed {{ margin-top: 1.5rem; padding: 0; overflow: hidden; }}
+    .embed-frame {{
+      position: relative; width: 100%;
+      min-height: min(88vh, 920px); height: 88vh;
+      background: #0a0a0a; border-radius: 8px;
+      border: 1px solid #243044;
+    }}
+    .embed-frame iframe {{
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+    }}
     .copilot-panel .chat-log {{
       min-height: 6rem; max-height: 14rem; overflow-y: auto;
       background: #0b1018; border: 1px solid #243044; border-radius: 8px;
@@ -525,10 +556,13 @@ def index(metro: str = Query(default="")) -> str:
     <section class="embed panel">{embed}</section>
     <p class="muted" style="margin-top:1.5rem">
       <a href="/api/pulse?metro={quote(slug)}">JSON API</a> ·
+      <a href="/api/data">data catalog</a> ·
+      <a href="/api/ml/stress?metro={quote(slug)}">ML stress</a> ·
       <a href="/api/metros">metros</a> ·
       <a href="/api/feed-coverage">feed coverage</a> ·
       <a href="/api/pipeline-status">pipeline</a> ·
       <a href="/health">health</a> ·
+      <a href="/docs">OpenAPI</a> ·
       POST <code>/api/insight</code> (LLM, rate-limited)
     </p>
   </div>

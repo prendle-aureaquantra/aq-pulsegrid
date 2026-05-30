@@ -26,8 +26,14 @@ Copy-Item $AppSrc (Join-Path $Out "status_app.py")
 $WebDir = Split-Path $AppSrc
 $EmbedSrc = Join-Path $WebDir "pbi_embed_service.py"
 if (Test-Path $EmbedSrc) { Copy-Item $EmbedSrc (Join-Path $Out "pbi_embed_service.py") }
+$EmbedPageSrc = Join-Path $WebDir "pbi_embed_page.py"
+if (Test-Path $EmbedPageSrc) { Copy-Item $EmbedPageSrc (Join-Path $Out "pbi_embed_page.py") }
 $CopilotSrc = Join-Path $WebDir "copilot_chat.py"
 if (Test-Path $CopilotSrc) { Copy-Item $CopilotSrc (Join-Path $Out "copilot_chat.py") }
+foreach ($WebModule in @("csv_store.py", "data_routes.py", "ml_routes.py")) {
+  $ModuleSrc = Join-Path $WebDir $WebModule
+  if (Test-Path $ModuleSrc) { Copy-Item $ModuleSrc (Join-Path $Out $WebModule) }
+}
 $PromptsSrc = Join-Path $Root "datasets\reference\synthetic_questions.yaml"
 if (Test-Path $PromptsSrc) {
   Copy-Item $PromptsSrc (Join-Path $Out "synthetic_questions.yaml")

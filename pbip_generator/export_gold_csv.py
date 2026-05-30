@@ -32,7 +32,9 @@ def core_export_map() -> dict[str, Path]:
 
 def optional_export_map() -> dict[str, Path]:
     gold = _gold_root()
+    ml = DELTA / "ml"
     return {
+        "PulseHistory": ml / "pulse_history",
         "AirportOpsSnapshot": gold / "airport_ops_snapshot",
         "FredMacroSnapshot": gold / "fred_macro_snapshot",
         "TrendInterestSummary": gold / "trend_interest_summary",
