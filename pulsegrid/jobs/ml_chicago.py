@@ -77,6 +77,10 @@ def run_ml(city_slug: str = "chicago") -> dict[str, Path]:
     metrics["city"] = city.slug
     metrics["snapshot_at"] = snapshot_at
 
+    from pulsegrid.ingest.bronze_freshness import latest_bronze_times
+
+    freshness = latest_bronze_times(city.slug)
+
     written["city_stress_index"] = merge_delta_table(
         [metrics], GOLD_ROOT / "city_stress_index"
     )
@@ -98,6 +102,11 @@ def run_ml(city_slug: str = "chicago") -> dict[str, Path]:
             if not pc.empty:
                 latest = pc.sort_values("snapshot_at", ascending=False).iloc[0]
                 for key in (
+                    "data_refreshed_at",
+                    "last_weather_ingest_at",
+                    "last_transit_ingest_at",
+                    "last_civic311_ingest_at",
+                    "last_airport_ingest_at",
                     "airport_flight_category",
                     "airport_visibility_sm",
                     "airport_ops_stress",
@@ -114,6 +123,12 @@ def run_ml(city_slug: str = "chicago") -> dict[str, Path]:
                 ):
                     if key in latest.index and pd.notna(latest[key]):
                         legacy[key] = latest[key]
+    if freshness.get("data_refreshed_at"):
+        legacy["data_refreshed_at"] = freshness["data_refreshed_at"]
+    legacy["last_weather_ingest_at"] = freshness.get("weather", legacy.get("last_weather_ingest_at", ""))
+    legacy["last_transit_ingest_at"] = freshness.get("transit", legacy.get("last_transit_ingest_at", ""))
+    legacy["last_civic311_ingest_at"] = freshness.get("civic311", legacy.get("last_civic311_ingest_at", ""))
+    legacy["last_airport_ingest_at"] = freshness.get("airport", legacy.get("last_airport_ingest_at", ""))
     written["city_pulse_snapshot"] = merge_delta_table(
         [legacy], GOLD_ROOT / "city_pulse_snapshot"
     )
